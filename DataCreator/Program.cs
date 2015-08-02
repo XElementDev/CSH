@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using XElement.CloudSyncHelper.DataCreator.Data;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 using XElement.CloudSyncHelper.Serializiation;
@@ -11,11 +12,15 @@ namespace XElement.CloudSyncHelper.DataCreator
     {
         static void Main( string[] args )
         {
+            var desktopPath = Environment.GetFolderPath( Environment.SpecialFolder.DesktopDirectory );
+            _filePath = Path.Combine( desktopPath, "CloudSyncHelper.xml" );
+
             try
             {
+                Console.WriteLine( "New data will be stored on your desktop." );
                 WriteData();
                 Console.WriteLine( String.Format( "All information were successfully written to '{0}'.",
-                                                  FILE_PATH ) );
+                                                  _filePath ) );
             }
             catch ( Exception ex )
             {
@@ -39,10 +44,10 @@ namespace XElement.CloudSyncHelper.DataCreator
         static void WriteData()
         {
             var sampleData = CreateData();
-            new SerializationManager( FILE_PATH ).Serialize( sampleData );
+            new SerializationManager( _filePath ).Serialize( sampleData );
         }
 
-        private static string FILE_PATH = @"C:\Users\Christian\Desktop\CloudSyncHelper.xml";
+        private static string _filePath = null;
     }
 #endregion
 }
