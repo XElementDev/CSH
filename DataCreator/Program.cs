@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
 using XElement.CloudSyncHelper.DataCreator.Data;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
+using XElement.CloudSyncHelper.Serializiation;
 
 namespace XElement.CloudSyncHelper.DataCreator
 {
+#region not unit-tested
     class Program
     {
         static void Main( string[] args )
@@ -39,14 +39,10 @@ namespace XElement.CloudSyncHelper.DataCreator
         static void WriteData()
         {
             var sampleData = CreateData();
-
-            using ( var fileStream = new FileStream( FILE_PATH, FileMode.Create ) )
-            {
-                var serializer = new XmlSerializer( typeof( SyncData ) );
-                serializer.Serialize( fileStream, sampleData );
-            }
+            new SerializationManager( FILE_PATH ).Serialize( sampleData );
         }
 
         private static string FILE_PATH = @"C:\Users\Christian\Desktop\CloudSyncHelper.xml";
     }
+#endregion
 }

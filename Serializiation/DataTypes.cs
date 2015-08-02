@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 
 namespace XElement.CloudSyncHelper.Serialization.DataTypes
 {
+#region not unit-tested
     public abstract class AbstractLinkInfo
     {
         [XmlAttribute( "DestRoot" )]
@@ -69,4 +70,5 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
          XmlElement( "Game", typeof(GameInformation) )]
         public List<AbstractProgramInfo> ProgramInfos { get; set; }
     }
+#endregion
 }
