@@ -37,6 +37,7 @@ namespace XElement.CloudSyncHelper.DataCreator
                 ProgramInfos = new List<AbstractProgramInfo>()
             };
             syncData.ProgramInfos.AddRange( Apps.CreateAppLinkInfos() );
+            syncData.ProgramInfos.AddRange( Games.CreateGameLinkInfos() );
 
             return syncData;
         }
