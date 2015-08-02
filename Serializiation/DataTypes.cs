@@ -33,6 +33,12 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
         [XmlElement( "OS" )]
         public List<OsConfiguration> OsConfigs { get; set; }
+
+        /// <summary>
+        /// A regex that matches the name that is displayed in the installed applications list.
+        /// </summary>
+        [XmlAttribute( "TechNameMatcher" )]
+        public string TechnicalNameMatcher { get; set; }
     }
 
     public class AppInformation : AbstractProgramInfo { }

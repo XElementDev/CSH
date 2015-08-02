@@ -37,7 +37,8 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                         },
                         OsId = OsId.Win81
                     }
-                }
+                },
+                TechnicalNameMatcher = "Exact Audio Copy.*"
             };
         }
     }
