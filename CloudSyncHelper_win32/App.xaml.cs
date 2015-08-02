@@ -6,12 +6,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace CloudSyncHelper_win32
+namespace XElement.CloudSyncHelper.UI.Win32
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+#region not unit-tested
     public partial class App : Application
     {
+        public App()
+        {
+            var mainVM = new MainViewModel();
+            this.MainWindow = new MainWindow { DataContext = mainVM };
+
+            this.MainWindow.Show();
+        }
     }
+#endregion
 }
