@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data
@@ -15,9 +16,9 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
             };
         }
 
-        private static AppInformation ExactAudioCopy()
+        private static AppInfo ExactAudioCopy()
         {
-            return new AppInformation
+            return new AppInfo
             {
                 DisplayName = "Exact Audio Copy",
                 FolderName = "Exact Audio Copy",
@@ -32,7 +33,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                                 DestinationRoot = Environment.SpecialFolder.ApplicationData,
                                 DestinationSubFolderPath = Path.Combine("EAC"),
                                 DestinationTargetName = "Profiles",
-                                SourceId = "1"
+                                SourceId = "Profiles"
                             }
                         },
                         OsId = OsId.Win81

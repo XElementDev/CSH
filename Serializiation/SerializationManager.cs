@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
+using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
 namespace XElement.CloudSyncHelper.Serializiation
@@ -14,9 +15,9 @@ namespace XElement.CloudSyncHelper.Serializiation
             this._serializer = new XmlSerializer( typeof( SyncData ) );
         }
 
-        public SyncData /*ISerializationManager.*/Deserialize()
+        public ISyncData /*ISerializationManager.*/Deserialize()
         {
-            SyncData result = null;
+            ISyncData result = null;
 
             using ( var fileStream = new FileStream( this.Uri, FileMode.Open ) )
             {
@@ -27,7 +28,7 @@ namespace XElement.CloudSyncHelper.Serializiation
             return result;
         }
 
-        public void /*ISerializationManager.*/Serialize( SyncData target )
+        public void /*ISerializationManager.*/Serialize( ISyncData target )
         {
             using ( var fileStream = new FileStream( this.Uri, FileMode.Create ) )
             {

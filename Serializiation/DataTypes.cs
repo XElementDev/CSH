@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
+using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Serialization.DataTypes
 {
 #region not unit-tested
-    public abstract class AbstractLinkInfo
+    public abstract class AbstractLinkInfo : ILinkInfo
     {
         [XmlAttribute( "DestRoot" )]
         public System.Environment.SpecialFolder DestinationRoot { get; set; }
@@ -15,15 +16,11 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         [XmlAttribute( "DestTargetName" )]
         public string DestinationTargetName { get; set; }
 
-        /// <summary>
-        /// Used to distinguish between files or folders that have the same name.
-        /// Normally this has the same value as '<see cref="AbstractLinkInfo.DestinationTargetName"/>'.
-        /// </summary>
         [XmlAttribute( "SourceId" )]
         public string SourceId { get; set; }
     }
 
-    public abstract class AbstractProgramInfo
+    public abstract class AbstractProgramInfo : IProgramInfo
     {
         [XmlAttribute( "DisplayName" )]
         public string DisplayName { get; set; }
@@ -33,48 +30,39 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
         [XmlElement( "OS" )]
         public List<OsConfiguration> OsConfigs { get; set; }
+        IReadOnlyList<IOsConfiguration> IProgramInfo.OsConfigs { get { return this.OsConfigs; } }
 
-        /// <summary>
-        /// A regex that matches the name that is displayed in the installed applications list.
-        /// </summary>
         [XmlAttribute( "TechNameMatcher" )]
         public string TechnicalNameMatcher { get; set; }
     }
 
-    public class AppInformation : AbstractProgramInfo { }
+    public class AppInfo : AbstractProgramInfo, IAppInfo { }
 
-    public class FileLinkInfo : AbstractLinkInfo { }
+    public class FileLinkInfo : AbstractLinkInfo, IFileLinkInfo { }
 
-    public class FolderLinkInfo : AbstractLinkInfo { }
+    public class FolderLinkInfo : AbstractLinkInfo, IFolderLinkInfo { }
 
-    public class GameInformation : AbstractProgramInfo { }
+    public class GameInfo : AbstractProgramInfo, IGameInfo { }
 
-    public class OsConfiguration
+    public class OsConfiguration : IOsConfiguration
     {
         [XmlArray( "Links" )]
         [XmlArrayItem( "FileLink"  , typeof( FileLinkInfo ) ),
          XmlArrayItem( "FolderLink", typeof( FolderLinkInfo ) )]
         public List<AbstractLinkInfo> Links { get; set; }
+        IReadOnlyList<ILinkInfo> IOsConfiguration.Links { get { return this.Links; } }
 
         [XmlAttribute("id")]
         public OsId OsId { get; set; }
     }
 
-    public enum OsId
-    {
-        WinVista    = 60,
-        Win7        = 61,
-        Win8        = 62,
-        Win81       = 63,
-        Win10       = 100
-    }
-
     [XmlRoot( "SyncData" )]
-    public class SyncData
+    public class SyncData : ISyncData
     {
-        [XmlElement( "App" , typeof(AppInformation) ),
-         XmlElement( "Game", typeof(GameInformation) )]
+        [XmlElement( "App" , typeof(AppInfo) ),
+         XmlElement( "Game", typeof(GameInfo) )]
         public List<AbstractProgramInfo> ProgramInfos { get; set; }
+        IReadOnlyList<IProgramInfo> ISyncData.ProgramInfos { get { return this.ProgramInfos; } }
     }
 #endregion
 }

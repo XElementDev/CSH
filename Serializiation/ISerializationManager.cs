@@ -1,11 +1,11 @@
-﻿using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Serializiation
 {
     public interface ISerializationManager
     {
-        SyncData Deserialize();
-        void Serialize( SyncData target );
+        ISyncData Deserialize();
+        void Serialize( ISyncData target );
         string Uri { get; set; }
     }
 }
