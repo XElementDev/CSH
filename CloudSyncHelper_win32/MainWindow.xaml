@@ -10,14 +10,44 @@
 
         <ScrollViewer 
                       Grid.Row="0">
-            <ItemsControl 
-                          ItemsSource="{Binding Path=InstalledApplicationsView, Mode=OneWay}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Path=DisplayName, Mode=OneWay}" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <DataGrid 
+                      ItemsSource="{Binding Path=ProgramInfosView, Mode=OneWay}"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn 
+                                        Binding="{Binding Path=DisplayName, Mode=OneWay}" 
+                                        Header="Name"
+                                        IsReadOnly="True" 
+                    />
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button 
+                                            Grid.Column="0" 
+                                            Content="Link erstellen" 
+                                    />
+                                    <Button 
+                                            Grid.Column="1" 
+                                            Content="Link löschen" 
+                                    />
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn 
+                                        IsReadOnly="True"
+                                        Width="*"
+                    />
+                </DataGrid.Columns>
+            </DataGrid>
         </ScrollViewer>
 
         <TextBlock 

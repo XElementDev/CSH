@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
+using XElement.CloudSyncHelper.DataTypes;
+using XElement.CloudSyncHelper.Serializiation;
 using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32
@@ -12,15 +14,12 @@ namespace XElement.CloudSyncHelper.UI.Win32
         public MainViewModel()
         {
             this.SetupInstalledApplicationsView();
+            this.SetupProgramInfosView();
 
             this.RefreshData();
-
-            var folderLink = new FolderLink();
-            folderLink.Do();
-            this.Output = folderLink.StandardOutput;
         }
 
-        private ObservableCollection<InstalledApplication> InstalledApplications { get; set; }
+        private ObservableCollection<InstalledApplication> _installedApplications;
         public ListCollectionView InstalledApplicationsView { get; private set; }
 
         private bool InstalledApplicationsView_Filter( object obj )
@@ -43,23 +42,42 @@ namespace XElement.CloudSyncHelper.UI.Win32
             }
         }
 
+        private ObservableCollection<IProgramInfo> _programInfos;
+        public ListCollectionView ProgramInfosView { get; private set; }
+
         private void RefreshData()
         {
-            this.InstalledApplications.Clear();
+            this._installedApplications.Clear();
             var rawInstalledApplications = new InstalledApplicationsHelper().GetInstalledApplications();
-            foreach ( var rawInstalledApplication in rawInstalledApplications )
+            foreach ( var installedApplication in rawInstalledApplications )
             {
-                this.InstalledApplications.Add( rawInstalledApplication );
+                this._installedApplications.Add( installedApplication );
+            }
+
+            var serializationMgr = new SerializationManager( @"C:\Users\Christian\Desktop\CloudSyncHelper.xml" );
+            var syncData = serializationMgr.Deserialize();
+            this._programInfos.Clear();
+            foreach ( var programInfo in syncData.ProgramInfos )
+            {
+                this._programInfos.Add( programInfo );
             }
         }
 
         private void SetupInstalledApplicationsView()
         {
-            this.InstalledApplications = new ObservableCollection<InstalledApplication>();
-            this.InstalledApplicationsView = new ListCollectionView( this.InstalledApplications );
+            this._installedApplications = new ObservableCollection<InstalledApplication>();
+            this.InstalledApplicationsView = new ListCollectionView( this._installedApplications );
             var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
-            this.InstalledApplicationsView.Filter = this.InstalledApplicationsView_Filter;
             this.InstalledApplicationsView.SortDescriptions.Add( displayNameSorting );
+            this.InstalledApplicationsView.Filter = this.InstalledApplicationsView_Filter;
+        }
+
+        private void SetupProgramInfosView()
+        {
+            this._programInfos = new ObservableCollection<IProgramInfo>();
+            this.ProgramInfosView = new ListCollectionView( this._programInfos );
+            var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
+            this.ProgramInfosView.SortDescriptions.Add( displayNameSorting );
         }
     }
 #endregion
