@@ -7,7 +7,7 @@ namespace XElement.CloudSyncHelper
     //      Visited: 2015-08-02
     public class InstalledProgramsHelper
     {
-        public IList<InstalledProgram> GetInstalledApplications()
+        public IList<InstalledProgram> GetInstalledPrograms()
         {
             IList<InstalledProgram> result = new List<InstalledProgram>();
 

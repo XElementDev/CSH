@@ -48,7 +48,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
         private void RefreshData()
         {
             this._installedApplications.Clear();
-            var rawInstalledApplications = new InstalledProgramsHelper().GetInstalledApplications();
+            var rawInstalledApplications = new InstalledProgramsHelper().GetInstalledPrograms();
             foreach ( var installedApplication in rawInstalledApplications )
             {
                 this._installedApplications.Add( installedApplication );
