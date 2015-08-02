@@ -1,4 +1,4 @@
 ﻿namespace XElement.CloudSyncHelper.DataTypes
 {
-    public interface IFileLinkInfo { }
+    public interface IFileLinkInfo : ILinkInfo { }
 }
