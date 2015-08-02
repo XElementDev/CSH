@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.Prism.Commands;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
@@ -16,7 +17,12 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.SetupInstalledApplicationsView();
             this.SetupProgramInfosView();
 
-            this.RefreshData();
+            this.RefreshCommand = new DelegateCommand( this.RefreshCommand_Execute );
+            this.RefreshCommand.Execute( null );
+
+            var folderLink = new FolderLink( this._programInfos[0], this._programInfos[0].OsConfigs[0].Links[0] as IFolderLinkInfo );
+            folderLink.Do();
+            this.Output = folderLink.StandardOutput;
         }
 
         private ObservableCollection<InstalledProgram> _installedApplications;
@@ -45,7 +51,8 @@ namespace XElement.CloudSyncHelper.UI.Win32
         private ObservableCollection<IProgramInfo> _programInfos;
         public ListCollectionView ProgramInfosView { get; private set; }
 
-        private void RefreshData()
+        public System.Windows.Input.ICommand RefreshCommand { get; private set; }
+        private void RefreshCommand_Execute()
         {
             this._installedApplications.Clear();
             var rawInstalledApplications = new InstalledProgramsHelper().GetInstalledPrograms();
