@@ -5,11 +5,11 @@ namespace XElement.CloudSyncHelper
 #region not unit-tested
     //  --> Based on: http://www.codeproject.com/Tips/782919/Get-List-of-Installed-Applications-of-System-in-Cs
     //      Visited: 2015-08-02
-    public class InstalledApplicationsHelper
+    public class InstalledProgramsHelper
     {
-        public IList<InstalledApplication> GetInstalledApplications()
+        public IList<InstalledProgram> GetInstalledApplications()
         {
-            IList<InstalledApplication> result = new List<InstalledApplication>();
+            IList<InstalledProgram> result = new List<InstalledProgram>();
 
             using ( RegistryKey regKey = Registry.LocalMachine.OpenSubKey( UNINSTALL_KEY ) )
             {
@@ -19,7 +19,7 @@ namespace XElement.CloudSyncHelper
                     {
                         if ( subKey.GetValueNames().Length != 0 )
                         {
-                            var installedApplication = new InstalledApplication();
+                            var installedApplication = new InstalledProgram();
                             installedApplication.DisplayName = subKey.GetValueOrDefault<string>( "DisplayName" );
                             installedApplication.EstimatedSize = subKey.GetValue( "EstimatedSize" );
 

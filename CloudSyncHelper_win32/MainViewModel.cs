@@ -19,12 +19,12 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.RefreshData();
         }
 
-        private ObservableCollection<InstalledApplication> _installedApplications;
+        private ObservableCollection<InstalledProgram> _installedApplications;
         public ListCollectionView InstalledApplicationsView { get; private set; }
 
         private bool InstalledApplicationsView_Filter( object obj )
         {
-            var installedApplication = obj as InstalledApplication;
+            var installedApplication = obj as InstalledProgram;
             return installedApplication != null && 
                    installedApplication.DisplayName != null && 
                    installedApplication.DisplayName != String.Empty;
@@ -48,7 +48,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
         private void RefreshData()
         {
             this._installedApplications.Clear();
-            var rawInstalledApplications = new InstalledApplicationsHelper().GetInstalledApplications();
+            var rawInstalledApplications = new InstalledProgramsHelper().GetInstalledApplications();
             foreach ( var installedApplication in rawInstalledApplications )
             {
                 this._installedApplications.Add( installedApplication );
@@ -65,7 +65,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         private void SetupInstalledApplicationsView()
         {
-            this._installedApplications = new ObservableCollection<InstalledApplication>();
+            this._installedApplications = new ObservableCollection<InstalledProgram>();
             this.InstalledApplicationsView = new ListCollectionView( this._installedApplications );
             var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
             this.InstalledApplicationsView.SortDescriptions.Add( displayNameSorting );

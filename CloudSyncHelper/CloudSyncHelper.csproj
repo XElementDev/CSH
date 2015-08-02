@@ -43,8 +43,8 @@
     <Compile Include="Execution\FolderLink.cs" />
     <Compile Include="Execution\ICommand.cs" />
     <Compile Include="Execution\ILink.cs" />
-    <Compile Include="InstalledApplications\InstalledApplication.cs" />
-    <Compile Include="InstalledApplications\InstalledApplicationsHelper.cs" />
+    <Compile Include="InstalledPrograms\InstalledProgram.cs" />
+    <Compile Include="InstalledPrograms\InstalledProgramsHelper.cs" />
     <Compile Include="Execution\LinkBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
