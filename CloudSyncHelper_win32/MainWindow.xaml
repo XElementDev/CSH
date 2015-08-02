@@ -4,11 +4,24 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="50*" />
         </Grid.RowDefinitions>
-        
+
+        <ScrollViewer 
+                      Grid.Row="0">
+            <ItemsControl 
+                          ItemsSource="{Binding Path=InstalledApplicationsView, Mode=OneWay}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=DisplayName, Mode=OneWay}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
         <TextBlock 
-                   Grid.Row="0" 
+                   Grid.Row="1" 
                    Text="{Binding Path=Output, Mode=OneWay}" 
         />
     </Grid>

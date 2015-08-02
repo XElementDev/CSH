@@ -39,11 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileLink.cs" />
-    <Compile Include="FolderLink.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="ILink.cs" />
-    <Compile Include="LinkBase.cs" />
+    <Compile Include="Execution\FileLink.cs" />
+    <Compile Include="Execution\FolderLink.cs" />
+    <Compile Include="Execution\ICommand.cs" />
+    <Compile Include="Execution\ILink.cs" />
+    <Compile Include="InstalledApplications\InstalledApplication.cs" />
+    <Compile Include="InstalledApplications\InstalledApplicationsHelper.cs" />
+    <Compile Include="Execution\LinkBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
