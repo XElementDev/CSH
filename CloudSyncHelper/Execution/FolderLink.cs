@@ -1,4 +1,5 @@
 ﻿using XElement.CloudSyncHelper.DataTypes;
+
 namespace XElement.CloudSyncHelper
 {
 #region not unit-tested

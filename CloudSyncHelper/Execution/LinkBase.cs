@@ -4,6 +4,7 @@ using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper
 {
+#region not unit-tested
     public abstract class LinkBase : ILink
     {
         public LinkBase( IProgramInfo programInfo, ILinkInfo linkInfo )
@@ -60,4 +61,5 @@ namespace XElement.CloudSyncHelper
         protected abstract string _mkLinkParams { get; }
         private IProgramInfo _programInfo;
     }
+#endregion
 }

@@ -1,5 +1,4 @@
-﻿
-using XElement.CloudSyncHelper.DataTypes;
+﻿using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper
 {
