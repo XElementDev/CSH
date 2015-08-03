@@ -1,6 +1,8 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Serializiation;
@@ -13,7 +15,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
     {
         public MainViewModel()
         {
-            //this.SetupObservableProgramsView();
+            this.SetupProgramViewModelsView();
 
             this._installedPrograms = new ObservableCollection<InstalledProgram>();
             this._programInfos = new ObservableCollection<IProgramInfo>();
@@ -32,8 +34,8 @@ namespace XElement.CloudSyncHelper.UI.Win32
                    installedApplication.DisplayName != String.Empty;
         }
 
-        //private ObservableCollection<ProgramViewModel> _observablePrograms;
-        //public ListCollectionView ObservableProgramsView { get; private set; }
+        private ObservableCollection<ProgramViewModel> _programViewModels;
+        public ListCollectionView ProgramViewModelsView { get; private set; }
 
         private string _output;
         public string Output
@@ -55,7 +57,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
             RefreshInstalledPrograms();
             RefreshProgramInfos();
 
-            //this._observablePrograms.Add( new ProgramViewModel { ProgramInfo = programInfo } );
+            RefreshProgramViewModels();
         }
 
         private void RefreshInstalledPrograms()
@@ -79,13 +81,24 @@ namespace XElement.CloudSyncHelper.UI.Win32
             }
         }
 
-        //private void SetupObservableProgramsView()
-        //{
-        //    this._observablePrograms = new ObservableCollection<ProgramViewModel>();
-        //    this.ObservableProgramsView = new ListCollectionView( this._observablePrograms );
-        //    var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
-        //    this.ObservableProgramsView.SortDescriptions.Add( displayNameSorting );
-        //}
+        private void RefreshProgramViewModels()
+        {
+            // TODO: add installed program
+            this._programViewModels.Clear();
+            foreach ( var progamInfo in this._programInfos )
+            {
+                var programVM = new ProgramViewModel() { ProgramInfo = progamInfo };
+                this._programViewModels.Add( programVM );
+            }
+        }
+
+        private void SetupProgramViewModelsView()
+        {
+            this._programViewModels = new ObservableCollection<ProgramViewModel>();
+            this.ProgramViewModelsView = new ListCollectionView( this._programViewModels );
+            var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
+            this.ProgramViewModelsView.SortDescriptions.Add( displayNameSorting );
+        }
     }
 #endregion
 }

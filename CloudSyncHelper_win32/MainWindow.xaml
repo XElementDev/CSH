@@ -17,9 +17,21 @@
         <ScrollViewer 
                       Grid.Row="1">
             <DataGrid 
-                      ItemsSource="{Binding Path=ProgramInfosView, Mode=OneWay}"
+                      ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}"
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
+                    <DataGridCheckBoxColumn 
+                                            Binding="{Binding Path=IsInstalled, Mode=OneWay}" 
+                                            IsReadOnly="True" 
+                                            Header="Installiert?" 
+                    />
+
+                    <DataGridCheckBoxColumn 
+                                            Binding="{Binding Path=HasSuitableConfig, Mode=OneWay}" 
+                                            IsReadOnly="True" 
+                                            Header="Ausführbar?" 
+                    />
+
                     <DataGridTextColumn 
                                         Binding="{Binding Path=DisplayName, Mode=OneWay}" 
                                         Header="Name"
