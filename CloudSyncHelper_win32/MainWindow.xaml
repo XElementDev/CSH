@@ -50,10 +50,12 @@
                                     <Button 
                                             Grid.Column="0" 
                                             Content="Link erstellen" 
+                                            Command="{Binding Path=LinkCommand}" 
                                     />
                                     <Button 
                                             Grid.Column="1" 
                                             Content="Link löschen" 
+                                            Command="{Binding Path=LinkCommand}" 
                                     />
                                 </Grid>
                             </DataTemplate>
