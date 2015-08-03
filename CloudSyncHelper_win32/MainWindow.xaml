@@ -63,6 +63,18 @@
                     </DataGridTemplateColumn>
 
                     <DataGridTextColumn 
+                                        Binding="{Binding Path=LinkPaths, Mode=OneWay}" 
+                                        Header="Link-Pfad"
+                                        IsReadOnly="True" 
+                    />
+
+                    <DataGridTextColumn 
+                                        Binding="{Binding Path=TargetPaths, Mode=OneWay}" 
+                                        Header="Ziel-Pfad"
+                                        IsReadOnly="True" 
+                    />
+
+                    <DataGridTextColumn 
                                         IsReadOnly="True"
                                         Width="*"
                     />

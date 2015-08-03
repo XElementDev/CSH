@@ -67,6 +67,16 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         // TODO: Add logic for IsLinked
         public bool IsLinked { get { return false; } }
 
+        public string LinkPaths
+        {
+            get
+            {
+                if ( this.ExecutionLogic == null )
+                    return String.Empty;
+                return String.Join( Environment.NewLine, this.ExecutionLogic.LinkPaths );
+            }
+        }
+
         public ICommand LinkCommand { get; private set; }
         private bool LinkCommand_CanExecute()
         {
@@ -84,6 +94,16 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                 this._programInfo = value;
                 this.ExecutionLogic = new ExecutionLogic( this.ProgramInfo );
                 this.RaisePropertyChanged( "DisplayName" );
+            }
+        }
+
+        public string TargetPaths
+        {
+            get
+            {
+                if ( this.ExecutionLogic == null )
+                    return String.Empty;
+                return String.Join( Environment.NewLine, this.ExecutionLogic.TargetPaths );
             }
         }
 

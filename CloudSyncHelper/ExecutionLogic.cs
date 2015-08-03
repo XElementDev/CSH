@@ -11,12 +11,22 @@ namespace XElement.CloudSyncHelper
             this._programInfo = programInfo;
         }
 
-        public IReadOnlyList<ILinkInfo> Config
+        public IEnumerable<ILink> Config
         {
             get
             {
                 var suitableConfig = OsIdHelper.GetSuitableConfig( this._programInfo.OsConfigs );
-                return suitableConfig;
+                var config = new List<ILink>();
+                foreach ( ILinkInfo linkInfo in suitableConfig )
+                {
+                    ILink link = null;
+                    if ( linkInfo is IFolderLinkInfo )
+                        link = new FolderLink( this._programInfo, linkInfo as IFolderLinkInfo );
+                    else
+                        link = new FileLink( this._programInfo, linkInfo as IFileLinkInfo );
+                    config.Add( link );
+                }
+                return config;
             }
         }
 
@@ -30,6 +40,32 @@ namespace XElement.CloudSyncHelper
         {
             // TODO
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<string> LinkPaths
+        {
+            get
+            {
+                var linkPaths = new List<string>();
+                foreach ( ILink link in this.Config )
+                {
+                    linkPaths.Add( link.Link );
+                }
+                return linkPaths;
+            }
+        }
+
+        public IEnumerable<string> TargetPaths
+        {
+            get
+            {
+                var targetPaths = new List<string>();
+                foreach ( ILink link in this.Config )
+                {
+                    targetPaths.Add( link.Target );
+                }
+                return targetPaths;
+            }
         }
 
         public void Unlink()
