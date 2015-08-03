@@ -2,10 +2,13 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Data;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Serializiation;
+using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32
@@ -17,14 +20,14 @@ namespace XElement.CloudSyncHelper.UI.Win32
         {
             this.SetupProgramViewModelsView();
 
-            this._installedPrograms = new ObservableCollection<InstalledProgram>();
+            this._installedProgramVMs = new ObservableCollection<InstalledProgramViewModel>();
             this._programInfos = new ObservableCollection<IProgramInfo>();
 
             this.RefreshCommand = new DelegateCommand( this.RefreshCommand_Execute );
             this.RefreshCommand.Execute( null );
         }
 
-        private ObservableCollection<InstalledProgram> _installedPrograms;
+        private ObservableCollection<InstalledProgramViewModel> _installedProgramVMs;
 
         private bool InstalledApplicationsView_Filter( object obj )
         {
@@ -62,11 +65,12 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         private void RefreshInstalledPrograms()
         {
-            this._installedPrograms.Clear();
-            var rawInstalledApplications = new InstalledProgramsHelper().GetInstalledPrograms();
-            foreach ( var installedApplication in rawInstalledApplications )
+            this._installedProgramVMs.Clear();
+            var installedPrograms = new InstalledProgramsHelper().GetInstalledPrograms();
+            foreach ( var installedProgram in installedPrograms )
             {
-                this._installedPrograms.Add( installedApplication );
+                var installedProgramVM = new InstalledProgramViewModel( installedProgram );
+                this._installedProgramVMs.Add( installedProgramVM );
             }
         }
 
@@ -85,15 +89,36 @@ namespace XElement.CloudSyncHelper.UI.Win32
         {
             // TODO: add installed program
             this._programViewModels.Clear();
-            foreach ( var progamInfo in this._programInfos )
+            if ( this._installedProgramVMs.Count > this._programInfos.Count )
             {
-                var programVM = new ProgramViewModel() { ProgramInfo = progamInfo };
-                this._programViewModels.Add( programVM );
+                foreach ( var installedProgram in this._installedProgramVMs )
+                {
+                    var programVM = new ProgramViewModel { InstalledProgram = installedProgram };
+
+                    var programInfo = this._programInfos.SingleOrDefault( pi => 
+                        Regex.IsMatch( installedProgram.DisplayName, pi.TechnicalNameMatcher ) );
+                    if( programInfo != default(IProgramInfo))
+                    {
+                        programVM.ProgramInfo = programInfo;
+                        this._programInfos.Remove( programInfo );
+                    }
+
+                    this._programViewModels.Add( programVM );
+                }
+            }
+            else
+            {
+                foreach ( var progamInfo in this._programInfos )
+                {
+                    var programVM = new ProgramViewModel() { ProgramInfo = progamInfo };
+                    this._programViewModels.Add( programVM );
+                }
             }
         }
 
         private void SetupProgramViewModelsView()
         {
+            // TODO: handle empty list entry --> look at the UI
             this._programViewModels = new ObservableCollection<ProgramViewModel>();
             this.ProgramViewModelsView = new ListCollectionView( this._programViewModels );
             var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );

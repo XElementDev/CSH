@@ -1,9 +1,10 @@
 ﻿using Microsoft.Practices.Prism.Commands;
+using System;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.Common.UI;
 
-namespace XElement.CloudSyncHelper.UI.Win32
+namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
     public class ProgramViewModel : ViewModelBase
     {
@@ -13,7 +14,18 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.UnlinkCommand = new DelegateCommand( () => { }, this.UnlinkCommand_CanExecute );
         }
 
-        public string DisplayName { get { return this._programInfo.DisplayName; } }
+        public string DisplayName
+        {
+            get
+            {
+                var displayName = String.Empty;
+                if ( this._programInfo != null )
+                {
+                    displayName = this._programInfo.DisplayName;
+                }
+                return displayName;
+            }
+        }
 
         private ExecutionLogic _executionLogic;
         private ExecutionLogic ExecutionLogic
@@ -32,6 +44,16 @@ namespace XElement.CloudSyncHelper.UI.Win32
             {
                 return this.ExecutionLogic != null && 
                     this.ExecutionLogic.HasSuitableConfig();
+            }
+        }
+
+        private InstalledProgramViewModel _installedProgram;
+        public InstalledProgramViewModel InstalledProgram
+        {
+            get { return this._installedProgram; }
+            set
+            {
+                this._installedProgram = value;
             }
         }
 
