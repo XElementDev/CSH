@@ -39,7 +39,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                         OsId = OsId.Win81
                     }
                 },
-                TechnicalNameMatcher = ""
+                TechnicalNameMatcher = "ANNO 2070"  // TODO: check matcher
             };
         }
     }
