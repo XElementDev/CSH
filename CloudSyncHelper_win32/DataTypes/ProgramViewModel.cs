@@ -6,6 +6,7 @@ using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
+#region not unit-tested
     public class ProgramViewModel : ViewModelBase
     {
         public ProgramViewModel()
@@ -83,4 +84,5 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             return false;
         }
     }
+#endregion
 }

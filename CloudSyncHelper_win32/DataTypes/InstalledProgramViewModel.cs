@@ -11,12 +11,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             this._installedProgram = installedProgram;
         }
 
-        public string DisplayName
+        public string DisplayName 
         {
-            get
-            {
-                return this._installedProgram.DisplayName ?? String.Empty;
-            }
+            get { return this._installedProgram.DisplayName ?? String.Empty; }
         }
 
         private InstalledProgram _installedProgram;
