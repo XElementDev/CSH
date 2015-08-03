@@ -29,16 +29,16 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         private ObservableCollection<InstalledProgramViewModel> _installedProgramVMs;
 
-        private bool InstalledApplicationsView_Filter( object obj )
-        {
-            var installedApplication = obj as InstalledProgram;
-            return installedApplication != null && 
-                   installedApplication.DisplayName != null && 
-                   installedApplication.DisplayName != String.Empty;
-        }
-
         private ObservableCollection<ProgramViewModel> _programViewModels;
         public ListCollectionView ProgramViewModelsView { get; private set; }
+
+        private bool ProgramViewModelsView_Filter( object obj )
+        {
+            var programVM = obj as ProgramViewModel;
+            return programVM != null && 
+                   programVM.DisplayName != null && 
+                   programVM.DisplayName != String.Empty;
+        }
 
         private string _output;
         public string Output
@@ -87,7 +87,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         private void RefreshProgramViewModels()
         {
-            // TODO: add installed program
             this._programViewModels.Clear();
             if ( this._installedProgramVMs.Count > this._programInfos.Count )
             {
@@ -105,14 +104,21 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
                     this._programViewModels.Add( programVM );
                 }
+
+                foreach ( var programInfo in this._programInfos )
+                {
+                    var programVM = new ProgramViewModel { ProgramInfo = programInfo };
+                    this._programViewModels.Add( programVM );
+                }
             }
             else
             {
-                foreach ( var progamInfo in this._programInfos )
-                {
-                    var programVM = new ProgramViewModel() { ProgramInfo = progamInfo };
-                    this._programViewModels.Add( programVM );
-                }
+                // TODO: handling if programInfo list is bigger
+                //foreach ( var progamInfo in this._programInfos )
+                //{
+                //    var programVM = new ProgramViewModel() { ProgramInfo = progamInfo };
+                //    this._programViewModels.Add( programVM );
+                //}
             }
         }
 
@@ -123,6 +129,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.ProgramViewModelsView = new ListCollectionView( this._programViewModels );
             var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
             this.ProgramViewModelsView.SortDescriptions.Add( displayNameSorting );
+            this.ProgramViewModelsView.Filter = this.ProgramViewModelsView_Filter;
         }
     }
 #endregion

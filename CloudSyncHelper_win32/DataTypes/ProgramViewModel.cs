@@ -24,6 +24,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                 {
                     displayName = this._programInfo.DisplayName;
                 }
+                else if ( this._installedProgram.DisplayName != null )
+                {
+                    displayName = this._installedProgram.DisplayName;
+                }
                 return displayName;
             }
         }
@@ -58,7 +62,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        public bool IsInstalled { get { return false; } }
+        public bool IsInstalled { get { return this._installedProgram != null; } }
 
         public ICommand LinkCommand { get; private set; }
         private bool LinkCommand_CanExecute()
