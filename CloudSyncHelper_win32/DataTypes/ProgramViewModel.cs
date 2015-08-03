@@ -64,10 +64,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public bool IsInstalled { get { return this._installedProgram != null; } }
 
+        // TODO: Add logic for IsLinked
+        public bool IsLinked { get { return false; } }
+
         public ICommand LinkCommand { get; private set; }
         private bool LinkCommand_CanExecute()
         {
-            return this.IsInstalled && this.HasSuitableConfig;
+            return this.IsInstalled &&
+                this.HasSuitableConfig &&
+                !this.IsLinked;
         }
 
         private IProgramInfo _programInfo;
@@ -85,7 +90,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         public ICommand UnlinkCommand { get; private set; }
         private bool UnlinkCommand_CanExecute()
         {
-            return false;
+            return this.IsLinked;
         }
     }
 #endregion
