@@ -30,27 +30,33 @@ namespace XElement.CloudSyncHelper
 
         private string GetCmdCommand()
         {
-            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this._mkLinkParams, this.GetLink(), this.GetTarget() );
+            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this._mkLinkParams, this.Link, this.Target );
         }
 
-        private string GetLink()
+        public string /*ILink.*/Link
         {
-            var destinationRootPath = Environment.GetFolderPath(this._linkInfo.DestinationRoot);
-            var link = Path.Combine( destinationRootPath, this._linkInfo.DestinationSubFolderPath, 
-                                     this._linkInfo.DestinationTargetName );
-            return link;
-        }
-
-        private string GetTarget()
-        {
-            var gDrivePath = @"D:\Users\Christian\Google Drive";
-            var userFolderName = "-" + Environment.UserName;
-            var target = Path.Combine( gDrivePath, "SYNC", "", this._programInfo.FolderName, "SAVEs",
-                                       userFolderName, this._linkInfo.SourceId );
-            return target;
+            get
+            {
+                var destinationRootPath = Environment.GetFolderPath(this._linkInfo.DestinationRoot);
+                var link = Path.Combine( destinationRootPath, this._linkInfo.DestinationSubFolderPath, 
+                                         this._linkInfo.DestinationTargetName );
+                return link;
+            }
         }
 
         public string /*ILink.*/StandardOutput { get; private set; }
+
+        public string /*ILink.*/Target
+        {
+            get
+            {
+                var gDrivePath = @"D:\Users\Christian\Google Drive";
+                var userFolderName = "-" + Environment.UserName;
+                var target = Path.Combine( gDrivePath, "SYNC", "", this._programInfo.FolderName, "SAVEs",
+                                           userFolderName, this._linkInfo.SourceId );
+                return target;
+            }
+        }
 
         public void /*ILink.*/Undo()
         {

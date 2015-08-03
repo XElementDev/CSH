@@ -41,11 +41,13 @@
   <ItemGroup>
     <Compile Include="Execution\FileLink.cs" />
     <Compile Include="Execution\FolderLink.cs" />
-    <Compile Include="Execution\ICommand.cs" />
+    <Compile Include="Execution\IDoUndoCommand.cs" />
     <Compile Include="Execution\ILink.cs" />
+    <Compile Include="ExecutionLogic.cs" />
     <Compile Include="InstalledPrograms\InstalledProgram.cs" />
     <Compile Include="InstalledPrograms\InstalledProgramsHelper.cs" />
     <Compile Include="Execution\LinkBase.cs" />
+    <Compile Include="OsIdHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

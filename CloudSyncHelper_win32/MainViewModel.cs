@@ -1,8 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows.Data;
+using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Serializiation;
 using XElement.Common.UI;
@@ -14,19 +13,16 @@ namespace XElement.CloudSyncHelper.UI.Win32
     {
         public MainViewModel()
         {
-            this.SetupInstalledApplicationsView();
-            this.SetupProgramInfosView();
+            //this.SetupObservableProgramsView();
+
+            this._installedPrograms = new ObservableCollection<InstalledProgram>();
+            this._programInfos = new ObservableCollection<IProgramInfo>();
 
             this.RefreshCommand = new DelegateCommand( this.RefreshCommand_Execute );
             this.RefreshCommand.Execute( null );
-
-            var folderLink = new FolderLink( this._programInfos[0], this._programInfos[0].OsConfigs[0].Links[0] as IFolderLinkInfo );
-            folderLink.Do();
-            this.Output = folderLink.StandardOutput;
         }
 
-        private ObservableCollection<InstalledProgram> _installedApplications;
-        public ListCollectionView InstalledApplicationsView { get; private set; }
+        private ObservableCollection<InstalledProgram> _installedPrograms;
 
         private bool InstalledApplicationsView_Filter( object obj )
         {
@@ -35,6 +31,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
                    installedApplication.DisplayName != null && 
                    installedApplication.DisplayName != String.Empty;
         }
+
+        //private ObservableCollection<ProgramViewModel> _observablePrograms;
+        //public ListCollectionView ObservableProgramsView { get; private set; }
 
         private string _output;
         public string Output
@@ -49,18 +48,28 @@ namespace XElement.CloudSyncHelper.UI.Win32
         }
 
         private ObservableCollection<IProgramInfo> _programInfos;
-        public ListCollectionView ProgramInfosView { get; private set; }
 
-        public System.Windows.Input.ICommand RefreshCommand { get; private set; }
+        public ICommand RefreshCommand { get; private set; }
         private void RefreshCommand_Execute()
         {
-            this._installedApplications.Clear();
+            RefreshInstalledPrograms();
+            RefreshProgramInfos();
+
+            //this._observablePrograms.Add( new ProgramViewModel { ProgramInfo = programInfo } );
+        }
+
+        private void RefreshInstalledPrograms()
+        {
+            this._installedPrograms.Clear();
             var rawInstalledApplications = new InstalledProgramsHelper().GetInstalledPrograms();
             foreach ( var installedApplication in rawInstalledApplications )
             {
-                this._installedApplications.Add( installedApplication );
+                this._installedPrograms.Add( installedApplication );
             }
+        }
 
+        private void RefreshProgramInfos()
+        {
             var serializationMgr = new SerializationManager( @"C:\Users\Christian\Desktop\CloudSyncHelper.xml" );
             var syncData = serializationMgr.Deserialize();
             this._programInfos.Clear();
@@ -70,22 +79,13 @@ namespace XElement.CloudSyncHelper.UI.Win32
             }
         }
 
-        private void SetupInstalledApplicationsView()
-        {
-            this._installedApplications = new ObservableCollection<InstalledProgram>();
-            this.InstalledApplicationsView = new ListCollectionView( this._installedApplications );
-            var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
-            this.InstalledApplicationsView.SortDescriptions.Add( displayNameSorting );
-            this.InstalledApplicationsView.Filter = this.InstalledApplicationsView_Filter;
-        }
-
-        private void SetupProgramInfosView()
-        {
-            this._programInfos = new ObservableCollection<IProgramInfo>();
-            this.ProgramInfosView = new ListCollectionView( this._programInfos );
-            var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
-            this.ProgramInfosView.SortDescriptions.Add( displayNameSorting );
-        }
+        //private void SetupObservableProgramsView()
+        //{
+        //    this._observablePrograms = new ObservableCollection<ProgramViewModel>();
+        //    this.ObservableProgramsView = new ListCollectionView( this._observablePrograms );
+        //    var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
+        //    this.ObservableProgramsView.SortDescriptions.Add( displayNameSorting );
+        //}
     }
 #endregion
 }
