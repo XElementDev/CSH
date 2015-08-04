@@ -2,15 +2,14 @@
 using System.ComponentModel.Composition;
 using System.Configuration;
 using System.IO;
-using XElement.CloudSyncHelper.UI.Win32.Model.Config;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
-    [Export]
-    public class AppConfig
+    [Export( typeof( IConfig ) )]
+    public class Config : IConfig
     {
-        public AppConfig()
+        public Config()
         {
             this.CreateOrLoadLocalConfig();
             this.CreateOrLoadRoamingConfig();
@@ -53,61 +52,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private void CreateOrLoadRoamingConfig()
         {
-            Func<RoamingConfig> createRoamingSection = () => new RoamingConfig { UserName = Environment.UserName };
+            Func<RoamingConfig> createRoamingSection = () => 
+                new RoamingConfig { UserName = Environment.UserName };
             this.CreateOrLoadConfig( "roaming", ref this._roaming, createRoamingSection, 
                 ConfigurationUserLevel.PerUserRoaming );
         }
-
-        //private void CreateOrLoadLocalConfig()
-        //{
-        //    var localConfig = this.GetConfigFromFile( ConfigurationUserLevel.PerUserRoamingAndLocal );
-        //    var userSettings = localConfig.SectionGroups.Get( "userSettings" );
-
-        //    if ( userSettings == null )
-        //    {
-        //        localConfig.SectionGroups.Add( "userSettings", new UserSettingsGroup() );
-        //    }
-
-        //    this._local = localConfig.SectionGroups["userSettings"].Sections["local"] as LocalConfig;
-
-        //    if ( this._local == null )
-        //    {
-        //        var userFolderPath = Environment.GetFolderPath( Environment.SpecialFolder.UserProfile );
-        //        this._local = new LocalConfig
-        //        {
-        //            PathToSyncFolder = Path.Combine( userFolderPath, "Google Drive", "SYNC" )
-        //        };
-
-        //        localConfig.SectionGroups["userSettings"].Sections.Add( "local", this._local );
-
-        //        localConfig.Save();
-        //    }
-        //}
-
-        //private void CreateOrLoadRoamingConfig()
-        //{
-
-        //    var roamingConfig = this.GetConfigFromFile( ConfigurationUserLevel.PerUserRoaming );
-        //    var userSettings = roamingConfig.SectionGroups.Get( "userSettings" );
-        //    if ( userSettings == null )
-        //    {
-        //        roamingConfig.SectionGroups.Add( "userSettings", new UserSettingsGroup() );
-        //    }
-
-        //    this._roaming = roamingConfig.SectionGroups["userSettings"].Sections["roaming"] as RoamingConfig;
-
-        //    if ( this._roaming == null )
-        //    {
-        //        this._roaming = new RoamingConfig
-        //        {
-        //            UserName = Environment.UserName
-        //        };
-
-        //        roamingConfig.SectionGroups["userSettings"].Sections.Add( "roaming", this._roaming );
-
-        //        roamingConfig.Save();
-        //    }
-        //}
 
         private ExeConfigurationFileMap ExeConfigFileMap
         {
@@ -133,10 +82,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private static string PathToConfig
         {
-            get
-            {
-                return Path.Combine( "XElement", "Cloud Sync Helper", "user.config" );
-            }
+            get { return Path.Combine( "XElement", "Cloud Sync Helper", "user.config" ); }
         }
 
         private static string PathToLocalConfig
@@ -157,9 +103,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
-        public string PathToSyncFolder { get { return this._local.PathToSyncFolder; } }
+        public string /*IConfig.*/PathToSyncFolder { get { return this._local.PathToSyncFolder; } }
 
-        public string UserName { get { return this._roaming.UserName; } }
+        public string /*IConfig.*/UplayAccountName { get { return this._roaming.UplayAccountName; } }
+
+        public string /*IConfig.*/UserName { get { return this._roaming.UserName; } }
 
         private LocalConfig _local;
         private RoamingConfig _roaming;

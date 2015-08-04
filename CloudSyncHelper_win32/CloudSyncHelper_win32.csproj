@@ -78,9 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\ProgramViewModel.cs" />
-    <Compile Include="Model\AppConfig.cs" />
-    <Compile Include="Model\Config\LocalConfig.cs" />
-    <Compile Include="Model\Config\RoamingConfig.cs" />
+    <Compile Include="Model\Config.cs" />
+    <Compile Include="Model\Configuration\LocalConfig.cs" />
+    <Compile Include="Model\Configuration\RoamingConfig.cs" />
+    <Compile Include="Model\IConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

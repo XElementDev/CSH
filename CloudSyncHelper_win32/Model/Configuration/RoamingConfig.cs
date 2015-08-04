@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace XElement.CloudSyncHelper.UI.Win32.Model.Config
+namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
     internal class RoamingConfig : ConfigurationSection
     {
