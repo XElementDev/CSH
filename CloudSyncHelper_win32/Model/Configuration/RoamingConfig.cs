@@ -2,6 +2,7 @@
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
+#region not unit-tested
     internal class RoamingConfig : ConfigurationSection
     {
         public RoamingConfig()
@@ -25,4 +26,5 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             set { this[USER_NAME] = value; }
         }
     }
+#endregion
 }

@@ -2,6 +2,7 @@
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
+#region not unit-tested
     internal class LocalConfig : ConfigurationSection
     {
         public LocalConfig()
@@ -17,4 +18,5 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             set { this[PATH_TO_SYNC_FOLDER] = value; }
         }
     }
+#endregion
 }
