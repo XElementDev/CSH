@@ -49,7 +49,7 @@
                                     <Button 
                                             Grid.Column="1" 
                                             Content="Link löschen" 
-                                            Command="{Binding Path=LinkCommand}" 
+                                            Command="{Binding Path=UnlinkCommand}" 
                                     />
                                 </Grid>
                             </DataTemplate>
