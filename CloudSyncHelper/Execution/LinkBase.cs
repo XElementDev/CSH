@@ -7,9 +7,10 @@ namespace XElement.CloudSyncHelper
 #region not unit-tested
     public abstract class LinkBase : ILink
     {
-        public LinkBase( IProgramInfo programInfo, ILinkInfo linkInfo )
+        public LinkBase( IProgramInfo programInfo, ILinkInfo linkInfo, PathVariablesDTO pathVariables )
         {
             this._linkInfo = linkInfo;
+            this._pathVariables = pathVariables;
             this._programInfo = programInfo;
         }
 
@@ -50,9 +51,9 @@ namespace XElement.CloudSyncHelper
         {
             get
             {
-                var gDrivePath = @"D:\Users\Christian\Google Drive";
-                var userFolderName = "-" + Environment.UserName;
-                var target = Path.Combine( gDrivePath, "SYNC", "", this._programInfo.FolderName, "SAVEs",
+                var userFolderName = "-" + this._pathVariables.UserName;
+                var target = Path.Combine( this._pathVariables.PathToSyncFolder, "APPs_GAMEs", 
+                                           this._programInfo.FolderName, "SAVEs", 
                                            userFolderName, this._linkInfo.SourceId );
                 return target;
             }
@@ -65,6 +66,7 @@ namespace XElement.CloudSyncHelper
 
         private ILinkInfo _linkInfo;
         protected abstract string _mkLinkParams { get; }
+        private PathVariablesDTO _pathVariables;
         private IProgramInfo _programInfo;
     }
 #endregion

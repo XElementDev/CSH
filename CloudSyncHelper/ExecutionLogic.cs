@@ -6,8 +6,9 @@ namespace XElement.CloudSyncHelper
 {
     public class ExecutionLogic
     {
-        public ExecutionLogic( IProgramInfo programInfo )
+        public ExecutionLogic( IProgramInfo programInfo, PathVariablesDTO pathVariables )
         {
+            this._pathVariables = pathVariables;
             this._programInfo = programInfo;
         }
 
@@ -21,9 +22,9 @@ namespace XElement.CloudSyncHelper
                 {
                     ILink link = null;
                     if ( linkInfo is IFolderLinkInfo )
-                        link = new FolderLink( this._programInfo, linkInfo as IFolderLinkInfo );
+                        link = new FolderLink( this._programInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
                     else
-                        link = new FileLink( this._programInfo, linkInfo as IFileLinkInfo );
+                        link = new FileLink( this._programInfo, linkInfo as IFileLinkInfo, this._pathVariables );
                     config.Add( link );
                 }
                 return config;
@@ -74,6 +75,7 @@ namespace XElement.CloudSyncHelper
             throw new NotImplementedException();
         }
 
+        private PathVariablesDTO _pathVariables;
         private IProgramInfo _programInfo;
     }
 }

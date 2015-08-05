@@ -65,7 +65,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
             {
                 foreach ( var installedProgram in installedProgramVMs )
                 {
-                    var programVM = new ProgramViewModel { InstalledProgram = installedProgram };
+                    var programVM = new ProgramViewModel( this._config ) { InstalledProgram = installedProgram };
 
                     var programInfo = programInfos.SingleOrDefault( pi => 
                         Regex.IsMatch( installedProgram.DisplayName, pi.TechnicalNameMatcher ) );
@@ -80,7 +80,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
                 foreach ( var programInfo in programInfos )
                 {
-                    var programVM = new ProgramViewModel { ProgramInfo = programInfo };
+                    var programVM = new ProgramViewModel( this._config ) { ProgramInfo = programInfo };
                     this._programViewModels.Add( programVM );
                 }
             }
@@ -97,7 +97,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         private void SetupProgramViewModelsView()
         {
-            // TODO: handle empty list entry --> look at the UI
             this._programViewModels = new ObservableCollection<ProgramViewModel>();
             this.ProgramViewModelsView = new ListCollectionView( this._programViewModels );
             var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
@@ -106,6 +105,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
         }
 
 #pragma warning disable 0649
+        [Import]
+        private IConfig _config;
+
         [Import]
         private InstalledProgramsModel _installedProgramsModel;
 

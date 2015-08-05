@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
@@ -9,8 +10,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 #region not unit-tested
     public class ProgramViewModel : ViewModelBase
     {
-        public ProgramViewModel()
+        public ProgramViewModel( IConfig appConfig )
         {
+            this._appConfig = appConfig;
+
             this.LinkCommand = new DelegateCommand( () => { }, this.LinkCommand_CanExecute );
             this.UnlinkCommand = new DelegateCommand( () => { }, this.UnlinkCommand_CanExecute );
         }
@@ -92,7 +95,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             set
             {
                 this._programInfo = value;
-                this.ExecutionLogic = new ExecutionLogic( this.ProgramInfo );
+                var pathVariables = new PathVariablesDTO
+                {
+                    PathToSyncFolder = this._appConfig.PathToSyncFolder,
+                    UplayUserName = this._appConfig.UplayAccountName,
+                    UserName = this._appConfig.UserName
+                };
+                this.ExecutionLogic = new ExecutionLogic( this.ProgramInfo, pathVariables );
                 this.RaisePropertyChanged( "DisplayName" );
             }
         }
@@ -112,6 +121,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             return this.IsLinked;
         }
+
+        private IConfig _appConfig;
     }
 #endregion
 }

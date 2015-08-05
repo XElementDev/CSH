@@ -44,6 +44,7 @@
     <Compile Include="Execution\IDoUndoCommand.cs" />
     <Compile Include="Execution\ILink.cs" />
     <Compile Include="ExecutionLogic.cs" />
+    <Compile Include="Execution\PathVariablesDTO.cs" />
     <Compile Include="InstalledPrograms\InstalledProgram.cs" />
     <Compile Include="InstalledPrograms\InstalledProgramsHelper.cs" />
     <Compile Include="Execution\LinkBase.cs" />
