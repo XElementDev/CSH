@@ -10,10 +10,11 @@ namespace XElement.CloudSyncHelper.UI.Win32
         public App()
         {
             this.InitializeMef();
-            this._mainVM.RefreshCommand.Execute( null );
 
             this.MainWindow = new MainWindow { DataContext = this._mainVM };
             this.MainWindow.Show();
+
+            this._mainVM.RefreshCommand.Execute( null );
         }
 
         //  --> Based on: https://msdn.microsoft.com/en-Us/library/Dd460648(v=VS.110).aspx
