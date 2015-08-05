@@ -4,18 +4,12 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="50*" />
             <RowDefinition Height="50*" />
         </Grid.RowDefinitions>
 
-        <Button 
-                Command="{Binding Path=RefreshCommand, Mode=OneWay}" 
-                Content="Aktualisieren" 
-        />
-
         <ScrollViewer 
-                      Grid.Row="1">
+                      Grid.Row="0">
             <DataGrid 
                       ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}"
                       AutoGenerateColumns="False">
@@ -83,7 +77,7 @@
         </ScrollViewer>
 
         <TextBlock 
-                   Grid.Row="2" 
+                   Grid.Row="1" 
                    Text="{Binding Path=Output, Mode=OneWay}" 
         />
     </Grid>

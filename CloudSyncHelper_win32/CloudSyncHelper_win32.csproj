@@ -82,6 +82,7 @@
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
     <Compile Include="Model\IConfig.cs" />
+    <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 
 namespace XElement.CloudSyncHelper.UI.Win32
@@ -13,11 +9,29 @@ namespace XElement.CloudSyncHelper.UI.Win32
     {
         public App()
         {
-            var mainVM = new MainViewModel();
-            this.MainWindow = new MainWindow { DataContext = mainVM };
+            this.InitializeMef();
+            this._mainVM.RefreshCommand.Execute( null );
 
+            this.MainWindow = new MainWindow { DataContext = this._mainVM };
             this.MainWindow.Show();
         }
+
+        //  --> Based on: https://msdn.microsoft.com/en-Us/library/Dd460648(v=VS.110).aspx
+        //      Last visited 2015-08-03
+        private void InitializeMef()
+        {
+            var catalog = new AggregateCatalog();
+            catalog.Catalogs.Add( new AssemblyCatalog( typeof( App ).Assembly ) );
+
+            var container = new CompositionContainer( catalog );
+
+            container.ComposeParts( this );
+        }
+
+#pragma warning disable 0649
+        [Import]
+        private MainViewModel _mainVM;
+#pragma warning restore 0649
     }
 #endregion
 }
