@@ -29,6 +29,11 @@ namespace XElement.CloudSyncHelper
             this.StandardOutput = mkLink;
         }
 
+        private string GetAppsOrGamesFolder
+        {
+            get { return this._programInfo is IAppInfo ? "APPs" : "GAMEs"; }
+        }
+
         private string GetCmdCommand()
         {
             return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this._mkLinkParams, this.Link, this.Target );
@@ -52,7 +57,8 @@ namespace XElement.CloudSyncHelper
             get
             {
                 var userFolderName = "-" + this._pathVariables.UserName;
-                var target = Path.Combine( this._pathVariables.PathToSyncFolder, "APPs_GAMEs", 
+                var target = Path.Combine( this._pathVariables.PathToSyncFolder,
+                                           this.GetAppsOrGamesFolder, 
                                            this._programInfo.FolderName, "SAVEs", 
                                            userFolderName, this._linkInfo.SourceId );
                 return target;
@@ -61,6 +67,7 @@ namespace XElement.CloudSyncHelper
 
         public void /*ILink.*/Undo()
         {
+            // TODO: implement Undo
             throw new NotImplementedException();
         }
 
