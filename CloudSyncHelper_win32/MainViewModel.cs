@@ -55,7 +55,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
             RefreshProgramViewModels();
         }
 
-
         private void RefreshProgramViewModels()
         {
             this._programViewModels.Clear();
