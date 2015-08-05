@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    public class InstalledProgramsModel
+    internal class InstalledProgramsModel
     {
         [ImportingConstructor]
         public InstalledProgramsModel()

@@ -8,7 +8,6 @@ using System.Text.RegularExpressions;
 using System.Windows.Data;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.Serializiation;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.Common.UI;
@@ -23,8 +22,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
         public MainViewModel()
         {
             this.SetupProgramViewModelsView();
-
-            this._programInfos = new ObservableCollection<IProgramInfo>();
 
             this.RefreshCommand = new DelegateCommand( this.RefreshCommand_Execute );
         }
@@ -52,50 +49,36 @@ namespace XElement.CloudSyncHelper.UI.Win32
             }
         }
 
-        private ObservableCollection<IProgramInfo> _programInfos;
-
         public ICommand RefreshCommand { get; private set; }
         private void RefreshCommand_Execute()
         {
-            RefreshProgramInfos();
-
             RefreshProgramViewModels();
         }
 
-
-        private void RefreshProgramInfos()
-        {
-            var serializationMgr = new SerializationManager( @"C:\Users\Christian\Desktop\CloudSyncHelper.xml" );
-            var syncData = serializationMgr.Deserialize();
-            this._programInfos.Clear();
-            foreach ( var programInfo in syncData.ProgramInfos )
-            {
-                this._programInfos.Add( programInfo );
-            }
-        }
 
         private void RefreshProgramViewModels()
         {
             this._programViewModels.Clear();
             var installedProgramVMs = this._installedProgramsModel.InstalledProgramVMs;
-            if ( installedProgramVMs.Count > this._programInfos.Count )
+            var programInfos = this._programInfosModel.ProgramInfos;
+            if ( installedProgramVMs.Count > programInfos.Count )
             {
                 foreach ( var installedProgram in installedProgramVMs )
                 {
                     var programVM = new ProgramViewModel { InstalledProgram = installedProgram };
 
-                    var programInfo = this._programInfos.SingleOrDefault( pi => 
+                    var programInfo = programInfos.SingleOrDefault( pi => 
                         Regex.IsMatch( installedProgram.DisplayName, pi.TechnicalNameMatcher ) );
                     if( programInfo != default(IProgramInfo))
                     {
                         programVM.ProgramInfo = programInfo;
-                        this._programInfos.Remove( programInfo );
+                        programInfos.Remove( programInfo );
                     }
 
                     this._programViewModels.Add( programVM );
                 }
 
-                foreach ( var programInfo in this._programInfos )
+                foreach ( var programInfo in programInfos )
                 {
                     var programVM = new ProgramViewModel { ProgramInfo = programInfo };
                     this._programViewModels.Add( programVM );
@@ -125,6 +108,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
 #pragma warning disable 0649
         [Import]
         private InstalledProgramsModel _installedProgramsModel;
+
+        [Import]
+        private ProgramInfosModel _programInfosModel;
 #pragma warning restore 0649
     }
 #endregion
