@@ -42,6 +42,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             set
             {
                 this._executionLogic = value;
+                this.LinkCommand = new DelegateCommand( this.ExecutionLogic.Link, this.LinkCommand_CanExecute );
+                this.UnlinkCommand = new DelegateCommand( this.ExecutionLogic.Unlink, this.UnlinkCommand_CanExecute );
                 this.RaisePropertyChanged( "HasSuitableConfig" );
             }
         }
