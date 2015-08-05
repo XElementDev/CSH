@@ -39,7 +39,7 @@ namespace XElement.CloudSyncHelper
 
         public void Link()
         {
-            // TODO
+            // TODO: Implement link
             throw new NotImplementedException();
         }
 
@@ -71,7 +71,7 @@ namespace XElement.CloudSyncHelper
 
         public void Unlink()
         {
-            // TODO
+            // TODO: implement unlink
             throw new NotImplementedException();
         }
 
