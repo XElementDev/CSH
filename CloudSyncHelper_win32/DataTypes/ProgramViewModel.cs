@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Events;
 using System;
+using System.Linq;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Events;
@@ -72,7 +73,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         public bool IsInstalled { get { return this._installedProgram != null; } }
 
         // TODO: Add logic for IsLinked
-        public bool IsLinked { get { return false; } }
+        public bool IsLinked
+        {
+            get
+            {
+                return this.ExecutionLogic.LinkPaths
+                    .All( path => new SymbolicLinkHelper().IsSymbolicLink( path ) );
+            }
+        }
 
         public string LinkPaths
         {

@@ -50,6 +50,7 @@
     <Compile Include="Execution\LinkBase.cs" />
     <Compile Include="OsIdHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SymbolicLinks\SymbolicLinkHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
