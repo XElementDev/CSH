@@ -72,7 +72,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public bool IsInstalled { get { return this._installedProgram != null; } }
 
-        // TODO: Add logic for IsLinked
         public bool IsLinked
         {
             get
