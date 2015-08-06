@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
+using XElement.CloudSyncHelper.UI.Win32.Events;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.Common.UI;
 
@@ -19,8 +21,11 @@ namespace XElement.CloudSyncHelper.UI.Win32
     public class MainViewModel : ViewModelBase
     {
         [ImportingConstructor]
-        public MainViewModel()
+        public MainViewModel( IEventAggregator eventAggregator )
         {
+            this._eventAggregator = eventAggregator;
+            this._eventAggregator.GetEvent<StandardOutputChanged>().Subscribe( s => this.Output = s );
+
             this.SetupProgramViewModelsView();
 
             this.RefreshCommand = new DelegateCommand( this.RefreshCommand_Execute );
@@ -66,7 +71,10 @@ namespace XElement.CloudSyncHelper.UI.Win32
             {
                 foreach ( var installedProgram in installedProgramVMs )
                 {
-                    var programVM = new ProgramViewModel( this._config ) { InstalledProgram = installedProgram };
+                    var programVM = new ProgramViewModel( this._eventAggregator, this._config ) 
+                    {
+                        InstalledProgram = installedProgram
+                    };
 
                     var programInfo = programInfos.SingleOrDefault( pi => 
                         Regex.IsMatch( installedProgram.DisplayName, pi.TechnicalNameMatcher ) );
@@ -81,7 +89,10 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
                 foreach ( var programInfo in programInfos )
                 {
-                    var programVM = new ProgramViewModel( this._config ) { ProgramInfo = programInfo };
+                    var programVM = new ProgramViewModel( this._eventAggregator, this._config )
+                    {
+                        ProgramInfo = programInfo
+                    };
                     this._programViewModels.Add( programVM );
                 }
             }
@@ -104,6 +115,8 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.ProgramViewModelsView.SortDescriptions.Add( displayNameSorting );
             this.ProgramViewModelsView.Filter = this.ProgramViewModelsView_Filter;
         }
+
+        private IEventAggregator _eventAggregator;
 
 #pragma warning disable 0649
         [Import]

@@ -4,6 +4,7 @@ using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper
 {
+#region not unit-tested
     public class ExecutionLogic
     {
         public ExecutionLogic( IProgramInfo programInfo, PathVariablesDTO pathVariables )
@@ -39,8 +40,13 @@ namespace XElement.CloudSyncHelper
 
         public void Link()
         {
-            // TODO: Implement link
-            throw new NotImplementedException();
+            var standardOutputs = new List<string>();
+            foreach ( ILink link in this.Config )
+            {
+                link.Do();
+                standardOutputs.Add( link.StandardOutput );
+            }
+            this.StandardOutputs = standardOutputs;
         }
 
         public IEnumerable<string> LinkPaths
@@ -55,6 +61,8 @@ namespace XElement.CloudSyncHelper
                 return linkPaths;
             }
         }
+
+        public IEnumerable<string> StandardOutputs { get; private set; }
 
         public IEnumerable<string> TargetPaths
         {
@@ -78,4 +86,5 @@ namespace XElement.CloudSyncHelper
         private PathVariablesDTO _pathVariables;
         private IProgramInfo _programInfo;
     }
+#endregion
 }

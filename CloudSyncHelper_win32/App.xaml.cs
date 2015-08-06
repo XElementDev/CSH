@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Composition;
+﻿using Microsoft.Practices.Prism.Events;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 
@@ -26,6 +27,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
             var container = new CompositionContainer( catalog );
 
+            container.ComposeExportedValue<IEventAggregator>( new EventAggregator() );
             container.ComposeParts( this );
         }
 

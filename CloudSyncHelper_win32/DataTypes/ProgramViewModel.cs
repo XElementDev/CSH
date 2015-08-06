@@ -1,7 +1,9 @@
 ﻿using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Events;
 using System;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.CloudSyncHelper.UI.Win32.Events;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.Common.UI;
 
@@ -10,11 +12,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 #region not unit-tested
     public class ProgramViewModel : ViewModelBase
     {
-        public ProgramViewModel( IConfig appConfig )
+        public ProgramViewModel( IEventAggregator eventAggregator, IConfig appConfig )
         {
             this._appConfig = appConfig;
+            this._eventAggregator = eventAggregator;
 
-            this.LinkCommand = new DelegateCommand( () => { }, this.LinkCommand_CanExecute );
+            this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
             this.UnlinkCommand = new DelegateCommand( () => { }, this.UnlinkCommand_CanExecute );
         }
 
@@ -42,7 +45,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             set
             {
                 this._executionLogic = value;
-                this.LinkCommand = new DelegateCommand( this.ExecutionLogic.Link, this.LinkCommand_CanExecute );
                 this.UnlinkCommand = new DelegateCommand( this.ExecutionLogic.Unlink, this.UnlinkCommand_CanExecute );
                 this.RaisePropertyChanged( "HasSuitableConfig" );
             }
@@ -89,6 +91,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                 this.HasSuitableConfig &&
                 !this.IsLinked;
         }
+        private void LinkCommand_Execute()
+        {
+            this.ExecutionLogic.Link();
+            var output = String.Join( Environment.NewLine, this.ExecutionLogic.StandardOutputs );
+            this._eventAggregator.GetEvent<StandardOutputChanged>().Publish( output );
+        }
 
         private IProgramInfo _programInfo;
         public IProgramInfo ProgramInfo
@@ -125,6 +133,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         }
 
         private IConfig _appConfig;
+        private IEventAggregator _eventAggregator;
     }
 #endregion
 }
