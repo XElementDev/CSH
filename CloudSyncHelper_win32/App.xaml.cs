@@ -2,6 +2,7 @@
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
+using XElement.CloudSyncHelper.UI.Win32.Events;
 
 namespace XElement.CloudSyncHelper.UI.Win32
 {
@@ -15,7 +16,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.MainWindow = new MainWindow { DataContext = this._mainVM };
             this.MainWindow.Show();
 
-            this._mainVM.RefreshCommand.Execute( null );
+            this._eventAggregator.GetEvent<MefImportsSatisfied>().Publish();
         }
 
         private void InitializeMef()
@@ -30,6 +31,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
         }
 
 #pragma warning disable 0649
+        [Import]
+        private IEventAggregator _eventAggregator;
+
         [Import]
         private MainViewModel _mainVM;
 #pragma warning restore 0649

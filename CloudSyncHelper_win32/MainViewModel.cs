@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.Events;
+﻿using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -7,7 +6,6 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Data;
-using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Events;
@@ -24,45 +22,12 @@ namespace XElement.CloudSyncHelper.UI.Win32
         public MainViewModel( IEventAggregator eventAggregator )
         {
             this._eventAggregator = eventAggregator;
-            this._eventAggregator.GetEvent<StandardOutputChanged>().Subscribe( s => this.Output = s );
+            this.SubscribeEvents();
 
             this.SetupProgramViewModelsView();
-
-            this.RefreshCommand = new DelegateCommand( this.RefreshCommand_Execute );
         }
 
-        // TODO: feature to move data to SYNC folder
-
-        private ObservableCollection<ProgramViewModel> _programViewModels;
-        public ListCollectionView ProgramViewModelsView { get; private set; }
-
-        private bool ProgramViewModelsView_Filter( object obj )
-        {
-            var programVM = obj as ProgramViewModel;
-            return programVM != null && 
-                   programVM.DisplayName != null && 
-                   programVM.DisplayName != String.Empty;
-        }
-
-        private string _output;
-        public string Output
-        {
-            get { return this._output; }
-
-            set
-            {
-                this._output = value;
-                this.RaisePropertyChanged( "Output" );
-            }
-        }
-
-        public ICommand RefreshCommand { get; private set; }
-        private void RefreshCommand_Execute()
-        {
-            RefreshProgramViewModels();
-        }
-
-        private void RefreshProgramViewModels()
+        private void LoadProgramViewModels()
         {
             this._programViewModels.Clear();
             var installedProgramVMs = this._installedProgramsModel.InstalledProgramVMs;
@@ -71,14 +36,14 @@ namespace XElement.CloudSyncHelper.UI.Win32
             {
                 foreach ( var installedProgram in installedProgramVMs )
                 {
-                    var programVM = new ProgramViewModel( this._eventAggregator, this._config ) 
+                    var programVM = new ProgramViewModel( this._eventAggregator, this._config )
                     {
                         InstalledProgram = installedProgram
                     };
 
-                    var programInfo = programInfos.SingleOrDefault( pi => 
+                    var programInfo = programInfos.SingleOrDefault( pi =>
                         Regex.IsMatch( installedProgram.DisplayName, pi.TechnicalNameMatcher ) );
-                    if( programInfo != default(IProgramInfo))
+                    if ( programInfo != default( IProgramInfo ) )
                     {
                         programVM.ProgramInfo = programInfo;
                         programInfos.Remove( programInfo );
@@ -107,6 +72,37 @@ namespace XElement.CloudSyncHelper.UI.Win32
             }
         }
 
+        // TODO: feature to move data to SYNC folder
+
+        private ObservableCollection<ProgramViewModel> _programViewModels;
+        public ListCollectionView ProgramViewModelsView { get; private set; }
+
+        private bool ProgramViewModelsView_Filter( object obj )
+        {
+            var programVM = obj as ProgramViewModel;
+            return programVM != null && 
+                   programVM.DisplayName != null && 
+                   programVM.DisplayName != String.Empty;
+        }
+
+        private void OnMefImportsSatisfied()
+        {
+            this.LoadProgramViewModels();
+            this._eventAggregator.GetEvent<MefImportsSatisfied>().Unsubscribe( this.OnMefImportsSatisfied );
+        }
+
+        private string _output;
+        public string Output
+        {
+            get { return this._output; }
+
+            set
+            {
+                this._output = value;
+                this.RaisePropertyChanged( "Output" );
+            }
+        }
+
         private void SetupProgramViewModelsView()
         {
             this._programViewModels = new ObservableCollection<ProgramViewModel>();
@@ -114,6 +110,12 @@ namespace XElement.CloudSyncHelper.UI.Win32
             var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
             this.ProgramViewModelsView.SortDescriptions.Add( displayNameSorting );
             this.ProgramViewModelsView.Filter = this.ProgramViewModelsView_Filter;
+        }
+
+        private void SubscribeEvents()
+        {
+            this._eventAggregator.GetEvent<MefImportsSatisfied>().Subscribe( this.OnMefImportsSatisfied );
+            this._eventAggregator.GetEvent<StandardOutputChanged>().Subscribe( s => this.Output = s );
         }
 
         private IEventAggregator _eventAggregator;
