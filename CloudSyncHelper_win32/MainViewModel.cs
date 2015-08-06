@@ -26,6 +26,8 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.RefreshCommand = new DelegateCommand( this.RefreshCommand_Execute );
         }
 
+        // TODO: feature to move data to SYNC folder
+
         private ObservableCollection<ProgramViewModel> _programViewModels;
         public ListCollectionView ProgramViewModelsView { get; private set; }
 
