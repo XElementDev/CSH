@@ -27,48 +27,28 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.SetupProgramViewModelsView();
         }
 
+        private ProgramViewModel ComposeProgramVM( IProgramInfo programInfo )
+        {
+            var programVM = this._programVmFactory.Get();
+            programVM.ProgramInfo = programInfo;
+
+            var installedProgramVM = this._installedProgramsModel.InstalledProgramVMs
+                .SingleOrDefault( p => Regex.IsMatch( p.DisplayName, programInfo.TechnicalNameMatcher ) );
+
+            programVM.InstalledProgram = installedProgramVM;
+            return programVM;
+        }
+
         private void LoadProgramViewModels()
         {
             this._programViewModels.Clear();
-            var installedProgramVMs = this._installedProgramsModel.InstalledProgramVMs;
             var programInfos = this._programInfosModel.ProgramInfos;
-            if ( installedProgramVMs.Count > programInfos.Count )
+
+            foreach ( IProgramInfo programInfo in programInfos )
             {
-                foreach ( var installedProgram in installedProgramVMs )
-                {
-                    var programVM = new ProgramViewModel( this._eventAggregator, this._config )
-                    {
-                        InstalledProgram = installedProgram
-                    };
+                var programVM = ComposeProgramVM( programInfo );
 
-                    var programInfo = programInfos.SingleOrDefault( pi =>
-                        Regex.IsMatch( installedProgram.DisplayName, pi.TechnicalNameMatcher ) );
-                    if ( programInfo != default( IProgramInfo ) )
-                    {
-                        programVM.ProgramInfo = programInfo;
-                        programInfos.Remove( programInfo );
-                    }
-
-                    this._programViewModels.Add( programVM );
-                }
-
-                foreach ( var programInfo in programInfos )
-                {
-                    var programVM = new ProgramViewModel( this._eventAggregator, this._config )
-                    {
-                        ProgramInfo = programInfo
-                    };
-                    this._programViewModels.Add( programVM );
-                }
-            }
-            else
-            {
-                // TODO: handling if programInfo list is bigger
-                //foreach ( var progamInfo in this._programInfos )
-                //{
-                //    var programVM = new ProgramViewModel() { ProgramInfo = progamInfo };
-                //    this._programViewModels.Add( programVM );
-                //}
+                this._programViewModels.Add( programVM );
             }
         }
 
@@ -122,13 +102,13 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
 #pragma warning disable 0649
         [Import]
-        private IConfig _config;
-
-        [Import]
         private InstalledProgramsModel _installedProgramsModel;
 
         [Import]
         private ProgramInfosModel _programInfosModel;
+
+        [Import]
+        private ProgramViewModelFactory _programVmFactory;
 #pragma warning restore 0649
     }
 #endregion
