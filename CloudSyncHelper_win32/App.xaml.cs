@@ -18,8 +18,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this._mainVM.RefreshCommand.Execute( null );
         }
 
-        //  --> Based on: https://msdn.microsoft.com/en-Us/library/Dd460648(v=VS.110).aspx
-        //      Last visited 2015-08-03
         private void InitializeMef()
         {
             var catalog = new AggregateCatalog();
