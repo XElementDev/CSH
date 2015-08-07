@@ -12,7 +12,8 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
         {
             return new List<AbstractProgramInfo>
             {
-                Anno2070()
+                Anno2070(),
+                Pes2015()
             };
         }
 
@@ -40,6 +41,33 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                     }
                 },
                 TechnicalNameMatcher = "ANNO 2070"  // TODO: check matcher
+            };
+        }
+
+        private static GameInfo Pes2015()
+        {
+            return new GameInfo
+            {
+                DisplayName = "Pro Evolution Soccer 2015",
+                FolderName = "PES 2015 [Pro Evolution Soccer 2015]",
+                OsConfigs = new List<OsConfiguration>
+                {
+                    new OsConfiguration
+                    {
+                        Links = new List<AbstractLinkInfo>
+                        {
+                            new FolderLinkInfo
+                            {
+                                DestinationRoot = Environment.SpecialFolder.MyDocuments,
+                                DestinationSubFolderPath = Path.Combine( "KONAMI", "Pro Evolution Soccer 2015" ),
+                                DestinationTargetName = "save",
+                                SourceId = "save"
+                            }
+                        },
+                        OsId = OsId.Win81
+                    }
+                },
+                TechnicalNameMatcher = "Pro Evolution Soccer 2015"
             };
         }
     }
