@@ -31,7 +31,7 @@ namespace XElement.CloudSyncHelper
 
         private string GetAppsOrGamesFolder
         {
-            get { return this._programInfo is IAppInfo ? "APPs" : "GAMEs"; }
+            get { return this._programInfo is IAppInfo ? "APPs" : Path.Combine( "GAMEs", "PC" ); }
         }
 
         private string GetCmdCommand()
