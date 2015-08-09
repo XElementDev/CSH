@@ -49,7 +49,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
             return new GameInfo
             {
                 DisplayName = "Pro Evolution Soccer 2015",
-                FolderName = "PES 2015 [Pro Evolution Soccer 2015]",
+                FolderName = "PES 2014 [Pro Evolution Soccer 2015]",
                 OsConfigs = new List<OsConfiguration>
                 {
                     new OsConfiguration
