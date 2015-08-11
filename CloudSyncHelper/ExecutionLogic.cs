@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper
@@ -79,8 +78,10 @@ namespace XElement.CloudSyncHelper
 
         public void Unlink()
         {
-            // TODO: implement unlink
-            throw new NotImplementedException();
+            foreach ( ILink link in this.Config )
+            {
+                link.Undo();
+            }
         }
 
         private PathVariablesDTO _pathVariables;
