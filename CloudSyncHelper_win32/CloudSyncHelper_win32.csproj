@@ -137,11 +137,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Installation-03-16.png" />
-    <Resource Include="Resources\Link-16.png" />
+    <Resource Include="Resources\Installation-03-FFFFFF-16.png" />
+    <Resource Include="Resources\Link-FFFFFF-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Settings-02-16.png" />
+    <Resource Include="Resources\Settings-02-FFFFFF-16.png" />
+  </ItemGroup>
+  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
