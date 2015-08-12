@@ -14,12 +14,17 @@
 
     <ScrollViewer>
         <ItemsControl 
-                      ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}">
+                      ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}" 
+                      Grid.IsSharedSizeScope="True">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Expander BorderBrush="Black" BorderThickness="0 1 0 1" >
                         <Expander.Resources>
                             <ResourceDictionary>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="2 0 2 0" />
+                                </Style>
+
                                 <Style TargetType="{x:Type Image}">
                                     <Setter Property="Margin" Value="2 0 2 0" />
                                 </Style>
@@ -30,7 +35,8 @@
                             </ResourceDictionary>
                         </Expander.Resources>
                         <Expander.Header>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel 
+                                        Orientation="Horizontal">
                                 <Image 
                                        Source="{StaticResource Installation-03-16}" 
                                        Height="16" Width="16" 
@@ -73,13 +79,18 @@
                                        ToolTip="Konfiguration nicht verfügbar"
                                 />
 
-                                <TextBlock 
-                                           Text="{Binding Path=DisplayName, Mode=OneWay}" 
-                                           Width="100" 
-                                           TextTrimming="CharacterEllipsis" 
-                                           VerticalAlignment="Center" 
-                                           ToolTip="{Binding Path=DisplayName, Mode=OneWay}" 
-                                />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition MaxWidth="256" SharedSizeGroup="DisplayNameSharedSizeGroup" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
+                                               Grid.Column="0" 
+                                               Text="{Binding Path=DisplayName, Mode=OneWay}" 
+                                               TextTrimming="CharacterEllipsis" 
+                                               VerticalAlignment="Center" 
+                                               ToolTip="{Binding Path=DisplayName, Mode=OneWay}" 
+                                    />
+                                </Grid>
 
                                 <Button 
                                         Command="{Binding Path=LinkCommand, Mode=OneWay}" 
