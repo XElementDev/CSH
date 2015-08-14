@@ -1,5 +1,4 @@
-﻿
-namespace XElement.CloudSyncHelper.UI.Win32.Model
+﻿namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
     public interface IConfig
     {
