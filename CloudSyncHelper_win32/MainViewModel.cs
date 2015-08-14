@@ -6,7 +6,6 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Data;
-using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Events;
 using XElement.CloudSyncHelper.UI.Win32.Model;
@@ -27,13 +26,13 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.SetupProgramViewModelsView();
         }
 
-        private ProgramViewModel ComposeProgramVM( IProgramInfo programInfo )
+        private ProgramViewModel ComposeProgramVM( ProgramInfoViewModel programInfoVM )
         {
             var programVM = this._programVmFactory.Get();
-            programVM.ProgramInfo = programInfo;
+            programVM.ProgramInfoVM = programInfoVM;
 
             var installedProgramVM = this._installedProgramsModel.InstalledProgramVMs
-                .SingleOrDefault( p => Regex.IsMatch( p.DisplayName, programInfo.TechnicalNameMatcher ) );
+                .SingleOrDefault( p => Regex.IsMatch( p.DisplayName, programInfoVM.TechnicalNameMatcher ) );
 
             programVM.InstalledProgram = installedProgramVM;
             return programVM;
@@ -42,11 +41,11 @@ namespace XElement.CloudSyncHelper.UI.Win32
         private void LoadProgramViewModels()
         {
             this._programViewModels.Clear();
-            var programInfos = this._programInfosModel.ProgramInfos;
+            var programInfoVMs = this._programInfosModel.ProgramInfoVMs;
 
-            foreach ( IProgramInfo programInfo in programInfos )
+            foreach ( var programInfoVM in programInfoVMs )
             {
-                var programVM = ComposeProgramVM( programInfo );
+                var programVM = this.ComposeProgramVM( programInfoVM );
 
                 this._programViewModels.Add( programVM );
             }

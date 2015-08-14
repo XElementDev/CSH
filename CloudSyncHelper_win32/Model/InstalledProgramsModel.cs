@@ -16,17 +16,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             this.LoadInstalledPrograms();
         }
 
-        public IList<InstalledProgramViewModel> InstalledProgramVMs;
+        public IEnumerable<InstalledProgramViewModel> InstalledProgramVMs;
 
         private void LoadInstalledPrograms()
         {
-            this.InstalledProgramVMs.Clear();
+            var installedProgramVMs = new List<InstalledProgramViewModel>();
             var installedPrograms = new InstalledProgramsHelper().GetInstalledPrograms();
             foreach ( var installedProgram in installedPrograms )
             {
                 var installedProgramVM = new InstalledProgramViewModel( installedProgram );
-                this.InstalledProgramVMs.Add( installedProgramVM );
+                installedProgramVMs.Add( installedProgramVM );
             }
+            this.InstalledProgramVMs = installedProgramVMs;
         }
     }
 #endregion

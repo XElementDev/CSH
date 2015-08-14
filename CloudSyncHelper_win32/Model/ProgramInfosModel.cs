@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Serializiation;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 
@@ -11,9 +10,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     internal class ProgramInfosModel
     {
         [ImportingConstructor]
-        public ProgramInfosModel()
+        public ProgramInfosModel( ProgramInfoViewModelFactory factory )
         {
-            this.ProgramInfos = new List<IProgramInfo>();
+            this._programInfoVmFactory = factory;
 
             this.LoadProgramInfos();
         }
@@ -22,14 +21,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         {
             var serializationMgr = new SerializationManager( @"C:\Users\Christian\Desktop\CloudSyncHelper.xml" );
             var syncData = serializationMgr.Deserialize();
-            this.ProgramInfos.Clear();
+            var programInfoVMs = new List<ProgramInfoViewModel>();
             foreach ( var programInfo in syncData.ProgramInfos )
             {
-                this.ProgramInfos.Add( programInfo );
+                var programInfoVM = this._programInfoVmFactory.Get( programInfo );
+                programInfoVMs.Add( programInfoVM );
             }
+            this.ProgramInfoVMs = programInfoVMs;
         }
 
-        public IList<IProgramInfo> ProgramInfos;
+        public IEnumerable<ProgramInfoViewModel> ProgramInfoVMs;
+
+        private ProgramInfoViewModelFactory _programInfoVmFactory;
     }
 #endregion
 }

@@ -75,6 +75,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataTypes\InstalledProgramViewModel.cs" />
+    <Compile Include="DataTypes\ProgramInfoViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -95,6 +96,7 @@
     <Compile Include="Model\IFactoryT1.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
+    <Compile Include="Model\ProgramInfoViewModelFactory.cs" />
     <Compile Include="Model\ProgramViewModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
