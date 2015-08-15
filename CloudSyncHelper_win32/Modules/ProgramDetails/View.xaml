@@ -12,27 +12,31 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Styles.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel Orientation="Vertical">
+    <Border>
         <StackPanel 
-                    Orientation="Horizontal">
-            <Image 
-                    Source="{StaticResource Settings-02-16}" 
-                    VerticalAlignment="Top" 
-            />
-            <TextBlock Text="Konfigurationen:" />
-            <local:SupportedOSs 
-                                DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
+                    Orientation="Vertical">
+            <StackPanel 
+                        Orientation="Horizontal">
+                <Image 
+                        Source="{StaticResource Settings-02-16}" 
+                        VerticalAlignment="Top" 
+                />
+                <TextBlock Text="Konfigurationen:" />
+                <local:SupportedOSs 
+                                    DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
+                />
+            </StackPanel>
+
+            <local:PathMap 
+                            DataContext="{Binding Path=PathMap, Mode=OneWay}" 
             />
         </StackPanel>
-
-        <local:PathMap 
-                        DataContext="{Binding Path=PathMap, Mode=OneWay}" 
-        />
-    </StackPanel>
+    </Border>
 
 </UserControl>

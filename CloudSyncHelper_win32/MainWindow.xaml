@@ -11,6 +11,10 @@
                 <ResourceDictionary Source="./Dictionaries/Images.xaml" />
                 <ResourceDictionary Source="./Dictionaries/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="{x:Type Expander}">
+                <Setter Property="Margin" Value="0 4 0 4" />
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -20,7 +24,7 @@
                       Grid.IsSharedSizeScope="True">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Expander BorderBrush="Black" BorderThickness="0 1 0 1" >
+                    <Expander>
                         <Expander.Resources>
                             <ResourceDictionary>
                                 <Style TargetType="{x:Type Button}">
