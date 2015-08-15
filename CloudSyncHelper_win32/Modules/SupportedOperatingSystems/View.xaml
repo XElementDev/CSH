@@ -1,6 +1,9 @@
-﻿<UserControl x:Class="XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOSs"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+﻿<UserControl x:Class="XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOSs" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+
+             xmlns:local="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules" 
+
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
@@ -18,108 +21,28 @@
 
     <StackPanel 
                 Orientation="Vertical">
-        <StackPanel x:Name="Windows7" 
-                    Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Windows_7-000000-16}" 
-                   ToolTip="Konfiguration für Windows 7 verfügbar" 
-                   Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 7" 
-                       ToolTip="Konfiguration für Windows 7 verfügbar" 
-                       Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <Image 
-                   Source="{StaticResource Windows_7-000000-16}" 
-                   Opacity=".25" 
-                   ToolTip="Konfiguration für Windows 7 nicht verfügbar" 
-                   Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 7" 
-                       Opacity=".25" 
-                       ToolTip="Konfiguration für Windows 7 nicht verfügbar" 
-                       Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-        </StackPanel>
+        <local:SupportedOperatingSystemView 
+                                            OsName="Windows 7" 
+                                            IsOsSupported="{Binding Path=IsWindows7Supported}" 
+                                            OsImageSource="{StaticResource Windows_7-000000-16}" 
+        />
 
-        <StackPanel x:Name="Windows8" 
-                    Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Windows_8-000000-16}" 
-                   ToolTip="Konfiguration für Windows 8 verfügbar" 
-                   Visibility="{Binding Path=IsWindows8Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 8" 
-                       ToolTip="Konfiguration für Windows 8 verfügbar" 
-                       Visibility="{Binding Path=IsWindows8Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <Image 
-                   Source="{StaticResource Windows_8-000000-16}" 
-                   Opacity=".25" 
-                   ToolTip="Konfiguration für Windows 8 nicht verfügbar" 
-                   Visibility="{Binding Path=IsWindows8Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 8" 
-                       Opacity=".25" 
-                       ToolTip="Konfiguration für Windows 8 nicht verfügbar" 
-                       Visibility="{Binding Path=IsWindows8Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-        </StackPanel>
+        <local:SupportedOperatingSystemView 
+                                            OsName="Windows 8" 
+                                            IsOsSupported="{Binding Path=IsWindows8Supported}" 
+                                            OsImageSource="{StaticResource Windows_8-000000-16}" 
+        />
 
-        <StackPanel x:Name="Windows81" 
-                    Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Windows_8_1-000000-16}" 
-                   ToolTip="Konfiguration für Windows 8.1 verfügbar" 
-                   Visibility="{Binding Path=IsWindows81Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 8.1" 
-                       ToolTip="Konfiguration für Windows 8.1 verfügbar" 
-                       Visibility="{Binding Path=IsWindows81Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <Image 
-                   Source="{StaticResource Windows_8_1-000000-16}" 
-                   Opacity=".25" 
-                   ToolTip="Konfiguration für Windows 8.1 nicht verfügbar" 
-                   Visibility="{Binding Path=IsWindows81Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 8.1" 
-                       Opacity=".25" 
-                       ToolTip="Konfiguration für Windows 8.1 nicht verfügbar" 
-                       Visibility="{Binding Path=IsWindows81Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-        </StackPanel>
+        <local:SupportedOperatingSystemView 
+                                            OsName="Windows 8.1" 
+                                            IsOsSupported="{Binding Path=IsWindows81Supported}" 
+                                            OsImageSource="{StaticResource Windows_8_1-000000-16}" 
+        />
 
-        <StackPanel x:Name="Windows10" 
-                    Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Windows_10-000000-16}" 
-                   ToolTip="Konfiguration für Windows 10 verfügbar" 
-                   Visibility="{Binding Path=IsWindows10Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 10" 
-                       ToolTip="Konfiguration für Windows 10 verfügbar" 
-                       Visibility="{Binding Path=IsWindows10Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <Image 
-                   Source="{StaticResource Windows_10-000000-16}" 
-                   Opacity=".25" 
-                   ToolTip="Konfiguration für Windows 10 nicht verfügbar" 
-                   Visibility="{Binding Path=IsWindows10Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-            <TextBlock 
-                       Text="Windows 10" 
-                       Opacity=".25" 
-                       ToolTip="Konfiguration für Windows 10 nicht verfügbar" 
-                       Visibility="{Binding Path=IsWindows10Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-            />
-        </StackPanel>
+        <local:SupportedOperatingSystemView 
+                                            OsName="Windows 10" 
+                                            IsOsSupported="{Binding Path=IsWindows10Supported}" 
+                                            OsImageSource="{StaticResource Windows_10-000000-16}" 
+        />
     </StackPanel>
 </UserControl>
