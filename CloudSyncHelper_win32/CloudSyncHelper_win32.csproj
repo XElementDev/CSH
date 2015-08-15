@@ -85,7 +85,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PathMapView.xaml">
+    <Page Include="Modules\PathMap\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,8 +102,8 @@
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
     <Compile Include="Model\Factories\ProgramViewModelFactory.cs" />
-    <Compile Include="PathMapView.xaml.cs">
-      <DependentUpon>PathMapView.xaml</DependentUpon>
+    <Compile Include="Modules\PathMap\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
