@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 using XElement.Common.UI;
+using SupportedOperatingSystemsViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems.ViewModel;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
@@ -53,7 +54,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        public ProgramInfoViewModel ProgramInfoVM { get; set; }
+        private ProgramInfoViewModel _programInfoVM;
+        public ProgramInfoViewModel ProgramInfoVM
+        {
+            get { return this._programInfoVM; }
+            set
+            {
+                this._programInfoVM = value;
+                this.SupportedOSsVM = new SupportedOperatingSystemsViewModel( this.ProgramInfoVM.OsConfigs );
+            }
+        }
+
+        public SupportedOperatingSystemsViewModel SupportedOSsVM { get; private set; }
 
         public ICommand UnlinkCommand { get; private set; }
         private bool UnlinkCommand_CanExecute()

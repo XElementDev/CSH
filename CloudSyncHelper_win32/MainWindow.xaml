@@ -102,6 +102,17 @@
                         </Expander.Header>
 
                         <StackPanel Orientation="Vertical">
+                            <StackPanel 
+                                        Orientation="Horizontal">
+                                <Image 
+                                       Source="{StaticResource Settings-02-16}" 
+                                       VerticalAlignment="Top" 
+                                />
+                                <TextBlock Text="Verfügbare Konfigurationen:" />
+                                <local:SupportedOSs 
+                                                    DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
+                                />
+                            </StackPanel>
 
                             <local:PathMap 
                                            DataContext="{Binding Path=PathMap, Mode=OneWay}" 

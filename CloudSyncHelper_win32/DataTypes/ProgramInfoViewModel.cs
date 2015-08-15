@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
@@ -59,6 +60,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                     .All( path => new SymbolicLinkHelper().IsSymbolicLink( path ) );
             }
         }
+
+        public IEnumerable<IOsConfiguration> OsConfigs { get { return this._programInfo.OsConfigs; } }
 
         public string TechnicalNameMatcher { get { return this._programInfo.TechnicalNameMatcher; } }
 

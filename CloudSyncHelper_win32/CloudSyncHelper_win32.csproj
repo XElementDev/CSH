@@ -89,6 +89,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\SupportedOperatingSystems\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\SupportedOperatingSystems\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\ProgramViewModel.cs" />
@@ -105,6 +113,10 @@
     <Compile Include="Modules\PathMap\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SupportedOperatingSystems\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SupportedOperatingSystems\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -153,7 +165,13 @@
     <Resource Include="Resources\Settings-02-FFFFFF-16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Windows 8-FFFFFF-16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Windows_10-FFFFFF-16.png" />
+    <Resource Include="Resources\Windows_8_1-FFFFFF-16.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
