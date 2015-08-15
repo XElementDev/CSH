@@ -2,6 +2,7 @@
 using System.ComponentModel.Composition;
 using System.Configuration;
 using System.IO;
+using XElement.CloudSyncHelper.UI.Win32.Model.Configuration;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
@@ -75,7 +76,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
-        private Configuration GetConfigFromFile( ConfigurationUserLevel userLevel )
+        private System.Configuration.Configuration GetConfigFromFile( ConfigurationUserLevel userLevel )
         {
             return ConfigurationManager.OpenMappedExeConfiguration( this.ExeConfigFileMap, userLevel );
         }

@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace XElement.CloudSyncHelper.UI.Win32.Model
+namespace XElement.CloudSyncHelper.UI.Win32.Model.Configuration
 {
 #region not unit-tested
     internal class RoamingConfig : ConfigurationSection
