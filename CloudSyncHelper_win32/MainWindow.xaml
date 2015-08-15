@@ -43,66 +43,7 @@
                             </ResourceDictionary>
                         </Expander.Resources>
                         <Expander.Header>
-                            <StackPanel 
-                                        Orientation="Horizontal">
-                                <Image 
-                                       Source="{StaticResource Installation-03-16}" 
-                                       Visibility="{Binding Path=IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                                       ToolTip="Installiert" 
-                                />
-                                <Image 
-                                       Source="{StaticResource Installation-03-16}" 
-                                       Visibility="{Binding Path=IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-                                       Opacity=".25" 
-                                       ToolTip="Nicht installiert" 
-                                />
-
-                                <Image 
-                                       Source="{StaticResource Link-16}" 
-                                       Visibility="{Binding Path=IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                                       ToolTip="Verknüpft"
-                                />
-                                <Image 
-                                       Source="{StaticResource Link-16}" 
-                                       Visibility="{Binding Path=IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-                                       Opacity=".25" 
-                                       ToolTip="Nicht verknüpft"
-                                />
-
-                                <Image 
-                                       Source="{StaticResource Settings-02-16}" 
-                                       Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                                       ToolTip="Konfiguration verfügbar"
-                                />
-                                <Image 
-                                       Source="{StaticResource Settings-02-16}" 
-                                       Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-                                       Opacity=".25" 
-                                       ToolTip="Konfiguration nicht verfügbar"
-                                />
-
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition MaxWidth="256" SharedSizeGroup="DisplayNameSharedSizeGroup" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
-                                               Grid.Column="0" 
-                                               Text="{Binding Path=DisplayName, Mode=OneWay}" 
-                                               TextTrimming="CharacterEllipsis" 
-                                               VerticalAlignment="Center" 
-                                               ToolTip="{Binding Path=DisplayName, Mode=OneWay}" 
-                                    />
-                                </Grid>
-
-                                <Button 
-                                        Command="{Binding Path=LinkCommand, Mode=OneWay}" 
-                                        Content="Link erstellen" 
-                                />
-                                <Button 
-                                        Command="{Binding Path=UnlinkCommand, Mode=OneWay}" 
-                                        Content="Link löschen" 
-                                />
-                            </StackPanel>
+                            <local:ProgramHeaderView DataContext="{Binding}" />
                         </Expander.Header>
 
                         <local:ProgramDetailsView DataContext="{Binding}" />
