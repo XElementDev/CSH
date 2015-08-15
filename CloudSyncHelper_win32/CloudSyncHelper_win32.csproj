@@ -170,6 +170,7 @@
   <ItemGroup>
     <Resource Include="Resources\Windows_10-FFFFFF-16.png" />
     <Resource Include="Resources\Windows_8_1-FFFFFF-16.png" />
+    <Resource Include="Resources\Microsoft-Windows-FFFFFF-16.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

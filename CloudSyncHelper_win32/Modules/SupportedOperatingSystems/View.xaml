@@ -18,6 +18,32 @@
 
     <StackPanel 
                 Orientation="Vertical">
+        <StackPanel x:Name="Windows7" 
+                    Orientation="Horizontal">
+            <Image 
+                   Source="{StaticResource Windows_7-FFFFFF-16}" 
+                   ToolTip="Konfiguration für Windows 7 verfügbar" 
+                   Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+            />
+            <TextBlock 
+                       Text="Windows 7" 
+                       ToolTip="Konfiguration für Windows 7 verfügbar" 
+                       Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+            />
+            <Image 
+                   Source="{StaticResource Windows_7-FFFFFF-16}" 
+                   Opacity=".25" 
+                   ToolTip="Konfiguration für Windows 7 nicht verfügbar" 
+                   Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+            />
+            <TextBlock 
+                       Text="Windows 7" 
+                       Opacity=".25" 
+                       ToolTip="Konfiguration für Windows 7 nicht verfügbar" 
+                       Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+            />
+        </StackPanel>
+
         <StackPanel x:Name="Windows8" 
                     Orientation="Horizontal">
             <Image 

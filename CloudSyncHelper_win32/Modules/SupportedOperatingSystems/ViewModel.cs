@@ -17,6 +17,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems
             return this._osConfigs.Any( c => c.OsId == osId );
         }
 
+        public bool IsWindows7Supported { get { return this.IsSupported( OsId.Win7 ); } }
+
         public bool IsWindows8Supported { get { return this.IsSupported( OsId.Win8 ); } }
 
         public bool IsWindows81Supported { get { return this.IsSupported( OsId.Win81 ); } }
