@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             this.LoadInstalledPrograms();
         }
 
-        public IEnumerable<InstalledProgramViewModel> InstalledProgramVMs;
+        public IEnumerable<InstalledProgramViewModel> InstalledProgramVMs { get; private set; }
 
         private void LoadInstalledPrograms()
         {

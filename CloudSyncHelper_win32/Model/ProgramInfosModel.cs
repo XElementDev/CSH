@@ -30,7 +30,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             this.ProgramInfoVMs = programInfoVMs;
         }
 
-        public IEnumerable<ProgramInfoViewModel> ProgramInfoVMs;
+        public IEnumerable<ProgramInfoViewModel> ProgramInfoVMs { get; private set; }
 
         private ProgramInfoViewModelFactory _programInfoVmFactory;
     }
