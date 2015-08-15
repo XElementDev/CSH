@@ -21,7 +21,7 @@
         <StackPanel x:Name="Windows7" 
                     Orientation="Horizontal">
             <Image 
-                   Source="{StaticResource Windows_7-FFFFFF-16}" 
+                   Source="{StaticResource Windows_7-000000-16}" 
                    ToolTip="Konfiguration für Windows 7 verfügbar" 
                    Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
@@ -31,7 +31,7 @@
                        Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
             <Image 
-                   Source="{StaticResource Windows_7-FFFFFF-16}" 
+                   Source="{StaticResource Windows_7-000000-16}" 
                    Opacity=".25" 
                    ToolTip="Konfiguration für Windows 7 nicht verfügbar" 
                    Visibility="{Binding Path=IsWindows7Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
@@ -47,7 +47,7 @@
         <StackPanel x:Name="Windows8" 
                     Orientation="Horizontal">
             <Image 
-                   Source="{StaticResource Windows_8-FFFFFF-16}" 
+                   Source="{StaticResource Windows_8-000000-16}" 
                    ToolTip="Konfiguration für Windows 8 verfügbar" 
                    Visibility="{Binding Path=IsWindows8Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
@@ -57,7 +57,7 @@
                        Visibility="{Binding Path=IsWindows8Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
             <Image 
-                   Source="{StaticResource Windows_8-FFFFFF-16}" 
+                   Source="{StaticResource Windows_8-000000-16}" 
                    Opacity=".25" 
                    ToolTip="Konfiguration für Windows 8 nicht verfügbar" 
                    Visibility="{Binding Path=IsWindows8Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
@@ -73,7 +73,7 @@
         <StackPanel x:Name="Windows81" 
                     Orientation="Horizontal">
             <Image 
-                   Source="{StaticResource Windows_8_1-FFFFFF-16}" 
+                   Source="{StaticResource Windows_8_1-000000-16}" 
                    ToolTip="Konfiguration für Windows 8.1 verfügbar" 
                    Visibility="{Binding Path=IsWindows81Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
@@ -83,7 +83,7 @@
                        Visibility="{Binding Path=IsWindows81Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
             <Image 
-                   Source="{StaticResource Windows_8_1-FFFFFF-16}" 
+                   Source="{StaticResource Windows_8_1-000000-16}" 
                    Opacity=".25" 
                    ToolTip="Konfiguration für Windows 8.1 nicht verfügbar" 
                    Visibility="{Binding Path=IsWindows81Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
@@ -99,7 +99,7 @@
         <StackPanel x:Name="Windows10" 
                     Orientation="Horizontal">
             <Image 
-                   Source="{StaticResource Windows_10-FFFFFF-16}" 
+                   Source="{StaticResource Windows_10-000000-16}" 
                    ToolTip="Konfiguration für Windows 10 verfügbar" 
                    Visibility="{Binding Path=IsWindows10Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
@@ -109,7 +109,7 @@
                        Visibility="{Binding Path=IsWindows10Supported, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
             />
             <Image 
-                   Source="{StaticResource Windows_10-FFFFFF-16}" 
+                   Source="{StaticResource Windows_10-000000-16}" 
                    Opacity=".25" 
                    ToolTip="Konfiguration für Windows 10 nicht verfügbar" 
                    Visibility="{Binding Path=IsWindows10Supported, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 

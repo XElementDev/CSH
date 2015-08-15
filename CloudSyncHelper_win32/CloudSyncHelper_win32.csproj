@@ -158,17 +158,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Installation-03-FFFFFF-16.png" />
-    <Resource Include="Resources\Link-FFFFFF-16.png" />
+    <Resource Include="Resources\Installation-03-000000-16.png" />
+    <Resource Include="Resources\Link-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Settings-02-FFFFFF-16.png" />
+    <Resource Include="Resources\Settings-02-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Windows 8-FFFFFF-16.png" />
+    <Resource Include="Resources\Windows 8-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Microsoft-Windows-FFFFFF-16.png" />
+    <Resource Include="Resources\Microsoft-Windows-000000-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
