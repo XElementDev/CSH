@@ -89,6 +89,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\ProgramDetails\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\SupportedOperatingSystems\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +115,9 @@
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
     <Compile Include="Model\Factories\ProgramViewModelFactory.cs" />
     <Compile Include="Modules\PathMap\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ProgramDetails\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\SupportedOperatingSystems\View.xaml.cs">

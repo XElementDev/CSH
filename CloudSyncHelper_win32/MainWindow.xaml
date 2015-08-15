@@ -101,23 +101,7 @@
                             </StackPanel>
                         </Expander.Header>
 
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel 
-                                        Orientation="Horizontal">
-                                <Image 
-                                       Source="{StaticResource Settings-02-16}" 
-                                       VerticalAlignment="Top" 
-                                />
-                                <TextBlock Text="Konfigurationen:" />
-                                <local:SupportedOSs 
-                                                    DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
-                                />
-                            </StackPanel>
-
-                            <local:PathMap 
-                                           DataContext="{Binding Path=PathMap, Mode=OneWay}" 
-                            />
-                        </StackPanel>
+                        <local:ProgramDetailsView DataContext="{Binding}" />
                     </Expander>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
