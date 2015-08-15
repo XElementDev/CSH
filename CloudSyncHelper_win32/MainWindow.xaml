@@ -108,7 +108,7 @@
                                        Source="{StaticResource Settings-02-16}" 
                                        VerticalAlignment="Top" 
                                 />
-                                <TextBlock Text="Verfügbare Konfigurationen:" />
+                                <TextBlock Text="Konfigurationen:" />
                                 <local:SupportedOSs 
                                                     DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
                                 />
