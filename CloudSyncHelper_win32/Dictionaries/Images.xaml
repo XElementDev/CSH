@@ -6,7 +6,7 @@
     <BitmapImage x:Key="Settings-02-16"         UriSource="../Resources/Settings-02-FFFFFF-16.png" />
     <BitmapImage x:Key="Windows_7-FFFFFF-16"    UriSource="../Resources/Microsoft-Windows-FFFFFF-16.png" />
     <BitmapImage x:Key="Windows_8-FFFFFF-16"    UriSource="../Resources/Windows 8-FFFFFF-16.png" />
-    <BitmapImage x:Key="Windows_8_1-FFFFFF-16"  UriSource="../Resources/Windows_8_1-FFFFFF-16.png" />
-    <BitmapImage x:Key="Windows_10-FFFFFF-16"   UriSource="../Resources/Windows_10-FFFFFF-16.png" />
+    <BitmapImage x:Key="Windows_8_1-FFFFFF-16"  UriSource="../Resources/Windows 8-FFFFFF-16.png" />
+    <BitmapImage x:Key="Windows_10-FFFFFF-16"   UriSource="../Resources/Windows 8-FFFFFF-16.png" />
 
 </ResourceDictionary>
