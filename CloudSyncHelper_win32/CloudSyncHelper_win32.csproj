@@ -93,11 +93,11 @@
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
     <Compile Include="Model\Events.cs" />
     <Compile Include="Model\IConfig.cs" />
-    <Compile Include="Model\IFactoryT1.cs" />
+    <Compile Include="Model\Factories\IFactoryT1.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
-    <Compile Include="Model\ProgramInfoViewModelFactory.cs" />
-    <Compile Include="Model\ProgramViewModelFactory.cs" />
+    <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
+    <Compile Include="Model\Factories\ProgramViewModelFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
