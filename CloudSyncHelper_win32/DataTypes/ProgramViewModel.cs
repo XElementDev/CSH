@@ -15,7 +15,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             this._eventAggregator = eventAggregator;
 
             this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
-            this.UnlinkCommand = new DelegateCommand( () => { }, this.UnlinkCommand_CanExecute );
+            this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
         }
 
         public string DisplayName { get { return this.ProgramInfoVM.DisplayName; } }
@@ -54,6 +54,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         private bool UnlinkCommand_CanExecute()
         {
             return this.IsLinked;
+        }
+        private void UnlinkCommand_Execute()
+        {
+            this.ProgramInfoVM.ExecutionLogic.Unlink();
         }
 
         private IEventAggregator _eventAggregator;

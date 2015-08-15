@@ -29,17 +29,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        private ExecutionLogic _executionLogic;
-        public ExecutionLogic ExecutionLogic
-        {
-            get { return this._executionLogic; }
-            private set
-            {
-                this._executionLogic = value;
-                //this.UnlinkCommand = new DelegateCommand( this.ExecutionLogic.Unlink, this.UnlinkCommand_CanExecute );
-                //this.RaisePropertyChanged( "HasSuitableConfig" );
-            }
-        }
+        public ExecutionLogic ExecutionLogic { get; private set; }
 
         public bool HasSuitableConfig
         {

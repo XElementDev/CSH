@@ -51,7 +51,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         // TODO: feature to move data to SYNC folder
 
-        private ObservableCollection<ProgramViewModel> _programViewModels;
         public ListCollectionView ProgramViewModelsView { get; private set; }
 
         private bool ProgramViewModelsView_Filter( object obj )
@@ -77,6 +76,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
         }
 
         private IEventAggregator _eventAggregator;
+        private ObservableCollection<ProgramViewModel> _programViewModels;
 
 #pragma warning disable 0649
         [Import]
