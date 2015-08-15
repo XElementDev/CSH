@@ -13,13 +13,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             this._config = config;
             this._programInfo = programInfo;
 
-            var pathVariables = new PathVariablesDTO
-            {
-                PathToSyncFolder = this._config.PathToSyncFolder,
-                UplayUserName = this._config.UplayAccountName,
-                UserName = this._config.UserName
-            };
-            this.ExecutionLogic = new ExecutionLogic( programInfo, pathVariables );
+            InitializeExecutionLogic( programInfo );
         }
 
         public string DisplayName
@@ -39,7 +33,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         public ExecutionLogic ExecutionLogic
         {
             get { return this._executionLogic; }
-            set
+            private set
             {
                 this._executionLogic = value;
                 //this.UnlinkCommand = new DelegateCommand( this.ExecutionLogic.Unlink, this.UnlinkCommand_CanExecute );
@@ -55,6 +49,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                     this.ExecutionLogic.HasSuitableConfig();
             }
         }
+
+        private void InitializeExecutionLogic( IProgramInfo programInfo )
+        {
+            var pathVariables = new PathVariablesDTO
+            {
+                PathToSyncFolder = this._config.PathToSyncFolder,
+                UplayUserName = this._config.UplayAccountName,
+                UserName = this._config.UserName
+            };
+            this.ExecutionLogic = new ExecutionLogic( programInfo, pathVariables );
+        }
+
         public bool IsLinked
         {
             get
