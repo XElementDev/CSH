@@ -2,7 +2,6 @@
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
-using XElement.CloudSyncHelper.UI.Win32.Events;
 
 namespace XElement.CloudSyncHelper.UI.Win32
 {
@@ -16,7 +15,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.MainWindow = new MainWindow { DataContext = this._mainVM };
             this.MainWindow.Show();
 
-            this._eventAggregator.GetEvent<MefImportsSatisfied>().Publish();
+            this._mainVM.OnMefImportsSatisfied();
         }
 
         private void InitializeMef()

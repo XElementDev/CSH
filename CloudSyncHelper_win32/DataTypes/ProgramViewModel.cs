@@ -3,7 +3,6 @@ using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using XElement.CloudSyncHelper.UI.Win32.Events;
 using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
@@ -39,8 +38,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         private void LinkCommand_Execute()
         {
             this.ProgramInfoVM.ExecutionLogic.Link();
-            var output = String.Join( Environment.NewLine, this.ProgramInfoVM.ExecutionLogic.StandardOutputs );
-            this._eventAggregator.GetEvent<StandardOutputChanged>().Publish( output );
         }
 
         public IEnumerable<Tuple<string, string>> PathMap

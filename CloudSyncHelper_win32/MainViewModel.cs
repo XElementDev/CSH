@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Data;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
-using XElement.CloudSyncHelper.UI.Win32.Events;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.Common.UI;
 
@@ -21,7 +20,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
         public MainViewModel( IEventAggregator eventAggregator )
         {
             this._eventAggregator = eventAggregator;
-            this.SubscribeEvents();
 
             this.SetupProgramViewModelsView();
         }
@@ -64,22 +62,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
                    programVM.DisplayName != String.Empty;
         }
 
-        private void OnMefImportsSatisfied()
+        public void OnMefImportsSatisfied()
         {
             this.LoadProgramViewModels();
-            this._eventAggregator.GetEvent<MefImportsSatisfied>().Unsubscribe( this.OnMefImportsSatisfied );
-        }
-
-        private string _output;
-        public string Output
-        {
-            get { return this._output; }
-
-            set
-            {
-                this._output = value;
-                this.RaisePropertyChanged( "Output" );
-            }
         }
 
         private void SetupProgramViewModelsView()
@@ -89,12 +74,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
             var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
             this.ProgramViewModelsView.SortDescriptions.Add( displayNameSorting );
             this.ProgramViewModelsView.Filter = this.ProgramViewModelsView_Filter;
-        }
-
-        private void SubscribeEvents()
-        {
-            this._eventAggregator.GetEvent<MefImportsSatisfied>().Subscribe( this.OnMefImportsSatisfied );
-            this._eventAggregator.GetEvent<StandardOutputChanged>().Subscribe( s => this.Output = s );
         }
 
         private IEventAggregator _eventAggregator;
