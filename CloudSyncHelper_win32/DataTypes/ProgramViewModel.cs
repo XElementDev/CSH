@@ -44,7 +44,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             get
             {
-                return new List<Tuple<string, string>> { new Tuple<string, string>( "key", "value" ) };
+                var pathMap = new List<Tuple<string, string>>();
+                foreach ( var osConfig in this.ProgramInfoVM.ExecutionLogic.Config )
+                {
+                    pathMap.Add( new Tuple<string, string>( osConfig.Link, osConfig.Target ) );
+                }
+                return pathMap;
             }
         }
 
