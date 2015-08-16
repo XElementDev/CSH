@@ -14,19 +14,33 @@ namespace XElement.CloudSyncHelper
             this._programInfo = programInfo;
         }
 
+        private void CreatePathToDestinationTarget()
+        {
+            Directory.CreateDirectory( this.PathToDestinationTarget );
+        }
+
         public void /*ILink.*/Do()
         {
-            var mkLink = this.GetCmdCommand();
-            //var process = new Process();
-            //process.StartInfo.FileName = "cmd.exe";
-            //process.StartInfo.Arguments = "/c " + mkLink;
-            //process.StartInfo.CreateNoWindow = true;
-            //process.StartInfo.RedirectStandardOutput = true;
-            //process.StartInfo.UseShellExecute = false;
-            //process.Start();
+            this.CreatePathToDestinationTarget();
 
-            //this.StandardOutput = process.StandardOutput.ReadToEnd();
-            this.StandardOutput = mkLink;
+            var mkLink = this.GetCmdCommand();
+            var process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.Arguments = "/c " + mkLink;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.Verb = "runas";
+            process.Start();
+
+            process.WaitForExit();
+
+            // TODO: Handle error if file already exists
+            var error = process.StandardError.ReadToEnd();
+            var output = process.StandardOutput.ReadToEnd();
+
+            this.StandardOutput = process.StandardOutput.ReadToEnd();
         }
 
         private string GetAppsOrGamesFolder
@@ -44,10 +58,18 @@ namespace XElement.CloudSyncHelper
         {
             get
             {
-                var destinationRootPath = Environment.GetFolderPath(this._linkInfo.DestinationRoot);
-                var link = Path.Combine( destinationRootPath, this._linkInfo.DestinationSubFolderPath, 
+                var link = Path.Combine( this.PathToDestinationTarget, 
                                          this._linkInfo.DestinationTargetName );
                 return link;
+            }
+        }
+
+        private string PathToDestinationTarget
+        {
+            get
+            {
+                var destinationRootPath = Environment.GetFolderPath(this._linkInfo.DestinationRoot);
+                return Path.Combine( destinationRootPath, this._linkInfo.DestinationSubFolderPath );
             }
         }
 
