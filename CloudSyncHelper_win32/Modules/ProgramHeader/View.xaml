@@ -43,6 +43,20 @@
         />
 
         <Image 
+               Source="{StaticResource Cloud-000000-16}" 
+               Visibility="{Binding Path=IsInCloud, 
+                            Converter={StaticResource BoolToVisibilityConverter}, 
+                            Mode=OneWay}" 
+               ToolTip="Daten sind in der Cloud"
+        />
+        <Image 
+               Source="{StaticResource Cloud-000000-16}" 
+               Visibility="{Binding Path=IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+               Opacity=".25" 
+               ToolTip="Daten sind nicht in der Cloud"
+        />
+
+        <Image 
                Source="{StaticResource Link-16}" 
                Visibility="{Binding Path=IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
                ToolTip="Verknüpft"

@@ -51,6 +51,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             this.ExecutionLogic = new ExecutionLogic( programInfo, pathVariables );
         }
 
+        public bool IsInCloud { get { return this.ExecutionLogic.IsInCloud; } }
+
         public bool IsLinked { get { return this.ExecutionLogic.IsLinked; } }
 
         public IEnumerable<IOsConfiguration> OsConfigs { get { return this._programInfo.OsConfigs; } }

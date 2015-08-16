@@ -25,6 +25,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public InstalledProgramViewModel InstalledProgram { get; set; }
 
+        public bool IsInCloud { get { return this.ProgramInfoVM.IsInCloud; } }
+
         public bool IsInstalled { get { return this.InstalledProgram != null; } }
 
         public bool IsLinked { get { return this.ProgramInfoVM.IsLinked; } }
@@ -34,6 +36,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             return this.IsInstalled &&
                 this.HasSuitableConfig &&
+                this.IsInCloud &&
                 !this.IsLinked;
         }
         private void LinkCommand_Execute()
