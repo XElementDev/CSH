@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using XElement.CloudSyncHelper.DataTypes;
 
@@ -90,8 +91,9 @@ namespace XElement.CloudSyncHelper
 
         public void /*ILink.*/Undo()
         {
-            // TODO: implement Undo
-            throw new NotImplementedException();
+            // TODO: Delete folders if they are empty
+            // TODO: Check for FolderLink logic
+            File.Delete( this.Link );
         }
 
         private ILinkInfo _linkInfo;
