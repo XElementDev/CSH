@@ -39,6 +39,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         private void LinkCommand_Execute()
         {
             this.ProgramInfoVM.ExecutionLogic.Link();
+            this.RaisePropertiesChanged();
         }
 
         public IEnumerable<Tuple<string, string>> PathMap
@@ -65,6 +66,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
+        private void RaisePropertiesChanged()
+        {
+            this.RaisePropertyChanged( "IsLinked" );
+            (this.LinkCommand as DelegateCommand).RaiseCanExecuteChanged();
+            (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
+        }
+
         public SupportedOperatingSystemsViewModel SupportedOSsVM { get; private set; }
 
         public ICommand UnlinkCommand { get; private set; }
@@ -75,6 +83,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         private void UnlinkCommand_Execute()
         {
             this.ProgramInfoVM.ExecutionLogic.Unlink();
+            this.RaisePropertiesChanged();
         }
 
         private IEventAggregator _eventAggregator;
