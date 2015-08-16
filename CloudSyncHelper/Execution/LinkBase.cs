@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.IO;
 using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper
+namespace XElement.CloudSyncHelper.Execution
 {
 #region not unit-tested
-    public abstract class LinkBase : ILink
+    internal abstract class LinkBase : ILink
     {
         public LinkBase( IProgramInfo programInfo, ILinkInfo linkInfo, PathVariablesDTO pathVariables )
         {

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.CloudSyncHelper.Execution;
 
 namespace XElement.CloudSyncHelper
 {

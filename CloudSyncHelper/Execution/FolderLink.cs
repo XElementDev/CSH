@@ -1,9 +1,9 @@
 ﻿using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper
+namespace XElement.CloudSyncHelper.Execution
 {
 #region not unit-tested
-    public class FolderLink : LinkBase
+    internal class FolderLink : LinkBase
     {
         public FolderLink( IProgramInfo programInfo, IFolderLinkInfo folderLinkInfo, PathVariablesDTO pathVariables )
             : base( programInfo, folderLinkInfo, pathVariables ) { }
