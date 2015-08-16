@@ -31,7 +31,8 @@ namespace XElement.CloudSyncHelper
 
         private string GetAppsOrGamesFolder
         {
-            get { return this._programInfo is IAppInfo ? "APPs" : Path.Combine( "GAMEs", "PC" ); }
+            get { return this._programInfo is IAppInfo ? "APPs" 
+                                                       : Path.Combine( "GAMEs", "PC", "SAVEs" ); }
         }
 
         private string GetCmdCommand()
@@ -59,7 +60,7 @@ namespace XElement.CloudSyncHelper
                 var userFolderName = "-" + this._pathVariables.UserName;
                 var target = Path.Combine( this._pathVariables.PathToSyncFolder,
                                            this.GetAppsOrGamesFolder, 
-                                           this._programInfo.FolderName, "SAVEs", 
+                                           this._programInfo.FolderName, 
                                            userFolderName, this._linkInfo.SourceId );
                 return target;
             }
