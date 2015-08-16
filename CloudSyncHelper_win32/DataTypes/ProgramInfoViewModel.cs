@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 
@@ -52,14 +51,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             this.ExecutionLogic = new ExecutionLogic( programInfo, pathVariables );
         }
 
-        public bool IsLinked
-        {
-            get
-            {
-                return this.ExecutionLogic.LinkPaths
-                    .All( path => new SymbolicLinkHelper().IsSymbolicLink( path ) );
-            }
-        }
+        public bool IsLinked { get { return this.ExecutionLogic.IsLinked; } }
 
         public IEnumerable<IOsConfiguration> OsConfigs { get { return this._programInfo.OsConfigs; } }
 

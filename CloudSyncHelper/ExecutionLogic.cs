@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper
@@ -35,6 +36,15 @@ namespace XElement.CloudSyncHelper
         {
             var isThereAConfigForThisOs = this.Config != null;
             return isThereAConfigForThisOs;
+        }
+
+        public bool IsLinked
+        {
+            get
+            {
+                return this.LinkPaths
+                    .All( path => new SymbolicLinkHelper().IsSymbolicLink( path ) );
+            }
         }
 
         public void Link()
