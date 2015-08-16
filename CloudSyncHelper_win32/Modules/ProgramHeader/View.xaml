@@ -31,18 +31,6 @@
         />
 
         <Image 
-               Source="{StaticResource Link-16}" 
-               Visibility="{Binding Path=IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-               ToolTip="Verknüpft"
-        />
-        <Image 
-               Source="{StaticResource Link-16}" 
-               Visibility="{Binding Path=IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-               Opacity=".25" 
-               ToolTip="Nicht verknüpft"
-        />
-
-        <Image 
                Source="{StaticResource Settings-02-16}" 
                Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
                ToolTip="Konfiguration verfügbar"
@@ -52,6 +40,18 @@
                Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                Opacity=".25" 
                ToolTip="Konfiguration nicht verfügbar"
+        />
+
+        <Image 
+               Source="{StaticResource Link-16}" 
+               Visibility="{Binding Path=IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+               ToolTip="Verknüpft"
+        />
+        <Image 
+               Source="{StaticResource Link-16}" 
+               Visibility="{Binding Path=IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+               Opacity=".25" 
+               ToolTip="Nicht verknüpft"
         />
 
         <Grid>
