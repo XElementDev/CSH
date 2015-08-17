@@ -6,6 +6,7 @@ using XElement.CloudSyncHelper.DataTypes;
 namespace XElement.CloudSyncHelper.Execution
 {
 #region not unit-tested
+    // TODO: Refactor class structure
     internal abstract class LinkBase : ILink
     {
         public LinkBase( IProgramInfo programInfo, ILinkInfo linkInfo, PathVariablesDTO pathVariables )
@@ -95,12 +96,7 @@ namespace XElement.CloudSyncHelper.Execution
             }
         }
 
-        public void /*ILink.*/Undo()
-        {
-            // TODO: Delete folders if they are empty
-            // TODO: Check for FolderLink logic
-            File.Delete( this.Link );
-        }
+        public abstract void /*ILink.*/Undo(); // TODO: Delete folders if they are empty
 
         private ILinkInfo _linkInfo;
         protected abstract string _mkLinkParams { get; }
