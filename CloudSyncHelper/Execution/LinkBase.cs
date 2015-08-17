@@ -12,7 +12,8 @@ namespace XElement.CloudSyncHelper.Execution
         {
             this._linkInfo = linkInfo;
             this._pathVariables = pathVariables;
-            this._programInfo = programInfo;
+
+            Initialize( programInfo );
         }
 
         private void CreatePathToDestinationTarget()
@@ -44,15 +45,21 @@ namespace XElement.CloudSyncHelper.Execution
             this.StandardOutput = process.StandardOutput.ReadToEnd();
         }
 
-        private string GetAppsOrGamesFolder
-        {
-            get { return this._programInfo is IAppInfo ? "APPs" 
-                                                       : Path.Combine( "GAMEs", "PC", "SAVEs" ); }
-        }
-
         private string GetCmdCommand()
         {
             return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this._mkLinkParams, this.Link, this.Target );
+        }
+
+        private void Initialize( IProgramInfo programInfo )
+        {
+            if ( programInfo is IAppInfo )
+            {
+                this._programLogic = new AppLogic( programInfo );
+            }
+            else
+            {
+                this._programLogic = new GameLogic( programInfo );
+            }
         }
 
         public string /*ILink.*/Link
@@ -82,8 +89,7 @@ namespace XElement.CloudSyncHelper.Execution
             {
                 var userFolderName = "-" + this._pathVariables.UserName;
                 var target = Path.Combine( this._pathVariables.PathToSyncFolder,
-                                           this.GetAppsOrGamesFolder, 
-                                           this._programInfo.FolderName, 
+                                           this._programLogic.PathToUserFolderContainer, 
                                            userFolderName, this._linkInfo.SourceId );
                 return target;
             }
@@ -99,7 +105,7 @@ namespace XElement.CloudSyncHelper.Execution
         private ILinkInfo _linkInfo;
         protected abstract string _mkLinkParams { get; }
         private PathVariablesDTO _pathVariables;
-        private IProgramInfo _programInfo;
+        private IProgramLogic _programLogic;
     }
 #endregion
 }
