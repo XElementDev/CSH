@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Execution;
@@ -40,11 +39,7 @@ namespace XElement.CloudSyncHelper
             return isThereAConfigForThisOs;
         }
 
-        public bool IsInCloud
-        {
-            // TODO: Check for FolderLink logic
-            get { return this.TargetPaths.All( path => File.Exists( path ) ); }
-        }
+        public bool IsInCloud { get { return this.Config.All( c => c.IsInCloud ); } }
 
         public bool IsLinked
         {

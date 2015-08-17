@@ -2,6 +2,8 @@
 {
     public interface ILink : IDoUndoCommand
     {
+        bool IsInCloud { get; }
+
         string Link { get; }
 
         string StandardOutput { get; }

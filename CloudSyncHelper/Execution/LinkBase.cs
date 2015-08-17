@@ -63,6 +63,8 @@ namespace XElement.CloudSyncHelper.Execution
             }
         }
 
+        public abstract bool /*ILink.*/IsInCloud { get; }
+
         public string /*ILink.*/Link
         {
             get
