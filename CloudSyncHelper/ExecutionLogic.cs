@@ -41,14 +41,7 @@ namespace XElement.CloudSyncHelper
 
         public bool IsInCloud { get { return this.Config.All( c => c.IsInCloud ); } }
 
-        public bool IsLinked
-        {
-            get
-            {
-                return this.LinkPaths
-                    .All( path => new SymbolicLinkHelper().IsSymbolicLink( path ) );
-            }
-        }
+        public bool IsLinked { get { return this.Config.All( c => c.IsLinked ); } }
 
         public void Link()
         {

@@ -4,6 +4,8 @@
     {
         bool IsInCloud { get; }
 
+        bool IsLinked { get; }
+
         string Link { get; }
 
         string StandardOutput { get; }

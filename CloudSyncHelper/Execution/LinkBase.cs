@@ -6,7 +6,6 @@ using XElement.CloudSyncHelper.DataTypes;
 namespace XElement.CloudSyncHelper.Execution
 {
 #region not unit-tested
-    // TODO: Refactor class structure
     internal abstract class LinkBase : ILink
     {
         public LinkBase( IProgramInfo programInfo, ILinkInfo linkInfo, PathVariablesDTO pathVariables )
@@ -64,6 +63,8 @@ namespace XElement.CloudSyncHelper.Execution
         }
 
         public abstract bool /*ILink.*/IsInCloud { get; }
+
+        public abstract bool /*ILink.*/IsLinked { get; } // TODO: Check if paths are correct
 
         public string /*ILink.*/Link
         {

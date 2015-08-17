@@ -15,6 +15,16 @@ namespace XElement.CloudSyncHelper.Execution
             get { return Directory.Exists( this.Target ); }
         }
 
+        public override bool /*LinkBase.*/IsLinked
+        {
+            get
+            {
+                var dirInfo = new DirectoryInfo( this.Link );
+                var attr = dirInfo.Attributes;
+                return new SymbolicLinkHelper().IsSymbolicLink( attr );
+            }
+        }
+
         public override void /*LinkBase.*/Undo()
         {
             // TODO: Check for FolderLink logic

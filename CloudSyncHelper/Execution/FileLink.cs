@@ -14,6 +14,16 @@ namespace XElement.CloudSyncHelper.Execution
             get { return File.Exists( this.Target ); }
         }
 
+        public override bool /*LinkBase.*/IsLinked
+        {
+            get
+            {
+                var dirInfo = new FileInfo( this.Link );
+                var attr = dirInfo.Attributes;
+                return new SymbolicLinkHelper().IsSymbolicLink( attr );
+            }
+        }
+
         public override void /*LinkBase.*/Undo()
         {
             File.Delete( this.Link );

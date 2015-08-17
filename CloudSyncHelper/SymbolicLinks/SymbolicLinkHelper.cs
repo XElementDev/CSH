@@ -10,32 +10,11 @@ namespace XElement.CloudSyncHelper
     {
         public SymbolicLinkHelper() { }
 
-        private bool IsADirectory( string path )
+        public bool IsSymbolicLink( FileAttributes fileAttributes )
         {
-            var fileAttributes = File.GetAttributes( path );
-            return fileAttributes.HasFlag( FileAttributes.Directory );
-        }
-
-        public bool IsSymbolicLink( string path )
-        {
-            if ( File.Exists( path ) )
-            {
-                FileSystemInfo fileOrDirInfo = null;
-                if( this.IsADirectory( path ) )
-                {
-                    fileOrDirInfo = new DirectoryInfo( path );
-                }
-                else
-                {
-                    fileOrDirInfo = new FileInfo( path );
-                }
-                return this.IsSymbolicLink( fileOrDirInfo.Attributes );
-            }
-            return false;
-        }
-        private bool IsSymbolicLink( FileAttributes fileAttributes )
-        {
-            return fileAttributes.HasFlag( FileAttributes.ReparsePoint );
+            var isError = (int)fileAttributes == -1;
+            var isSymbolicLink = fileAttributes.HasFlag( FileAttributes.ReparsePoint );
+            return !isError && isSymbolicLink;
         }
     }
 #endregion
