@@ -24,7 +24,7 @@ namespace XElement.CloudSyncHelper.Execution
             File.Delete( this.Link );
         }
 
-        protected override string /*LinkBase.*/_mkLinkParams { get { return string.Empty; } }
+        protected override string /*LinkBase.*/MkLinkParams { get { return string.Empty; } }
     }
 #endregion
 }

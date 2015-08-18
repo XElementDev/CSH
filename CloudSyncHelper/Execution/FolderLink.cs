@@ -22,11 +22,11 @@ namespace XElement.CloudSyncHelper.Execution
 
         public override void /*LinkBase.*/Undo()
         {
-            // TODO: Check for FolderLink logic
+            // TODO: Implement undo logic for FolderLink
             throw new NotImplementedException();
         }
 
-        protected override string /*LinkBase.*/_mkLinkParams { get { return "/D"; } }
+        protected override string /*LinkBase.*/MkLinkParams { get { return "/D"; } }
     }
 #endregion
 }

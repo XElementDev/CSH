@@ -59,7 +59,7 @@ namespace XElement.CloudSyncHelper.Execution
 
         private string GetCmdCommand()
         {
-            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this._mkLinkParams, this.Link, this.Target );
+            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this.MkLinkParams, this.Link, this.Target );
         }
 
         private void Initialize( IProgramInfo programInfo )
@@ -104,6 +104,8 @@ namespace XElement.CloudSyncHelper.Execution
             }
         }
 
+        protected abstract string MkLinkParams { get; }
+
         private string PathToDestinationTarget
         {
             get
@@ -130,7 +132,6 @@ namespace XElement.CloudSyncHelper.Execution
         public abstract void /*ILink.*/Undo(); // TODO: Delete folders if they are empty
 
         private ILinkInfo _linkInfo;
-        protected abstract string _mkLinkParams { get; }
         private PathVariablesDTO _pathVariables;
         private IProgramLogic _programLogic;
         private SymbolicLinkHelper _symLinkHelper;
