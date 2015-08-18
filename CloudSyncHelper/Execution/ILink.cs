@@ -8,8 +8,6 @@
 
         string Link { get; }
 
-        string StandardOutput { get; }
-
         string Target { get; }
     }
 }

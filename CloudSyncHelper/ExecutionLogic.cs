@@ -45,13 +45,10 @@ namespace XElement.CloudSyncHelper
 
         public void Link()
         {
-            var standardOutputs = new List<string>();
             foreach ( ILink link in this.Config )
             {
                 link.Do();
-                standardOutputs.Add( link.StandardOutput );
             }
-            this.StandardOutputs = standardOutputs;
         }
 
         public IEnumerable<string> LinkPaths
@@ -66,8 +63,6 @@ namespace XElement.CloudSyncHelper
                 return linkPaths;
             }
         }
-
-        public IEnumerable<string> StandardOutputs { get; private set; }
 
         public IEnumerable<string> TargetPaths
         {

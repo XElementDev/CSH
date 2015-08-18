@@ -31,8 +31,6 @@ namespace XElement.CloudSyncHelper.Execution
             process.StartInfo.FileName = "cmd.exe";
             process.StartInfo.Arguments = "/c " + mkLink;
             process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.Verb = "runas";
             process.Start();
@@ -40,10 +38,6 @@ namespace XElement.CloudSyncHelper.Execution
             process.WaitForExit();
 
             // TODO: Handle error if file already exists
-            var error = process.StandardError.ReadToEnd();
-            var output = process.StandardOutput.ReadToEnd();
-
-            this.StandardOutput = process.StandardOutput.ReadToEnd();
         }
 
         private bool DoesSymbolicLinkPointToExpectedPath
@@ -114,8 +108,6 @@ namespace XElement.CloudSyncHelper.Execution
                 return Path.Combine( destinationRootPath, this._linkInfo.DestinationSubFolderPath );
             }
         }
-
-        public string /*ILink.*/StandardOutput { get; private set; }
 
         public string /*ILink.*/Target
         {
