@@ -12,6 +12,7 @@ namespace XElement.CloudSyncHelper.Execution
         {
             this._linkInfo = linkInfo;
             this._pathVariables = pathVariables;
+            this._symLinkHelper = new SymbolicLinkHelper();
 
             Initialize( programInfo );
         }
@@ -45,6 +46,15 @@ namespace XElement.CloudSyncHelper.Execution
             this.StandardOutput = process.StandardOutput.ReadToEnd();
         }
 
+        private bool DoesSymbolicLinkPointToExpectedPath
+        {
+            get
+            {
+                var symLinkTarget = this._symLinkHelper.GetSymbolicLinkTarget( this.Link );
+                return symLinkTarget == this.Target;
+            }
+        }
+
         protected abstract FileSystemInfo FileSystemInfo { get; }
 
         private string GetCmdCommand()
@@ -70,15 +80,17 @@ namespace XElement.CloudSyncHelper.Execution
         {
             get
             {
-                var symLinkHelper = new SymbolicLinkHelper();
+                return this.IsSymbolicLink && 
+                    this.DoesSymbolicLinkPointToExpectedPath;
+            }
+        }
 
+        private bool IsSymbolicLink
+        {
+            get
+            {
                 var attr = this.FileSystemInfo.Attributes;
-                var isSymbolicLink = symLinkHelper.IsSymbolicLink( attr );
-
-                var symLinkTarget = symLinkHelper.GetSymbolicLinkTarget( this.Link );
-                var symbolicLinkPointsToExpectedPath = symLinkTarget == this.Target;
-
-                return isSymbolicLink && symbolicLinkPointsToExpectedPath;
+                return this._symLinkHelper.IsSymbolicLink( attr );
             }
         }
 
@@ -121,6 +133,7 @@ namespace XElement.CloudSyncHelper.Execution
         protected abstract string _mkLinkParams { get; }
         private PathVariablesDTO _pathVariables;
         private IProgramLogic _programLogic;
+        private SymbolicLinkHelper _symLinkHelper;
     }
 #endregion
 }
