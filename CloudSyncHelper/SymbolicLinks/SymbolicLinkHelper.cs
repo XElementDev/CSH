@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using XElement.CloudSyncHelper.ReparsePointAdapter;
 
 namespace XElement.CloudSyncHelper
 {
@@ -9,6 +10,11 @@ namespace XElement.CloudSyncHelper
     public /*static*/ class SymbolicLinkHelper
     {
         public SymbolicLinkHelper() { }
+
+        public string GetSymbolicLinkTarget( string symbolicLinkPath )
+        {
+            return new ReparsePointHelper().GetTarget( symbolicLinkPath );
+        }
 
         public bool IsSymbolicLink( FileAttributes fileAttributes )
         {

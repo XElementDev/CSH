@@ -45,6 +45,8 @@ namespace XElement.CloudSyncHelper.Execution
             this.StandardOutput = process.StandardOutput.ReadToEnd();
         }
 
+        protected abstract FileSystemInfo FileSystemInfo { get; }
+
         private string GetCmdCommand()
         {
             return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this._mkLinkParams, this.Link, this.Target );
@@ -64,7 +66,21 @@ namespace XElement.CloudSyncHelper.Execution
 
         public abstract bool /*ILink.*/IsInCloud { get; }
 
-        public abstract bool /*ILink.*/IsLinked { get; } // TODO: Check if paths are correct
+        public bool /*ILink.*/IsLinked
+        {
+            get
+            {
+                var symLinkHelper = new SymbolicLinkHelper();
+
+                var attr = this.FileSystemInfo.Attributes;
+                var isSymbolicLink = symLinkHelper.IsSymbolicLink( attr );
+
+                var symLinkTarget = symLinkHelper.GetSymbolicLinkTarget( this.Link );
+                var symbolicLinkPointsToExpectedPath = symLinkTarget == this.Target;
+
+                return isSymbolicLink && symbolicLinkPointsToExpectedPath;
+            }
+        }
 
         public string /*ILink.*/Link
         {

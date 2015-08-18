@@ -9,19 +9,14 @@ namespace XElement.CloudSyncHelper.Execution
         public FileLink( IProgramInfo programInfo, IFileLinkInfo fileLinkInfo, PathVariablesDTO pathVariables )
             : base( programInfo, fileLinkInfo, pathVariables ) { }
 
+        protected override FileSystemInfo /*LinkBase.*/FileSystemInfo
+        {
+            get { return new FileInfo( this.Link ); }
+        }
+
         public override bool /*LinkBase.*/IsInCloud
         {
             get { return File.Exists( this.Target ); }
-        }
-
-        public override bool /*LinkBase.*/IsLinked
-        {
-            get
-            {
-                var dirInfo = new FileInfo( this.Link );
-                var attr = dirInfo.Attributes;
-                return new SymbolicLinkHelper().IsSymbolicLink( attr );
-            }
         }
 
         public override void /*LinkBase.*/Undo()
