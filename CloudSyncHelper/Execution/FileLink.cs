@@ -11,17 +11,17 @@ namespace XElement.CloudSyncHelper.Execution
 
         protected override FileSystemInfo /*LinkBase.*/FileSystemInfo
         {
-            get { return new FileInfo( this.Link ); }
+            get { return new FileInfo( this.LinkPath ); }
         }
 
         public override bool /*LinkBase.*/IsInCloud
         {
-            get { return File.Exists( this.Target ); }
+            get { return File.Exists( this.TargetPath ); }
         }
 
         public override void /*LinkBase.*/Undo()
         {
-            File.Delete( this.Link );
+            File.Delete( this.LinkPath );
         }
 
         protected override string /*LinkBase.*/MkLinkParams { get { return string.Empty; } }

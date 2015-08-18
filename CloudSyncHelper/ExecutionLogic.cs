@@ -58,7 +58,7 @@ namespace XElement.CloudSyncHelper
                 var linkPaths = new List<string>();
                 foreach ( ILink link in this.Config )
                 {
-                    linkPaths.Add( link.Link );
+                    linkPaths.Add( link.LinkPath );
                 }
                 return linkPaths;
             }
@@ -71,7 +71,7 @@ namespace XElement.CloudSyncHelper
                 var targetPaths = new List<string>();
                 foreach ( ILink link in this.Config )
                 {
-                    targetPaths.Add( link.Target );
+                    targetPaths.Add( link.TargetPath );
                 }
                 return targetPaths;
             }

@@ -6,8 +6,8 @@
 
         bool IsLinked { get; }
 
-        string Link { get; }
+        string LinkPath { get; }
 
-        string Target { get; }
+        string TargetPath { get; }
     }
 }

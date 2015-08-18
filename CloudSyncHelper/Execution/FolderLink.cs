@@ -12,12 +12,12 @@ namespace XElement.CloudSyncHelper.Execution
 
         protected override FileSystemInfo /*LinkBase.*/FileSystemInfo
         {
-            get { return new DirectoryInfo( this.Link ); }
+            get { return new DirectoryInfo( this.LinkPath ); }
         }
 
         public override bool /*LinkBase.*/IsInCloud
         {
-            get { return Directory.Exists( this.Target ); }
+            get { return Directory.Exists( this.TargetPath ); }
         }
 
         public override void /*LinkBase.*/Undo()

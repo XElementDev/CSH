@@ -44,8 +44,8 @@ namespace XElement.CloudSyncHelper.Execution
         {
             get
             {
-                var symLinkTarget = this._symLinkHelper.GetSymbolicLinkTarget( this.Link );
-                return symLinkTarget == this.Target;
+                var symLinkTarget = this._symLinkHelper.GetSymbolicLinkTarget( this.LinkPath );
+                return symLinkTarget == this.TargetPath;
             }
         }
 
@@ -53,7 +53,8 @@ namespace XElement.CloudSyncHelper.Execution
 
         private string GetCmdCommand()
         {
-            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this.MkLinkParams, this.Link, this.Target );
+            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this.MkLinkParams, 
+                this.LinkPath, this.TargetPath );
         }
 
         private void Initialize( IProgramInfo programInfo )
@@ -88,7 +89,7 @@ namespace XElement.CloudSyncHelper.Execution
             }
         }
 
-        public string /*ILink.*/Link
+        public string /*ILink.*/LinkPath
         {
             get
             {
@@ -109,7 +110,7 @@ namespace XElement.CloudSyncHelper.Execution
             }
         }
 
-        public string /*ILink.*/Target
+        public string /*ILink.*/TargetPath
         {
             get
             {

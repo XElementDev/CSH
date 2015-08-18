@@ -52,7 +52,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                 var pathMap = new List<Tuple<string, string>>();
                 foreach ( var osConfig in this.ProgramInfoVM.ExecutionLogic.Config )
                 {
-                    pathMap.Add( new Tuple<string, string>( osConfig.Link, osConfig.Target ) );
+                    pathMap.Add( new Tuple<string, string>( osConfig.LinkPath, osConfig.TargetPath ) );
                 }
                 return pathMap;
             }
