@@ -78,16 +78,14 @@ namespace XElement.CloudSyncHelper.UI.Win32
         private IEventAggregator _eventAggregator;
         private ObservableCollection<ProgramViewModel> _programViewModels;
 
-#pragma warning disable 0649
         [Import]
-        private InstalledProgramsModel _installedProgramsModel;
+        private InstalledProgramsModel _installedProgramsModel = null;
 
         [Import]
-        private ProgramInfosModel _programInfosModel;
+        private ProgramInfosModel _programInfosModel = null;
 
         [Import]
-        private ProgramViewModelFactory _programVmFactory;
-#pragma warning restore 0649
+        private ProgramViewModelFactory _programVmFactory = null;
     }
 #endregion
 }

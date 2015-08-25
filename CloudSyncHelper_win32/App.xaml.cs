@@ -29,10 +29,8 @@ namespace XElement.CloudSyncHelper.UI.Win32
             container.ComposeParts( this );
         }
 
-#pragma warning disable 0649
         [Import]
-        private MainViewModel _mainVM;
-#pragma warning restore 0649
+        private MainViewModel _mainVM = null;
     }
 #endregion
 }

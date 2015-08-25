@@ -13,10 +13,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             return new ProgramViewModel( this._eventAggregator );
         }
 
-#pragma warning disable 0649
         [Import]
-        private IEventAggregator _eventAggregator;
-#pragma warning restore 0649
+        private IEventAggregator _eventAggregator = null;
     }
 #endregion
 }

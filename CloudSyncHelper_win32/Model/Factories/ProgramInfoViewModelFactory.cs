@@ -21,10 +21,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             return new ProgramInfoViewModel( programInfo, this._config );
         }
 
-#pragma warning disable 0649
         [Import]
-        private IConfig _config;
-#pragma warning restore 0649
+        private IConfig _config = null;
     }
 #endregion
 }
