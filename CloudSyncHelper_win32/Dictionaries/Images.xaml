@@ -5,6 +5,7 @@
     <BitmapImage x:Key="Cloud-000000-16"        UriSource="../Resources/Cloud-000000-16.png" />
     <BitmapImage x:Key="Installation-03-16"     UriSource="../Resources/Installation-03-000000-16.png" />
     <BitmapImage x:Key="Link-16"                UriSource="../Resources/Link-000000-16.png" />
+    <BitmapImage x:Key="MoveToCloud-Black-16"   UriSource="../Resources/Cloud-Upload-000000-16.png" />
     <BitmapImage x:Key="Settings-02-16"         UriSource="../Resources/Settings-02-000000-16.png" />
     <BitmapImage x:Key="Windows_7-000000-16"    UriSource="../Resources/Microsoft-Windows-000000-16.png" />
     <BitmapImage x:Key="Windows_8-000000-16"    UriSource="../Resources/Windows 8-000000-16.png" />

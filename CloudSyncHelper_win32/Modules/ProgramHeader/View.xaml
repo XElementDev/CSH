@@ -81,12 +81,20 @@
             />
         </Grid>
 
+        <Button Visibility="Collapsed" 
+                Command="{Binding Path=MoveToCloudCommand}" 
+                ToolTip="Daten in die Cloud verschieben">
+            <Button.Content>
+                <Image Source="{StaticResource MoveToCloud-Black-16}" />
+            </Button.Content>
+        </Button>
+
         <Button 
-                Command="{Binding Path=LinkCommand, Mode=OneWay}" 
+                Command="{Binding Path=LinkCommand}" 
                 Content="Link erstellen" 
         />
         <Button 
-                Command="{Binding Path=UnlinkCommand, Mode=OneWay}" 
+                Command="{Binding Path=UnlinkCommand}" 
                 Content="Link löschen" 
         />
     </StackPanel>
