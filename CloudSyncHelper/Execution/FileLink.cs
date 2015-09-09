@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Execution
@@ -19,12 +20,18 @@ namespace XElement.CloudSyncHelper.Execution
             get { return File.Exists( this.TargetPath ); }
         }
 
+        protected override string /*LinkBase.*/MkLinkParams { get { return string.Empty; } }
+
+        public override void /*LinkBase.*/MoveToCloud()
+        {
+            // TODO: MoveToCloud for files
+            throw new NotImplementedException();
+        }
+
         public override void /*LinkBase.*/Undo()
         {
             File.Delete( this.LinkPath );
         }
-
-        protected override string /*LinkBase.*/MkLinkParams { get { return string.Empty; } }
     }
 #endregion
 }

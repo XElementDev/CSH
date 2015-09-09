@@ -8,6 +8,8 @@
 
         string LinkPath { get; }
 
+        void MoveToCloud();
+
         string TargetPath { get; }
     }
 }

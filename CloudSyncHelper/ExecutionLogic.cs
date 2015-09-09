@@ -64,6 +64,14 @@ namespace XElement.CloudSyncHelper
             }
         }
 
+        public void MoveToCloud()
+        {
+            foreach ( ILink link in this.Config )
+            {
+                link.MoveToCloud();
+            }
+        }
+
         public IEnumerable<string> TargetPaths
         {
             get

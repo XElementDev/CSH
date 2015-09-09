@@ -37,7 +37,7 @@ namespace XElement.CloudSyncHelper.Execution
 
             process.WaitForExit();
 
-            // TODO: Handle error if file already exists
+            // TODO: Override already existing files/folders
         }
 
         private bool DoesSymbolicLinkPointToExpectedPath
@@ -100,6 +100,8 @@ namespace XElement.CloudSyncHelper.Execution
         }
 
         protected abstract string MkLinkParams { get; }
+
+        public abstract void /*ILink.*/MoveToCloud();
 
         private string PathToDestinationTarget
         {
