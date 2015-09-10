@@ -14,14 +14,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         public ProgramViewModel( IEventAggregator eventAggregator )
         {
             this._eventAggregator = eventAggregator;
-
-            this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
-            this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
+            InitializeCommands();
         }
 
         public string DisplayName { get { return this.ProgramInfoVM.DisplayName; } }
 
         public bool HasSuitableConfig { get { return this.ProgramInfoVM.HasSuitableConfig; } }
+
+        private void InitializeCommands()
+        {
+            this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
+            this.MoveToCloudCommand = new DelegateCommand( this.MoveToCloudCommand_Execute, 
+                                                           this.MoveToCloudCommand_CanExecute );
+            this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
+        }
 
         public InstalledProgramViewModel InstalledProgram { get; set; }
 
@@ -42,6 +48,19 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         private void LinkCommand_Execute()
         {
             this.ProgramInfoVM.ExecutionLogic.Link();
+            this.RaisePropertiesChanged();
+        }
+
+        public ICommand MoveToCloudCommand { get; private set; }
+        private bool MoveToCloudCommand_CanExecute()
+        {
+            return this.IsInstalled && 
+                this.HasSuitableConfig && 
+                !this.IsInCloud;
+        }
+        private void MoveToCloudCommand_Execute()
+        {
+            this.ProgramInfoVM.ExecutionLogic.MoveToCloud();
             this.RaisePropertiesChanged();
         }
 
@@ -71,8 +90,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         private void RaisePropertiesChanged()
         {
+            this.RaisePropertyChanged( "IsInCloud" );
             this.RaisePropertyChanged( "IsLinked" );
             (this.LinkCommand as DelegateCommand).RaiseCanExecuteChanged();
+            (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
             (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
         }
 
