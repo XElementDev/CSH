@@ -8,12 +8,19 @@ namespace XElement.CloudSyncHelper
     {
         public static IReadOnlyList<ILinkInfo> GetSuitableConfig( IReadOnlyList<IOsConfiguration> osConfigs )
         {
+            IReadOnlyList<ILinkInfo> suitableConfig = new List<ILinkInfo>();
             var osId = OsIdHelper.GetOsId();
 
             if ( osId.HasValue )
-                return osConfigs.SingleOrDefault( c => c.OsId == osId.Value ).Links;
-            else
-                return null;
+            {
+                var osConfig = osConfigs.SingleOrDefault( c => c.OsId == osId.Value );
+                if ( osConfig != null )
+                {
+                    suitableConfig = osConfig.Links;
+                }
+            }
+
+            return suitableConfig;
         }
 
         private static OsId? GetOsId()

@@ -35,13 +35,19 @@ namespace XElement.CloudSyncHelper
 
         public bool HasSuitableConfig()
         {
-            var isThereAConfigForThisOs = this.Config != null;
+            var isThereAConfigForThisOs = this.Config.Count() != 0;
             return isThereAConfigForThisOs;
         }
 
-        public bool IsInCloud { get { return this.Config.All( c => c.IsInCloud ); } }
+        public bool IsInCloud
+        {
+            get { return this.Config.Count() != 0 && this.Config.All( c => c.IsInCloud ); }
+        }
 
-        public bool IsLinked { get { return this.Config.All( c => c.IsLinked ); } }
+        public bool IsLinked
+        {
+            get { return this.Config.Count() != 0 && this.Config.All( c => c.IsLinked ); }
+        }
 
         public void Link()
         {
