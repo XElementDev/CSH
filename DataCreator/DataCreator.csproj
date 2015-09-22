@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Apps\TeamSpeak3.cs" />
     <Compile Include="Data\Games.cs" />
     <Compile Include="Data\Apps.cs" />
     <Compile Include="Data\Games\AgeOfEmpiresIIHD.cs" />

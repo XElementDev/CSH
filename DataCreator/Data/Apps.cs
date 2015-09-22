@@ -6,7 +6,7 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data
 {
-    internal static class Apps
+    internal static partial class Apps
     {
         public static List<AbstractProgramInfo> CreateAppLinkInfos()
         {
@@ -14,6 +14,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
             {
                 ExactAudioCopy(),
                 Mp3tag(),
+                TeamSpeak3(),
                 Winamp()
             };
         }
