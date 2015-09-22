@@ -64,7 +64,12 @@
       <Project>{2c2b6037-1025-4fd5-83f1-17837c36a9d6}</Project>
       <Name>ReparsePointAdapter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition\OsRecognition.csproj">
+      <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
+      <Name>OsRecognition</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

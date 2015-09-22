@@ -47,8 +47,13 @@
     <Compile Include="IOsConfiguration.cs" />
     <Compile Include="IProgramInfo.cs" />
     <Compile Include="ISyncData.cs" />
-    <Compile Include="OsIdEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition\OsRecognition.csproj">
+      <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
+      <Name>OsRecognition</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

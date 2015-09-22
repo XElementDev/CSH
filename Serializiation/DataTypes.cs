@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.DotNet.System.Environment;
+using SpecialFolder = System.Environment.SpecialFolder;
 
 namespace XElement.CloudSyncHelper.Serialization.DataTypes
 {
@@ -8,7 +10,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
     public abstract class AbstractLinkInfo : ILinkInfo
     {
         [XmlAttribute( "DestRoot" )]
-        public System.Environment.SpecialFolder DestinationRoot { get; set; }
+        public SpecialFolder DestinationRoot { get; set; }
 
         [XmlAttribute( "DestSubFolderPath" )]
         public string DestinationSubFolderPath { get; set; }

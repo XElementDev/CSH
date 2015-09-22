@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Events;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.IO;
 using System.Windows;
 
 namespace XElement.CloudSyncHelper.UI.Win32
@@ -14,14 +15,15 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
             this.MainWindow = new MainWindow { DataContext = this._mainVM };
             this.MainWindow.Show();
-
-            this._mainVM.OnMefImportsSatisfied();
         }
 
         private void InitializeMef()
         {
             var catalog = new AggregateCatalog();
-            catalog.Catalogs.Add( new AssemblyCatalog( typeof( App ).Assembly ) );
+            var assembly = typeof( App ).Assembly;
+            var path = Path.GetDirectoryName( assembly.Location );
+            catalog.Catalogs.Add( new AggregateCatalog( new AssemblyCatalog( assembly ), 
+                                                        new DirectoryCatalog( path ) ) );
 
             var container = new CompositionContainer( catalog );
 

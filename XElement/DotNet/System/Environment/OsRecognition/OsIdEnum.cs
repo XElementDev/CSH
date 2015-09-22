@@ -1,4 +1,4 @@
-﻿namespace XElement.CloudSyncHelper.DataTypes
+﻿namespace XElement.DotNet.System.Environment
 {
     public enum OsId
     {
