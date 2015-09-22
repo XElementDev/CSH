@@ -45,6 +45,7 @@
     <Compile Include="Data\Apps.cs" />
     <Compile Include="Data\Games\AgeOfEmpiresIIHD.cs" />
     <Compile Include="Data\Games\Anno2070.cs" />
+    <Compile Include="Data\Games\BioshockInfinite.cs" />
     <Compile Include="Data\Games\Pes2015.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
