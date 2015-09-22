@@ -14,7 +14,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
 {
 #region not unit-tested
     [Export]
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase, IPartImportsSatisfiedNotification
     {
         [ImportingConstructor]
         public MainViewModel( IEventAggregator eventAggregator )
@@ -61,7 +61,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
                    programVM.DisplayName != String.Empty;
         }
 
-        public void OnMefImportsSatisfied()
+        void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
             this.LoadProgramViewModels();
         }
