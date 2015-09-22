@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.OsRecognition;
+using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper
 {

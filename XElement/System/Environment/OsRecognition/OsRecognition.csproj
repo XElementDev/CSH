@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8867C025-099B-4AC5-B745-FC10E6A4988A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{C5AADC74-BA99-4D66-9EC6-114718DE0357}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.CloudSyncHelper.DataCreator</RootNamespace>
-    <AssemblyName>DataCreator</AssemblyName>
+    <RootNamespace>XElement.DotNet.System.Environment</RootNamespace>
+    <AssemblyName>XElement.DotNet.System.Environment.OsRecognition</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,32 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Games.cs" />
-    <Compile Include="Data\Apps.cs" />
-    <Compile Include="Data\Games\AgeOfEmpiresIIHD.cs" />
-    <Compile Include="Data\Games\Anno2070.cs" />
-    <Compile Include="Data\Games\Pes2015.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="IOsRecognizer.cs" />
+    <Compile Include="OsIdEnum.cs" />
+    <Compile Include="RegistryRecognizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
-      <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
-      <Name>DataTypes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Serializiation\Serializiation.csproj">
-      <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
-      <Name>Serializiation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XElement\System\Environment\OsRecognition\OsRecognition.csproj">
-      <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
-      <Name>OsRecognition</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

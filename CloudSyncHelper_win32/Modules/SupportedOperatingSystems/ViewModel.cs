@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems
 {
