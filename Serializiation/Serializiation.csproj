@@ -49,7 +49,7 @@
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XElement\System\Environment\OsRecognition\OsRecognition.csproj">
+    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition\OsRecognition.csproj">
       <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
       <Name>OsRecognition</Name>
     </ProjectReference>
