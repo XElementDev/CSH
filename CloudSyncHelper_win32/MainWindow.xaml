@@ -18,21 +18,29 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <ScrollViewer>
-        <ItemsControl 
-                      ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}" 
-                      Grid.IsSharedSizeScope="True">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Expander>
-                        <Expander.Header>
-                            <local:ProgramHeaderView DataContext="{Binding}" />
-                        </Expander.Header>
+    <DockPanel>
+        <local:StatusBarUC 
+                           DockPanel.Dock="Bottom" 
+                           DataContext="{Binding Path=StatusBarVM}" 
+        />
 
-                        <local:ProgramDetailsView DataContext="{Binding}" />
-                    </Expander>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </ScrollViewer>
+        <ScrollViewer 
+                      DockPanel.Dock="Top">
+            <ItemsControl 
+                          ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}" 
+                          Grid.IsSharedSizeScope="True">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Expander>
+                            <Expander.Header>
+                                <local:ProgramHeaderView DataContext="{Binding}" />
+                            </Expander.Header>
+
+                            <local:ProgramDetailsView DataContext="{Binding}" />
+                        </Expander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
 </Window>

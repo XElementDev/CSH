@@ -75,6 +75,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.ProgramViewModelsView.Filter = this.ProgramViewModelsView_Filter;
         }
 
+        [Import]
+        public StatusBarViewModel StatusBarVM { get; private set; }
+
         private IEventAggregator _eventAggregator;
         private ObservableCollection<ProgramViewModel> _programViewModels;
 

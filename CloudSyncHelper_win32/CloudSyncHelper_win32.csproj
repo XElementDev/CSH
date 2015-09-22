@@ -108,6 +108,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\StatusBar\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\StatusBar\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\SupportedOperatingSystems\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +148,10 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\ProgramHeader\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\StatusBar\ViewModel.cs" />
+    <Compile Include="Modules\StatusBar\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\SupportedOperatingSystems\View.xaml.cs">
@@ -191,6 +203,14 @@
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serializiation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XElement\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj">
+      <Project>{6229fd37-00b3-4f8e-8299-e0e0d8ad2be6}</Project>
+      <Name>OsRecognition.MefExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XElement\System\Environment\OsRecognition\OsRecognition.csproj">
+      <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
+      <Name>OsRecognition</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Installation-03-000000-16.png" />
@@ -214,6 +234,7 @@
   <ItemGroup>
     <Resource Include="Resources\Cloud-Upload-000000-16.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

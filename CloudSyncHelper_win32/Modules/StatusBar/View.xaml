@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="XElement.CloudSyncHelper.UI.Win32.Modules.StatusBarUC" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <StatusBar>
+            <TextBlock 
+                       Text="Aktuelles Betriebssystem: " 
+            />
+
+            <StackPanel x:Name="Windows8_1" 
+                        Orientation="Horizontal" 
+                        Visibility="{Binding Path=IsWindows8_1, 
+                                             Converter={StaticResource BoolToVisibilityConverter}}">
+                <Image 
+                       Source="{StaticResource Windows_8_1-000000-16}" 
+                />
+                <TextBlock 
+                           Text="Windows 8.1" 
+                />
+            </StackPanel>
+
+            <StackPanel x:Name="Windows10" 
+                        Orientation="Horizontal" 
+                        Visibility="{Binding Path=IsWindows10, 
+                                             Converter={StaticResource BoolToVisibilityConverter}}">
+                <Image 
+                       Source="{StaticResource Windows_10-000000-16}" 
+                />
+                <TextBlock 
+                           Text="Windows 10" 
+                />
+            </StackPanel>
+        </StatusBar>
+    </Grid>
+
+</UserControl>

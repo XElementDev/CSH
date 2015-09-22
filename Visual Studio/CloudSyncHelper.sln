@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReparsePointAdapter", "..\R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsRecognition", "..\XElement\System\Environment\OsRecognition\OsRecognition.csproj", "{C5AADC74-BA99-4D66-9EC6-114718DE0357}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsRecognition.MefExtensions", "..\XElement\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj", "{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C5AADC74-BA99-4D66-9EC6-114718DE0357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5AADC74-BA99-4D66-9EC6-114718DE0357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5AADC74-BA99-4D66-9EC6-114718DE0357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
