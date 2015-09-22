@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Apps\ExactAudioCopy.cs" />
+    <Compile Include="Data\Apps\Mp3tag.cs" />
     <Compile Include="Data\Apps\TeamSpeak3.cs" />
+    <Compile Include="Data\Apps\Winamp.cs" />
     <Compile Include="Data\Games.cs" />
     <Compile Include="Data\Apps.cs" />
     <Compile Include="Data\Games\AgeOfEmpiresIIHD.cs" />
