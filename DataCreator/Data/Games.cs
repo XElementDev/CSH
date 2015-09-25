@@ -11,6 +11,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
             {
                 AgeOfEmpiresIIHD(),
                 Anno2070(),
+                Battlefield3(),
                 BioshockInfinite(),
                 Pes2015()
             };
