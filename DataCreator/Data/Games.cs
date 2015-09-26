@@ -17,6 +17,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 ClickerHeroes(),
                 Evolve(),
                 F1_2013(),
+                JoeDanger(),
                 Left4Dead2(),
                 OrcsMustDie2(),
                 Pes2015(),
