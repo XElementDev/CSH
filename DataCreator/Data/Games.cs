@@ -14,6 +14,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 Battlefield3(),
                 BioshockInfinite(),
                 Borderlands2(),
+                ClickerHeroes(),
                 Evolve(),
                 Left4Dead2(),
                 OrcsMustDie2(),

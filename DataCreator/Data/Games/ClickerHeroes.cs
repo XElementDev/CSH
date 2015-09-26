@@ -5,17 +5,17 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
 {
     internal static partial class Games
     {
-        private static GameInfo Left4Dead2()
+        private static GameInfo ClickerHeroes()
         {
             return new GameInfo
             {
-                DisplayName = "Left 4 Dead 2",
-                FolderName = "Left 4 Dead 2009 [Left 4 Dead 2]",
+                DisplayName = "Clicker Heroes",
+                FolderName = "Clicker Heroes",
                 OsConfigs = new List<OsConfiguration>
                 {
                     // Steam Cloud
                 },
-                TechnicalNameMatcher = "Left 4 Dead 2"  // TODO: check matcher
+                TechnicalNameMatcher = "Clicker Heroes" // TODO: check matcher
             };
         }
     }
