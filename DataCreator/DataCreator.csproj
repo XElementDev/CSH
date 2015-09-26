@@ -51,6 +51,7 @@
     <Compile Include="Data\Games\Anno2070.cs" />
     <Compile Include="Data\Games\Battlefield3.cs" />
     <Compile Include="Data\Games\ClickerHeroes.cs" />
+    <Compile Include="Data\Games\F1_2013.cs" />
     <Compile Include="Data\Games\Left4Dead2.cs" />
     <Compile Include="Data\Games\OrcsMustDie2.cs" />
     <Compile Include="Data\Games\Rocket League.cs" />

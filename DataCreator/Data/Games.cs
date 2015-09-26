@@ -16,6 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 Borderlands2(),
                 ClickerHeroes(),
                 Evolve(),
+                F1_2013(),
                 Left4Dead2(),
                 OrcsMustDie2(),
                 Pes2015(),
