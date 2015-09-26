@@ -15,6 +15,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 BioshockInfinite(),
                 Borderlands2(),
                 Evolve(),
+                OrcsMustDie2(),
                 Pes2015(),
                 RocketLeague(),
                 Terraria(),
