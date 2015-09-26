@@ -14,6 +14,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 Battlefield3(),
                 BioshockInfinite(),
                 Borderlands2(),
+                Evolve(),
                 Pes2015(),
                 TokiTori()
             };
