@@ -24,6 +24,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 RocketLeague(),
                 SyderArcade(),
                 Terraria(),
+                TheCave(),
                 TokiTori()
             };
         }
