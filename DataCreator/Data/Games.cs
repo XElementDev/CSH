@@ -25,6 +25,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 SyderArcade(),
                 Terraria(),
                 TheCave(),
+                TheTestamentOfSherlockHolmes(),
                 TokiTori()
             };
         }
