@@ -13,7 +13,8 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 Anno2070(),
                 Battlefield3(),
                 BioshockInfinite(),
-                Pes2015()
+                Pes2015(),
+                TokiTori()
             };
         }
     }
