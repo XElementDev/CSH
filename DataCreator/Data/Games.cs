@@ -22,6 +22,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 OrcsMustDie2(),
                 Pes2015(),
                 RocketLeague(),
+                SyderArcade(),
                 Terraria(),
                 TokiTori()
             };
