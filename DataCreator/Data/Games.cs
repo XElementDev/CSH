@@ -16,6 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 Borderlands2(),
                 Evolve(),
                 Pes2015(),
+                RocketLeague(),
                 Terraria(),
                 TokiTori()
             };
