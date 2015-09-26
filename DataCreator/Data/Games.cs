@@ -26,7 +26,8 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
                 Terraria(),
                 TheCave(),
                 TheTestamentOfSherlockHolmes(),
-                TokiTori()
+                TokiTori(),
+                TypeRider()
             };
         }
     }
