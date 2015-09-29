@@ -1,38 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.IO;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 using XElement.DotNet.System.Environment;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    internal static partial class Apps
+    [Export( typeof( AppInfo ) )]
+    public class ExactAudioCopy : AppInfo
     {
-        private static AppInfo ExactAudioCopy()
+        [ImportingConstructor]
+        public ExactAudioCopy()
         {
-            return new AppInfo
+            this.DisplayName = "Exact Audio Copy";
+            this.FolderName = "Exact Audio Copy";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Exact Audio Copy",
-                FolderName = "Exact Audio Copy",
-                OsConfigs = new List<OsConfiguration>
+                new OsConfiguration
                 {
-                    new OsConfiguration
+                    Links = new List<AbstractLinkInfo>
                     {
-                        Links = new List<AbstractLinkInfo>
+                        new FolderLinkInfo
                         {
-                            new FolderLinkInfo
-                            {
-                                DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                                DestinationSubFolderPath = Path.Combine("EAC"),
-                                DestinationTargetName = "Profiles",
-                                SourceId = "Profiles"
-                            }
-                        },
-                        OsId = OsId.Win81
-                    }
-                },
-                TechnicalNameMatcher = "Exact Audio Copy.*"
+                            DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                            DestinationSubFolderPath = Path.Combine("EAC"),
+                            DestinationTargetName = "Profiles",
+                            SourceId = "Profiles"
+                        }
+                    },
+                    OsId = OsId.Win81
+                }
             };
+            this.TechnicalNameMatcher = "Exact Audio Copy.*";
         }
     }
 }

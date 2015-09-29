@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class TokiTori : GameInfo
     {
-        private static GameInfo TokiTori()
+        [ImportingConstructor]
+        public TokiTori()
         {
-            return new GameInfo
+            this.DisplayName = "Toki Tori";
+            this.FolderName = "Toki Tori 2010 [Toki Tori]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Toki Tori",
-                FolderName = "Toki Tori 2010 [Toki Tori]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "Toki Tori"  // TODO: check matcher
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "Toki Tori";    // TODO: check matcher
         }
     }
 }

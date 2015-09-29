@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class TheCave : GameInfo
     {
-        private static GameInfo TheCave()
+        [ImportingConstructor]
+        public TheCave()
         {
-            return new GameInfo
+            this.DisplayName = "The Cave";
+            this.FolderName = "The Cave 2013 [The Cave]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "The Cave",
-                FolderName = "The Cave 2013 [The Cave]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "The Cave"   // TODO: check matcher
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "The Cave"; // TODO: check matcher
         }
     }
 }

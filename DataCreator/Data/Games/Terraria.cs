@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class Terraria : GameInfo
     {
-        private static GameInfo Terraria()
+        [ImportingConstructor]
+        public Terraria()
         {
-            return new GameInfo
+            this.DisplayName = "Terraria";
+            this.FolderName = "Terraria 2011 [Terraria]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Terraria",
-                FolderName = "Terraria 2011 [Terraria]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "Terraria"   // TODO: check matcher
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "Terraria"; // TODO: check matcher
         }
     }
 }

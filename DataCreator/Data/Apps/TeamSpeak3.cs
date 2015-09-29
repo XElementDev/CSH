@@ -1,38 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.IO;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 using XElement.DotNet.System.Environment;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    internal static partial class Apps
+    [Export( typeof( AppInfo ) )]
+    public class TeamSpeak3 : AppInfo
     {
-        private static AppInfo TeamSpeak3()
+        [ImportingConstructor]
+        public TeamSpeak3()
         {
-            return new AppInfo
+            this.DisplayName = "TeamSpeak 3";
+            this.FolderName = "TeamSpeak 3";
+            // TODO:    --> check configuration
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "TeamSpeak 3",
-                FolderName = "TeamSpeak 3",
-                OsConfigs = new List<OsConfiguration>
+                new OsConfiguration
                 {
-                    new OsConfiguration
+                    Links = new List<AbstractLinkInfo>
                     {
-                        Links = new List<AbstractLinkInfo>
+                        new FileLinkInfo
                         {
-                            new FileLinkInfo
-                            {
-                                DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                                DestinationSubFolderPath = Path.Combine("TS3Client"),
-                                DestinationTargetName = "settings.db",
-                                SourceId = "settings.db"
-                            }
-                        },
-                        OsId = OsId.Win81
-                    }
-                },
-                TechnicalNameMatcher = "TeamSpeak 3 Client" // TODO: check matcher
-            }; // TODO: check configuration
+                            DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                            DestinationSubFolderPath = Path.Combine("TS3Client"),
+                            DestinationTargetName = "settings.db",
+                            SourceId = "settings.db"
+                        }
+                    },
+                    OsId = OsId.Win81
+                }
+            };
+            this.TechnicalNameMatcher = "TeamSpeak 3 Client";   // TODO: check matcher
         }
     }
 }

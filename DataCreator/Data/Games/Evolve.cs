@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class Evolve : GameInfo
     {
-        private static GameInfo Evolve()
+        [ImportingConstructor]
+        public Evolve()
         {
-            return new GameInfo
+            this.DisplayName = "Evolve";
+            this.FolderName = "Evolve 2015 [Evolve]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Evolve",
-                FolderName = "Evolve 2015 [Evolve]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "Evolve"
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "Evolve";
         }
     }
 }

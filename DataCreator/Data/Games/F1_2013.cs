@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class F1_2013 : GameInfo
     {
-        private static GameInfo F1_2013()
+        [ImportingConstructor]
+        public F1_2013()
         {
-            return new GameInfo
+            this.DisplayName = "F1 2013";
+            this.FolderName = "F1 2013 [F1 2013]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "F1 2013",
-                FolderName = "F1 2013 [F1 2013]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "F1 2013"    // TODO: check matcher
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "F1 2013";  // TODO: check matcher
         }
     }
 }

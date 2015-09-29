@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class Borderlands2 : GameInfo
     {
-        private static GameInfo Borderlands2()
+        [ImportingConstructor]
+        public Borderlands2()
         {
-            return new GameInfo
+            this.DisplayName = "Borderlands 2";
+            this.FolderName = "Borderlands 2012 [Borderlands 2]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Borderlands 2",
-                FolderName = "Borderlands 2012 [Borderlands 2]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "Borderlands 2"  // TODO: check matcher
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "Borderlands 2";    // TODO: check matcher
         }
     }
 }

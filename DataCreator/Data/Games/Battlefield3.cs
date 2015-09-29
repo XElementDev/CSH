@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class Battlefield3 : GameInfo
     {
-        private static GameInfo Battlefield3()
+        [ImportingConstructor]
+        public Battlefield3()
         {
-            return new GameInfo
+            this.DisplayName = "Battlefield 3";
+            this.FolderName = "Battlefield 2011 [Battlefield 3]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Battlefield 3",
-                FolderName = "Battlefield 2011 [Battlefield 3]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Origin
-                },
-                //  2015-09-25: https://stackoverflow.com/questions/3496351/adding-a-tm-superscript-to-a-string
-                TechnicalNameMatcher = "Battlefield 3\u2122"    // Battlefield 3™
+                // Origin
             };
+            //  2015-09-25: https://stackoverflow.com/questions/3496351/adding-a-tm-superscript-to-a-string
+            this.TechnicalNameMatcher = "Battlefield 3\u2122";  // Battlefield 3™
         }
     }
 }

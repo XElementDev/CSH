@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.IO;
-using XElement.CloudSyncHelper.DataCreator.Data;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
 using XElement.CloudSyncHelper.Serializiation;
 
 namespace XElement.CloudSyncHelper.DataCreator
@@ -18,6 +17,7 @@ namespace XElement.CloudSyncHelper.DataCreator
             try
             {
                 Console.WriteLine( "New data will be stored on your desktop." );
+                InitializeMef();
                 WriteData();
                 Console.WriteLine( String.Format( "All information were successfully written to '{0}'.",
                                                   _filePath ) );
@@ -30,23 +30,26 @@ namespace XElement.CloudSyncHelper.DataCreator
             Console.ReadLine();
         }
 
-        static SyncData CreateData()
+        private static void InitializeMef()
         {
-            var syncData = new SyncData
-            {
-                ProgramInfos = new List<AbstractProgramInfo>()
-            };
-            syncData.ProgramInfos.AddRange( Apps.CreateAppLinkInfos() );
-            syncData.ProgramInfos.AddRange( Games.CreateGameLinkInfos() );
+            var catalog = new AggregateCatalog();
+            var assembly = typeof( Program ).Assembly;
+            catalog.Catalogs.Add( new AssemblyCatalog( assembly ));
 
-            return syncData;
+            var container = new CompositionContainer( catalog );
+
+            _dataManager = new DataManager();
+            container.ComposeParts( _dataManager );
         }
 
         static void WriteData()
         {
-            var sampleData = CreateData();
+            var sampleData = _dataManager.SyncData;
             new SerializationManager( _filePath ).Serialize( sampleData );
         }
+
+        [Import]
+        private static DataManager _dataManager;
 
         private static string _filePath = null;
     }

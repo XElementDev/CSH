@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class OrcsMustDie2 : GameInfo
     {
-        private static GameInfo OrcsMustDie2()
+        [ImportingConstructor]
+        public OrcsMustDie2()
         {
-            return new GameInfo
+            this.DisplayName = "Orcs Must Die! 2";
+            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Orcs Must Die! 2",
-                FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "Orcs Must Die! 2"   // TODO: check matcher
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "Orcs Must Die! 2"; // TODO: check matcher
         }
     }
 }

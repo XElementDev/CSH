@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class TypeRider : GameInfo
     {
-        private static GameInfo TypeRider()
+        [ImportingConstructor]
+        public TypeRider()
         {
-            return new GameInfo
+            this.DisplayName = "Type:Rider";
+            this.FolderName = "Type_Rider 2013 [Type_Rider]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Type:Rider",
-                FolderName = "Type_Rider 2013 [Type_Rider]",
-                OsConfigs = new List<OsConfiguration>
-                {
-                    // Steam Cloud
-                },
-                TechnicalNameMatcher = "Type:Rider" // TODO: check matcher
+                // Steam Cloud
             };
+            this.TechnicalNameMatcher = "Type:Rider";   // TODO: check matcher
         }
     }
 }

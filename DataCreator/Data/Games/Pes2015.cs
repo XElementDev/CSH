@@ -1,38 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.IO;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 using XElement.DotNet.System.Environment;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data
+namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    internal static partial class Games
+    [Export( typeof( GameInfo ) )]
+    public class Pes2015 : GameInfo
     {
-        private static GameInfo Pes2015()
+        [ImportingConstructor]
+        public Pes2015()
         {
-            return new GameInfo
+            this.DisplayName = "Pro Evolution Soccer 2015";
+            this.FolderName = "PES 2014 [Pro Evolution Soccer 2015]";
+            this.OsConfigs = new List<OsConfiguration>
             {
-                DisplayName = "Pro Evolution Soccer 2015",
-                FolderName = "PES 2014 [Pro Evolution Soccer 2015]",
-                OsConfigs = new List<OsConfiguration>
+                new OsConfiguration
                 {
-                    new OsConfiguration
+                    Links = new List<AbstractLinkInfo>
                     {
-                        Links = new List<AbstractLinkInfo>
+                        new FolderLinkInfo
                         {
-                            new FolderLinkInfo
-                            {
-                                DestinationRoot = Environment.SpecialFolder.MyDocuments,
-                                DestinationSubFolderPath = Path.Combine( "KONAMI", "Pro Evolution Soccer 2015" ),
-                                DestinationTargetName = "save",
-                                SourceId = "save"
-                            }
-                        },
-                        OsId = OsId.Win81
-                    }
-                },
-                TechnicalNameMatcher = "Pro Evolution Soccer 2015"
+                            DestinationRoot = Environment.SpecialFolder.MyDocuments,
+                            DestinationSubFolderPath = Path.Combine( "KONAMI", "Pro Evolution Soccer 2015" ),
+                            DestinationTargetName = "save",
+                            SourceId = "save"
+                        }
+                    },
+                    OsId = OsId.Win81
+                }
             };
+            this.TechnicalNameMatcher = "Pro Evolution Soccer 2015";
         }
     }
 }
