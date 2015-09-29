@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Data;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.CloudSyncHelper.UI.Win32.Modules.StatusBar;
 using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32
