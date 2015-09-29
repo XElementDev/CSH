@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using XElement.CloudSyncHelper.Serializiation;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 
@@ -19,7 +21,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private void LoadProgramInfos()
         {
-            var serializationMgr = new SerializationManager( @"C:\Users\Christian\Desktop\CloudSyncHelper.xml" );
+            var desktopPath = Environment.GetFolderPath( Environment.SpecialFolder.DesktopDirectory );
+            var uri = Path.Combine( desktopPath, "CloudSyncHelper.xml" );
+
+            var serializationMgr = new SerializationManager( uri );
             var syncData = serializationMgr.Deserialize();
             var programInfoVMs = new List<ProgramInfoViewModel>();
             foreach ( var programInfo in syncData.ProgramInfos )
