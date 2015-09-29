@@ -61,7 +61,7 @@
     <Compile Include="Data\Games\F1_2013.cs" />
     <Compile Include="Data\Games\Left4Dead2.cs" />
     <Compile Include="Data\Games\OrcsMustDie2.cs" />
-    <Compile Include="Data\Games\Rocket League.cs" />
+    <Compile Include="Data\Games\RocketLeague.cs" />
     <Compile Include="Data\Games\Terraria.cs" />
     <Compile Include="Data\Games\Evolve.cs" />
     <Compile Include="Data\Games\Borderlands2.cs" />
