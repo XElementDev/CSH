@@ -5,27 +5,26 @@ using System.Linq;
 namespace XElement.DotNet.System.Environment.MefExtensions
 {
     [Export( typeof( IOsRecognizer ) )]
-    public class Recognizer : IOsRecognizer, IPartImportsSatisfiedNotification
+    public class CacheAllRecognizer : IOsRecognizer, IPartImportsSatisfiedNotification
     {
         public OsId? /*IOsRecognizer.*/GetOsId()
         {
-            return this._mostPreciseRecognizer.GetOsId();
+            return this._cachedMostPreciseOsId;
         }
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
-            var recognizerResultMap = new Dictionary<IOsRecognizer, OsId?>();
+            var osIds = new List<OsId?>();
 
             foreach ( IOsRecognizer recognizer in this._recognizers )
             {
-                var osId = recognizer.GetOsId();
-                recognizerResultMap.Add( recognizer, osId );
+                osIds.Add( recognizer.GetOsId() );
             }
 
-            this._mostPreciseRecognizer = recognizerResultMap.OrderByDescending( kvp => kvp.Value ).First().Key;
+            this._cachedMostPreciseOsId = osIds.Max();
         }
 
-        private IOsRecognizer _mostPreciseRecognizer;
+        private OsId? _cachedMostPreciseOsId;
 
         [ImportMany( "1DE5805C-F907-4423-8456-C861AE53A4F9", typeof( IOsRecognizer ) )]
         private List<IOsRecognizer> _recognizers = null;
