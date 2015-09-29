@@ -30,7 +30,10 @@ namespace XElement.CloudSyncHelper.Execution
 
         public override void /*LinkBase.*/Undo()
         {
-            File.Delete( this.LinkPath );
+            if ( File.Exists( this.LinkPath ) )
+            {
+                File.Delete( this.LinkPath );
+            }
         }
     }
 #endregion

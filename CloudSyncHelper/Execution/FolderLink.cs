@@ -58,8 +58,10 @@ namespace XElement.CloudSyncHelper.Execution
 
         public override void /*LinkBase.*/Undo()
         {
-            // TODO: Implement undo logic for FolderLink
-            throw new NotImplementedException();
+            if ( Directory.Exists( this.LinkPath ) )
+            {
+                Directory.Delete( this.LinkPath, true );
+            }
         }
     }
 #endregion
