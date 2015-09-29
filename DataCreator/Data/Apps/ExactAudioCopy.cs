@@ -17,22 +17,34 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
             this.FolderName = "Exact Audio Copy";
             this.OsConfigs = new List<OsConfiguration>
             {
-                new OsConfiguration
-                {
-                    Links = new List<AbstractLinkInfo>
-                    {
-                        new FolderLinkInfo
-                        {
-                            DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                            DestinationSubFolderPath = Path.Combine("EAC"),
-                            DestinationTargetName = "Profiles",
-                            SourceId = "Profiles"
-                        }
-                    },
-                    OsId = OsId.Win81
-                }
+                this.GetConfigForWin8_1(),
+                GetConfigForWin10()
             };
             this.TechnicalNameMatcher = "Exact Audio Copy.*";
+        }
+
+        private OsConfiguration GetConfigForWin8_1()
+        {
+            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win81 };
+        }
+
+        private OsConfiguration GetConfigForWin10()
+        {
+            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win10 };
+        }
+
+        private List<AbstractLinkInfo> GetLinksForWin81_10()
+        {
+            return new List<AbstractLinkInfo>
+            {
+                new FolderLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("EAC"),
+                    DestinationTargetName = "Profiles",
+                    SourceId = "Profiles"
+                }
+            };
         }
     }
 }
