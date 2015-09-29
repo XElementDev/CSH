@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,7 +52,7 @@
     <Compile Include="InstalledPrograms\InstalledProgram.cs" />
     <Compile Include="InstalledPrograms\InstalledProgramsHelper.cs" />
     <Compile Include="Execution\LinkBase.cs" />
-    <Compile Include="OsIdHelper.cs" />
+    <Compile Include="ConfigForOsHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SymbolicLinks\SymbolicLinkHelper.cs" />
   </ItemGroup>
