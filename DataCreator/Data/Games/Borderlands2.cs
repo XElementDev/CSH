@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 // Steam Cloud
             };
-            this.TechnicalNameMatcher = "Borderlands 2";    // TODO: check matcher
+            this.TechnicalNameMatcher = "Borderlands 2";
         }
     }
 }

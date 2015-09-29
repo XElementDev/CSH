@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 // Steam Cloud
             };
-            this.TechnicalNameMatcher = "Clicker Heroes";   // TODO: check matcher
+            this.TechnicalNameMatcher = "Clicker Heroes";
         }
     }
 }

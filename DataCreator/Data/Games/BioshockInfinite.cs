@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 // Steam Cloud
             };
-            this.TechnicalNameMatcher = "BioShock Infinite";    // TODO: check matcher
+            this.TechnicalNameMatcher = "BioShock Infinite";
         }
     }
 }

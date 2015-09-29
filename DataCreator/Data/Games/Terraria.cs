@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 // Steam Cloud
             };
-            this.TechnicalNameMatcher = "Terraria"; // TODO: check matcher
+            this.TechnicalNameMatcher = "Terraria";
         }
     }
 }

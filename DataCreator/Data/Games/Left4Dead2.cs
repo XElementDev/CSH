@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 // Steam Cloud
             };
-            this.TechnicalNameMatcher = "Left 4 Dead 2";    // TODO: check matcher
+            this.TechnicalNameMatcher = "Left 4 Dead 2";
         }
     }
 }
