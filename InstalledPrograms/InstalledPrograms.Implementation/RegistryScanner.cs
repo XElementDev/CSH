@@ -1,13 +1,14 @@
 ﻿using Microsoft.Win32;
 using System.Collections.Generic;
-namespace XElement.CloudSyncHelper
+
+namespace XElement.CloudSyncHelper.InstalledPrograms
 {
 #region not unit-tested
     //  --> Based on: http://www.codeproject.com/Tips/782919/Get-List-of-Installed-Applications-of-System-in-Cs
     //      Visited: 2015-08-02
-    public class InstalledProgramsHelper
+    public class RegistryScanner : IScanner
     {
-        public IList<InstalledProgram> GetInstalledPrograms()
+        public IEnumerable<IInstalledProgram> /*IScanner.*/GetInstalledPrograms()
         {
             IList<InstalledProgram> result = new List<InstalledProgram>();
 
@@ -39,7 +40,7 @@ namespace XElement.CloudSyncHelper
     {
         public static T GetValueOrDefault<T>( this RegistryKey registryKey, string name )
         {
-            T value = default(T);
+            T value = default( T );
 
             try
             {

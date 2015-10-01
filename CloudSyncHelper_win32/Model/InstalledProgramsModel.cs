@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using XElement.CloudSyncHelper.InstalledPrograms;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
@@ -21,7 +22,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         private void LoadInstalledPrograms()
         {
             var installedProgramVMs = new List<InstalledProgramViewModel>();
-            var installedPrograms = new InstalledProgramsHelper().GetInstalledPrograms();
+            var installedPrograms = new RegistryScanner().GetInstalledPrograms();
             foreach ( var installedProgram in installedPrograms )
             {
                 var installedProgramVM = new InstalledProgramViewModel( installedProgram );
