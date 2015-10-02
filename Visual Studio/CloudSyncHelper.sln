@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstalledPrograms.Interface
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstalledPrograms.Implementation", "..\InstalledPrograms\InstalledPrograms.Implementation\InstalledPrograms.Implementation.csproj", "{06D15881-BB89-464E-A43C-05F473AE66BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstalledPrograms.MefExtensions", "..\InstalledPrograms\InstalledPrograms.MefExtensions\InstalledPrograms.MefExtensions.csproj", "{18797D1C-3848-4906-9E29-4F433FF48D26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{06D15881-BB89-464E-A43C-05F473AE66BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06D15881-BB89-464E-A43C-05F473AE66BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06D15881-BB89-464E-A43C-05F473AE66BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,5 +84,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{77D3002B-68FE-4A1D-B10F-8B15C3AE6A1D} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
 		{06D15881-BB89-464E-A43C-05F473AE66BA} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
+		{18797D1C-3848-4906-9E29-4F433FF48D26} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
 	EndGlobalSection
 EndGlobal
