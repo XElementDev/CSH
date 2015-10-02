@@ -42,6 +42,7 @@
     <Compile Include="ExtensiveRegistryScanner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FastRegistryScanner.cs" />
+    <Compile Include="RegistryScanner.cs" />
     <Compile Include="WmiScanner.cs" />
   </ItemGroup>
   <ItemGroup>
