@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSyncHelper_win32", "..\CloudSyncHelper_win32\CloudSyncHelper_win32.csproj", "{8F9F2D42-0BD7-4760-A64A-630C14014FC9}"
 EndProject
@@ -15,9 +15,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypes", "..\DataTypes\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReparsePointAdapter", "..\ReparsePointAdapter\ReparsePointAdapter.csproj", "{2C2B6037-1025-4FD5-83F1-17837C36A9D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsRecognition", "..\XElement\DotNet\System\Environment\OsRecognition\OsRecognition.csproj", "{C5AADC74-BA99-4D66-9EC6-114718DE0357}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsRecognition.Implementation", "..\XElement\DotNet\System\Environment\OsRecognition.Implementation\OsRecognition.Implementation.csproj", "{C5AADC74-BA99-4D66-9EC6-114718DE0357}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsRecognition.MefExtensions", "..\XElement\DotNet\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj", "{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InstalledPrograms", "InstalledPrograms", "{D00A2DA5-B035-4EA9-845E-6B791CA13CE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstalledPrograms.Interface", "..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj", "{77D3002B-68FE-4A1D-B10F-8B15C3AE6A1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstalledPrograms.Implementation", "..\InstalledPrograms\InstalledPrograms.Implementation\InstalledPrograms.Implementation.csproj", "{06D15881-BB89-464E-A43C-05F473AE66BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstalledPrograms.MefExtensions", "..\InstalledPrograms\InstalledPrograms.MefExtensions\InstalledPrograms.MefExtensions.csproj", "{18797D1C-3848-4906-9E29-4F433FF48D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsRecognition.Interface", "..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj", "{7CF544AE-B30D-46F0-8FE6-11EE842FF035}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OsRecognition", "OsRecognition", "{A7FAA180-B23C-4CE4-BCDC-C22F4736CF48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +69,32 @@ Global
 		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77D3002B-68FE-4A1D-B10F-8B15C3AE6A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D3002B-68FE-4A1D-B10F-8B15C3AE6A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D3002B-68FE-4A1D-B10F-8B15C3AE6A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D3002B-68FE-4A1D-B10F-8B15C3AE6A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D15881-BB89-464E-A43C-05F473AE66BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D15881-BB89-464E-A43C-05F473AE66BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D15881-BB89-464E-A43C-05F473AE66BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D15881-BB89-464E-A43C-05F473AE66BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18797D1C-3848-4906-9E29-4F433FF48D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF544AE-B30D-46F0-8FE6-11EE842FF035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF544AE-B30D-46F0-8FE6-11EE842FF035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF544AE-B30D-46F0-8FE6-11EE842FF035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF544AE-B30D-46F0-8FE6-11EE842FF035}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5AADC74-BA99-4D66-9EC6-114718DE0357} = {A7FAA180-B23C-4CE4-BCDC-C22F4736CF48}
+		{6229FD37-00B3-4F8E-8299-E0E0D8AD2BE6} = {A7FAA180-B23C-4CE4-BCDC-C22F4736CF48}
+		{77D3002B-68FE-4A1D-B10F-8B15C3AE6A1D} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
+		{06D15881-BB89-464E-A43C-05F473AE66BA} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
+		{18797D1C-3848-4906-9E29-4F433FF48D26} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
+		{7CF544AE-B30D-46F0-8FE6-11EE842FF035} = {A7FAA180-B23C-4CE4-BCDC-C22F4736CF48}
 	EndGlobalSection
 EndGlobal

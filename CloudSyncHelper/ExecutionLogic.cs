@@ -5,11 +5,14 @@ using XElement.CloudSyncHelper.Execution;
 
 namespace XElement.CloudSyncHelper
 {
-#region not unit-tested
+    #region not unit-tested
     public class ExecutionLogic
     {
-        public ExecutionLogic( IProgramInfo programInfo, PathVariablesDTO pathVariables )
+        public ExecutionLogic( IProgramInfo programInfo, 
+                               PathVariablesDTO pathVariables, 
+                               ConfigForOsHelper cfg4OsHelper )
         {
+            this._configForOsHelper = cfg4OsHelper;
             this._pathVariables = pathVariables;
             this._programInfo = programInfo;
         }
@@ -18,7 +21,7 @@ namespace XElement.CloudSyncHelper
         {
             get
             {
-                var suitableConfig = OsIdHelper.GetSuitableConfig( this._programInfo.OsConfigs );
+                var suitableConfig = this._configForOsHelper.GetSuitableConfig( this._programInfo.OsConfigs );
                 var config = new List<ILink>();
                 foreach ( ILinkInfo linkInfo in suitableConfig )
                 {
@@ -99,6 +102,7 @@ namespace XElement.CloudSyncHelper
             }
         }
 
+        private ConfigForOsHelper _configForOsHelper;
         private PathVariablesDTO _pathVariables;
         private IProgramInfo _programInfo;
     }

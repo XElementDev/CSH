@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper
 {
-    internal static class OsIdHelper
+    [Export]
+    public class ConfigForOsHelper
     {
-        public static IReadOnlyList<ILinkInfo> GetSuitableConfig( IReadOnlyList<IOsConfiguration> osConfigs )
+        public IReadOnlyList<ILinkInfo> GetSuitableConfig( IReadOnlyList<IOsConfiguration> osConfigs )
         {
             IReadOnlyList<ILinkInfo> suitableConfig = new List<ILinkInfo>();
-            IOsRecognizer osRecognizer = new RegistryRecognizer();
-            var osId = osRecognizer.GetOsId();
+            var osId = this._osRecognizer.GetOsId();
 
             if ( osId.HasValue )
             {
@@ -24,5 +25,8 @@ namespace XElement.CloudSyncHelper
 
             return suitableConfig;
         }
+
+        [Import]
+        private IOsRecognizer _osRecognizer = null;
     }
 }

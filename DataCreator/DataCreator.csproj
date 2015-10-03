@@ -53,6 +53,7 @@
     <Compile Include="Data\Games\Anno2070.cs" />
     <Compile Include="Data\Games\Battlefield3.cs" />
     <Compile Include="Data\Games\ClickerHeroes.cs" />
+    <Compile Include="Data\Games\Risen3.cs" />
     <Compile Include="Data\Games\TypeRider.cs" />
     <Compile Include="Data\Games\TheTestamentOfSherlockHolmes.cs" />
     <Compile Include="Data\Games\TheCave.cs" />
@@ -61,7 +62,7 @@
     <Compile Include="Data\Games\F1_2013.cs" />
     <Compile Include="Data\Games\Left4Dead2.cs" />
     <Compile Include="Data\Games\OrcsMustDie2.cs" />
-    <Compile Include="Data\Games\Rocket League.cs" />
+    <Compile Include="Data\Games\RocketLeague.cs" />
     <Compile Include="Data\Games\Terraria.cs" />
     <Compile Include="Data\Games\Evolve.cs" />
     <Compile Include="Data\Games\Borderlands2.cs" />
@@ -83,9 +84,9 @@
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serializiation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition\OsRecognition.csproj">
-      <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
-      <Name>OsRecognition</Name>
+    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
+      <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
+      <Name>OsRecognition.Interface</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

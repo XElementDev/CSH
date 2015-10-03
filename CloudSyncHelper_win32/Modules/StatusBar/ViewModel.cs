@@ -17,7 +17,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.StatusBar
 
             if ( osId == OsId.Win81 ) this.IsWindows8_1 = true;
             else if ( osId == OsId.Win10 ) this.IsWindows10 = true;
+
+            var assemblyVersion = typeof( App ).Assembly.GetName().Version;
+            this.Version = string.Format( "v{0}", assemblyVersion );
         }
+
+        public string Version { get; private set; }
 
         [Import]
         private IOsRecognizer _osRecognizer = null;

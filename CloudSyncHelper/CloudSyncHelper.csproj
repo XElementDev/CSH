@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,10 +49,8 @@
     <Compile Include="ExecutionLogic.cs" />
     <Compile Include="Execution\IProgramLogic.cs" />
     <Compile Include="Execution\PathVariablesDTO.cs" />
-    <Compile Include="InstalledPrograms\InstalledProgram.cs" />
-    <Compile Include="InstalledPrograms\InstalledProgramsHelper.cs" />
     <Compile Include="Execution\LinkBase.cs" />
-    <Compile Include="OsIdHelper.cs" />
+    <Compile Include="ConfigForOsHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SymbolicLinks\SymbolicLinkHelper.cs" />
   </ItemGroup>
@@ -64,9 +63,9 @@
       <Project>{2c2b6037-1025-4fd5-83f1-17837c36a9d6}</Project>
       <Name>ReparsePointAdapter</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition\OsRecognition.csproj">
-      <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
-      <Name>OsRecognition</Name>
+    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
+      <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
+      <Name>OsRecognition.Interface</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

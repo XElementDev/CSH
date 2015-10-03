@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationManifest>exe.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Prism">
@@ -178,7 +178,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.manifest">
+    <None Include="exe.manifest">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -199,17 +199,25 @@
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj">
+      <Project>{77d3002b-68fe-4a1d-b10f-8b15c3ae6a1d}</Project>
+      <Name>InstalledPrograms.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstalledPrograms\InstalledPrograms.MefExtensions\InstalledPrograms.MefExtensions.csproj">
+      <Project>{18797d1c-3848-4906-9e29-4f433ff48d26}</Project>
+      <Name>InstalledPrograms.MefExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Serializiation\Serializiation.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serializiation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
+      <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
+      <Name>OsRecognition.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj">
       <Project>{6229fd37-00b3-4f8e-8299-e0e0d8ad2be6}</Project>
       <Name>OsRecognition.MefExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition\OsRecognition.csproj">
-      <Project>{c5aadc74-ba99-4d66-9ec6-114718de0357}</Project>
-      <Name>OsRecognition</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

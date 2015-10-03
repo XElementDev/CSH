@@ -25,7 +25,12 @@ namespace XElement.CloudSyncHelper.Execution
         public void /*ILink.*/Do()
         {
             this.CreatePathToDestinationTarget();
+            this.Undo();
+            this.ExecuteCmd();
+        }
 
+        private void ExecuteCmd()
+        {
             var mkLink = this.GetCmdCommand();
             var process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -36,8 +41,6 @@ namespace XElement.CloudSyncHelper.Execution
             process.Start();
 
             process.WaitForExit();
-
-            // TODO: Override already existing files/folders
         }
 
         private bool DoesSymbolicLinkPointToExpectedPath
