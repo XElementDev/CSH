@@ -5,7 +5,7 @@ using System.Linq;
 namespace XElement.DotNet.System.Environment.MefExtensions
 {
     [Export( typeof( IOsRecognizer ) )]
-    public class CacheAllRecognizer : IOsRecognizer, IPartImportsSatisfiedNotification
+    internal class CacheAllRecognizer : IOsRecognizer, IPartImportsSatisfiedNotification
     {
         public OsId? /*IOsRecognizer.*/GetOsId()
         {
