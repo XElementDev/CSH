@@ -40,12 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOsRecognizer.cs" />
-    <Compile Include="OsIdEnum.cs" />
     <Compile Include="RecognitionHelper.cs" />
     <Compile Include="RegistryRecognizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WmiRecognizer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OsRecognition.Interface\OsRecognition.Interface.csproj">
+      <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
+      <Name>OsRecognition.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
