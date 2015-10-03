@@ -31,7 +31,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
             programVM.ProgramInfoVM = programInfoVM;
 
             var installedProgramVM = this._installedProgramsModel.InstalledProgramVMs
-                .SingleOrDefault( p => Regex.IsMatch( p.DisplayName, programInfoVM.TechnicalNameMatcher ) );
+                .FirstOrDefault( p => Regex.IsMatch( p.DisplayName, programInfoVM.TechnicalNameMatcher ) );
 
             programVM.InstalledProgram = installedProgramVM;
             return programVM;

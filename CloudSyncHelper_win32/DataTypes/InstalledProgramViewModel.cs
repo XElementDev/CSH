@@ -1,4 +1,5 @@
 ﻿using System;
+using XElement.CloudSyncHelper.InstalledPrograms;
 using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
@@ -6,7 +7,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 #region not unit-tested
     public class InstalledProgramViewModel : ViewModelBase
     {
-        public InstalledProgramViewModel( InstalledProgram installedProgram )
+        public InstalledProgramViewModel( IInstalledProgram installedProgram )
         {
             this._installedProgram = installedProgram;
         }
@@ -16,7 +17,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             get { return this._installedProgram.DisplayName ?? String.Empty; }
         }
 
-        private InstalledProgram _installedProgram;
+        private IInstalledProgram _installedProgram;
     }
 #endregion
 }
