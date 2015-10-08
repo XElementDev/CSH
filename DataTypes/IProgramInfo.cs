@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace XElement.CloudSyncHelper.DataTypes
+﻿namespace XElement.CloudSyncHelper.DataTypes
 {
     public interface IProgramInfo
     {
+        IConfiguration Configuration { get; }
+
         string DisplayName { get; }
 
         string FolderName { get; }
-
-        IReadOnlyList<IOsConfiguration> OsConfigs { get; }
 
         /// <summary>
         /// A regex that matches the name that is displayed in the installed applications list.
