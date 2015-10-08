@@ -7,19 +7,14 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AppInfo ) )]
-    public class TeamSpeak3 : AppInfo
+    [Export( typeof( AbstractAppInfo ) )]
+    internal class TeamSpeak3 : AbstractAppInfo
     {
         [ImportingConstructor]
         public TeamSpeak3()
         {
             this.DisplayName = "TeamSpeak 3";
             this.FolderName = "TeamSpeak 3";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                this.GetConfigForWindows8_1(),  // TODO: Check config for Win8.1
-                this.GetConfigForWindows10()    // TODO: Check config for Win10
-            };
             this.TechnicalNameMatcher = "TeamSpeak 3 Client";   // TODO: check matcher
         }
 
@@ -45,6 +40,16 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
                     SourceId = "settings.db"
                 }
             };
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            var osConfigs = new List<OsConfiguration>
+            {
+                this.GetConfigForWindows8_1(),  // TODO: Check config for Win8.1
+                this.GetConfigForWindows10()    // TODO: Check config for Win10
+            };
+            this.Configuration = this._configFactory.Get( osConfigs );
         }
     }
 }

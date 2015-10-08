@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class Terraria : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class Terraria : AbstractGameInfo
     {
         [ImportingConstructor]
         public Terraria()
         {
             this.DisplayName = "Terraria";
             this.FolderName = "Terraria 2011 [Terraria]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Terraria";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

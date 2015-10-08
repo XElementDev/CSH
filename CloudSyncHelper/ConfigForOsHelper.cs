@@ -6,6 +6,7 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper
 {
+#region not unit-tested
     [Export]
     public class ConfigForOsHelper
     {
@@ -29,4 +30,5 @@ namespace XElement.CloudSyncHelper
         [Import]
         private IOsRecognizer _osRecognizer = null;
     }
+#endregion
 }

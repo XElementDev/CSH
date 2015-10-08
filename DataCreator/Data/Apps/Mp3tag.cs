@@ -7,19 +7,14 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AppInfo ) )]
-    public class Mp3tag : AppInfo
+    [Export( typeof( AbstractAppInfo ) )]
+    internal class Mp3tag : AbstractAppInfo
     {
         [ImportingConstructor]
         public Mp3tag()
         {
             this.DisplayName = "Mp3tag";
             this.FolderName = "Mp3tag";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                GetConfigForWindows8_1(),
-                GetConfigForWindows10()
-            };
             this.TechnicalNameMatcher = "Mp3tag";
         }
 
@@ -66,6 +61,16 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
                     SourceId = "mp3tag.cfg"
                 }
             };
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            var osConfigs = new List<OsConfiguration>
+            {
+                GetConfigForWindows8_1(),
+                GetConfigForWindows10()
+            };
+            this.Configuration = this._configFactory.Get( osConfigs );
         }
     }
 }

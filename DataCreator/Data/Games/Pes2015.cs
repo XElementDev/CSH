@@ -7,15 +7,20 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class Pes2015 : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class Pes2015 : AbstractGameInfo
     {
         [ImportingConstructor]
         public Pes2015()
         {
             this.DisplayName = "Pro Evolution Soccer 2015";
             this.FolderName = "PES 2014 [Pro Evolution Soccer 2015]";
-            this.OsConfigs = new List<OsConfiguration>
+            this.TechnicalNameMatcher = "Pro Evolution Soccer 2015";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            var osConfigs = new List<OsConfiguration>
             {
                 new OsConfiguration
                 {
@@ -32,7 +37,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                     OsId = OsId.Win81
                 }
             };
-            this.TechnicalNameMatcher = "Pro Evolution Soccer 2015";
+            this.Configuration = this._configFactory.Get( osConfigs );
         }
     }
 }

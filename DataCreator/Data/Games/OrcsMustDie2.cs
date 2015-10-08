@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class OrcsMustDie2 : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class OrcsMustDie2 : AbstractGameInfo
     {
         [ImportingConstructor]
         public OrcsMustDie2()
         {
             this.DisplayName = "Orcs Must Die! 2";
             this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Orcs Must Die! 2"; // TODO: check matcher
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

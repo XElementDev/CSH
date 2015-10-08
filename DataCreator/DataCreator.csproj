@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\AbstractAppInfo.cs" />
+    <Compile Include="Data\AbstractGameInfo.cs" />
     <Compile Include="Data\Apps\ExactAudioCopy.cs" />
     <Compile Include="Data\Apps\Mp3tag.cs" />
     <Compile Include="Data\Apps\TeamSpeak3.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Data\Games\TokiTori.cs" />
     <Compile Include="Data\Games\BioshockInfinite.cs" />
     <Compile Include="Data\Games\Pes2015.cs" />
+    <Compile Include="Model\Factories\ConfigurationFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

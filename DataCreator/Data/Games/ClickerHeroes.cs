@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class ClickerHeroes : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class ClickerHeroes : AbstractGameInfo
     {
         [ImportingConstructor]
         public ClickerHeroes()
         {
             this.DisplayName = "Clicker Heroes";
             this.FolderName = "Clicker Heroes";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Clicker Heroes";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

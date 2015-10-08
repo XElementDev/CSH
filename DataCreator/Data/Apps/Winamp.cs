@@ -7,19 +7,14 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AppInfo ) )]
-    public class Winamp : AppInfo
+    [Export( typeof( AbstractAppInfo ) )]
+    internal class Winamp : AbstractAppInfo
     {
         [ImportingConstructor]
         public Winamp()
         {
             this.DisplayName = "Winamp";
             this.FolderName = "Winamp";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                GetConfigForWindows8_1(),   // TODO: Check config for Win8.1
-                GetConfigForWindows10()
-            };
             this.TechnicalNameMatcher = "Winamp";
         }
 
@@ -81,6 +76,16 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
             var win10Config = this.GetConfigForWindows8_1();
             win10Config.OsId = OsId.Win10;
             return win10Config;
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            var osConfigs = new List<OsConfiguration>
+            {
+                GetConfigForWindows8_1(),   // TODO: Check config for Win8.1
+                GetConfigForWindows10()
+            };
+            this.Configuration = this._configFactory.Get( osConfigs );
         }
     }
 }

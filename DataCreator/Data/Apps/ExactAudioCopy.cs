@@ -7,19 +7,14 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AppInfo ) )]
-    public class ExactAudioCopy : AppInfo
+    [Export( typeof( AbstractAppInfo ) )]
+    internal class ExactAudioCopy : AbstractAppInfo
     {
         [ImportingConstructor]
         public ExactAudioCopy()
         {
             this.DisplayName = "Exact Audio Copy";
             this.FolderName = "Exact Audio Copy";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                this.GetConfigForWin8_1(),
-                GetConfigForWin10()
-            };
             this.TechnicalNameMatcher = "Exact Audio Copy.*";
         }
 
@@ -45,6 +40,16 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
                     SourceId = "Profiles"
                 }
             };
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            var osConfig = new List<OsConfiguration>
+            {
+                this.GetConfigForWin8_1(),
+                GetConfigForWin10()
+            };
+            this.Configuration = this._configFactory.Get( osConfig );
         }
     }
 }

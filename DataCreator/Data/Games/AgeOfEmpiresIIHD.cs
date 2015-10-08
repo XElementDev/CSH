@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class AgeOfEmpiresIIHD : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class AgeOfEmpiresIIHD : AbstractGameInfo
     {
         [ImportingConstructor]
         public AgeOfEmpiresIIHD()
         {
             this.DisplayName = "Age of Empires II: HD Edition";
             this.FolderName = "Age Of Empires 2013 [Age of Empires II_ HD Edition]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Age of Empires II: HD Edition";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

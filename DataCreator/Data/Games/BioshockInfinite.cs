@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class BioshockInfinite : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class BioshockInfinite : AbstractGameInfo
     {
         [ImportingConstructor]
         public BioshockInfinite()
         {
             this.DisplayName = "BioShock Infinite";
             this.FolderName = "BioShock 2013 [BioShock Infinite]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "BioShock Infinite";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

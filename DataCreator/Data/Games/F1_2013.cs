@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class F1_2013 : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class F1_2013 : AbstractGameInfo
     {
         [ImportingConstructor]
         public F1_2013()
         {
             this.DisplayName = "F1 2013";
             this.FolderName = "F1 2013 [F1 2013]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "F1 2013";  // TODO: check matcher
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

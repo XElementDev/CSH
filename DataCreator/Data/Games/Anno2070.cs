@@ -7,19 +7,14 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class Anno2070 : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class Anno2070 : AbstractGameInfo
     {
         [ImportingConstructor]
         public Anno2070()
         {
             this.DisplayName = "ANNO 2070";
             this.FolderName = "Anno 2011 [ANNO 2070]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                GetConfigForWin8_1(),   // TODO: Check config for Win8.1
-                GetConfigForWin10()     // TODO: Check config for Win10
-            };
             this.TechnicalNameMatcher = "ANNO 2070";    // TODO: check matcher
         }
 
@@ -46,6 +41,16 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             var win10Config = this.GetConfigForWin8_1();
             win10Config.OsId = OsId.Win10;
             return win10Config;
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            var osConfigs = new List<OsConfiguration>
+            {
+                GetConfigForWin8_1(),   // TODO: Check config for Win8.1
+                GetConfigForWin10()     // TODO: Check config for Win10
+            };
+            this.Configuration = this._configFactory.Get( osConfigs );
         }
     }
 }
