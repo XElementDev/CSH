@@ -24,6 +24,15 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
     public abstract class AbstractProgramInfo : IProgramInfo
     {
+        public AbstractProgramInfo()
+        {
+            this.Configuration = new Configuration();
+        }
+
+        [XmlIgnore]
+        public Configuration Configuration { get; set; }
+        IConfiguration IProgramInfo.Configuration { get { return this.Configuration; } }
+
         [XmlAttribute( "DisplayName" )]
         public string DisplayName { get; set; }
 
@@ -31,14 +40,36 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         public string FolderName { get; set; }
 
         [XmlElement( "OS" )]
-        public List<OsConfiguration> OsConfigs { get; set; }
-        IReadOnlyList<IOsConfiguration> IProgramInfo.OsConfigs { get { return this.OsConfigs; } }
+        public List<OsConfiguration> OsConfigs
+        {
+            get { return this.Configuration.OsConfigs; }
+            set { this.Configuration.OsConfigs = value; }
+        }
+
+        // TODO: '<IsSteamCloudSupported value="true" />' instead of '<IsSteamCloudSupported>true</IsSteamCloudSupported>'
+        [XmlElement( "IsSteamCloudSupported" )]
+        public bool SupportsSteamCloud
+        {
+            get { return this.Configuration.SupportsSteamCloud; }
+            set { this.Configuration.SupportsSteamCloud = value; }
+        }
 
         [XmlAttribute( "TechNameMatcher" )]
         public string TechnicalNameMatcher { get; set; }
     }
 
     public class AppInfo : AbstractProgramInfo, IAppInfo { }
+
+    public class Configuration : IConfiguration
+    {
+        [XmlIgnore]
+        public List<OsConfiguration> OsConfigs { get; set; }
+        IEnumerable<IOsConfiguration> IConfiguration.OsConfigs { get { return this.OsConfigs; } }
+
+        [XmlIgnore]
+        public bool SupportsSteamCloud { get; set; }
+        bool IConfiguration.SupportsSteamCloud { get { return this.SupportsSteamCloud; } }
+    }
 
     public class FileLinkInfo : AbstractLinkInfo, IFileLinkInfo { }
 
