@@ -83,9 +83,9 @@
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Serializiation\Serializiation.csproj">
+    <ProjectReference Include="..\Serializiation\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
-      <Name>Serializiation</Name>
+      <Name>Serialization</Name>
     </ProjectReference>
     <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>

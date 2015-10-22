@@ -7,8 +7,8 @@
     <ProjectGuid>{9F1C5EA3-4D25-439F-A293-97A26B7C930D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.CloudSyncHelper.Serializiation</RootNamespace>
-    <AssemblyName>XElement.CloudSyncHelper.Serializiation</AssemblyName>
+    <RootNamespace>XElement.CloudSyncHelper.Serialization</RootNamespace>
+    <AssemblyName>XElement.CloudSyncHelper.Serialization</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
