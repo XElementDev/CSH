@@ -39,6 +39,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FactoryMethod", "FactoryMet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod.Interface", "..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj", "{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{C9EBD6CA-AA43-4BE0-B9F5-60667B66B874}"
+	ProjectSection(SolutionItems) = preProject
+		..\deployment\CloudSyncHelper.xml = ..\deployment\CloudSyncHelper.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

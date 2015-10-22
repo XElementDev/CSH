@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using XElement.CloudSyncHelper.Serializiation;
@@ -7,7 +6,7 @@ using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
-#region not unit-tested
+    #region not unit-tested
     [Export]
     internal class ProgramInfosModel
     {
@@ -21,8 +20,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private void LoadProgramInfos()
         {
-            var desktopPath = Environment.GetFolderPath( Environment.SpecialFolder.DesktopDirectory );
-            var uri = Path.Combine( desktopPath, "CloudSyncHelper.xml" );
+            var currentExecutionPath = ".";
+            var uri = Path.Combine( currentExecutionPath, "CloudSyncHelper.xml" );
 
             var serializationMgr = new SerializationManager( uri );
             var syncData = serializationMgr.Deserialize();
