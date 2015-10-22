@@ -10,6 +10,7 @@ using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Modules.StatusBar;
 using XElement.Common.UI;
+using MenuBarViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar.ViewModel;
 
 namespace XElement.CloudSyncHelper.UI.Win32
 {
@@ -51,6 +52,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
         }
 
         // TODO: feature to move data to SYNC folder
+
+        [Import]
+        public MenuBarViewModel MenuBarVM { get; private set; }
 
         public ListCollectionView ProgramViewModelsView { get; private set; }
 

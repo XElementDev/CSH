@@ -19,6 +19,11 @@
     </Window.Resources>
 
     <DockPanel>
+        <local:MenuBarUC 
+                         DockPanel.Dock="Top" 
+                         DataContext="{Binding Path=MenuBarVM}" 
+        />
+
         <local:StatusBarUC 
                            DockPanel.Dock="Bottom" 
                            DataContext="{Binding Path=StatusBarVM}" 
