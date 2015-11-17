@@ -93,6 +93,9 @@
   <Game DisplayName="Risen 3 - Titan Lords" FolderName="Risen 2014 [Risen 3 - Titan Lords]" TechNameMatcher="Risen 3 - Titan Lords">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game DisplayName="The LEGO Movie - Videogame" FolderName="LEGO 2014 [The LEGO Movie - Videogame]" TechNameMatcher="The LEGO® Movie - Videogame">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game DisplayName="Saints Row IV" FolderName="Saints Row 2013 [Saints Row IV]" TechNameMatcher="Saints Row IV">
     <IsSteamCloudSupported value="true" />
   </Game>
