@@ -32,7 +32,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         public IsSteamCloudSupported SupportsSteamCloud
         {
             get { return new IsSteamCloudSupported { Value = this.Configuration.SupportsSteamCloud }; }
-            set { this.SupportsSteamCloud.Value = value.Value; }
+            set { this.Configuration.SupportsSteamCloud = value.Value; }
         }
 
         [XmlAttribute( "TechNameMatcher" )]
