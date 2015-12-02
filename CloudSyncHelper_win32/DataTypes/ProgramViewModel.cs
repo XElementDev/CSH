@@ -35,7 +35,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public bool IsInstalled { get { return this.InstalledProgram != null; } }
 
-        public bool IsLinked { get { return this.ProgramInfoVM.IsLinked; } }
+        public bool IsLinked
+        {
+            get
+            {
+                var linkingDoneByCloudProvider = this.IsInstalled && this.SupportsSteamCloud;
+                return this.ProgramInfoVM.IsLinked || linkingDoneByCloudProvider;
+            }
+        }
 
         public ICommand LinkCommand { get; private set; }
         private bool LinkCommand_CanExecute()
@@ -99,10 +106,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public SupportedOperatingSystemsViewModel SupportedOSsVM { get; private set; }
 
+        public bool SupportsSteamCloud { get { return this.ProgramInfoVM.SupportsSteamCloud; } }
+
         public ICommand UnlinkCommand { get; private set; }
         private bool UnlinkCommand_CanExecute()
         {
-            return this.IsLinked;
+            return this.IsLinked && !this.SupportsSteamCloud;
         }
         private void UnlinkCommand_Execute()
         {

@@ -63,6 +63,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             get { return this._programInfo.Configuration.OsConfigs; }
         }
 
+        public bool SupportsSteamCloud
+        {
+            get { return this._programInfo.Configuration.SupportsSteamCloud; }
+        }
+
         public string TechnicalNameMatcher { get { return this._programInfo.TechnicalNameMatcher; } }
 
         private IConfig _config;
