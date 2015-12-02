@@ -12,14 +12,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
         public ViewModel()
         {
             this.ShowAbout = new DelegateCommand( this.ShowAbout_Execute );
-
-            this._window = new AboutWindow();
         }
 
         public ICommand ShowAbout { get; private set; }
 
         private void ShowAbout_Execute()
         {
+            this._window = new AboutWindow();
             this._window.ShowDialog();
         }
 
