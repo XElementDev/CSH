@@ -93,6 +93,9 @@
   <Game DisplayName="Risen 3 - Titan Lords" FolderName="Risen 2014 [Risen 3 - Titan Lords]" TechNameMatcher="Risen 3 - Titan Lords">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game DisplayName="Middle-earth: Shadow of Mordor" FolderName="Middle-earth_ Shadow of Mordor" TechNameMatcher="Middle-earth: Shadow of Mordor">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game DisplayName="The LEGO Movie - Videogame" FolderName="LEGO 2014 [The LEGO Movie - Videogame]" TechNameMatcher="The LEGO® Movie - Videogame">
     <IsSteamCloudSupported value="true" />
   </Game>
