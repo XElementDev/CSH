@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class Left4Dead2 : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class Left4Dead2 : AbstractGameInfo
     {
         [ImportingConstructor]
         public Left4Dead2()
         {
             this.DisplayName = "Left 4 Dead 2";
             this.FolderName = "Left 4 Dead 2009 [Left 4 Dead 2]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Left 4 Dead 2";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

@@ -88,6 +88,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\About\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\About\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\MenuBar\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\PathMap\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +153,16 @@
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
     <Compile Include="Model\Factories\ProgramViewModelFactory.cs" />
+    <Compile Include="Modules\About\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\About\Window.xaml.cs">
+      <DependentUpon>Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MenuBar\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MenuBar\ViewModel.cs" />
     <Compile Include="Modules\PathMap\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -207,9 +229,9 @@
       <Project>{18797d1c-3848-4906-9e29-4f433ff48d26}</Project>
       <Name>InstalledPrograms.MefExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Serializiation\Serializiation.csproj">
+    <ProjectReference Include="..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
-      <Name>Serializiation</Name>
+      <Name>Serialization</Name>
     </ProjectReference>
     <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
@@ -242,7 +264,15 @@
   <ItemGroup>
     <Resource Include="Resources\Cloud-Upload-000000-16.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Steam-000000-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\deployment\CloudSyncHelper.xml">
+      <Link>CloudSyncHelper.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

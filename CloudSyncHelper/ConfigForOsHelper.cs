@@ -6,10 +6,11 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper
 {
+#region not unit-tested
     [Export]
     public class ConfigForOsHelper
     {
-        public IReadOnlyList<ILinkInfo> GetSuitableConfig( IReadOnlyList<IOsConfiguration> osConfigs )
+        public IReadOnlyList<ILinkInfo> GetSuitableConfig( IEnumerable<IOsConfiguration> osConfigs )
         {
             IReadOnlyList<ILinkInfo> suitableConfig = new List<ILinkInfo>();
             var osId = this._osRecognizer.GetOsId();
@@ -29,4 +30,5 @@ namespace XElement.CloudSyncHelper
         [Import]
         private IOsRecognizer _osRecognizer = null;
     }
+#endregion
 }

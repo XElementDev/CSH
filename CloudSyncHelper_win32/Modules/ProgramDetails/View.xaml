@@ -14,6 +14,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./Styles.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -27,10 +28,36 @@
                         Source="{StaticResource Settings-02-16}" 
                         VerticalAlignment="Top" 
                 />
-                <TextBlock Text="Konfigurationen:" />
+                <TextBlock Text="Betriebssystem-Konfigurationen:" />
                 <local:SupportedOSs 
                                     DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
                 />
+            </StackPanel>
+
+            <StackPanel 
+                        Orientation="Horizontal">
+                <Image 
+                        Source="{StaticResource Cloud-000000-16}" 
+                        VerticalAlignment="Top" 
+                />
+                <TextBlock Text="Cloud-Provider:" />
+
+                <StackPanel 
+                            Orientation="Horizontal" 
+                            Opacity=".25" 
+                            Visibility="{Binding Path=SupportsSteamCloud, 
+                                                 Converter={StaticResource InversedBoolToVisibilityConverter}}">
+                    <Image Source="{StaticResource Steam-Black-16}" />
+                    <TextBlock Text="Steam" />
+                </StackPanel>
+
+                <StackPanel 
+                            Orientation="Horizontal" 
+                            Visibility="{Binding Path=SupportsSteamCloud, 
+                                                 Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Image Source="{StaticResource Steam-Black-16}" />
+                    <TextBlock Text="Steam" />
+                </StackPanel>
             </StackPanel>
 
             <local:PathMap 

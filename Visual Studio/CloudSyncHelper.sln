@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSyncHelper_win32", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSyncHelper", "..\CloudSyncHelper\CloudSyncHelper.csproj", "{DDA34727-7BAE-49F3-9474-8DC5A4CD93F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serializiation", "..\Serializiation\Serializiation.csproj", "{9F1C5EA3-4D25-439F-A293-97A26B7C930D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "..\Serialization\Serialization.csproj", "{9F1C5EA3-4D25-439F-A293-97A26B7C930D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCreator", "..\DataCreator\DataCreator.csproj", "{8867C025-099B-4AC5-B745-FC10E6A4988A}"
 EndProject
@@ -30,6 +30,19 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsRecognition.Interface", "..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj", "{7CF544AE-B30D-46F0-8FE6-11EE842FF035}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OsRecognition", "OsRecognition", "{A7FAA180-B23C-4CE4-BCDC-C22F4736CF48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{06A61363-7B57-464E-8D8F-EAB947FD16E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreationalPatterns", "CreationalPatterns", "{60EF22EB-496F-4399-A77D-5B3CF9B49DA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FactoryMethod", "FactoryMethod", "{869854C4-852D-4CBE-98D1-98FB6F804238}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod.Interface", "..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj", "{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{C9EBD6CA-AA43-4BE0-B9F5-60667B66B874}"
+	ProjectSection(SolutionItems) = preProject
+		..\deployment\CloudSyncHelper.xml = ..\deployment\CloudSyncHelper.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +98,10 @@ Global
 		{7CF544AE-B30D-46F0-8FE6-11EE842FF035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CF544AE-B30D-46F0-8FE6-11EE842FF035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CF544AE-B30D-46F0-8FE6-11EE842FF035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,5 +113,8 @@ Global
 		{06D15881-BB89-464E-A43C-05F473AE66BA} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
 		{18797D1C-3848-4906-9E29-4F433FF48D26} = {D00A2DA5-B035-4EA9-845E-6B791CA13CE9}
 		{7CF544AE-B30D-46F0-8FE6-11EE842FF035} = {A7FAA180-B23C-4CE4-BCDC-C22F4736CF48}
+		{60EF22EB-496F-4399-A77D-5B3CF9B49DA1} = {06A61363-7B57-464E-8D8F-EAB947FD16E5}
+		{869854C4-852D-4CBE-98D1-98FB6F804238} = {60EF22EB-496F-4399-A77D-5B3CF9B49DA1}
+		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C} = {869854C4-852D-4CBE-98D1-98FB6F804238}
 	EndGlobalSection
 EndGlobal

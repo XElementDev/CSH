@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\AbstractAppInfo.cs" />
+    <Compile Include="Data\AbstractGameInfo.cs" />
     <Compile Include="Data\Apps\ExactAudioCopy.cs" />
     <Compile Include="Data\Apps\Mp3tag.cs" />
     <Compile Include="Data\Apps\TeamSpeak3.cs" />
@@ -55,6 +57,9 @@
     <Compile Include="Data\Games\ClickerHeroes.cs" />
     <Compile Include="Data\Games\PlantsVsZombies.cs" />
     <Compile Include="Data\Games\Risen3.cs" />
+    <Compile Include="Data\Games\SaintsRowIV.cs" />
+    <Compile Include="Data\Games\ShadowOfMordor.cs" />
+    <Compile Include="Data\Games\TheLegoMovieVideogame.cs" />
     <Compile Include="Data\Games\TheStanleyParable.cs" />
     <Compile Include="Data\Games\TeddyFloppyEar_TheRace.cs" />
     <Compile Include="Data\Games\TypeRider.cs" />
@@ -72,6 +77,7 @@
     <Compile Include="Data\Games\TokiTori.cs" />
     <Compile Include="Data\Games\BioshockInfinite.cs" />
     <Compile Include="Data\Games\Pes2015.cs" />
+    <Compile Include="Model\Factories\ConfigurationFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,16 +89,20 @@
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Serializiation\Serializiation.csproj">
+    <ProjectReference Include="..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
-      <Name>Serializiation</Name>
+      <Name>Serialization</Name>
     </ProjectReference>
     <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
       <Name>OsRecognition.Interface</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\deployment\CloudSyncHelper.xml">
+      <Link>CloudSyncHelper.xml</Link>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

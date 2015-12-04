@@ -7,33 +7,49 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AppInfo ) )]
-    public class TeamSpeak3 : AppInfo
+    [Export( typeof( AbstractAppInfo ) )]
+    internal class TeamSpeak3 : AbstractAppInfo
     {
         [ImportingConstructor]
         public TeamSpeak3()
         {
             this.DisplayName = "TeamSpeak 3";
             this.FolderName = "TeamSpeak 3";
-            // TODO:    --> check configuration
-            this.OsConfigs = new List<OsConfiguration>
+            this.TechnicalNameMatcher = "TeamSpeak 3 Client";   // TODO: check matcher
+        }
+
+        private OsConfiguration GetConfigForWindows8_1()
+        {
+            return new OsConfiguration { Links = GetLinksForWin81_10(), OsId = OsId.Win81 };
+        }
+
+        private OsConfiguration GetConfigForWindows10()
+        {
+            return new OsConfiguration { Links = GetLinksForWin81_10(), OsId = OsId.Win10 };
+        }
+
+        private List<AbstractLinkInfo> GetLinksForWin81_10()
+        {
+            return new List<AbstractLinkInfo>
             {
-                new OsConfiguration
+                new FileLinkInfo
                 {
-                    Links = new List<AbstractLinkInfo>
-                    {
-                        new FileLinkInfo
-                        {
-                            DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                            DestinationSubFolderPath = Path.Combine("TS3Client"),
-                            DestinationTargetName = "settings.db",
-                            SourceId = "settings.db"
-                        }
-                    },
-                    OsId = OsId.Win81
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("TS3Client"),
+                    DestinationTargetName = "settings.db",
+                    SourceId = "settings.db"
                 }
             };
-            this.TechnicalNameMatcher = "TeamSpeak 3 Client";   // TODO: check matcher
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            var osConfigs = new List<OsConfiguration>
+            {
+                this.GetConfigForWindows8_1(),  // TODO: Check config for Win8.1
+                this.GetConfigForWindows10()    // TODO: Check config for Win10
+            };
+            this.Configuration = this._configFactory.Get( osConfigs );
         }
     }
 }

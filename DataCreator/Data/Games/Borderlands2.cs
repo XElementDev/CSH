@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class Borderlands2 : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class Borderlands2 : AbstractGameInfo
     {
         [ImportingConstructor]
         public Borderlands2()
         {
             this.DisplayName = "Borderlands 2";
             this.FolderName = "Borderlands 2012 [Borderlands 2]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Borderlands 2";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

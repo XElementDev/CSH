@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class Risen3 : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class Risen3 : AbstractGameInfo
     {
         [ImportingConstructor]
         public Risen3()
         {
             this.DisplayName = "Risen 3 - Titan Lords";
             this.FolderName = "Risen 2014 [Risen 3 - Titan Lords]";
-            this.OsConfigs = new List<OsConfiguration>()
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Risen 3 - Titan Lords";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

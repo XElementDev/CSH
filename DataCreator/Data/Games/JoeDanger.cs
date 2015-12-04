@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class JoeDanger : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class JoeDanger : AbstractGameInfo
     {
         [ImportingConstructor]
         public JoeDanger()
         {
             this.DisplayName = "Joe Danger";
             this.FolderName = "Joe Danger 2013 [Joe Danger]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Joe Danger";   // TODO: check matcher
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

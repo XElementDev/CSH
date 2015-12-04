@@ -22,23 +22,18 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         public string SourceId { get; set; }
     }
 
-    public abstract class AbstractProgramInfo : IProgramInfo
-    {
-        [XmlAttribute( "DisplayName" )]
-        public string DisplayName { get; set; }
-
-        [XmlAttribute( "FolderName" )]
-        public string FolderName { get; set; }
-
-        [XmlElement( "OS" )]
-        public List<OsConfiguration> OsConfigs { get; set; }
-        IReadOnlyList<IOsConfiguration> IProgramInfo.OsConfigs { get { return this.OsConfigs; } }
-
-        [XmlAttribute( "TechNameMatcher" )]
-        public string TechnicalNameMatcher { get; set; }
-    }
-
     public class AppInfo : AbstractProgramInfo, IAppInfo { }
+
+    public class Configuration : IConfiguration
+    {
+        [XmlIgnore]
+        public List<OsConfiguration> OsConfigs { get; set; }
+        IEnumerable<IOsConfiguration> IConfiguration.OsConfigs { get { return this.OsConfigs; } }
+
+        [XmlIgnore]
+        public bool SupportsSteamCloud { get; set; }
+        bool IConfiguration.SupportsSteamCloud { get { return this.SupportsSteamCloud; } }
+    }
 
     public class FileLinkInfo : AbstractLinkInfo, IFileLinkInfo { }
 

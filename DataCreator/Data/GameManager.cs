@@ -7,7 +7,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     [Export]
     internal class GameManager : IPartImportsSatisfiedNotification
     {
-        [ImportMany( typeof( GameInfo ) )]
+        [ImportMany( typeof( AbstractGameInfo ) )]
         public List<AbstractProgramInfo> GameLinkInfos { get; private set; }
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
@@ -18,9 +18,9 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 var baseGameInfo = new GameInfo
                 {
+                    Configuration = derivedGameInfo.Configuration,
                     DisplayName = derivedGameInfo.DisplayName,
                     FolderName = derivedGameInfo.FolderName,
-                    OsConfigs = derivedGameInfo.OsConfigs,
                     TechnicalNameMatcher = derivedGameInfo.TechnicalNameMatcher
                 };
                 gameLinkInfos.Add( baseGameInfo );

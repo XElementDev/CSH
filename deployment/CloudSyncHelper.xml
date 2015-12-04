@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <App DisplayName="Exact Audio Copy" FolderName="Exact Audio Copy" TechNameMatcher="Exact Audio Copy.*">
+    <OS id="Win81">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </App>
+  <App DisplayName="Mp3tag" FolderName="Mp3tag" TechNameMatcher="Mp3tag">
+    <OS id="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </App>
+  <App DisplayName="TeamSpeak 3" FolderName="TeamSpeak 3" TechNameMatcher="TeamSpeak 3 Client">
+    <OS id="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </App>
+  <App DisplayName="Winamp" FolderName="Winamp" TechNameMatcher="Winamp">
+    <OS id="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </App>
+  <Game DisplayName="Age of Empires II: HD Edition" FolderName="Age Of Empires 2013 [Age of Empires II_ HD Edition]" TechNameMatcher="Age of Empires II: HD Edition">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="ANNO 2070" FolderName="Anno 2011 [ANNO 2070]" TechNameMatcher="ANNO 2070">
+    <OS id="Win81">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="ANNO 2070\Accounts\%UPLAY_ACCOUNT_NAME%" DestTargetName="Savegames" SourceId="Savegames" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="ANNO 2070\Accounts\%UPLAY_ACCOUNT_NAME%" DestTargetName="Savegames" SourceId="Savegames" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game DisplayName="Battlefield 3" FolderName="Battlefield 2011 [Battlefield 3]" TechNameMatcher="Battlefield 3™">
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game DisplayName="Clicker Heroes" FolderName="Clicker Heroes" TechNameMatcher="Clicker Heroes">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Risen 3 - Titan Lords" FolderName="Risen 2014 [Risen 3 - Titan Lords]" TechNameMatcher="Risen 3 - Titan Lords">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Middle-earth: Shadow of Mordor" FolderName="Middle-earth_ Shadow of Mordor" TechNameMatcher="Middle-earth: Shadow of Mordor">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="The LEGO Movie - Videogame" FolderName="LEGO 2014 [The LEGO Movie - Videogame]" TechNameMatcher="The LEGO® Movie - Videogame">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Saints Row IV" FolderName="Saints Row 2013 [Saints Row IV]" TechNameMatcher="Saints Row IV">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Type:Rider" FolderName="Type_Rider 2013 [Type_Rider]" TechNameMatcher="Type:Rider">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="The Testament of Sherlock Holmes" FolderName="Sherlock Holmes 2012 [The Testament of Sherlock Holmes]" TechNameMatcher="The Testament of Sherlock Holmes">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="The Cave" FolderName="The Cave 2013 [The Cave]" TechNameMatcher="The Cave">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Syder Arcade" FolderName="Syder Arcade 2013 [Syder Arcade]" TechNameMatcher="Syder Arcade">
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game DisplayName="Joe Danger" FolderName="Joe Danger 2013 [Joe Danger]" TechNameMatcher="Joe Danger">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="F1 2013" FolderName="F1 2013 [F1 2013]" TechNameMatcher="F1 2013">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Left 4 Dead 2" FolderName="Left 4 Dead 2009 [Left 4 Dead 2]" TechNameMatcher="Left 4 Dead 2">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Orcs Must Die! 2" FolderName="Orcs Must Die 2012 [Orcs Must Die! 2]" TechNameMatcher="Orcs Must Die! 2">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Rocket League" FolderName="Rocket League 2015 [Rocket League]" TechNameMatcher="Rocket League">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Terraria" FolderName="Terraria 2011 [Terraria]" TechNameMatcher="Terraria">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Evolve" FolderName="Evolve 2015 [Evolve]" TechNameMatcher="Evolve">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Borderlands 2" FolderName="Borderlands 2012 [Borderlands 2]" TechNameMatcher="Borderlands 2">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Toki Tori" FolderName="Toki Tori 2010 [Toki Tori]" TechNameMatcher="Toki Tori">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="BioShock Infinite" FolderName="BioShock 2013 [BioShock Infinite]" TechNameMatcher="BioShock Infinite">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game DisplayName="Pro Evolution Soccer 2015" FolderName="PES 2014 [Pro Evolution Soccer 2015]" TechNameMatcher="Pro Evolution Soccer 2015">
+    <OS id="Win81">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+</SyncData>

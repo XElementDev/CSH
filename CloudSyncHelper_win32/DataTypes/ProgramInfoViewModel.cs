@@ -58,7 +58,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public bool IsLinked { get { return this.ExecutionLogic.IsLinked; } }
 
-        public IEnumerable<IOsConfiguration> OsConfigs { get { return this._programInfo.OsConfigs; } }
+        public IEnumerable<IOsConfiguration> OsConfigs
+        {
+            get { return this._programInfo.Configuration.OsConfigs; }
+        }
+
+        public bool SupportsSteamCloud
+        {
+            get { return this._programInfo.Configuration.SupportsSteamCloud; }
+        }
 
         public string TechnicalNameMatcher { get { return this._programInfo.TechnicalNameMatcher; } }
 

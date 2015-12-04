@@ -11,15 +11,18 @@ namespace XElement.CloudSyncHelper.DataCreator
     {
         static void Main( string[] args )
         {
-            var desktopPath = Environment.GetFolderPath( Environment.SpecialFolder.DesktopDirectory );
-            _filePath = Path.Combine( desktopPath, "CloudSyncHelper.xml" );
+            var pathToDeploymentFolder = @"..\..\..\deployment";
+            _filePath = Path.Combine( pathToDeploymentFolder, "CloudSyncHelper.xml" );
 
             try
             {
-                Console.WriteLine( "New data will be stored on your desktop." );
+                Console.WriteLine( "New data will be stored at: '{0}'", Path.GetFullPath( _filePath ) );
+                Console.WriteLine( "Press any key to continue." );
+                Console.ReadKey();
+
                 InitializeMef();
                 WriteData();
-                Console.WriteLine( String.Format( "All information were successfully written to '{0}'.",
+                Console.WriteLine( String.Format( "All information were successfully written.",
                                                   _filePath ) );
             }
             catch ( Exception ex )

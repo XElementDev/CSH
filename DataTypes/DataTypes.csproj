@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAppInfo.cs" />
+    <Compile Include="IConfiguration.cs" />
     <Compile Include="IFileLinkInfo.cs" />
     <Compile Include="IFolderLinkInfo.cs" />
     <Compile Include="IGameInfo.cs" />

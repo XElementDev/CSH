@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class TheTestamentOfSherlockHolmes : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class TheTestamentOfSherlockHolmes : AbstractGameInfo
     {
         [ImportingConstructor]
         public TheTestamentOfSherlockHolmes()
         {
             this.DisplayName = "The Testament of Sherlock Holmes";
             this.FolderName = "Sherlock Holmes 2012 [The Testament of Sherlock Holmes]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "The Testament of Sherlock Holmes"; // TODO: check matcher
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }
