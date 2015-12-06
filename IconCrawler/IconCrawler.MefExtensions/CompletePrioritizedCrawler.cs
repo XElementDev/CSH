@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Drawing;
 
 namespace XElement.CloudSyncHelper.UI.IconCrawler.MefExtensions
 {
+#region not unit-tested
     [Export( typeof( IIconCrawler ) )]
     internal class CompletePrioritizedCrawler : IIconCrawler
     {
-        public Image Crawl( ICrawlInformation crawlInfo )
+        public IEnumerable<ICrawlResult> Crawl( IEnumerable<ICrawlInformation> crawlInfos )
         {
             throw new NotImplementedException();
         }
@@ -16,4 +16,5 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler.MefExtensions
         [ImportMany( typeof( IPriotizableIconCrawler ) )]
         private IList<IPriotizableIconCrawler> _crawlers;
     }
+#endregion
 }

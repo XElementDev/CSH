@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
 
 namespace XElement.CloudSyncHelper.UI.IconCrawler
 {
 #region not unit-tested
     public class SteamIconCrawler : IPriotizableIconCrawler
     {
-        public Image Crawl( ICrawlInformation crawlInfo )
+        public IEnumerable<ICrawlResult> Crawl( IEnumerable<ICrawlInformation> crawlInfos )
         {
             throw new NotImplementedException();
         }

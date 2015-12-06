@@ -1,9 +1,9 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
 
 namespace XElement.CloudSyncHelper.UI.IconCrawler
 {
     public interface IIconCrawler
     {
-        Image Crawl( ICrawlInformation crawlInfo );
+        IEnumerable<ICrawlResult> Crawl( IEnumerable<ICrawlInformation> crawlInfos );
     }
 }
