@@ -1,7 +1,9 @@
-﻿namespace XElement.CloudSyncHelper.UI.IconCrawler
+﻿using System.Drawing;
+
+namespace XElement.CloudSyncHelper.UI.IconCrawler
 {
     public interface IIconCrawler
     {
-        Reliability Realiability { get; }
+        Image Crawl( ICrawlInformation crawlInfo );
     }
 }
