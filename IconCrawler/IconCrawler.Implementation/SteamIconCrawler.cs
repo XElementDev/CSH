@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
             throw new NotImplementedException();
         }
 
-        public Reliability Realiability { get { return Reliability.High; } }
+        public Reliability Reliability { get { return Reliability.High; } }
     }
 #endregion
 }

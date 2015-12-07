@@ -2,6 +2,6 @@
 {
     public interface IPriotizableIconCrawler : IIconCrawler
     {
-        Reliability Realiability { get; }
+        Reliability Reliability { get; }
     }
 }
