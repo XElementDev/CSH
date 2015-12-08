@@ -1,6 +1,5 @@
 ﻿using HtmlAgilityPack;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -11,25 +10,17 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
 #region not unit-tested
     public class SteamBannerCrawler : IPriotizableIconCrawler
     {
-        public IEnumerable<ICrawlResult> Crawl( IEnumerable<ICrawlInformation> crawlInfos )
+        public ICrawlResult /*IPriotizableIconCrawler.*/CrawlSingle( ICrawlInformation crawlInfo )
         {
-            var crawlResults = new List<ICrawlResult>();
+            var bannerUri = this.GetBannerUri( crawlInfo );
 
-            foreach ( ICrawlInformation crawlInfo in crawlInfos )
+            Image image = null;
+            if ( bannerUri != null )
             {
-                var bannerUri = this.GetBannerUri( crawlInfo );
-
-                Image image = null;
-                if ( bannerUri != null )
-                {
-                    image = this.DownloadImage( bannerUri );
-                }
-
-                var crawlResult = new CrawlResult { Image = image, Input = crawlInfo };
-                crawlResults.Add( crawlResult );
+                image = this.DownloadImage( bannerUri );
             }
 
-            return crawlResults;
+            return new CrawlResult { Image = image, Input = crawlInfo };
         }
 
         private Image DownloadImage( string bannerUri )

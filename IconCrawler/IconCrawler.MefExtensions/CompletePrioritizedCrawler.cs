@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler.MefExtensions
     //[Export( typeof( IIconCrawler ) )]
     internal class CompletePrioritizedCrawler : IIconCrawler
     {
-        public IEnumerable<ICrawlResult> Crawl( IEnumerable<ICrawlInformation> crawlInfos )
+        public ICrawlResult /*IIconCrawler.*/CrawlSingle( ICrawlInformation crawlInfo )
         {
             throw new NotImplementedException();
         }

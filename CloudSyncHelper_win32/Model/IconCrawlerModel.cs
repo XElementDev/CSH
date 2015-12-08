@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
@@ -21,8 +22,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         public void OnImportsSatisfied()
         {
             IEnumerable<ICrawlInformation> input = this.GetInformationToCrawl();
-            var results = this._iconCrawler.Crawl( input );
-            this.StoreCrawlResults( results );
+            this.StartCrawlingInBackground( input );
+        }
+
+        private void StartCrawling( IEnumerable<ICrawlInformation> input )
+        {
+            foreach ( var crawlInfo in input )
+            {
+                var result = this._iconCrawler.CrawlSingle( crawlInfo );
+                this.StoreCrawlResult( result );
+            }
+        }
+
+        private void StartCrawlingInBackground( IEnumerable<ICrawlInformation> input )
+        {
+            var backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += ( s, e ) => this.StartCrawling( input );
+            backgroundWorker.RunWorkerCompleted += ( s, e ) => backgroundWorker.Dispose();
+            backgroundWorker.RunWorkerAsync();
         }
 
         private void StoreCrawlResult( ICrawlResult crawlResult )
@@ -37,14 +54,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
                     crawlResult.Image.Save( fileStream, crawlResult.Image.RawFormat );
                 }
                 crawlResult.Image.Dispose();
-            }
-        }
-
-        private void StoreCrawlResults( IEnumerable<ICrawlResult> crawlResults )
-        {
-            foreach ( var crawlResult in crawlResults )
-            {
-                this.StoreCrawlResult( crawlResult );
             }
         }
 
