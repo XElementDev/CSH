@@ -87,6 +87,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
         private ObservableCollection<ProgramViewModel> _programViewModels;
 
         [Import]
+        private IconCrawlerModel _iconCrawlerModel = null;
+
+        [Import]
         private InstalledProgramsModel _installedProgramsModel = null;
 
         [Import]
