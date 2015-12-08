@@ -5,7 +5,7 @@ using System.ComponentModel.Composition;
 namespace XElement.CloudSyncHelper.UI.IconCrawler.MefExtensions
 {
 #region not unit-tested
-    [Export( typeof( IIconCrawler ) )]
+    //[Export( typeof( IIconCrawler ) )]
     internal class CompletePrioritizedCrawler : IIconCrawler
     {
         public IEnumerable<ICrawlResult> Crawl( IEnumerable<ICrawlInformation> crawlInfos )
