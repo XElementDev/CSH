@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
     internal class Winamp : AbstractAppInfo
     {
         [ImportingConstructor]
-        public Winamp()
+        public Winamp() : base( "B2D4A228-A950-4036-949B-4F328F416866" )
         {
             this.DisplayName = "Winamp";
             this.FolderName = "Winamp";

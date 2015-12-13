@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class TokiTori : AbstractGameInfo
     {
         [ImportingConstructor]
-        public TokiTori()
+        public TokiTori() : base( "A2ACE881-7DBF-40ED-8BA9-72689E8ED9EC" )
         {
             this.DisplayName = "Toki Tori";
             this.FolderName = "Toki Tori 2010 [Toki Tori]";

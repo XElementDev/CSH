@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
     internal class ExactAudioCopy : AbstractAppInfo
     {
         [ImportingConstructor]
-        public ExactAudioCopy()
+        public ExactAudioCopy() : base( "0408347B-5D6B-4561-88F0-06F3F379232B" )
         {
             this.DisplayName = "Exact Audio Copy";
             this.FolderName = "Exact Audio Copy";

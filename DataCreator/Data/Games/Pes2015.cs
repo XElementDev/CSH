@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class Pes2015 : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Pes2015()
+        public Pes2015() : base( "E14C9A54-0243-4D24-9E8F-12BDB609386F" )
         {
             this.DisplayName = "Pro Evolution Soccer 2015";
             this.FolderName = "PES 2014 [Pro Evolution Soccer 2015]";

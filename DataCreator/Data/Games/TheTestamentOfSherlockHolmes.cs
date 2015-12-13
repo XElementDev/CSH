@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class TheTestamentOfSherlockHolmes : AbstractGameInfo
     {
         [ImportingConstructor]
-        public TheTestamentOfSherlockHolmes()
+        public TheTestamentOfSherlockHolmes() : base( "739B85A5-328F-4293-9D7E-184556BA1555" )
         {
             this.DisplayName = "The Testament of Sherlock Holmes";
             this.FolderName = "Sherlock Holmes 2012 [The Testament of Sherlock Holmes]";

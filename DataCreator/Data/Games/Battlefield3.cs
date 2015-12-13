@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class Battlefield3 : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Battlefield3()
+        public Battlefield3() : base( "BFEA2A56-3721-40AB-B0C2-8E3F81678E51" )
         {
             this.DisplayName = "Battlefield 3";
             this.FolderName = "Battlefield 2011 [Battlefield 3]";

@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class OrcsMustDie2 : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2()
+        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
         {
             this.DisplayName = "Orcs Must Die! 2";
             this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";

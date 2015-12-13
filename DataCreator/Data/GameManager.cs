@@ -21,6 +21,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                     Configuration = derivedGameInfo.Configuration,
                     DisplayName = derivedGameInfo.DisplayName,
                     FolderName = derivedGameInfo.FolderName,
+                    Id = derivedGameInfo.Id,
                     TechnicalNameMatcher = derivedGameInfo.TechnicalNameMatcher
                 };
                 gameLinkInfos.Add( baseGameInfo );
