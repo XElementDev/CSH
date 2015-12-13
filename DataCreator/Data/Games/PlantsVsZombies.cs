@@ -4,8 +4,8 @@ using XElement.CloudSyncHelper.Serialization.DataTypes;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    public class PlantsVsZombies : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class PlantsVsZombies : AbstractGameInfo
     {
         [ImportingConstructor]
         public PlantsVsZombies()
@@ -18,6 +18,10 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             };
             //  2015-09-25: https://stackoverflow.com/questions/3496351/adding-a-tm-superscript-to-a-string
             this.TechnicalNameMatcher = "Pflanzen gegen Zombies\u2122";  // Plfanzen gegen Zombies™
+        }
+
+        protected override void OnImportsSatisfied()
+        {
         }
     }
 }
