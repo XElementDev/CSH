@@ -21,6 +21,21 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <Style x:Key="BackgroundImageStyle" TargetType="Image">
+                <Setter Property="Opacity" Value=".4" />
+                <Setter Property="OpacityMask">
+                    <Setter.Value>
+                        <RadialGradientBrush 
+                                             Center="0, 0" 
+                                             GradientOrigin="0, 0" 
+                                             RadiusX="1" RadiusY="1">
+                            <GradientStop Offset="0.1" Color="Black" />
+                            <GradientStop Offset="0.9" Color="Transparent" />
+                        </RadialGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -49,15 +64,10 @@
                                              Stretch="Uniform" 
                                              AlignmentX="Left" AlignmentY="Top">
                                     <VisualBrush.Visual>
-                                        <Image Opacity=".4" 
-                                                Source="{Binding Path=ImagePath}">
-                                            <Image.OpacityMask>
-                                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                                    <GradientStop Offset="0.1" Color="Black" />
-                                                    <GradientStop Offset="0.9" Color="Transparent" />
-                                                </LinearGradientBrush>
-                                            </Image.OpacityMask>
-                                        </Image>
+                                        <Image 
+                                               Source="{Binding Path=ImagePath}" 
+                                               Style="{StaticResource BackgroundImageStyle}" 
+                                        />
                                     </VisualBrush.Visual>
                                 </VisualBrush>
                             </StackPanel.Background>
