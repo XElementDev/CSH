@@ -12,12 +12,13 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
     {
         public ICrawlResult /*IPriotizableIconCrawler.*/CrawlSingle( ICrawlInformation crawlInfo )
         {
-            var bannerUri = this.GetBannerUri( crawlInfo );
+            var lowResBannerUri = this.GetBannerUri( crawlInfo );
 
             Image image = null;
-            if ( bannerUri != null )
+            if ( lowResBannerUri != null )
             {
-                image = this.DownloadImage( bannerUri );
+                var highResBannerUri = lowResBannerUri.Replace( "capsule_sm_120", "header" );
+                image = this.DownloadImage( highResBannerUri );
             }
 
             return new CrawlResult { Image = image, Input = crawlInfo };
