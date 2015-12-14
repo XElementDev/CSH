@@ -45,7 +45,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        Guid IObjectToCrawl.Id { get { return this._programInfo.Id; } }
+        Guid IIconId.Id { get { return this._programInfo.Id; } }
 
         private void InitializeExecutionLogic( IProgramInfo programInfo )
         {

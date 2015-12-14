@@ -148,9 +148,11 @@
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
     <Compile Include="Model\Events.cs" />
     <Compile Include="Model\IconCrawler\IconCrawlerModel.cs" />
+    <Compile Include="Model\IconCrawler\IIconId.cs" />
     <Compile Include="Model\IconCrawler\IObjectToCrawl.cs" />
     <Compile Include="Model\IConfig.cs" />
     <Compile Include="Model\Factories\IFactoryT1.cs" />
+    <Compile Include="Model\IconCrawler\IconRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
