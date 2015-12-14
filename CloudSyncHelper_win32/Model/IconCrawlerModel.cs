@@ -5,6 +5,7 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.UI.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
@@ -12,26 +13,35 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     [Export]
     internal class IconCrawlerModel : IPartImportsSatisfiedNotification
     {
-        private string GetGuidStringFromCrawlInfo( ICrawlInformation crawlInformation )
+        private string GetIdStringFromCrawlInfo( ICrawlInformation crawlInformation )
         {
-            var programInfoVMs = this._programInfosModel.ProgramInfoVMs;
-            var correspondingProgramInfoVM = programInfoVMs.Single( pi => pi == crawlInformation );
-            var guid = correspondingProgramInfoVM.Id;
-            return guid.ToString();
+            var correspondingObjectToCrawl = this.ObjectsToCrawl.Single( otc => crawlInformation == otc );
+            return correspondingObjectToCrawl.Id.ToString();
         }
 
         private IEnumerable<ICrawlInformation> GetInformationToCrawl()
         {
             var searchPattern = String.Format( "*{0}", IMAGE_FILE_EXTENSION );
-            var cachedImageFileNames = Directory.EnumerateFiles( this._config.PathToImageCache, searchPattern );
+            var cachedImageFileNames = Directory.EnumerateFiles( this._config.PathToImageCache, 
+                                                                 searchPattern, 
+                                                                 SearchOption.TopDirectoryOnly );
             var fileNames = cachedImageFileNames.Select( cifn => Path.ChangeExtension( cifn, string.Empty ) ).ToList();
 
-            var programInfoVMs = this._programInfosModel.ProgramInfoVMs;
-            var filteredProgramInfoVMs = programInfoVMs.Where( pi =>
+            var filteredObjectsToCrawl = this.ObjectsToCrawl.Where( otc =>
             {
-                return !fileNames.Any( fn => fn.ToLower() == pi.Id.ToString().ToLower() );
+                var id = otc.Id.ToString().ToLower();
+                var doesAnyIdMatch = fileNames.Any( fn => fn.ToLower() == id );
+                return !doesAnyIdMatch;
             } ).ToList();
-            return filteredProgramInfoVMs.OfType<ICrawlInformation>().ToList();
+            return filteredObjectsToCrawl;
+        }
+
+        private IEnumerable<IObjectToCrawl> ObjectsToCrawl
+        {
+            get
+            {
+                return this._programInfosModel.ProgramInfoVMs.OfType<IObjectToCrawl>().ToList();
+            }
         }
 
         public void OnImportsSatisfied()
@@ -61,7 +71,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         {
             if ( crawlResult.Image != null )
             {
-                var noExtensionFileName = this.GetGuidStringFromCrawlInfo( crawlResult.Input );
+                var noExtensionFileName = this.GetIdStringFromCrawlInfo( crawlResult.Input );
                 var noExtensionFilePath = Path.Combine( this._config.PathToImageCache, noExtensionFileName );
                 var filePath = Path.ChangeExtension( noExtensionFilePath, IMAGE_FILE_EXTENSION );
                 using ( Stream fileStream = new FileStream( filePath, FileMode.Create, FileAccess.Write ) )
