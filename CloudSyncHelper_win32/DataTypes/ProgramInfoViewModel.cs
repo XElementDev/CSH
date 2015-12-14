@@ -44,6 +44,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
+        internal Guid Id { get { return this._programInfo.Id; } }
+
         private void InitializeExecutionLogic( IProgramInfo programInfo )
         {
             var pathVariables = new PathVariablesDTO

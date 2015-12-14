@@ -12,11 +12,26 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     [Export]
     internal class IconCrawlerModel : IPartImportsSatisfiedNotification
     {
-        private IEnumerable<ICrawlInformation> GetInformationToCrawl()
+        private string GetGuidStringFromCrawlInfo( ICrawlInformation crawlInformation )
         {
             var programInfoVMs = this._programInfosModel.ProgramInfoVMs;
-            // TODO: Throw out programInfoVMs that have already been crawled
-            return programInfoVMs.OfType<ICrawlInformation>().ToList();
+            var correspondingProgramInfoVM = programInfoVMs.Single( pi => pi == crawlInformation );
+            var guid = correspondingProgramInfoVM.Id;
+            return guid.ToString();
+        }
+
+        private IEnumerable<ICrawlInformation> GetInformationToCrawl()
+        {
+            var searchPattern = String.Format( "*{0}", IMAGE_FILE_EXTENSION );
+            var cachedImageFileNames = Directory.EnumerateFiles( this._config.PathToImageCache, searchPattern );
+            var fileNames = cachedImageFileNames.Select( cifn => Path.ChangeExtension( cifn, string.Empty ) ).ToList();
+
+            var programInfoVMs = this._programInfosModel.ProgramInfoVMs;
+            var filteredProgramInfoVMs = programInfoVMs.Where( pi =>
+            {
+                return !fileNames.Any( fn => fn.ToLower() == pi.Id.ToString().ToLower() );
+            } ).ToList();
+            return filteredProgramInfoVMs.OfType<ICrawlInformation>().ToList();
         }
 
         public void OnImportsSatisfied()
@@ -46,9 +61,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         {
             if ( crawlResult.Image != null )
             {
-                var fileName = Guid.NewGuid().ToString();
-                var noExtensionFilePath = Path.Combine( this._config.PathToImageCache, fileName );
-                var filePath = Path.ChangeExtension( noExtensionFilePath, ".jpg" );
+                var noExtensionFileName = this.GetGuidStringFromCrawlInfo( crawlResult.Input );
+                var noExtensionFilePath = Path.Combine( this._config.PathToImageCache, noExtensionFileName );
+                var filePath = Path.ChangeExtension( noExtensionFilePath, IMAGE_FILE_EXTENSION );
                 using ( Stream fileStream = new FileStream( filePath, FileMode.Create, FileAccess.Write ) )
                 {
                     crawlResult.Image.Save( fileStream, crawlResult.Image.RawFormat );
@@ -56,6 +71,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
                 crawlResult.Image.Dispose();
             }
         }
+
+        private const string IMAGE_FILE_EXTENSION = ".jpg";
 
         [Import]
         private IConfig _config = null;
