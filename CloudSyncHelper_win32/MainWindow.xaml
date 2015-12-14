@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:local="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules" 
         Title="Cloud Sync Helper" 
-        Height="350" Width="525">
+        Height="480" Width="640">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -12,8 +12,14 @@
                 <ResourceDictionary Source="./Dictionaries/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type Expander}">
-                <Setter Property="Margin" Value="0 4 0 4" />
+            <Style TargetType="ItemsControl">
+                <Setter Property="ItemContainerStyle">
+                    <Setter.Value>
+                        <Style>
+                            <Setter Property="FrameworkElement.Margin" Value="0 4 0 4" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </Window.Resources>
@@ -36,13 +42,28 @@
                           Grid.IsSharedSizeScope="True">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Expander>
-                            <Expander.Header>
-                                <local:ProgramHeaderView DataContext="{Binding}" />
-                            </Expander.Header>
-
+                        <StackPanel 
+                                    Orientation="Vertical">
+                            <StackPanel.Background>
+                                <VisualBrush 
+                                             Stretch="Uniform" 
+                                             AlignmentX="Left" AlignmentY="Top">
+                                    <VisualBrush.Visual>
+                                        <Image Opacity=".4" 
+                                                Source="{Binding Path=ImagePath}">
+                                            <Image.OpacityMask>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                    <GradientStop Offset="0.1" Color="Black" />
+                                                    <GradientStop Offset="0.9" Color="Transparent" />
+                                                </LinearGradientBrush>
+                                            </Image.OpacityMask>
+                                        </Image>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </StackPanel.Background>
+                            <local:ProgramHeaderView DataContext="{Binding}" />
                             <local:ProgramDetailsView DataContext="{Binding}" />
-                        </Expander>
+                        </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

@@ -3,6 +3,8 @@ using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 using XElement.Common.UI;
 using SupportedOperatingSystemsViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems.ViewModel;
 
@@ -11,15 +13,26 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 #region not unit-tested
     public class ProgramViewModel : ViewModelBase
     {
-        public ProgramViewModel( IEventAggregator eventAggregator )
+        public ProgramViewModel( IEventAggregator eventAggregator, 
+                                 IconRetrieverModel iconRetrieverModel )
         {
             this._eventAggregator = eventAggregator;
+            this._iconRetrieverModel = iconRetrieverModel;
             InitializeCommands();
         }
 
         public string DisplayName { get { return this.ProgramInfoVM.DisplayName; } }
 
         public bool HasSuitableConfig { get { return this.ProgramInfoVM.HasSuitableConfig; } }
+
+        public string ImagePath
+        {
+            get
+            {
+                IIconId iconId = this._programInfoVM;
+                return this._iconRetrieverModel.GetPathToIcon( iconId );
+            }
+        }
 
         private void InitializeCommands()
         {
@@ -120,6 +133,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         }
 
         private IEventAggregator _eventAggregator;
+        private IconRetrieverModel _iconRetrieverModel;
     }
 #endregion
 }
