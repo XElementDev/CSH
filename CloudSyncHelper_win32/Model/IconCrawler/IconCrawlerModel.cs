@@ -22,15 +22,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         private IEnumerable<ICrawlInformation> GetInformationToCrawl()
         {
             var searchPattern = String.Format( "*{0}", IMAGE_FILE_EXTENSION );
-            var cachedImageFileNames = Directory.EnumerateFiles( this._config.PathToImageCache, 
+            var cachedImageFilePaths = Directory.EnumerateFiles( this._config.PathToImageCache, 
                                                                  searchPattern, 
                                                                  SearchOption.TopDirectoryOnly );
-            var fileNames = cachedImageFileNames.Select( cifn => Path.ChangeExtension( cifn, string.Empty ) ).ToList();
+            var fileNamesWoExtension = cachedImageFilePaths
+                .Select( cifn => Path.GetFileNameWithoutExtension( cifn ) )
+                .ToList();
 
             var filteredObjectsToCrawl = this.ObjectsToCrawl.Where( otc =>
             {
                 var id = otc.Id.ToString().ToLower();
-                var doesAnyIdMatch = fileNames.Any( fn => fn.ToLower() == id );
+                var doesAnyIdMatch = fileNamesWoExtension.Any( fn => fn.ToLower() == id );
                 return !doesAnyIdMatch;
             } ).ToList();
             return filteredObjectsToCrawl;
