@@ -159,6 +159,11 @@
         <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />
       </Links>
     </OS>
+    <OS id="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OS>
     <IsSteamCloudSupported value="false" />
   </Game>
 </SyncData>

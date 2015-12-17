@@ -47,7 +47,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
             var osConfig = new List<OsConfiguration>
             {
                 this.GetConfigForWin8_1(),
-                GetConfigForWin10()
+                this.GetConfigForWin10()
             };
             this.Configuration = this._configFactory.Get( osConfig );
         }

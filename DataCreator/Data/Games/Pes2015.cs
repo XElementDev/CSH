@@ -18,24 +18,36 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.TechnicalNameMatcher = "Pro Evolution Soccer 2015";
         }
 
+        private OsConfiguration GetConfigForWin8_1()
+        {
+            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win81 };
+        }
+
+        private OsConfiguration GetConfigForWin10()
+        {
+            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win10 };
+        }
+
+        private List<AbstractLinkInfo> GetLinksForWin81_10()
+        {
+            return new List<AbstractLinkInfo>
+            {
+                new FolderLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.MyDocuments,
+                    DestinationSubFolderPath = Path.Combine( "KONAMI", "Pro Evolution Soccer 2015" ),
+                    DestinationTargetName = "save",
+                    SourceId = "save"
+                }
+            };
+        }
+
         protected override void OnImportsSatisfied()
         {
             var osConfigs = new List<OsConfiguration>
             {
-                new OsConfiguration
-                {
-                    Links = new List<AbstractLinkInfo>
-                    {
-                        new FolderLinkInfo
-                        {
-                            DestinationRoot = Environment.SpecialFolder.MyDocuments,
-                            DestinationSubFolderPath = Path.Combine( "KONAMI", "Pro Evolution Soccer 2015" ),
-                            DestinationTargetName = "save",
-                            SourceId = "save"
-                        }
-                    },
-                    OsId = OsId.Win81
-                }
+                this.GetConfigForWin8_1(),
+                this.GetConfigForWin10()
             };
             this.Configuration = this._configFactory.Get( osConfigs );
         }
