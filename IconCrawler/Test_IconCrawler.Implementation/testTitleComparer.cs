@@ -16,6 +16,14 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
         }
 
         [TestMethod]
+        public void testTitleComparer_Compare_PositiveCase_OtherValue()
+        {
+            var target = new TitleComparer();
+
+            Assert.IsTrue( target.Compare( "Middle-earth: Shadow of Mordor", "Middle-earth™: Shadow of Mordor™" ) );
+        }
+
+        [TestMethod]
         public void testTitleComparer_Compare_NegativeCase_SomeValue()
         {
             var target = new TitleComparer();

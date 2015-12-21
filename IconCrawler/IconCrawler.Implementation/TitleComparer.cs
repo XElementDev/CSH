@@ -1,4 +1,9 @@
-﻿namespace XElement.CloudSyncHelper.UI.IconCrawler
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace XElement.CloudSyncHelper.UI.IconCrawler
 {
     internal class TitleComparer
     {
@@ -18,17 +23,29 @@
         {
             int matchCount = 0;
 
-            for ( int i = 0 ; i < shorterInput.Length ; ++i )
+            var strippedLongerInput = this.StripInvalidChars( longerInput );
+            var strippedShorterInput = this.StripInvalidChars( shorterInput );
+
+            for ( int i = 0 ; i < strippedShorterInput.Length ; ++i )
             {
-                if ( shorterInput[i] == longerInput[i] )
+                if ( strippedShorterInput[i] == strippedLongerInput[i] )
                 {
                     ++matchCount;
                 }
             }
 
-            return (float)matchCount / (float)longerInput.Length;
+            return (float)matchCount / (float)strippedLongerInput.Length;
         }
 
+        private string StripInvalidChars( string input )
+        {
+            var regexMatches = Regex.Matches( input, REGEX_VALID_CHARS );
+            List<string> matchList = regexMatches.OfType<Match>().Select( m => m.Value ).ToList();
+            var joinedString = String.Join( "", matchList );
+            return joinedString;
+        }
+
+        private const string REGEX_VALID_CHARS = "[a-zA-z\\-\\ ]";
         private const float THRESHOLD = 0.5F;
     }
 }
