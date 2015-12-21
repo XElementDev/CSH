@@ -8,7 +8,7 @@ using System.Xml.XPath;
 
 namespace XElement.CloudSyncHelper.UI.IconCrawler
 {
-    #region not unit-tested
+#region not unit-tested
     public class SteamBannerCrawler : IPriotizableIconCrawler
     {
         private Image Crawl()

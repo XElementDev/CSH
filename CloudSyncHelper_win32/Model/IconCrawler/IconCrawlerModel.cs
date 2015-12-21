@@ -15,7 +15,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     {
         private string GetIdStringFromCrawlInfo( ICrawlInformation crawlInformation )
         {
-            var correspondingObjectToCrawl = this.ObjectsToCrawl.Single( otc => crawlInformation == otc );
+            var correspondingObjectToCrawl = this.ObjectsToCrawl.Single( 
+                otc => ICrawlInformation.ReferenceEquals( crawlInformation, otc ) );
             return correspondingObjectToCrawl.Id.ToString();
         }
 
