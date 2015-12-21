@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
     public class testTitleComparer
     {
         [TestMethod]
-        public void testTitleComparer_Compare_PositiveCase_SomeValue()
+        public void testTitleComparer_Compare_PositiveCase_1()
         {
             var target = new TitleComparer();
 
@@ -16,11 +16,23 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
         }
 
         [TestMethod]
-        public void testTitleComparer_Compare_PositiveCase_OtherValue()
+        public void testTitleComparer_Compare_PositiveCase_2()
         {
+            var expectedName = "Middle-earth: Shadow of Mordor";
+            var crawledName = "Middle-earth™: Shadow of Mordor™";
             var target = new TitleComparer();
 
-            Assert.IsTrue( target.Compare( "Middle-earth: Shadow of Mordor", "Middle-earth™: Shadow of Mordor™" ) );
+            Assert.IsTrue( target.Compare( expectedName, crawledName ) );
+        }
+
+        [TestMethod]
+        public void testTitleComparer_Compare_PositiveCase_3()
+        {
+            var expectedName = "ANNO 2070";
+            var crawledName = "Anno 2070™";
+            var target = new TitleComparer();
+
+            Assert.IsTrue( target.Compare( expectedName, crawledName ) );
         }
 
         [TestMethod]

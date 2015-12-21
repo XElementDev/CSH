@@ -23,18 +23,23 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
         {
             int matchCount = 0;
 
-            var strippedLongerInput = this.StripInvalidChars( longerInput );
-            var strippedShorterInput = this.StripInvalidChars( shorterInput );
+            var preparedLongerInput = this.GetPreparedInput( longerInput );
+            var preparedShorterInput = this.GetPreparedInput( shorterInput );
 
-            for ( int i = 0 ; i < strippedShorterInput.Length ; ++i )
+            for ( int i = 0 ; i < preparedShorterInput.Length ; ++i )
             {
-                if ( strippedShorterInput[i] == strippedLongerInput[i] )
+                if ( preparedShorterInput[i] == preparedLongerInput[i] )
                 {
                     ++matchCount;
                 }
             }
 
-            return (float)matchCount / (float)strippedLongerInput.Length;
+            return (float)matchCount / (float)preparedLongerInput.Length;
+        }
+
+        private string GetPreparedInput( string input )
+        {
+            return this.StripInvalidChars( input ).ToLower();
         }
 
         private string StripInvalidChars( string input )
