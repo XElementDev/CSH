@@ -4,19 +4,20 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Web;
+using System.Xml.XPath;
 
 namespace XElement.CloudSyncHelper.UI.IconCrawler
 {
-#region not unit-tested
+    #region not unit-tested
     public class SteamBannerCrawler : IPriotizableIconCrawler
     {
-        public ICrawlResult /*IPriotizableIconCrawler.*/CrawlSingle( ICrawlInformation crawlInfo )
+        private Image Crawl()
         {
             Image image = null;
 
             try
             {
-                var searchResultEntryTag = this.GetFirstSearchResultEntry( crawlInfo );
+                var searchResultEntryTag = this.GetFirstSearchResultEntry();
                 var title = this.ExtractSearchResultTitle( searchResultEntryTag );
 
                 if ( this.IsExpectedTitle( title ) )
@@ -25,6 +26,14 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
                 }
             }
             catch ( XPathException ) { }
+
+            return image;
+        }
+
+        public ICrawlResult /*IPriotizableIconCrawler.*/CrawlSingle( ICrawlInformation crawlInfo )
+        {
+            this._crawlInfo = crawlInfo;
+            var image = this.Crawl();
 
             return new CrawlResult { Image = image, Input = crawlInfo };
         }
@@ -78,9 +87,9 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
             }
         }
 
-        private HtmlNode GetFirstSearchResultEntry( ICrawlInformation crawlInfo )
+        private HtmlNode GetFirstSearchResultEntry()
         {
-            var encodedName = HttpUtility.UrlEncode( crawlInfo.SoftwareName );
+            var encodedName = HttpUtility.UrlEncode( this._crawlInfo.SoftwareName );
             var storeSearchUri = String.Format( STORE_SEARCH_URI_FORMAT, encodedName );
             HtmlDocument htmlDoc = new HtmlWeb().Load( storeSearchUri );
             var aTag = htmlDoc.DocumentNode.SelectSingleNode( ABSOLUTE_XPATH_TO_BEST_MATCHING_ENTRY );
@@ -97,7 +106,9 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
 
         private bool IsExpectedTitle( string searchResult )
         {
-            return true;
+            var expected = this._crawlInfo.SoftwareName;
+            var actual = searchResult;
+            return new TitleComparer().Compare( expected , actual );
         }
 
         public Reliability Reliability { get { return Reliability.High; } }
@@ -106,6 +117,8 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
         private const string RELATIVE_XPATH_TO_IMG = "./div[1]/img";
         private const string RELATIVE_XPATH_TO_TITLE = "./div[2]/div[1]/span[@class='title']";
         private const string STORE_SEARCH_URI_FORMAT = @"http://store.steampowered.com/search/?snr=1_4_4__12&term={0}";
+
+        private ICrawlInformation _crawlInfo;
     }
 #endregion
 }
