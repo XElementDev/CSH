@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
+using XElement.DotNet.System;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
@@ -16,8 +17,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 // Origin
             };
-            //  2015-09-25: https://stackoverflow.com/questions/3496351/adding-a-tm-superscript-to-a-string
-            this.TechnicalNameMatcher = "Pflanzen gegen Zombies\u2122";  // Plfanzen gegen Zombies™
+            this.TechnicalNameMatcher = "Pflanzen gegen Zombies" + SpecialCharacters.TRADEMARK;
         }
 
         protected override void OnImportsSatisfied()

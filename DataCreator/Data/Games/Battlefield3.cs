@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
+using XElement.DotNet.System;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
@@ -12,8 +13,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.DisplayName = "Battlefield 3";
             this.FolderName = "Battlefield 2011 [Battlefield 3]";
-            //  2015-09-25: https://stackoverflow.com/questions/3496351/adding-a-tm-superscript-to-a-string
-            this.TechnicalNameMatcher = "Battlefield 3\u2122";  // Battlefield 3™
+            this.TechnicalNameMatcher = "Battlefield 3" + SpecialCharacters.TRADEMARK;
         }
 
         protected override void OnImportsSatisfied()

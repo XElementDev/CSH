@@ -97,6 +97,10 @@
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
       <Name>OsRecognition.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XElement\DotNet\System\SpecialCharacters\SpecialCharacters.csproj">
+      <Project>{092ad2ad-ce22-4abb-9c87-e9a5083c25fa}</Project>
+      <Name>SpecialCharacters</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\deployment\CloudSyncHelper.xml">
