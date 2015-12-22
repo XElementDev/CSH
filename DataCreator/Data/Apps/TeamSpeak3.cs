@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
     internal class TeamSpeak3 : AbstractAppInfo
     {
         [ImportingConstructor]
-        public TeamSpeak3()
+        public TeamSpeak3() : base( "BF5B72BC-6351-481D-A25D-265BF9F063CB" )
         {
             this.DisplayName = "TeamSpeak 3";
             this.FolderName = "TeamSpeak 3";

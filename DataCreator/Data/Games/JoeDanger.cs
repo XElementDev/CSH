@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class JoeDanger : AbstractGameInfo
     {
         [ImportingConstructor]
-        public JoeDanger()
+        public JoeDanger() : base( "53C7BC46-AA43-413F-8F13-9CFEB4DF9FF0" )
         {
             this.DisplayName = "Joe Danger";
             this.FolderName = "Joe Danger 2013 [Joe Danger]";

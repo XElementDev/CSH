@@ -10,11 +10,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     {
         public ProgramViewModel /*IFactory<T>.*/Get()
         {
-            return new ProgramViewModel( this._eventAggregator );
+            return new ProgramViewModel( this._eventAggregator, this._iconRetrieverModel );
         }
 
         [Import]
         private IEventAggregator _eventAggregator = null;
+
+        [Import]
+        private IconRetrieverModel _iconRetrieverModel = null;
     }
 #endregion
 }

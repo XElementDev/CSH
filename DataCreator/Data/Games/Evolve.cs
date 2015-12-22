@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class Evolve : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Evolve()
+        public Evolve() : base( "23D95F4A-43A2-4084-809E-5F8001714F97" )
         {
             this.DisplayName = "Evolve";
             this.FolderName = "Evolve 2015 [Evolve]";

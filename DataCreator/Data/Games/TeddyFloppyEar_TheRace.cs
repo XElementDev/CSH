@@ -1,22 +1,21 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+﻿using System.ComponentModel.Composition;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
-    [Export( typeof( GameInfo ) )]
-    internal class TeddyFloppyEar_TheRace : GameInfo
+    [Export( typeof( AbstractGameInfo ) )]
+    internal class TeddyFloppyEar_TheRace : AbstractGameInfo
     {
         [ImportingConstructor]
-        public TeddyFloppyEar_TheRace()
+        public TeddyFloppyEar_TheRace() : base( "45FDF15F-AFD9-42CA-99A4-6A262064CFFB" )
         {
             this.DisplayName = "Teddy Floppy Ear - The Race";
             this.FolderName = "Teddy Floppy Ear 2012 [Teddy Floppy Ear - The Race]";
-            this.OsConfigs = new List<OsConfiguration>()
-            {
-                // Steam Cloud
-            };
             this.TechnicalNameMatcher = "Teddy Floppy Ear - The Race";
+        }
+
+        protected override void OnImportsSatisfied()
+        {
+            this.Configuration = this._configFactory.GetSteamCloud();
         }
     }
 }

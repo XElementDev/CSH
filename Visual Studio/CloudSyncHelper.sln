@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSyncHelper_win32", "..\CloudSyncHelper_win32\CloudSyncHelper_win32.csproj", "{8F9F2D42-0BD7-4760-A64A-630C14014FC9}"
 EndProject
@@ -43,6 +43,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", 
 	ProjectSection(SolutionItems) = preProject
 		..\deployment\CloudSyncHelper.xml = ..\deployment\CloudSyncHelper.xml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IconCrawler", "IconCrawler", "{DE41DF9E-A189-44AA-B1A8-3F505DF2A740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconCrawler.Interface", "..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj", "{9C9543BD-380B-46BA-AE78-D34E05E49CF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconCrawler.Implementation", "..\IconCrawler\IconCrawler.Implementation\IconCrawler.Implementation.csproj", "{F8711829-1502-448F-98DA-ECE60F79922A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconCrawler.MefExtensions", "..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj", "{AB150370-485F-4489-A381-73B388A674AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_IconCrawler.Implementation", "..\IconCrawler\Test_IconCrawler.Implementation\Test_IconCrawler.Implementation.csproj", "{4478D557-E984-4D2E-92F4-7DE0FD4A268B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialCharacters", "..\XElement\DotNet\System\Text\SpecialCharacters\SpecialCharacters.csproj", "{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +114,26 @@ Global
 		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9543BD-380B-46BA-AE78-D34E05E49CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9543BD-380B-46BA-AE78-D34E05E49CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9543BD-380B-46BA-AE78-D34E05E49CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9543BD-380B-46BA-AE78-D34E05E49CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8711829-1502-448F-98DA-ECE60F79922A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8711829-1502-448F-98DA-ECE60F79922A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8711829-1502-448F-98DA-ECE60F79922A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8711829-1502-448F-98DA-ECE60F79922A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB150370-485F-4489-A381-73B388A674AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB150370-485F-4489-A381-73B388A674AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB150370-485F-4489-A381-73B388A674AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB150370-485F-4489-A381-73B388A674AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4478D557-E984-4D2E-92F4-7DE0FD4A268B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4478D557-E984-4D2E-92F4-7DE0FD4A268B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4478D557-E984-4D2E-92F4-7DE0FD4A268B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4478D557-E984-4D2E-92F4-7DE0FD4A268B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,5 +148,9 @@ Global
 		{60EF22EB-496F-4399-A77D-5B3CF9B49DA1} = {06A61363-7B57-464E-8D8F-EAB947FD16E5}
 		{869854C4-852D-4CBE-98D1-98FB6F804238} = {60EF22EB-496F-4399-A77D-5B3CF9B49DA1}
 		{DAA6FA28-FA8B-461C-9948-4ADEB12B743C} = {869854C4-852D-4CBE-98D1-98FB6F804238}
+		{9C9543BD-380B-46BA-AE78-D34E05E49CF7} = {DE41DF9E-A189-44AA-B1A8-3F505DF2A740}
+		{F8711829-1502-448F-98DA-ECE60F79922A} = {DE41DF9E-A189-44AA-B1A8-3F505DF2A740}
+		{AB150370-485F-4489-A381-73B388A674AD} = {DE41DF9E-A189-44AA-B1A8-3F505DF2A740}
+		{4478D557-E984-4D2E-92F4-7DE0FD4A268B} = {DE41DF9E-A189-44AA-B1A8-3F505DF2A740}
 	EndGlobalSection
 EndGlobal

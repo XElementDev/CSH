@@ -147,8 +147,12 @@
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
     <Compile Include="Model\Events.cs" />
+    <Compile Include="Model\IconCrawler\IconCrawlerModel.cs" />
+    <Compile Include="Model\IconCrawler\IIconId.cs" />
+    <Compile Include="Model\IconCrawler\IObjectToCrawl.cs" />
     <Compile Include="Model\IConfig.cs" />
     <Compile Include="Model\Factories\IFactoryT1.cs" />
+    <Compile Include="Model\IconCrawler\IconRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
@@ -220,6 +224,14 @@
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj">
+      <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
+      <Name>IconCrawler.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj">
+      <Project>{ab150370-485f-4489-a381-73b388a674ad}</Project>
+      <Name>IconCrawler.MefExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj">
       <Project>{77d3002b-68fe-4a1d-b10f-8b15c3ae6a1d}</Project>

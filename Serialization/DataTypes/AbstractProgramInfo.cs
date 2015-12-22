@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 using XElement.CloudSyncHelper.DataTypes;
 
@@ -20,6 +21,9 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
         [XmlAttribute( "FolderName" )]
         public string FolderName { get; set; }
+
+        [XmlAttribute( "Id" )]
+        public Guid /*IProgramInfo.*/Id { get; set; }
 
         [XmlElement( "OS" )]
         public List<OsConfiguration> OsConfigs

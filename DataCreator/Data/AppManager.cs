@@ -20,6 +20,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
                 {
                     Configuration = derivedAppInfo.Configuration,
                     DisplayName = derivedAppInfo.DisplayName,
+                    Id = derivedAppInfo.Id,
                     FolderName = derivedAppInfo.FolderName,
                     TechnicalNameMatcher = derivedAppInfo.TechnicalNameMatcher
                 };

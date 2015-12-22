@@ -14,6 +14,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         {
             this.CreateOrLoadLocalConfig();
             this.CreateOrLoadRoamingConfig();
+            this.TryCreateRoamingSubFolders();
         }
 
         private void CreateOrLoadConfig<T>( string sectionKey, 
@@ -81,30 +82,52 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             return ConfigurationManager.OpenMappedExeConfiguration( this.ExeConfigFileMap, userLevel );
         }
 
-        private static string PathToConfig
-        {
-            get { return Path.Combine( "XElement", "Cloud Sync Helper", "user.config" ); }
-        }
-
         private static string PathToLocalConfig
         {
             get
             {
                 var local = Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData );
-                return Path.Combine( local, PathToConfig );
+                return Path.Combine( local, RelativePathToConfigFolder, CONFIG_FILE_NAME );
             }
+        }
+
+        public string /*IConfig.*/PathToImageCache
+        {
+            get { return Path.Combine( PathToRoamingConfigFolder, "cache", "images" ); }
         }
 
         private static string PathToRoamingConfig
         {
             get
             {
+                return Path.Combine( PathToRoamingConfigFolder, CONFIG_FILE_NAME );
+            }
+        }
+
+        private static string PathToRoamingConfigFolder
+        {
+            get
+            {
                 var roaming = Environment.GetFolderPath( Environment.SpecialFolder.ApplicationData );
-                return Path.Combine( roaming, PathToConfig );
+                return Path.Combine( roaming, RelativePathToConfigFolder );
             }
         }
 
         public string /*IConfig.*/PathToSyncFolder { get { return this._local.PathToSyncFolder; } }
+
+        private static string RelativePathToConfigFolder
+        {
+            get { return Path.Combine( "XElement", "Cloud Sync Helper" ); }
+        }
+
+        private void TryCreateRoamingSubFolders()
+        {
+            var pathToImageCache = this.PathToImageCache;
+            if ( !Directory.Exists( pathToImageCache ) )
+            {
+                Directory.CreateDirectory( pathToImageCache );
+            }
+        }
 
         public string /*IConfig.*/UplayAccountName { get { return this._roaming.UplayAccountName; } }
 
@@ -112,6 +135,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private LocalConfig _local;
         private RoamingConfig _roaming;
+
+        private const string CONFIG_FILE_NAME = "user.config";
     }
 #endregion
 }

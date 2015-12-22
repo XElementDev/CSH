@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
     internal class Mp3tag : AbstractAppInfo
     {
         [ImportingConstructor]
-        public Mp3tag()
+        public Mp3tag() : base( "9A78A831-C24B-47CD-8EB6-2889CB3100AF" )
         {
             this.DisplayName = "Mp3tag";
             this.FolderName = "Mp3tag";

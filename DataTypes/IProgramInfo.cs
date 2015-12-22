@@ -1,4 +1,6 @@
-﻿namespace XElement.CloudSyncHelper.DataTypes
+﻿using System;
+
+namespace XElement.CloudSyncHelper.DataTypes
 {
     public interface IProgramInfo
     {
@@ -7,6 +9,8 @@
         string DisplayName { get; }
 
         string FolderName { get; }
+
+        Guid Id { get; }
 
         /// <summary>
         /// A regex that matches the name that is displayed in the installed applications list.

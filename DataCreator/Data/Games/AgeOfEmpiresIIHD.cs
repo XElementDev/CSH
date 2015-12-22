@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class AgeOfEmpiresIIHD : AbstractGameInfo
     {
         [ImportingConstructor]
-        public AgeOfEmpiresIIHD()
+        public AgeOfEmpiresIIHD() : base( "FEAA47FC-FEDA-4945-9A4B-011C15F44E3F" )
         {
             this.DisplayName = "Age of Empires II: HD Edition";
             this.FolderName = "Age Of Empires 2013 [Age of Empires II_ HD Edition]";

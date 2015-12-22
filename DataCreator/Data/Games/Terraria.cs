@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class Terraria : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Terraria()
+        public Terraria() : base( "367CBED1-9FF1-4226-9BAF-E3230AE19EFB" )
         {
             this.DisplayName = "Terraria";
             this.FolderName = "Terraria 2011 [Terraria]";

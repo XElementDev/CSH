@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class TypeRider : AbstractGameInfo
     {
         [ImportingConstructor]
-        public TypeRider()
+        public TypeRider() : base( "0AF42B1F-92AF-4E81-93A2-4ACBBE478647" )
         {
             this.DisplayName = "Type:Rider";
             this.FolderName = "Type_Rider 2013 [Type_Rider]";

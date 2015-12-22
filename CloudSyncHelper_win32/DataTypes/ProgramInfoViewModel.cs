@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
 #region not unit-tested
-    public class ProgramInfoViewModel
+    public class ProgramInfoViewModel : IObjectToCrawl
     {
         public ProgramInfoViewModel( IProgramInfo programInfo, 
                                      IConfig config, 
@@ -43,6 +45,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
+        Guid IIconId.Id { get { return this._programInfo.Id; } }
+
         private void InitializeExecutionLogic( IProgramInfo programInfo )
         {
             var pathVariables = new PathVariablesDTO
@@ -62,6 +66,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             get { return this._programInfo.Configuration.OsConfigs; }
         }
+
+        string ICrawlInformation.SoftwareName { get { return this.DisplayName; } }
 
         public bool SupportsSteamCloud
         {

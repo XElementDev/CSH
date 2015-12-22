@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     internal class RocketLeague : AbstractGameInfo
     {
         [ImportingConstructor]
-        public RocketLeague()
+        public RocketLeague() : base( "F4B10EAD-6195-47F3-A99E-CBDB4C93029C" )
         {
             this.DisplayName = "Rocket League";
             this.FolderName = "Rocket League 2015 [Rocket League]";
