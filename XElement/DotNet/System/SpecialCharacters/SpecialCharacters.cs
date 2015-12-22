@@ -1,4 +1,4 @@
-﻿namespace XElement.DotNet.System
+﻿namespace XElement.DotNet.System.Text
 {
     public static class SpecialCharacters
     {

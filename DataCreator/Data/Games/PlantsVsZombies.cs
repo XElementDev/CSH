@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
-using XElement.DotNet.System;
+using XElement.DotNet.System.Text;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using XElement.DotNet.System;
+using XElement.DotNet.System.Text;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {

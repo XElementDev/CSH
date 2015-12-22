@@ -7,8 +7,8 @@
     <ProjectGuid>{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.DotNet.System</RootNamespace>
-    <AssemblyName>XElement.DotNet.System.SpecialCharacters</AssemblyName>
+    <RootNamespace>XElement.DotNet.System.Text</RootNamespace>
+    <AssemblyName>XElement.DotNet.System.Text.SpecialCharacters</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
