@@ -18,6 +18,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             this._eventAggregator = eventAggregator;
             this._iconRetrieverModel = iconRetrieverModel;
+            this._iconRetrieverModel.PropertyChanged += 
+                ( s, e ) => this.RaisePropertyChanged( "ImagePath" );
             InitializeCommands();
         }
 
