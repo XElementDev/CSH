@@ -54,7 +54,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconCrawler.MefExtensions",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_IconCrawler.Implementation", "..\IconCrawler\Test_IconCrawler.Implementation\Test_IconCrawler.Implementation.csproj", "{4478D557-E984-4D2E-92F4-7DE0FD4A268B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialCharacters", "..\XElement\DotNet\System\SpecialCharacters\SpecialCharacters.csproj", "{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialCharacters", "..\XElement\DotNet\System\Text\SpecialCharacters\SpecialCharacters.csproj", "{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
