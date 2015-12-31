@@ -119,5 +119,14 @@
   </resheader>
   <data name="MenuBar_AboutButton" xml:space="preserve">
     <value>Über…</value>
+    <comment>// 2015-12-22</comment>
+  </data>
+  <data name="SupportedOperatingSystem_OsIsNotSupported_StringFormat" xml:space="preserve">
+    <value>Konfiguration für {0} nicht verfügbar</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="SupportedOperatingSystem_OsIsSupportedStringFormat" xml:space="preserve">
+    <value>Konfiguration für {0} verfügbar</value>
+    <comment>// 2015-12-31</comment>
   </data>
 </root>

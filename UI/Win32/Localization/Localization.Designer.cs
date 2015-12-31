@@ -68,5 +68,23 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
                 return ResourceManager.GetString("MenuBar_AboutButton", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no configuration available for {0}.
+        /// </summary>
+        public static string SupportedOperatingSystem_OsIsNotSupported_StringFormat {
+            get {
+                return ResourceManager.GetString("SupportedOperatingSystem_OsIsNotSupported_StringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a configuration for {0} available.
+        /// </summary>
+        public static string SupportedOperatingSystem_OsIsSupported_StringFormat {
+            get {
+                return ResourceManager.GetString("SupportedOperatingSystem_OsIsSupported_StringFormat", resourceCulture);
+            }
+        }
     }
 }

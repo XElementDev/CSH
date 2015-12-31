@@ -28,7 +28,8 @@
                 <ToolTip 
                          Content="{Binding Path=PlacementTarget.Tag, 
                                    RelativeSource={RelativeSource Self}}" 
-                         ContentStringFormat="Konfiguration für {0} verfügbar" 
+                         ContentStringFormat="{Binding Path=Localization.SupportedOperatingSystem_OsIsSupported_StringFormat, 
+                                                       Source={StaticResource XamlLocalization}}" 
                 />
             </StackPanel.ToolTip>
             <Image 
@@ -54,7 +55,8 @@
                 <ToolTip 
                          Content="{Binding Path=PlacementTarget.Tag, 
                                    RelativeSource={RelativeSource Self}}" 
-                         ContentStringFormat="Konfiguration für {0} nicht verfügbar" 
+                         ContentStringFormat="{Binding Path=Localization.SupportedOperatingSystem_OsIsNotSupported_StringFormat, 
+                                                       Source={StaticResource XamlLocalization}}" 
                 />
             </StackPanel.ToolTip>
             <Image 
