@@ -245,6 +245,10 @@
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serialization</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UI\Win32\Localization\Localization.csproj">
+      <Project>{cc6ad910-f9f2-40b0-90ac-f347c73b5ef7}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
       <Name>OsRecognition.Interface</Name>
