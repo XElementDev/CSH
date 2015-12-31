@@ -21,6 +21,8 @@
                     Command="{Binding Path=ShowAbout, Mode=OneWay}" 
                     Content="{Binding Path=Localization.MenuBar_AboutButton, 
                                       Source={StaticResource XamlLocalization}}" 
+                    ToolTip="{Binding Path=Localization.MenuBar_AboutButton, 
+                                      Source={StaticResource XamlLocalization}}" 
             />
         </StatusBarItem>
     </StatusBar>
