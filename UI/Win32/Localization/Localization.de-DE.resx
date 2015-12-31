@@ -181,7 +181,7 @@
     <value>Konfiguration für {0} nicht verfügbar</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SupportedOperatingSystem_OsIsSupportedStringFormat" xml:space="preserve">
+  <data name="SupportedOperatingSystem_OsIsSupported_StringFormat" xml:space="preserve">
     <value>Konfiguration für {0} verfügbar</value>
     <comment>// 2015-12-31</comment>
   </data>
