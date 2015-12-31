@@ -62,6 +62,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Win32", "Win32", "{98CCC88A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localization", "..\UI\Win32\Localization\Localization.csproj", "{CC6AD910-F9F2-40B0-90AC-F347C73B5EF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Localization", "..\UI\Win32\Test_Localization\Test_Localization.csproj", "{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,6 +146,10 @@ Global
 		{CC6AD910-F9F2-40B0-90AC-F347C73B5EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC6AD910-F9F2-40B0-90AC-F347C73B5EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC6AD910-F9F2-40B0-90AC-F347C73B5EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,5 +170,6 @@ Global
 		{4478D557-E984-4D2E-92F4-7DE0FD4A268B} = {DE41DF9E-A189-44AA-B1A8-3F505DF2A740}
 		{98CCC88A-8E07-4471-9ED1-44FA11C0833D} = {0900FBEA-3737-4DCE-A4D3-5E14380CDCD2}
 		{CC6AD910-F9F2-40B0-90AC-F347C73B5EF7} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
+		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
 	EndGlobalSection
 EndGlobal
