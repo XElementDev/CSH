@@ -121,6 +121,14 @@
     <value>Über…</value>
     <comment>// 2015-12-22</comment>
   </data>
+  <data name="ProgramDetails_CloudProvider" xml:space="preserve">
+    <value>Cloud-Provider:</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramDetails_OsConfigs" xml:space="preserve">
+    <value>Betriebssystem-Konfigurationen:</value>
+    <comment>// 2015-12-31</comment>
+  </data>
   <data name="StatusBar_CurrentOs" xml:space="preserve">
     <value>Aktuelles Betriebssystem:</value>
     <comment>// 2015-12-31</comment>

@@ -70,6 +70,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cloud provider:.
+        /// </summary>
+        public static string ProgramDetails_CloudProvider {
+            get {
+                return ResourceManager.GetString("ProgramDetails_CloudProvider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operating system configurations:.
+        /// </summary>
+        public static string ProgramDetails_OsConfigs {
+            get {
+                return ResourceManager.GetString("ProgramDetails_OsConfigs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current operating system:.
         /// </summary>
         public static string StatusBar_CurrentOs {

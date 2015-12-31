@@ -28,7 +28,10 @@
                         Source="{StaticResource Settings-02-16}" 
                         VerticalAlignment="Top" 
                 />
-                <TextBlock Text="Betriebssystem-Konfigurationen:" />
+                <TextBlock 
+                           Text="{Binding Path=Localization.ProgramDetails_OsConfigs, 
+                                          Source={StaticResource XamlLocalization}}" 
+                />
                 <local:SupportedOSs 
                                     DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
                 />
@@ -40,7 +43,10 @@
                         Source="{StaticResource Cloud-000000-16}" 
                         VerticalAlignment="Top" 
                 />
-                <TextBlock Text="Cloud-Provider:" />
+                <TextBlock 
+                           Text="{Binding Path=Localization.ProgramDetails_CloudProvider, 
+                                          Source={StaticResource XamlLocalization}}" 
+                />
 
                 <StackPanel 
                             Orientation="Horizontal" 
