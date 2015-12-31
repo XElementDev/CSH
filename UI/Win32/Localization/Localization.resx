@@ -121,6 +121,10 @@
     <value>About…</value>
     <comment>// 2015-12-22</comment>
   </data>
+  <data name="StatusBar_CurrentOs" xml:space="preserve">
+    <value>Current operating system:</value>
+    <comment>// 2015-12-31</comment>
+  </data>
   <data name="SupportedOperatingSystem_OsIsNotSupported_StringFormat" xml:space="preserve">
     <value>There is no configuration available for {0}</value>
     <comment>// 2015-12-31</comment>

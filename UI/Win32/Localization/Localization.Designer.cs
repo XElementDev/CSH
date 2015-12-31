@@ -70,6 +70,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current operating system:.
+        /// </summary>
+        public static string StatusBar_CurrentOs {
+            get {
+                return ResourceManager.GetString("StatusBar_CurrentOs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is no configuration available for {0}.
         /// </summary>
         public static string SupportedOperatingSystem_OsIsNotSupported_StringFormat {
