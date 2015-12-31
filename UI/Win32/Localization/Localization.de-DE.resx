@@ -129,6 +129,50 @@
     <value>Betriebssystem-Konfigurationen:</value>
     <comment>// 2015-12-31</comment>
   </data>
+  <data name="ProgramHeader_ConfigAvailable" xml:space="preserve">
+    <value>Konfiguration verfügbar</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_IsInCloud" xml:space="preserve">
+    <value>Daten sind in der Cloud</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_IsInstalled" xml:space="preserve">
+    <value>Installiert</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_IsLinked" xml:space="preserve">
+    <value>Verknüpft</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_IsNotInCloud" xml:space="preserve">
+    <value>Daten sind nicht in der Cloud</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_IsNotInstalled" xml:space="preserve">
+    <value>Nicht installiert</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_IsNotLinked" xml:space="preserve">
+    <value>Nicht verknüpft</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_Link" xml:space="preserve">
+    <value>Link erstellen</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_MoveToCloud" xml:space="preserve">
+    <value>Daten in die Cloud verschieben</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_NoConfigAvailable" xml:space="preserve">
+    <value>Konfiguration nicht verfügbar</value>
+    <comment>// 2015-12-31</comment>
+  </data>
+  <data name="ProgramHeader_Unlink" xml:space="preserve">
+    <value>Link löschen</value>
+    <comment>// 2015-12-31</comment>
+  </data>
   <data name="StatusBar_CurrentOs" xml:space="preserve">
     <value>Aktuelles Betriebssystem:</value>
     <comment>// 2015-12-31</comment>

@@ -21,25 +21,29 @@
         <Image 
                Source="{StaticResource Installation-03-16}" 
                Visibility="{Binding Path=IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-               ToolTip="Installiert" 
+               ToolTip="{Binding Path=Localization.ProgramHeader_IsInstalled, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
         <Image 
                Source="{StaticResource Installation-03-16}" 
                Visibility="{Binding Path=IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                Opacity=".25" 
-               ToolTip="Nicht installiert" 
+               ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInstalled, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
 
         <Image 
                Source="{StaticResource Settings-02-16}" 
                Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-               ToolTip="Konfiguration verfügbar"
+               ToolTip="{Binding Path=Localization.ProgramHeader_ConfigAvailable, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
         <Image 
                Source="{StaticResource Settings-02-16}" 
                Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                Opacity=".25" 
-               ToolTip="Konfiguration nicht verfügbar"
+               ToolTip="{Binding Path=Localization.ProgramHeader_NoConfigAvailable, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
 
         <Image 
@@ -47,25 +51,29 @@
                Visibility="{Binding Path=IsInCloud, 
                             Converter={StaticResource BoolToVisibilityConverter}, 
                             Mode=OneWay}" 
-               ToolTip="Daten sind in der Cloud"
+               ToolTip="{Binding Path=Localization.ProgramHeader_IsInCloud, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
         <Image 
                Source="{StaticResource Cloud-000000-16}" 
                Visibility="{Binding Path=IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                Opacity=".25" 
-               ToolTip="Daten sind nicht in der Cloud"
+               ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInCloud, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
 
         <Image 
                Source="{StaticResource Link-16}" 
                Visibility="{Binding Path=IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-               ToolTip="Verknüpft"
+               ToolTip="{Binding Path=Localization.ProgramHeader_IsLinked, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
         <Image 
                Source="{StaticResource Link-16}" 
                Visibility="{Binding Path=IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                Opacity=".25" 
-               ToolTip="Nicht verknüpft"
+               ToolTip="{Binding Path=Localization.ProgramHeader_IsNotLinked, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
 
         <Grid>
@@ -83,7 +91,8 @@
 
         <Button Visibility="Collapsed" 
                 Command="{Binding Path=MoveToCloudCommand}" 
-                ToolTip="Daten in die Cloud verschieben">
+                ToolTip="{Binding Path=Localization.ProgramHeader_MoveToCloud, 
+                                 Source={StaticResource XamlLocalization}}">
             <Button.Content>
                 <Image Source="{StaticResource MoveToCloud-Black-16}" />
             </Button.Content>
@@ -91,11 +100,13 @@
 
         <Button 
                 Command="{Binding Path=LinkCommand}" 
-                Content="Link erstellen" 
+                Content="{Binding Path=Localization.ProgramHeader_Link, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
         <Button 
                 Command="{Binding Path=UnlinkCommand}" 
-                Content="Link löschen" 
+                Content="{Binding Path=Localization.ProgramHeader_Unlink, 
+                                 Source={StaticResource XamlLocalization}}" 
         />
     </StackPanel>
 

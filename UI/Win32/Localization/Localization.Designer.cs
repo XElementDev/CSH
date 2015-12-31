@@ -88,6 +88,105 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration available.
+        /// </summary>
+        public static string ProgramHeader_ConfigAvailable {
+            get {
+                return ResourceManager.GetString("ProgramHeader_ConfigAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data is stored in cloud.
+        /// </summary>
+        public static string ProgramHeader_IsInCloud {
+            get {
+                return ResourceManager.GetString("ProgramHeader_IsInCloud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installed.
+        /// </summary>
+        public static string ProgramHeader_IsInstalled {
+            get {
+                return ResourceManager.GetString("ProgramHeader_IsInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linked.
+        /// </summary>
+        public static string ProgramHeader_IsLinked {
+            get {
+                return ResourceManager.GetString("ProgramHeader_IsLinked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data stored in cloud yet.
+        /// </summary>
+        public static string ProgramHeader_IsNotInCloud {
+            get {
+                return ResourceManager.GetString("ProgramHeader_IsNotInCloud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not installed.
+        /// </summary>
+        public static string ProgramHeader_IsNotInstalled {
+            get {
+                return ResourceManager.GetString("ProgramHeader_IsNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not linked.
+        /// </summary>
+        public static string ProgramHeader_IsNotLinked {
+            get {
+                return ResourceManager.GetString("ProgramHeader_IsNotLinked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create link.
+        /// </summary>
+        public static string ProgramHeader_Link {
+            get {
+                return ResourceManager.GetString("ProgramHeader_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move data to cloud.
+        /// </summary>
+        public static string ProgramHeader_MoveToCloud {
+            get {
+                return ResourceManager.GetString("ProgramHeader_MoveToCloud", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No configuration available.
+        /// </summary>
+        public static string ProgramHeader_NoConfigAvailable {
+            get {
+                return ResourceManager.GetString("ProgramHeader_NoConfigAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove link.
+        /// </summary>
+        public static string ProgramHeader_Unlink {
+            get {
+                return ResourceManager.GetString("ProgramHeader_Unlink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current operating system:.
         /// </summary>
         public static string StatusBar_CurrentOs {
