@@ -26,16 +26,32 @@
             />
             <TextBlock>
                 <Span>
-                    <Run Text="Icon made by"/>
+                    <Run Text="Icon made by" />
                     <Hyperlink NavigateUri="http://www.simpleicon.com/">
-                        <Run Text="SimpleIcon"/>
+                        <Run Text="SimpleIcon" />
                     </Hyperlink>
-                    <Run Text="from"/>
+                    <Run Text="from" />
                     <Hyperlink NavigateUri="http://www.flaticon.com/">
-                        <Run Text="www.flaticon.com"/>
+                        <Run Text="www.flaticon.com" />
                     </Hyperlink>
                 </Span>
             </TextBlock>
         </StackPanel>
+        <TextBlock>
+            <Span>
+                <Run Text="Thanks to" />
+                <Hyperlink NavigateUri="http://flaticons.net/">
+                    <Run Text="FlatIcons"/>
+                </Hyperlink>
+            </Span>
+        </TextBlock>
+        <TextBlock>
+            <Span>
+                <Run Text="Thanks to" />
+                <Hyperlink NavigateUri="https://flatuicolors.com/">
+                    <Run Text="Flat UI Colors"/>
+                </Hyperlink>
+            </Span>
+        </TextBlock>
     </StackPanel>
 </UserControl>
