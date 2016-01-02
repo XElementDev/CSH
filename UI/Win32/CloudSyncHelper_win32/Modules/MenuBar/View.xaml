@@ -6,12 +6,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <StatusBar>
         <StatusBarItem 
                         HorizontalAlignment="Right">
             <Button 
                     Command="{Binding Path=ShowAbout, Mode=OneWay}" 
-                    Content="Über…" 
+                    Content="{Binding Path=Localization.MenuBar_AboutButton, 
+                                      Source={StaticResource XamlLocalization}}" 
+                    ToolTip="{Binding Path=Localization.MenuBar_AboutButton, 
+                                      Source={StaticResource XamlLocalization}}" 
             />
         </StatusBarItem>
     </StatusBar>

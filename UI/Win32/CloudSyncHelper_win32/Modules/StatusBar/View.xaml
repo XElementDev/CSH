@@ -19,7 +19,8 @@
     <Grid>
         <StatusBar>
             <TextBlock 
-                       Text="Aktuelles Betriebssystem: " 
+                       Text="{Binding Path=Localization.StatusBar_CurrentOs, 
+                                      Source={StaticResource XamlLocalization}}" 
             />
 
             <StackPanel x:Name="Windows8_1" 

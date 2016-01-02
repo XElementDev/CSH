@@ -217,39 +217,43 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CloudSyncHelper\CloudSyncHelper.csproj">
+    <ProjectReference Include="..\..\..\CloudSyncHelper\CloudSyncHelper.csproj">
       <Project>{dda34727-7bae-49f3-9474-8dc5a4cd93f9}</Project>
       <Name>CloudSyncHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
+    <ProjectReference Include="..\..\..\DataTypes\DataTypes.csproj">
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj">
+    <ProjectReference Include="..\..\..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
       <Name>IconCrawler.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj">
+    <ProjectReference Include="..\..\..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj">
       <Project>{ab150370-485f-4489-a381-73b388a674ad}</Project>
       <Name>IconCrawler.MefExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj">
+    <ProjectReference Include="..\..\..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj">
       <Project>{77d3002b-68fe-4a1d-b10f-8b15c3ae6a1d}</Project>
       <Name>InstalledPrograms.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InstalledPrograms\InstalledPrograms.MefExtensions\InstalledPrograms.MefExtensions.csproj">
+    <ProjectReference Include="..\..\..\InstalledPrograms\InstalledPrograms.MefExtensions\InstalledPrograms.MefExtensions.csproj">
       <Project>{18797d1c-3848-4906-9e29-4f433ff48d26}</Project>
       <Name>InstalledPrograms.MefExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Serialization\Serialization.csproj">
+    <ProjectReference Include="..\..\..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serialization</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{cc6ad910-f9f2-40b0-90ac-f347c73b5ef7}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
       <Name>OsRecognition.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj">
+    <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj">
       <Project>{6229fd37-00b3-4f8e-8299-e0e0d8ad2be6}</Project>
       <Name>OsRecognition.MefExtensions</Name>
     </ProjectReference>
@@ -280,7 +284,7 @@
     <Resource Include="Resources\Steam-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\deployment\CloudSyncHelper.xml">
+    <Content Include="..\..\..\deployment\CloudSyncHelper.xml">
       <Link>CloudSyncHelper.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
