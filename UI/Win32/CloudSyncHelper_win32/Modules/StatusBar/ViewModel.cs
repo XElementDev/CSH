@@ -19,7 +19,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.StatusBar
             else if ( osId == OsId.Win10 ) this.IsWindows10 = true;
 
             var assemblyVersion = typeof( App ).Assembly.GetName().Version;
-            this.Version = string.Format( "v{0}+", assemblyVersion );
+            this.Version = string.Format( "v{0}", assemblyVersion );
         }
 
         public string Version { get; private set; }

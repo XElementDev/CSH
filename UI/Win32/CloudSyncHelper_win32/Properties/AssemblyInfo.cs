@@ -9,8 +9,8 @@ using System.Windows;
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
-[assembly: AssemblyProduct( "CloudSyncHelper_win32" )]
-[assembly: AssemblyCopyright( "Copyright ©  2015" )]
+[assembly: AssemblyProduct( "Cloud Sync Helper" )]
+[assembly: AssemblyCopyright( "Copyright © XElementSoftware 2015-206" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
@@ -49,5 +49,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion( "1.0.0.148" )]
-[assembly: AssemblyFileVersion( "1.0.0.148" )]
+[assembly: AssemblyVersion( "0.2.0.242" )]
+[assembly: AssemblyFileVersion( "0.2.0.242" )]

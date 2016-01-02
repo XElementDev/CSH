@@ -38,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Prism">
-      <HintPath>..\externals\Prism\Microsoft.Practices.Prism.dll</HintPath>
+      <HintPath>..\..\..\externals\Prism\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -57,7 +57,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="XElement.UiCommon">
-      <HintPath>..\externals\XElement\XElement.UiCommon.dll</HintPath>
+      <HintPath>..\..\..\externals\XElement\XElement.UiCommon.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
