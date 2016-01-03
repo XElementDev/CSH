@@ -2,6 +2,7 @@
 using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Input;
+using AboutViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.About.ViewModel;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
 {
@@ -19,10 +20,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
         private void ShowAbout_Execute()
         {
             this._window = new AboutWindow();
+            this._window.DataContext = this._aboutVM;
             this._window.ShowDialog();
         }
 
         private Window _window;
+
+        [Import]
+        private AboutViewModel _aboutVM = null;
     }
 #endregion
 }

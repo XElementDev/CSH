@@ -10,5 +10,5 @@
 
         ShowInTaskbar="False">
 
-    <modules:AboutUC />
+    <modules:AboutUC DataContext="{Binding}" />
 </Window>

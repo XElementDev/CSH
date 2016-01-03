@@ -61,6 +61,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string About_Header {
+            get {
+                return ResourceManager.GetString("About_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About….
         /// </summary>
         public static string MenuBar_AboutButton {
