@@ -25,9 +25,18 @@
         />
 
         <GroupBox>
-            <TextBlock 
-                       Text="{Binding Path=Version, Mode=OneTime}" 
-            />
+            <StackPanel 
+                        Orientation="Vertical">
+                <TextBlock 
+                           Text="{Binding Path=ProductName, Mode=OneTime}" 
+                />
+                <TextBlock 
+                           Text="{Binding Path=Version, Mode=OneTime}" 
+                />
+                <TextBlock 
+                           Text="{Binding Path=Copyright, Mode=OneTime}" 
+                />
+            </StackPanel>
         </GroupBox>
 
         <GroupBox 

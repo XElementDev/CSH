@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.Composition;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.About
 {
@@ -6,8 +8,21 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.About
     [Export]
     public class ViewModel : IPartImportsSatisfiedNotification
     {
+        public string Copyright { get; private set; }
+
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
+            this.SetAssemblyInfos();
+        }
+
+        public string ProductName { get; private set; }
+
+        private void SetAssemblyInfos()
+        {
+            var versionInfo = FileVersionInfo.GetVersionInfo( Assembly.GetEntryAssembly().Location );
+            this.Copyright = versionInfo.LegalCopyright;
+            this.ProductName = versionInfo.ProductName;
+
             var assemblyVersion = typeof( App ).Assembly.GetName().Version;
             this.Version = string.Format( "v{0}", assemblyVersion );
         }
