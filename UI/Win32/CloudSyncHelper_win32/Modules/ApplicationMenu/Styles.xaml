@@ -29,6 +29,7 @@
                         />
                         <Border.Style>
                             <Style>
+                                <Setter Property="Border.Background" Value="{StaticResource HighlightOrange}" /> <!-- 2016-01-15: Important for the mouse over area. -->
                                 <Style.Triggers>
                                     <Trigger Property="Border.IsMouseOver" Value="True">
                                         <Setter Property="Border.Background" Value="{StaticResource ShadowOrange}" />
