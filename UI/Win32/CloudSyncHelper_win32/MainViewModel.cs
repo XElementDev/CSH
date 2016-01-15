@@ -8,15 +8,19 @@ using System.Text.RegularExpressions;
 using System.Windows.Data;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu;
 using XElement.CloudSyncHelper.UI.Win32.Modules.StatusBar;
 using XElement.Common.UI;
+using ApplicationMenuViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu.ViewModel;
 using MenuBarViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar.ViewModel;
 
 namespace XElement.CloudSyncHelper.UI.Win32
 {
 #region not unit-tested
     [Export]
-    public class MainViewModel : ViewModelBase, IPartImportsSatisfiedNotification
+    [Export( typeof( IHasWindowState ) )]
+    public class MainViewModel : ViewModelBase, IHasWindowState, 
+                                                IPartImportsSatisfiedNotification
     {
         [ImportingConstructor]
         public MainViewModel( IEventAggregator eventAggregator )
@@ -25,6 +29,9 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
             this.SetupProgramViewModelsView();
         }
+
+        [Import]
+        public ApplicationMenuViewModel ApplicationMenuVM { get; private set; }
 
         private ProgramViewModel ComposeProgramVM( ProgramInfoViewModel programInfoVM )
         {
@@ -71,6 +78,15 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.LoadProgramViewModels();
         }
 
+        public int SelectedIndex
+        {
+            get
+            {
+                IHasWindowState hasWindowState = this;
+                return (int)hasWindowState.WindowState;
+            }
+        }
+
         private void SetupProgramViewModelsView()
         {
             this._programViewModels = new ObservableCollection<ProgramViewModel>();
@@ -82,6 +98,17 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         [Import]
         public StatusBarViewModel StatusBarVM { get; private set; }
+
+        private WindowState _windowState;
+        WindowState IHasWindowState.WindowState
+        {
+            get { return this._windowState; }
+            set
+            {
+                this._windowState = value;
+                this.RaisePropertyChanged( "SelectedIndex" );
+            }
+        }
 
         private IEventAggregator _eventAggregator;
         private ObservableCollection<ProgramViewModel> _programViewModels;

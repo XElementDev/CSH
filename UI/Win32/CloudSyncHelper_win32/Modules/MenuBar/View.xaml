@@ -16,13 +16,10 @@
 
     <StatusBar>
         <StatusBarItem 
-                        HorizontalAlignment="Right">
+                       HorizontalAlignment="Left">
             <Button 
-                    Command="{Binding Path=ShowAbout, Mode=OneWay}" 
-                    Content="{Binding Path=Localization.MenuBar_AboutButton, 
-                                      Source={StaticResource XamlLocalization}}" 
-                    ToolTip="{Binding Path=Localization.MenuBar_AboutButton, 
-                                      Source={StaticResource XamlLocalization}}" 
+                    Command="{Binding Path=ShowApplicationMenu, Mode=OneWay}" 
+                    Content="APPLICATION-MENU" 
             />
         </StatusBarItem>
     </StatusBar>

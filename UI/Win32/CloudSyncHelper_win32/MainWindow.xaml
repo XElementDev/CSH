@@ -5,6 +5,8 @@
         Title="Cloud Sync Helper" 
         Height="480" Width="640" 
 
+        xmlns:modules="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules" 
+
         MinHeight="480" MinWidth="640">
 
     <Window.Resources>
@@ -38,47 +40,76 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <!-- 2016-01-15: https://stackoverflow.com/questions/387480/hide-tab-headers-in-wpf-tabcontrol -->
+            <Style TargetType="{x:Type TabControl}">
+                <Setter Property="ItemContainerStyle">
+                    <Setter.Value>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                                                              AncestorType={x:Type TabControl}}, 
+                                                                                              Path=Items.Count}" 
+                                             Value="1">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
-    <DockPanel>
-        <local:MenuBarUC 
-                         DockPanel.Dock="Top" 
-                         DataContext="{Binding Path=MenuBarVM}" 
-        />
+    <TabControl 
+                SelectedIndex="{Binding Path=SelectedIndex, Mode=OneWay}">
+        <TabItem 
+                 TabIndex="0">
+            <DockPanel>
+                <local:MenuBarUC 
+                                 DockPanel.Dock="Top" 
+                                 DataContext="{Binding Path=MenuBarVM}" 
+                />
 
-        <local:StatusBarUC 
-                           DockPanel.Dock="Bottom" 
-                           DataContext="{Binding Path=StatusBarVM}" 
-        />
+                <local:StatusBarUC 
+                                   DockPanel.Dock="Bottom" 
+                                   DataContext="{Binding Path=StatusBarVM}" 
+                />
 
-        <ScrollViewer 
-                      DockPanel.Dock="Top">
-            <ItemsControl 
-                          ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}" 
-                          Grid.IsSharedSizeScope="True">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel 
-                                    Orientation="Vertical">
-                            <StackPanel.Background>
-                                <VisualBrush 
-                                             Stretch="Uniform" 
-                                             AlignmentX="Left" AlignmentY="Top">
-                                    <VisualBrush.Visual>
-                                        <Image 
-                                               Source="{Binding Path=ImagePath}" 
-                                               Style="{StaticResource BackgroundImageStyle}" 
-                                        />
-                                    </VisualBrush.Visual>
-                                </VisualBrush>
-                            </StackPanel.Background>
-                            <local:ProgramHeaderView DataContext="{Binding}" />
-                            <local:ProgramDetailsView DataContext="{Binding}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-    </DockPanel>
+                <ScrollViewer 
+                              DockPanel.Dock="Top">
+                    <ItemsControl 
+                                  ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}" 
+                                  Grid.IsSharedSizeScope="True">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel 
+                                            Orientation="Vertical">
+                                    <StackPanel.Background>
+                                        <VisualBrush 
+                                                     Stretch="Uniform" 
+                                                     AlignmentX="Left" AlignmentY="Top">
+                                            <VisualBrush.Visual>
+                                                <Image 
+                                                       Source="{Binding Path=ImagePath}" 
+                                                       Style="{StaticResource BackgroundImageStyle}" 
+                                                />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </StackPanel.Background>
+                                    <local:ProgramHeaderView DataContext="{Binding}" />
+                                    <local:ProgramDetailsView DataContext="{Binding}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+        </TabItem>
+
+        <TabItem 
+                 TabIndex="1">
+            <modules:ApplicationMenuUC DataContext="{Binding ApplicationMenuVM}" />
+        </TabItem>
+    </TabControl>
 </Window>

@@ -1,8 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System.ComponentModel.Composition;
-using System.Windows;
 using System.Windows.Input;
-using AboutViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.About.ViewModel;
+using XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
 {
@@ -12,22 +11,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
     {
         public ViewModel()
         {
-            this.ShowAbout = new DelegateCommand( this.ShowAbout_Execute );
+            this.ShowApplicationMenu = new DelegateCommand( this.ShowApplicationMenu_Execute );
         }
 
-        public ICommand ShowAbout { get; private set; }
+        public ICommand ShowApplicationMenu { get; private set; }
 
-        private void ShowAbout_Execute()
+        private void ShowApplicationMenu_Execute()
         {
-            this._window = new AboutWindow();
-            this._window.DataContext = this._aboutVM;
-            this._window.ShowDialog();
+            this._hasWindowState.WindowState = WindowState.ShowApplicationMenu;
         }
-
-        private Window _window;
 
         [Import]
-        private AboutViewModel _aboutVM = null;
+        private IHasWindowState _hasWindowState;
     }
 #endregion
 }
