@@ -70,11 +70,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About….
+        ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string MenuBar_AboutButton {
+        public static string ApplicationMenu_About {
             get {
-                return ResourceManager.GetString("MenuBar_AboutButton", resourceCulture);
+                return ResourceManager.GetString("ApplicationMenu_About", resourceCulture);
             }
         }
         
