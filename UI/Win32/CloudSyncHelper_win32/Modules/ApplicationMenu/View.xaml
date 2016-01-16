@@ -50,7 +50,8 @@
                                       Source={StaticResource XamlLocalization}}">
                 <modules:AboutUC DataContext="{Binding Path=AboutVM}" />
             </TabItem>
-            <TabItem Header="bla-eriuhireguihergi">bla content</TabItem>
+            <!--<TabItem Header="bla-eriuhireguihergi">bla content</TabItem>-->
+            <TabItem Header="bla">bla content</TabItem>
         </TabControl>
     </Grid>
 
