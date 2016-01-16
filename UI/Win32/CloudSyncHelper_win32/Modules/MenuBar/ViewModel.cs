@@ -22,7 +22,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
         }
 
         [Import]
-        private IHasWindowState _hasWindowState;
+        private IHasWindowState _hasWindowState = null;
     }
 #endregion
 }

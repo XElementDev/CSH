@@ -307,6 +307,7 @@
       <Link>CloudSyncHelper.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Swap-Left-d48-p4-000000.png" />
     <Resource Include="CloudSyncHelper.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

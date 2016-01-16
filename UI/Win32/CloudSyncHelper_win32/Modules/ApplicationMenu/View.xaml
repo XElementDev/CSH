@@ -18,7 +18,23 @@
     </UserControl.Resources>
 
     <Grid>
-        <TabControl>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button 
+                Grid.Column="0" Grid.Row="0" 
+                Command="{Binding Path=ShowDefault}" 
+                Style="{StaticResource BackButton}" 
+        />
+
+        <TabControl 
+                    Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
             <TabItem Header="{Binding Path=Localization.ApplicationMenu_About, 
                                       Source={StaticResource XamlLocalization}}">
                 <modules:AboutUC DataContext="{Binding Path=AboutVM}" />
