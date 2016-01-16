@@ -13,21 +13,22 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu
         [ImportingConstructor]
         public ViewModel()
         {
-            this.ShowDefault = new DelegateCommand( this.ShowDefault_Execute );
+            this.Hide = new DelegateCommand( this.Hide_Execute );
         }
 
         [Import]
         public AboutViewModel AboutVM { get; private set; }
 
-        public ICommand ShowDefault { get; private set; }
+        public ICommand Hide { get; private set; }
 
-        private void ShowDefault_Execute()
+        private void Hide_Execute()
         {
-            this._hasWindowState.Value.WindowState = WindowState.@default;
+            var appMenuContainer = this._lazyAppMenuContainer.Value;
+            appMenuContainer.HideApplicationMenu();
         }
 
         [Import]
-        private Lazy<IHasWindowState> _hasWindowState = null;
+        private Lazy<IApplicationMenuContainer> _lazyAppMenuContainer = null;
     }
 #endregion
 }

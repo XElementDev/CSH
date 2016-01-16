@@ -176,12 +176,11 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\About\ViewModel.cs" />
-    <Compile Include="Modules\ApplicationMenu\IHasWindowState.cs" />
+    <Compile Include="Modules\ApplicationMenu\IApplicationMenuContainer.cs" />
     <Compile Include="Modules\ApplicationMenu\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\ApplicationMenu\ViewModel.cs" />
-    <Compile Include="Modules\ApplicationMenu\WindowState.cs" />
     <Compile Include="Modules\MenuBar\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
