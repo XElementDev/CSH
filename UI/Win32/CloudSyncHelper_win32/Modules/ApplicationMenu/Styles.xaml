@@ -6,8 +6,14 @@
         <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="LeftStripe" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{StaticResource HighlightOrange}" />
+    </Style>
+
     <Style x:Key="BackButton" TargetType="{x:Type Button}">
         <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="16 16 0 16" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -22,10 +28,6 @@
             </Setter.Value>
         </Setter>
         <Setter Property="Width" Value="40" />
-    </Style>
-
-    <Style TargetType="{x:Type Grid}">
-        <Setter Property="Background" Value="{StaticResource HighlightOrange}" />
     </Style>
 
     <Style TargetType="{x:Type TabControl}">
