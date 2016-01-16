@@ -1,16 +1,15 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-                    xmlns:local="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Dictionaries">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- 2016-01-15: https://social.msdn.microsoft.com/Forums/vstudio/en-US/f500ff28-83e7-439a-ad78-be0e6a3b7587/how-to-hide-the-tab-headers-for-a-tabcontrol?forum=wpf -->
     <Style x:Key="HiddenTabHeaders" TargetType="{x:Type TabControl}">
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
         <Style.Resources>
             <Style TargetType="TabItem">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="TabItem">
-                        </ControlTemplate>
+                        <ControlTemplate TargetType="TabItem" />
                     </Setter.Value>
                 </Setter>
             </Style>
