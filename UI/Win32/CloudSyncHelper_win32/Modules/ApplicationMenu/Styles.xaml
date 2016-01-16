@@ -31,6 +31,9 @@
     </Style>
 
     <Style TargetType="{x:Type TabControl}">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Margin" Value="0 0 32 0" />
+        <Setter Property="Padding" Value="16 0 0 0" />
         <Setter Property="TabStripPlacement" Value="Left" />
     </Style>
 
