@@ -19,6 +19,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.About
 
         private void SetAssemblyInfos()
         {
+            // 2016-01-03: https://stackoverflow.com/questions/19384193/get-company-name-and-copyright-information-of-assembly
             var versionInfo = FileVersionInfo.GetVersionInfo( Assembly.GetEntryAssembly().Location );
             this.Copyright = versionInfo.LegalCopyright;
             this.ProductName = versionInfo.ProductName;

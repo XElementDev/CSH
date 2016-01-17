@@ -4,12 +4,13 @@
     <BitmapImage x:Key="ArrowEquals-000000-16"  UriSource="../Resources/Arrow-Expand-000000-16.png" />
     <BitmapImage x:Key="Back-d48-p4-000000"     UriSource="../Resources/Swap-Left-d48-p4-000000.png" />         <!-- http://flaticons.net/customize.php?dir=Mobile%20Application&icon=Swap-Left.png -->
     <BitmapImage x:Key="Cloud-000000-16"        UriSource="../Resources/Cloud-000000-16.png" />
+    <BitmapImage x:Key="GitHub-000000-32"       UriSource="../Resources/GitHub-Mark-000000-32.png" />           <!-- https://github.com/logos -->
     <BitmapImage x:Key="Installation-03-16"     UriSource="../Resources/Installation-03-000000-16.png" />
     <BitmapImage x:Key="Link-16"                UriSource="../Resources/Link-000000-16.png" />
     <BitmapImage x:Key="MoveToCloud-Black-16"   UriSource="../Resources/Cloud-Upload-000000-16.png" />
     <BitmapImage x:Key="Settings-02-16"         UriSource="../Resources/Settings-02-000000-16.png" />
-    <BitmapImage x:Key="Windows_7-000000-16"    UriSource="../Resources/Microsoft-Windows-000000-16.png" />
     <BitmapImage x:Key="Steam-Black-16"         UriSource="../Resources/Steam-000000-16.png" />                 <!-- http://www.flaticon.com/free-icon/steam-logo_33578#term=steam&page=1&position=17 -->
+    <BitmapImage x:Key="Windows_7-000000-16"    UriSource="../Resources/Microsoft-Windows-000000-16.png" />
     <BitmapImage x:Key="Windows_8-000000-16"    UriSource="../Resources/Windows 8-000000-16.png" />
     <BitmapImage x:Key="Windows_8_1-000000-16"  UriSource="../Resources/Windows 8-000000-16.png" />
     <BitmapImage x:Key="Windows_10-000000-16"   UriSource="../Resources/Windows 8-000000-16.png" />

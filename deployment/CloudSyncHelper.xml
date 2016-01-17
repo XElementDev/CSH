@@ -105,6 +105,15 @@
   <Game DisplayName="The LEGO Movie - Videogame" FolderName="LEGO 2014 [The LEGO Movie - Videogame]" Id="2d01a67e-3a6f-4a5e-b774-5b0206c09bf9" TechNameMatcher="The LEGO® Movie - Videogame">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game DisplayName="Die Sims 3 [DE]" FolderName="The Sims 2009 [The Sims 3]" Id="0aed2ddf-6109-401f-9467-484fa853450f" TechNameMatcher="Die Sims™ 3">
+    <OS id="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Mods" SourceId="Mods" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Saves" SourceId="Saves" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game DisplayName="The Stanley Parable" FolderName="The Stanley Parable 2013 [The Stanley Parable]" Id="7b7ee663-825c-4fdf-b1e9-85009096c212" TechNameMatcher="The Stanley Parable">
     <IsSteamCloudSupported value="true" />
   </Game>
