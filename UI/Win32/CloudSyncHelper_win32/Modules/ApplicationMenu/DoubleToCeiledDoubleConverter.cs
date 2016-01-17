@@ -5,7 +5,7 @@ using System.Windows.Data;
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu
 {
 #region not unit-tested
-    internal class CeilingConverter : IValueConverter
+    internal class DoubleToCeiledDoubleConverter : IValueConverter
     {
         public object Convert( object value, Type targetType, object parameter, CultureInfo culture )
         {

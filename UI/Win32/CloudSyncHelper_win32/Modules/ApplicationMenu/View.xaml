@@ -16,7 +16,7 @@
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <local:CeilingConverter x:Key="_ceilingConverter" />
+            <local:DoubleToCeiledDoubleConverter x:Key="_doubleToCeiledDoubleConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -34,7 +34,7 @@
                 Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
                 Width="{Binding ElementName=_tabControl, 
                                 Path=Items[0].ActualWidth, 
-                                Converter={StaticResource _ceilingConverter}}" 
+                                Converter={StaticResource _doubleToCeiledDoubleConverter}}" 
                 Style="{StaticResource LeftStripe}" 
         />
 
