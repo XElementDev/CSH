@@ -79,5 +79,13 @@
                 </TextBlock>
             </StackPanel>
         </GroupBox>
+
+        <TextBlock>
+            <Run Text="Visit us on GitHub!" />
+            <Image 
+                   Source="{StaticResource GitHub-000000-32}" 
+                   Height="32" Width="32" 
+            />
+        </TextBlock>
     </StackPanel>
 </UserControl>
