@@ -9,6 +9,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
     [Export]
     public class ViewModel
     {
+        [ImportingConstructor]
         public ViewModel()
         {
             this.ShowApplicationMenu = new DelegateCommand( this.ShowApplicationMenu_Execute );
@@ -18,11 +19,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
 
         private void ShowApplicationMenu_Execute()
         {
-            this._hasWindowState.WindowState = WindowState.ShowApplicationMenu;
+            this._appMenuContainer.ShowApplicationMenu();
         }
 
         [Import]
-        private IHasWindowState _hasWindowState;
+        private IApplicationMenuContainer _appMenuContainer = null;
     }
 #endregion
 }

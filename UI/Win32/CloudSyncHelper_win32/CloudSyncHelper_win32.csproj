@@ -176,12 +176,12 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\About\ViewModel.cs" />
-    <Compile Include="Modules\ApplicationMenu\IHasWindowState.cs" />
+    <Compile Include="Modules\ApplicationMenu\CeilingConverter.cs" />
+    <Compile Include="Modules\ApplicationMenu\IApplicationMenuContainer.cs" />
     <Compile Include="Modules\ApplicationMenu\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\ApplicationMenu\ViewModel.cs" />
-    <Compile Include="Modules\ApplicationMenu\WindowState.cs" />
     <Compile Include="Modules\MenuBar\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -308,6 +308,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\GitHub-Mark-000000-32.png" />
+    <Resource Include="Resources\Swap-Left-d48-p4-000000.png" />
     <Resource Include="CloudSyncHelper.ico" />
   </ItemGroup>
   <ItemGroup />

@@ -18,8 +18,8 @@ namespace XElement.CloudSyncHelper.UI.Win32
 {
 #region not unit-tested
     [Export]
-    [Export( typeof( IHasWindowState ) )]
-    public class MainViewModel : ViewModelBase, IHasWindowState, 
+    [Export( typeof( IApplicationMenuContainer ) )]
+    public class MainViewModel : ViewModelBase, IApplicationMenuContainer, 
                                                 IPartImportsSatisfiedNotification
     {
         [ImportingConstructor]
@@ -43,6 +43,11 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
             programVM.InstalledProgram = installedProgramVM;
             return programVM;
+        }
+
+        void IApplicationMenuContainer.HideApplicationMenu()
+        {
+            this.SelectedIndex = 0;
         }
 
         private void LoadProgramViewModels()
@@ -78,12 +83,14 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.LoadProgramViewModels();
         }
 
+        private int _selectedIndex;
         public int SelectedIndex
         {
-            get
+            get { return this._selectedIndex; }
+            set
             {
-                IHasWindowState hasWindowState = this;
-                return (int)hasWindowState.WindowState;
+                this._selectedIndex = value;
+                this.RaisePropertyChanged( "SelectedIndex" );
             }
         }
 
@@ -96,19 +103,13 @@ namespace XElement.CloudSyncHelper.UI.Win32
             this.ProgramViewModelsView.Filter = this.ProgramViewModelsView_Filter;
         }
 
+        void IApplicationMenuContainer.ShowApplicationMenu()
+        {
+            this.SelectedIndex = 1;
+        }
+
         [Import]
         public StatusBarViewModel StatusBarVM { get; private set; }
-
-        private WindowState _windowState;
-        WindowState IHasWindowState.WindowState
-        {
-            get { return this._windowState; }
-            set
-            {
-                this._windowState = value;
-                this.RaisePropertyChanged( "SelectedIndex" );
-            }
-        }
 
         private IEventAggregator _eventAggregator;
         private ObservableCollection<ProgramViewModel> _programViewModels;

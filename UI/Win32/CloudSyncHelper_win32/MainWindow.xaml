@@ -14,6 +14,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./Dictionaries/Images.xaml" />
                 <ResourceDictionary Source="./Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Dictionaries/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="ItemsControl">
@@ -41,28 +42,12 @@
                 </Setter>
             </Style>
 
-            <!-- 2016-01-15: https://stackoverflow.com/questions/387480/hide-tab-headers-in-wpf-tabcontrol -->
-            <Style TargetType="{x:Type TabControl}">
-                <Setter Property="ItemContainerStyle">
-                    <Setter.Value>
-                        <Style TargetType="{x:Type TabItem}">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
-                                                                                              AncestorType={x:Type TabControl}}, 
-                                                                                              Path=Items.Count}" 
-                                             Value="1">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Setter.Value>
-                </Setter>
-            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
     <TabControl 
-                SelectedIndex="{Binding Path=SelectedIndex, Mode=OneWay}">
+                SelectedIndex="{Binding Path=SelectedIndex, Mode=OneWay}" 
+                Style="{StaticResource HiddenTabHeaders}">
         <TabItem 
                  TabIndex="0">
             <DockPanel>
