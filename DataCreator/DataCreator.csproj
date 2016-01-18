@@ -57,6 +57,7 @@
     <Compile Include="Data\Games\ClickerHeroes.cs" />
     <Compile Include="Data\Games\PlantsVsZombies.cs" />
     <Compile Include="Data\Games\Risen3.cs" />
+    <Compile Include="Data\Games\LifeIsStrange.cs" />
     <Compile Include="Data\Games\SaintsRowIV.cs" />
     <Compile Include="Data\Games\ShadowOfMordor.cs" />
     <Compile Include="Data\Games\TheLegoMovieVideogame.cs" />

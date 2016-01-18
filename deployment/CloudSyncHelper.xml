@@ -96,6 +96,9 @@
   <Game DisplayName="Risen 3 - Titan Lords" FolderName="Risen 2014 [Risen 3 - Titan Lords]" Id="7b57b2ab-8b0f-40eb-88f4-2e20002a4eb0" TechNameMatcher="Risen 3 - Titan Lords">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game DisplayName="Life Is Strange" FolderName="Life Is Strange 2015 [Life Is Strange]" Id="f2929f42-6dc3-4049-99a4-2823d797657e" TechNameMatcher="Life Is Strange™">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game DisplayName="Saints Row IV" FolderName="Saints Row 2013 [Saints Row IV]" Id="b4c5e79f-4594-4d9b-b40a-38385d261c9b" TechNameMatcher="Saints Row IV">
     <IsSteamCloudSupported value="true" />
   </Game>
