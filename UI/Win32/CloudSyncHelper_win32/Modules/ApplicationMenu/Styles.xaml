@@ -10,6 +10,7 @@
 
 
     <sys:Double x:Key="_leftStripeMinWidth">72</sys:Double>
+    <sys:Double x:Key="_leftStripeMinWidthFix">70</sys:Double> <!-- 2016-01-21: I don't know why I have to do this, but after many days of googling and trying out this seems to be the only fix. -->
 
 
     <Style x:Key="LeftStripe" TargetType="{x:Type Border}">
@@ -48,7 +49,7 @@
     <!-- 2016-01-15: https://stackoverflow.com/questions/2425720/wpf-combobox-controltemplate-background-ismouseover -->
     <Style TargetType="{x:Type TabItem}">
         <Setter Property="Margin" Value="-1 0 0 0" />
-        <Setter Property="MinWidth" Value="{StaticResource _leftStripeMinWidth}" />
+        <Setter Property="MinWidth" Value="{StaticResource _leftStripeMinWidthFix}" />
         <Setter Property="Padding" Value="16 8 8 8" />
         <Setter Property="Template">
             <Setter.Value>
