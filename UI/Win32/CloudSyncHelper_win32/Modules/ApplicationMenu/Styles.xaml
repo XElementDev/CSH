@@ -9,8 +9,17 @@
     </ResourceDictionary.MergedDictionaries>
 
 
+    <Thickness x:Key="_backButtonMargin">16 16 0 16</Thickness>
+    <sys:Double x:Key="_backButtonSize">40</sys:Double>
+    <sys:Double x:Key="_backButtonActualHeight_Inverse">-72</sys:Double> <!-- 2016-01-22: -40-16-16 -->
     <sys:Double x:Key="_leftStripeMinWidth">72</sys:Double>
     <sys:Double x:Key="_leftStripeMinWidthFix">70</sys:Double> <!-- 2016-01-21: I don't know why I have to do this, but after many days of googling and trying out this seems to be the only fix. -->
+    <Thickness x:Key="_tabControlContentMargin" 
+               Left="0" 
+               Top="{StaticResource _backButtonActualHeight_Inverse}" 
+               Right="0" 
+               Bottom="0" 
+    />
 
 
     <Style x:Key="LeftStripe" TargetType="{x:Type Border}">
@@ -19,9 +28,9 @@
     </Style>
 
     <Style x:Key="BackButton" TargetType="{x:Type Button}">
-        <Setter Property="Height" Value="40" />
+        <Setter Property="Height" Value="{StaticResource _backButtonSize}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="Margin" Value="16 16 0 16" />
+        <Setter Property="Margin" Value="{StaticResource _backButtonMargin}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -35,20 +44,47 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Width" Value="40" />
+        <Setter Property="Width" Value="{StaticResource _backButtonSize}" />
     </Style>
 
     <Style TargetType="{x:Type TabControl}">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Margin" Value="0 0 32 0" />
-        <Setter Property="Padding" Value="16 0 0 0" />
+        <Setter Property="Padding" Value="16 16 0 0" />
         <Setter Property="TabStripPlacement" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <!-- 2016-01-22: https://stackoverflow.com/questions/5400849/wpf-tab-margins -->
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TabPanel 
+                                  Grid.Column="0" 
+                                  IsItemsHost="True" 
+                        />
+                        <Border 
+                                Grid.Column="1" 
+                                Margin="{TemplateBinding Margin}" 
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter 
+                                              ContentSource="SelectedContent" 
+                                              Margin="{StaticResource _tabControlContentMargin}" 
+                            />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!-- 2016-01-15: https://stackoverflow.com/questions/1506568/wpf-tabitem-header-styling -->
     <!-- 2016-01-15: https://stackoverflow.com/questions/2425720/wpf-combobox-controltemplate-background-ismouseover -->
     <Style TargetType="{x:Type TabItem}">
-        <Setter Property="Margin" Value="-1 0 0 0" />
+        <Setter Property="Margin" Value="0 0 -1 0" />
         <Setter Property="MinWidth" Value="{StaticResource _leftStripeMinWidthFix}" />
         <Setter Property="Padding" Value="16 8 8 8" />
         <Setter Property="Template">
