@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Styles.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -43,24 +44,6 @@
                   Header="Credits:">
             <StackPanel 
                         Orientation="Vertical">
-                <StackPanel 
-                            Orientation="Horizontal">
-                    <Image 
-                           Source="{StaticResource Steam-Black-16}" 
-                    />
-                    <TextBlock>
-                        <Span>
-                            <Run Text="Icon made by" />
-                            <Hyperlink NavigateUri="http://www.simpleicon.com/">
-                                <Run Text="SimpleIcon" />
-                            </Hyperlink>
-                            <Run Text="from" />
-                            <Hyperlink NavigateUri="http://www.flaticon.com/">
-                                <Run Text="www.flaticon.com" />
-                            </Hyperlink>
-                        </Span>
-                    </TextBlock>
-                </StackPanel>
                 <TextBlock>
                     <Span>
                         <Run Text="Thanks to" />
@@ -77,15 +60,39 @@
                         </Hyperlink>
                     </Span>
                 </TextBlock>
+                <StackPanel 
+                            Orientation="Horizontal">
+                    <Image 
+                           Source="{StaticResource Steam-Black-16}" 
+                           Margin="0 0 4 0" 
+                    />
+                    <TextBlock>
+                        <Span>
+                            <Run Text="Icon made by" />
+                            <Hyperlink NavigateUri="http://www.simpleicon.com/">
+                                <Run Text="SimpleIcon" />
+                            </Hyperlink>
+                            <Run Text="from" />
+                            <Hyperlink NavigateUri="http://www.flaticon.com/">
+                                <Run Text="www.flaticon.com" />
+                            </Hyperlink>
+                        </Span>
+                    </TextBlock>
+                </StackPanel>
             </StackPanel>
         </GroupBox>
 
-        <TextBlock>
-            <Run Text="Visit us on GitHub!" />
+        <TextBlock 
+                   Margin="0 4 0 0">
             <Image 
                    Source="{StaticResource GitHub-000000-32}" 
                    Height="32" Width="32" 
+                   Margin="0 0 4 0" 
             />
+            <Run Text="Visit us on" />
+            <Hyperlink NavigateUri="https://github.com/XElementSoftware/CloudSyncHelper">
+                <Run Text="GitHub"/>
+            </Hyperlink>
         </TextBlock>
     </StackPanel>
 </UserControl>
