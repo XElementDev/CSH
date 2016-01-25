@@ -47,7 +47,8 @@
                 <TextBlock>
                     <Span>
                         <Run Text="Thanks to" />
-                        <Hyperlink NavigateUri="http://flaticons.net/">
+                        <Hyperlink NavigateUri="http://flaticons.net/" 
+                                   RequestNavigate="Hyperlink_RequestNavigate">
                             <Run Text="FlatIcons"/>
                         </Hyperlink>
                     </Span>
@@ -55,7 +56,8 @@
                 <TextBlock>
                     <Span>
                         <Run Text="Thanks to" />
-                        <Hyperlink NavigateUri="https://flatuicolors.com/">
+                        <Hyperlink NavigateUri="https://flatuicolors.com/" 
+                                   RequestNavigate="Hyperlink_RequestNavigate">
                             <Run Text="Flat UI Colors"/>
                         </Hyperlink>
                     </Span>
@@ -69,11 +71,13 @@
                     <TextBlock>
                         <Span>
                             <Run Text="Icon made by" />
-                            <Hyperlink NavigateUri="http://www.simpleicon.com/">
+                            <Hyperlink NavigateUri="http://www.simpleicon.com/" 
+                                       RequestNavigate="Hyperlink_RequestNavigate">
                                 <Run Text="SimpleIcon" />
                             </Hyperlink>
                             <Run Text="from" />
-                            <Hyperlink NavigateUri="http://www.flaticon.com/">
+                            <Hyperlink NavigateUri="http://www.flaticon.com/" 
+                                       RequestNavigate="Hyperlink_RequestNavigate">
                                 <Run Text="www.flaticon.com" />
                             </Hyperlink>
                         </Span>
@@ -90,7 +94,8 @@
                    Margin="0 0 4 0" 
             />
             <Run Text="Visit us on" />
-            <Hyperlink NavigateUri="https://github.com/XElementSoftware/CloudSyncHelper">
+            <Hyperlink NavigateUri="https://github.com/XElementSoftware/CloudSyncHelper" 
+                       RequestNavigate="Hyperlink_RequestNavigate">
                 <Run Text="GitHub"/>
             </Hyperlink>
         </TextBlock>
