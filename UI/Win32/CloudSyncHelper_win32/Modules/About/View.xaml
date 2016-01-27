@@ -88,16 +88,18 @@
 
         <TextBlock 
                    Margin="0 4 0 0">
-            <Image 
-                   Source="{StaticResource GitHub-000000-32}" 
-                   Height="32" Width="32" 
-                   Margin="0 0 4 0" 
-            />
-            <Run Text="Visit us on" />
-            <Hyperlink NavigateUri="https://github.com/XElementSoftware/CloudSyncHelper" 
-                       RequestNavigate="Hyperlink_RequestNavigate">
-                <Run Text="GitHub"/>
-            </Hyperlink>
+            <Span>
+                <Image 
+                       Source="{StaticResource GitHub-000000-32}" 
+                       Height="32" Width="32" 
+                       Margin="0 0 4 0" 
+                />
+                <Run Text="Visit us on" />
+                <Hyperlink NavigateUri="https://github.com/XElementSoftware/CloudSyncHelper" 
+                           RequestNavigate="Hyperlink_RequestNavigate">
+                    <Run Text="GitHub"/>
+                </Hyperlink>
+            </Span>
         </TextBlock>
     </StackPanel>
 </UserControl>
