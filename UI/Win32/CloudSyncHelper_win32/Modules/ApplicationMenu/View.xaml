@@ -15,37 +15,11 @@
                 <ResourceDictionary Source="./Styles.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            <local:DoubleToCeiledDoubleConverter x:Key="_doubleToCeiledDoubleConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Border 
-                Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
-                Width="{Binding ElementName=_tabControl, 
-                                Path=Items[0].ActualWidth, 
-                                Converter={StaticResource _doubleToCeiledDoubleConverter}}" 
-                Style="{StaticResource LeftStripe}" 
-        />
-
-        <Button 
-                Grid.Column="0" Grid.Row="0" 
-                Command="{Binding Path=Hide}" 
-                Style="{StaticResource BackButton}" 
-        />
-
-        <TabControl x:Name="_tabControl" 
-                    Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+        <TabControl x:Name="_tabControl">
             <TabItem 
                      Header="{Binding Path=Localization.ApplicationMenu_Settings, 
                                       Source={StaticResource XamlLocalization}}" 
@@ -59,6 +33,11 @@
                 <modules:AboutUC DataContext="{Binding Path=AboutVM}" />
             </TabItem>
         </TabControl>
+
+        <Button 
+                Command="{Binding Path=Hide}" 
+                Style="{StaticResource BackButton}" 
+        />
     </Grid>
 
 </UserControl>

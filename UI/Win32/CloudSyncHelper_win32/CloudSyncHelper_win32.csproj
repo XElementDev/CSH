@@ -180,7 +180,6 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\About\ViewModel.cs" />
-    <Compile Include="Modules\ApplicationMenu\DoubleToCeiledDoubleConverter.cs" />
     <Compile Include="Modules\ApplicationMenu\IApplicationMenuContainer.cs" />
     <Compile Include="Modules\ApplicationMenu\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>

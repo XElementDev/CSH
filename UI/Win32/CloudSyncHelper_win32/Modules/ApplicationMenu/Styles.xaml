@@ -11,18 +11,17 @@
 
     <Thickness x:Key="_backButtonMargin">16 16 0 16</Thickness>
     <sys:Double x:Key="_backButtonSize">40</sys:Double>
-    <sys:Double x:Key="_backButtonActualHeight_Inverse">-72</sys:Double> <!-- 2016-01-22: -40-16-16 -->
+    <sys:Double x:Key="_backButtonActualHeight">72</sys:Double> <!-- 2016-01-27: 40+16+16 -->
     <sys:Double x:Key="_leftStripeMinWidth">72</sys:Double>
-    <sys:Double x:Key="_leftStripeMinWidthFix">70</sys:Double> <!-- 2016-01-21: I don't know why I have to do this, but after many days of googling and trying out this seems to be the only fix. -->
-    <Thickness x:Key="_tabControlContentMargin" 
+    <Thickness x:Key="_tabControlHeaderMargin" 
                Left="0" 
-               Top="{StaticResource _backButtonActualHeight_Inverse}" 
+               Top="{StaticResource _backButtonActualHeight}" 
                Right="0" 
                Bottom="0" 
     />
 
 
-    <Style x:Key="LeftStripe" TargetType="{x:Type Border}">
+    <Style x:Key="_leftStripe" TargetType="{x:Type Grid}">
         <Setter Property="Background" Value="{StaticResource HighlightOrange}" />
         <Setter Property="MinWidth" Value="{StaticResource _leftStripeMinWidth}" />
     </Style>
@@ -44,12 +43,14 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Width" Value="{StaticResource _backButtonSize}" />
     </Style>
 
     <Style TargetType="{x:Type TabControl}">
+        <Setter Property="Background" Value="White" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Margin" Value="0 0 32 0" />
+        <Setter Property="Margin" Value="-1 0 32 0" /> <!-- 27.01.2016: -1 to fix minimal overlap of left stripe's background -->
         <Setter Property="Padding" Value="16 16 0 0" />
         <Setter Property="TabStripPlacement" Value="Left" />
         <Setter Property="Template">
@@ -62,17 +63,22 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <TabPanel 
-                                  Grid.Column="0" 
-                                  IsItemsHost="True" 
-                        />
+                        <Grid 
+                              Grid.Column="0" 
+                              Style="{StaticResource _leftStripe}">
+                            <TabPanel 
+                                      IsItemsHost="True" 
+                                      Margin="{StaticResource _tabControlHeaderMargin}"
+                            />
+                        </Grid>
+
                         <Border 
                                 Grid.Column="1" 
+                                Background="{TemplateBinding Background}" 
                                 Margin="{TemplateBinding Margin}" 
                                 Padding="{TemplateBinding Padding}">
                             <ContentPresenter 
                                               ContentSource="SelectedContent" 
-                                              Margin="{StaticResource _tabControlContentMargin}" 
                             />
                         </Border>
                     </Grid>
@@ -83,33 +89,25 @@
 
     <!-- 2016-01-15: https://stackoverflow.com/questions/1506568/wpf-tabitem-header-styling -->
     <!-- 2016-01-15: https://stackoverflow.com/questions/2425720/wpf-combobox-controltemplate-background-ismouseover -->
-    <Style x:Key="_TabItemBase" TargetType="{x:Type TabItem}">
-        <Setter Property="Margin" Value="0 0 -1 0" />
-        <Setter Property="MinWidth" Value="{StaticResource _leftStripeMinWidthFix}" />
-        <Setter Property="Padding" Value="16 8 8 8" />
+    <Style x:Key="_tabItemBase" TargetType="{x:Type TabItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="16 8 10 8" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Border x:Name="_headerContainer" 
-                            Margin="{TemplateBinding Margin}" 
+                            Background="{TemplateBinding Background}" 
                             Padding="{TemplateBinding Padding}">
                         <ContentPresenter 
                                           ContentSource="Header" 
                         />
-                        <Border.Style>
-                            <Style>
-                                <Setter Property="Border.Background" Value="{StaticResource HighlightOrange}" /> <!-- 2016-01-15: Important for the mouse over area. -->
-                                <Style.Triggers>
-                                    <Trigger Property="Border.IsMouseOver" Value="True">
-                                        <Setter Property="Border.Background" Value="{StaticResource ShadowOrange}" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Border.Style>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="_headerContainer" Property="Background" Value="White" />
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                        <Trigger SourceName="_headerContainer" Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource ShadowOrange}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -117,9 +115,9 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource _TabItemBase}" />
+    <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource _tabItemBase}" />
 
-    <Style x:Key="Settings" TargetType="{x:Type TabItem}" BasedOn="{StaticResource _TabItemBase}">
+    <Style x:Key="Settings" TargetType="{x:Type TabItem}" BasedOn="{StaticResource _tabItemBase}">
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
