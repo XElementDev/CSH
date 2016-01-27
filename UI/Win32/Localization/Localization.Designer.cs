@@ -79,6 +79,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string ApplicationMenu_Settings {
+            get {
+                return ResourceManager.GetString("ApplicationMenu_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cloud provider:.
         /// </summary>
         public static string ProgramDetails_CloudProvider {
@@ -192,6 +201,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string ProgramHeader_Unlink {
             get {
                 return ResourceManager.GetString("ProgramHeader_Unlink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soon available..
+        /// </summary>
+        public static string Settings_Placeholder {
+            get {
+                return ResourceManager.GetString("Settings_Placeholder", resourceCulture);
             }
         }
         

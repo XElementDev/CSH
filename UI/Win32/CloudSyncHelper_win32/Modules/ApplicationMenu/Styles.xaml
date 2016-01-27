@@ -83,7 +83,7 @@
 
     <!-- 2016-01-15: https://stackoverflow.com/questions/1506568/wpf-tabitem-header-styling -->
     <!-- 2016-01-15: https://stackoverflow.com/questions/2425720/wpf-combobox-controltemplate-background-ismouseover -->
-    <Style TargetType="{x:Type TabItem}">
+    <Style x:Key="_TabItemBase" TargetType="{x:Type TabItem}">
         <Setter Property="Margin" Value="0 0 -1 0" />
         <Setter Property="MinWidth" Value="{StaticResource _leftStripeMinWidthFix}" />
         <Setter Property="Padding" Value="16 8 8 8" />
@@ -113,6 +113,26 @@
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource _TabItemBase}" />
+
+    <Style x:Key="Settings" TargetType="{x:Type TabItem}" BasedOn="{StaticResource _TabItemBase}">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel 
+                                Orientation="Horizontal">
+                        <Image 
+                               Source="{StaticResource Settings-02-16}" 
+                               Stretch="None" 
+                               Margin="0 0 4 0" 
+                        />
+                        <TextBlock Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
             </Setter.Value>
         </Setter>
     </Style>

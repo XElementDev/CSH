@@ -46,12 +46,18 @@
 
         <TabControl x:Name="_tabControl" 
                     Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
-            <TabItem Header="{Binding Path=Localization.ApplicationMenu_About, 
+            <TabItem 
+                     Header="{Binding Path=Localization.ApplicationMenu_Settings, 
+                                      Source={StaticResource XamlLocalization}}" 
+                     Style="{StaticResource Settings}" 
+                     Content="{Binding Path=Localization.Settings_Placeholder, 
+                                       Source={StaticResource XamlLocalization}}" 
+            />
+            <TabItem 
+                     Header="{Binding Path=Localization.ApplicationMenu_About, 
                                       Source={StaticResource XamlLocalization}}">
                 <modules:AboutUC DataContext="{Binding Path=AboutVM}" />
             </TabItem>
-            <!--<TabItem Header="bla-eriuhireguihergi">bla content</TabItem>-->
-            <TabItem Header="bla">bla content</TabItem>
         </TabControl>
     </Grid>
 

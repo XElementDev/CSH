@@ -125,6 +125,10 @@
     <value>About</value>
     <comment>// 2016-01-15</comment>
   </data>
+  <data name="ApplicationMenu_Settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>// 2016-01-27</comment>
+  </data>
   <data name="ProgramDetails_CloudProvider" xml:space="preserve">
     <value>Cloud provider:</value>
     <comment>// 2015-12-31</comment>
@@ -176,6 +180,10 @@
   <data name="ProgramHeader_Unlink" xml:space="preserve">
     <value>Remove link</value>
     <comment>// 2015-12-31</comment>
+  </data>
+  <data name="Settings_Placeholder" xml:space="preserve">
+    <value>Soon available.</value>
+    <comment>// 2016-01-27</comment>
   </data>
   <data name="StatusBar_CurrentOs" xml:space="preserve">
     <value>Current operating system:</value>
