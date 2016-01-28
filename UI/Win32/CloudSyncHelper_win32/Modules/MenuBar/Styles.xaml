@@ -31,4 +31,8 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type StatusBar}">
+        <Setter Property="Background" Value="{StaticResource MenuAndStatusBarGray}" />
+    </Style>
+
 </ResourceDictionary>
