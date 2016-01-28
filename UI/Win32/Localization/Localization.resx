@@ -181,6 +181,10 @@
     <value>Remove link</value>
     <comment>// 2015-12-31</comment>
   </data>
+  <data name="Settings_Header" xml:space="preserve">
+    <value>Settings</value>
+    <comment>// 2016-01-28</comment>
+  </data>
   <data name="Settings_Placeholder" xml:space="preserve">
     <value>Soon available.</value>
     <comment>// 2016-01-27</comment>

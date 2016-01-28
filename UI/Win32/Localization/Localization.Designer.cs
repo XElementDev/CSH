@@ -205,6 +205,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings_Header {
+            get {
+                return ResourceManager.GetString("Settings_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Soon available..
         /// </summary>
         public static string Settings_Placeholder {

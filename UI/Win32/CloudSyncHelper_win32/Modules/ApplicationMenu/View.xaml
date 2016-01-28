@@ -23,10 +23,9 @@
             <TabItem 
                      Header="{Binding Path=Localization.ApplicationMenu_Settings, 
                                       Source={StaticResource XamlLocalization}}" 
-                     Style="{StaticResource Settings}" 
-                     Content="{Binding Path=Localization.Settings_Placeholder, 
-                                       Source={StaticResource XamlLocalization}}" 
-            />
+                     Style="{StaticResource Settings}">
+                <modules:SettingsUC />
+            </TabItem>
             <TabItem 
                      Header="{Binding Path=Localization.ApplicationMenu_About, 
                                       Source={StaticResource XamlLocalization}}">
