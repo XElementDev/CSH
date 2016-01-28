@@ -4,6 +4,7 @@
     <BitmapImage x:Key="ArrowEquals-000000-16"  UriSource="../Resources/Arrow-Expand-000000-16.png" />
     <BitmapImage x:Key="Back-d48-p4-000000"     UriSource="../Resources/Swap-Left-d48-p4-000000.png" />         <!-- http://flaticons.net/customize.php?dir=Mobile%20Application&icon=Swap-Left.png -->
     <BitmapImage x:Key="Cloud-000000-16"        UriSource="../Resources/Cloud-000000-16.png" />
+    <BitmapImage x:Key="Filter-d32p4-000000"    UriSource="../Resources/Filter-Standard_d32-p4_000000.png" />   <!-- http://flaticons.net/customize.php?dir=Data&icon=Filter-Standard.png -->
     <BitmapImage x:Key="GitHub-000000-32"       UriSource="../Resources/GitHub-Mark-000000-32.png" />           <!-- https://github.com/logos -->
     <BitmapImage x:Key="Installation-03-16"     UriSource="../Resources/Installation-03-000000-16.png" />
     <BitmapImage x:Key="Link-16"                UriSource="../Resources/Link-000000-16.png" />

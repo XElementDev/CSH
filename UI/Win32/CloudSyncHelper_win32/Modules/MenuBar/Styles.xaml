@@ -3,13 +3,13 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Dictionaries/Colors.xaml" />
+        <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 
     <Style x:Key="ApplicationMenuButton" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Margin" Value="-1 -1 0 -1" />
         <Setter Property="Padding" Value="8 2 8 2" />
         <Setter Property="Template">
             <Setter.Value>
@@ -33,6 +33,41 @@
 
     <Style TargetType="{x:Type StatusBar}">
         <Setter Property="Background" Value="{StaticResource MenuAndStatusBarGray}" />
+    </Style>
+
+    <Style TargetType="{x:Type StatusBarItem}">
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <SolidColorBrush x:Key="_isCheckedColor" Color="LightGray" />
+    <Style x:Key="SearchToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource _isCheckedColor}" />
+        <Setter Property="BorderThickness" Value="1 0 0 0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border 
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Image 
+                               Source="{StaticResource Filter-d32p4-000000}" 
+                               Stretch="None" 
+                        />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="{StaticResource _isCheckedColor}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value=".6" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

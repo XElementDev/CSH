@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" 
+
+             xmlns:modules="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -15,15 +17,31 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StatusBar>
-        <StatusBarItem 
-                       HorizontalAlignment="Left">
-            <Button 
-                    Command="{Binding Path=ShowApplicationMenu, Mode=OneWay}" 
-                    Content="Cloud Sync Helper" 
-                    Style="{StaticResource ApplicationMenuButton}" 
-            />
-        </StatusBarItem>
-    </StatusBar>
+    <StackPanel 
+                Orientation="Vertical">
+        <StatusBar>
+            <StatusBarItem 
+                           HorizontalAlignment="Left">
+                <Button 
+                        Command="{Binding Path=ShowApplicationMenu, Mode=OneWay}" 
+                        Content="Cloud Sync Helper" 
+                        Style="{StaticResource ApplicationMenuButton}" 
+                />
+            </StatusBarItem>
+
+            <StatusBarItem 
+                           HorizontalAlignment="Right">
+                <ToggleButton x:Name="_toggleFilter" 
+                              Style="{StaticResource SearchToggleButton}" 
+                />
+            </StatusBarItem>
+        </StatusBar>
+
+        <modules:SearchUC 
+                          Visibility="{Binding ElementName=_toggleFilter, 
+                                               Path=IsChecked, 
+                                               Converter={StaticResource BoolToVisibilityConverter}}" 
+        />
+    </StackPanel>
 
 </UserControl>
