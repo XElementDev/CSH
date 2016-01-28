@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -19,7 +20,8 @@
                        HorizontalAlignment="Left">
             <Button 
                     Command="{Binding Path=ShowApplicationMenu, Mode=OneWay}" 
-                    Content="APPLICATION-MENU" 
+                    Content="Cloud Sync Helper" 
+                    Style="{StaticResource ApplicationMenuButton}" 
             />
         </StatusBarItem>
     </StatusBar>
