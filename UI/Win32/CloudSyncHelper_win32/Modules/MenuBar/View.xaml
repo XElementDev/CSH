@@ -37,7 +37,7 @@
             </StatusBarItem>
         </StatusBar>
 
-        <modules:SearchUC 
+        <modules:FilterUC 
                           Visibility="{Binding ElementName=_toggleFilter, 
                                                Path=IsChecked, 
                                                Converter={StaticResource BoolToVisibilityConverter}}" 

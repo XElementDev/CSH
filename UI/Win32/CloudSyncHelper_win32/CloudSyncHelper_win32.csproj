@@ -143,11 +143,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\Search\Styles.xaml">
+    <Page Include="Modules\Filter\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\Search\View.xaml">
+    <Page Include="Modules\Filter\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,7 +214,7 @@
     <Compile Include="Modules\ProgramHeader\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Search\View.xaml.cs">
+    <Compile Include="Modules\Filter\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Settings\View.xaml.cs">

@@ -2,9 +2,9 @@
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules
 {
-    public partial class SearchUC : UserControl
+    public partial class FilterUC : UserControl
     {
-        public SearchUC()
+        public FilterUC()
         {
             InitializeComponent();
         }
