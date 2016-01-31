@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <SolidColorBrush x:Key="FilterEnabled"          Color="LightGray" />
     <SolidColorBrush x:Key="HighlightOrange"        Color="#F1C40F" />
-    <SolidColorBrush x:Key="MenuAndStatusBarGray"   Color="#F1EDED" /> <!-- 2016-01-28: Default color of StatusBar control -->
+    <SolidColorBrush x:Key="MenuAndStatusBarGray"   Color="#F1EDED" />      <!-- 2016-01-28: Default color of StatusBar control -->
     <SolidColorBrush x:Key="ShadowOrange"           Color="#F39C12" />
 
 </ResourceDictionary>

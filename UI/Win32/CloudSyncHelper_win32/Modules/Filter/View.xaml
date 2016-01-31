@@ -16,8 +16,8 @@
 
     <Border>
         <Grid>
-            <TextBlock 
-                       Text="Watermark" 
+            <Label 
+                   Content="Watermark" 
             />
             <TextBox 
                      AcceptsTab="False" 

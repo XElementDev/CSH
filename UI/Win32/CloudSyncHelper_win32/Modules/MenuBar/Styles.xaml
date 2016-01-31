@@ -39,10 +39,9 @@
         <Setter Property="Padding" Value="0" />
     </Style>
 
-    <SolidColorBrush x:Key="_isCheckedColor" Color="LightGray" />
     <Style x:Key="SearchToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{StaticResource _isCheckedColor}" />
+        <Setter Property="BorderBrush" Value="{StaticResource FilterEnabled}" />
         <Setter Property="BorderThickness" Value="1 0 0 0" />
         <Setter Property="Template">
             <Setter.Value>
@@ -52,14 +51,14 @@
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Image 
-                               Source="{StaticResource Filter-d32p4-000000}" 
-                               Stretch="None" 
+                               Source="{StaticResource Filter-d48p8-000000}" 
+                               Height="40" Width="40" 
                         />
                     </Border>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="{StaticResource _isCheckedColor}" />
+                            <Setter Property="Background" Value="{StaticResource FilterEnabled}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" Value=".6" />
