@@ -21,7 +21,7 @@
                 Orientation="Vertical">
         <StatusBar>
             <StatusBarItem 
-                           HorizontalAlignment="Left">
+                           HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Button 
                         Command="{Binding Path=ShowApplicationMenu, Mode=OneWay}" 
                         Content="Cloud Sync Helper" 
