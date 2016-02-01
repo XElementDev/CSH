@@ -47,8 +47,11 @@ namespace XElement.CloudSyncHelper.UI.Win32
         [Import]
         public SyncObjectsViewModel SyncObjectsVM { get; private set; }
 
+        //  --> crawling will start on import
+#pragma warning disable CS0414
         [Import]
         private IconCrawlerModel _iconCrawlerModel = null;
+#pragma warning restore CS0414
     }
 #endregion
 }
