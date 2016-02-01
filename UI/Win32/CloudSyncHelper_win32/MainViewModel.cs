@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Prism.Events;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu;
 using XElement.CloudSyncHelper.UI.Win32.Modules.StatusBar;
@@ -15,12 +14,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
     [Export( typeof( IApplicationMenuContainer ) )]
     public class MainViewModel : ViewModelBase, IApplicationMenuContainer
     {
-        [ImportingConstructor]
-        public MainViewModel( IEventAggregator eventAggregator )
-        {
-            this._eventAggregator = eventAggregator;
-        }
-
         [Import]
         public ApplicationMenuViewModel ApplicationMenuVM { get; private set; }
 
@@ -53,8 +46,6 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
         [Import]
         public SyncObjectsViewModel SyncObjectsVM { get; private set; }
-
-        private IEventAggregator _eventAggregator;
 
         [Import]
         private IconCrawlerModel _iconCrawlerModel = null;

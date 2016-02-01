@@ -197,7 +197,6 @@
     <Compile Include="Model\Config.cs" />
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
-    <Compile Include="Model\Events.cs" />
     <Compile Include="Model\FilterModel.cs" />
     <Compile Include="Model\IconCrawler\IconCrawlerModel.cs" />
     <Compile Include="Model\IconCrawler\IIconId.cs" />

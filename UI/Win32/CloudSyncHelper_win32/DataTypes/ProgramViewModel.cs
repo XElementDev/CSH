@@ -1,5 +1,4 @@
 ﻿using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -13,10 +12,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 #region not unit-tested
     public class ProgramViewModel : ViewModelBase
     {
-        public ProgramViewModel( IEventAggregator eventAggregator, 
-                                 IconRetrieverModel iconRetrieverModel )
+        public ProgramViewModel( IconRetrieverModel iconRetrieverModel )
         {
-            this._eventAggregator = eventAggregator;
             this._iconRetrieverModel = iconRetrieverModel;
             this._iconRetrieverModel.PropertyChanged += 
                 ( s, e ) => this.RaisePropertyChanged( "ImagePath" );
@@ -134,7 +131,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             this.RaisePropertiesChanged();
         }
 
-        private IEventAggregator _eventAggregator;
         private IconRetrieverModel _iconRetrieverModel;
     }
 #endregion
