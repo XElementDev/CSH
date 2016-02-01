@@ -22,6 +22,9 @@
                                      Source={StaticResource XamlLocalization}}" 
             />
             <TextBox 
+                     Text="{Binding Path=CurrentFilter, 
+                                    Mode=TwoWay, 
+                                    UpdateSourceTrigger=PropertyChanged}" 
                      AcceptsTab="False" 
             />
         </Grid>

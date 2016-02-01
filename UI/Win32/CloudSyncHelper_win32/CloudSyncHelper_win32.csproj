@@ -182,6 +182,7 @@
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
     <Compile Include="Model\Events.cs" />
+    <Compile Include="Model\FilterModel.cs" />
     <Compile Include="Model\IconCrawler\IconCrawlerModel.cs" />
     <Compile Include="Model\IconCrawler\IIconId.cs" />
     <Compile Include="Model\IconCrawler\IObjectToCrawl.cs" />
@@ -201,6 +202,7 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\ApplicationMenu\ViewModel.cs" />
+    <Compile Include="Modules\Filter\ViewModel.cs" />
     <Compile Include="Modules\MenuBar\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>

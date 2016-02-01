@@ -73,14 +73,19 @@ namespace XElement.CloudSyncHelper.UI.Win32
         private bool ProgramViewModelsView_Filter( object obj )
         {
             var programVM = obj as ProgramViewModel;
-            return programVM != null && 
-                   programVM.DisplayName != null && 
-                   programVM.DisplayName != String.Empty;
+            return programVM != null &&
+                   programVM.DisplayName != null &&
+                   programVM.DisplayName != String.Empty &&
+                   !this.UserFilteredForThis( programVM );
         }
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
             this.LoadProgramViewModels();
+            this._filterModel.PropertyChanged += ( s, e ) =>
+            {
+                this.ProgramViewModelsView.Refresh();
+            };
         }
 
         private int _selectedIndex;
@@ -111,8 +116,21 @@ namespace XElement.CloudSyncHelper.UI.Win32
         [Import]
         public StatusBarViewModel StatusBarVM { get; private set; }
 
+        private bool UserFilteredForThis( ProgramViewModel programVM )
+        {
+            var displayName = programVM.DisplayName.ToLower();
+            Lazy<string> lazyFilter = new Lazy<string>( () => this._filterModel.Filter.ToLower() );
+            return this._filterModel != null && 
+                   this._filterModel.Filter != null && 
+                   this._filterModel.Filter != String.Empty && 
+                   !displayName.Contains( lazyFilter.Value );
+        }
+
         private IEventAggregator _eventAggregator;
         private ObservableCollection<ProgramViewModel> _programViewModels;
+
+        [Import]
+        private FilterModel _filterModel = null;
 
         [Import]
         private IconCrawlerModel _iconCrawlerModel = null;
