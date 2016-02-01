@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="BackgroundImageStyle" TargetType="Image">
+        <Setter Property="Opacity" Value=".4" />
+        <Setter Property="OpacityMask">
+            <Setter.Value>
+                <RadialGradientBrush 
+                                     Center="0, 0" 
+                                     GradientOrigin="0, 0" 
+                                     RadiusX="1" RadiusY="1">
+                    <GradientStop Offset="0.1" Color="Black" />
+                    <GradientStop Offset="0.9" Color="Transparent" />
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+
+</ResourceDictionary>
