@@ -32,6 +32,8 @@
             <StatusBarItem 
                            HorizontalAlignment="Right">
                 <ToggleButton x:Name="_toggleFilter" 
+                              ToolTip="{Binding Path=Localization.MenuBarUC_FilterButton_Tooltip, 
+                                                Source={StaticResource XamlLocalization}}" 
                               Style="{StaticResource SearchToggleButton}" 
                 />
             </StatusBarItem>

@@ -88,6 +88,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string FilterUC_Watermark_Text {
+            get {
+                return ResourceManager.GetString("FilterUC_Watermark_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string MenuBarUC_FilterButton_Tooltip {
+            get {
+                return ResourceManager.GetString("MenuBarUC_FilterButton_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cloud provider:.
         /// </summary>
         public static string ProgramDetails_CloudProvider {

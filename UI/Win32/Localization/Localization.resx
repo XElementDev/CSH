@@ -129,6 +129,14 @@
     <value>Settings</value>
     <comment>// 2016-01-27</comment>
   </data>
+  <data name="FilterUC_Watermark_Text" xml:space="preserve">
+    <value>Filter</value>
+    <comment>// 2016-02-01</comment>
+  </data>
+  <data name="MenuBarUC_FilterButton_Tooltip" xml:space="preserve">
+    <value>Filter</value>
+    <comment>// 2016-02-01</comment>
+  </data>
   <data name="ProgramDetails_CloudProvider" xml:space="preserve">
     <value>Cloud provider:</value>
     <comment>// 2015-12-31</comment>

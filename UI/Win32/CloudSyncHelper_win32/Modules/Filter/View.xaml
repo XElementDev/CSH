@@ -9,6 +9,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -17,7 +18,8 @@
     <Border>
         <Grid>
             <Label 
-                   Content="Watermark" 
+                   Content="{Binding Path=Localization.FilterUC_Watermark_Text, 
+                                     Source={StaticResource XamlLocalization}}" 
             />
             <TextBox 
                      AcceptsTab="False" 
