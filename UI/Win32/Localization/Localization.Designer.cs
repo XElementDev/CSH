@@ -266,5 +266,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
                 return ResourceManager.GetString("SupportedOperatingSystem_OsIsSupported_StringFormat", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No entries found..
+        /// </summary>
+        public static string SyncObjects_NoEntries_Text {
+            get {
+                return ResourceManager.GetString("SyncObjects_NoEntries_Text", resourceCulture);
+            }
+        }
     }
 }

@@ -11,4 +11,9 @@
         </Setter>
     </Style>
 
+    <Style x:Key="NoEntryTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 16 0 0" />
+    </Style>
+
 </ResourceDictionary>

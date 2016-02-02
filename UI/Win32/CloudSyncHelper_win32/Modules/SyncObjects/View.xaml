@@ -11,21 +11,32 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <ScrollViewer>
-        <ItemsControl 
-                      ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}" 
-                      Grid.IsSharedSizeScope="True">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <modules:SyncObjectUC DataContext="{Binding}" />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <Grid>
+            <ItemsControl 
+                          ItemsSource="{Binding Path=ProgramViewModelsView, Mode=OneWay}" 
+                          Grid.IsSharedSizeScope="True">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <modules:SyncObjectUC DataContext="{Binding}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <TextBlock 
+                       Text="{Binding Path=Localization.SyncObjects_NoEntries_Text, 
+                                      Source={StaticResource XamlLocalization}}" 
+                       Visibility="{Binding Path=HasEntries, 
+                                            Converter={StaticResource InversedBoolToVisibilityConverter}}" 
+                       Style="{StaticResource NoEntryTextBlockStyle}" 
+            />
+        </Grid>
     </ScrollViewer>
 
 </UserControl>

@@ -6,8 +6,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    internal class FilterModel : NotifyPropertyChanged, 
-                                 INotifyPropertyChanged
+    public class FilterModel : NotifyPropertyChanged, 
+                               INotifyPropertyChanged
     {
         private string _filter;
         public string Filter

@@ -7,13 +7,46 @@ using System.Text.RegularExpressions;
 using System.Windows.Data;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
 {
-#region not unit-tested
     [Export]
-    public class ViewModel : IPartImportsSatisfiedNotification
+    public class ViewModel : NotifyPropertyChanged, 
+                             INotifyPropertyChanged, 
+                             IPartImportsSatisfiedNotification
     {
+        public bool HasEntries { get { return this.ProgramViewModelsView.Count > 0; } }
+
+        void IPartImportsSatisfiedNotification.OnImportsSatisfied()
+        {
+#region not unit-tested
+            this.LoadProgramViewModels();
+            this._filterModel.PropertyChanged += ( s, e ) =>
+            {
+                this.ProgramViewModelsView.Refresh();
+            };
+#endregion
+            this._filterModel.PropertyChanged += ( s, e ) =>
+            {
+                this.RaisePropertyChanged( nameof( this.HasEntries ) );
+            };
+        }
+
+        [Import]
+        private FilterModel _filterModel = null;
+
+        [Import]
+        private InstalledProgramsModel _installedProgramsModel = null;
+
+        [Import]
+        private ProgramInfosModel _programInfosModel = null;
+
+        [Import]
+        private ProgramViewModelFactory _programVmFactory = null;
+
+
+        #region not unit-tested
         [ImportingConstructor]
         public ViewModel()
         {
@@ -48,15 +81,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
             }
         }
 
-        void IPartImportsSatisfiedNotification.OnImportsSatisfied()
-        {
-            this.LoadProgramViewModels();
-            this._filterModel.PropertyChanged += ( s, e ) =>
-            {
-                this.ProgramViewModelsView.Refresh();
-            };
-        }
-
         private ObservableCollection<ProgramViewModel> _programViewModels;
         public ListCollectionView ProgramViewModelsView { get; private set; }
 
@@ -87,18 +111,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
                    this._filterModel.Filter != String.Empty &&
                    !displayName.Contains( lazyFilter.Value );
         }
-
-        [Import]
-        private FilterModel _filterModel = null;
-
-        [Import]
-        private InstalledProgramsModel _installedProgramsModel = null;
-
-        [Import]
-        private ProgramInfosModel _programInfosModel = null;
-
-        [Import]
-        private ProgramViewModelFactory _programVmFactory = null;
     }
 #endregion
 }

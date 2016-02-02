@@ -209,4 +209,8 @@
     <value>There is a configuration for {0} available</value>
     <comment>// 2015-12-31</comment>
   </data>
+  <data name="SyncObjects_NoEntries_Text" xml:space="preserve">
+    <value>No entries found.</value>
+    <comment>// 2016-02-02</comment>
+  </data>
 </root>

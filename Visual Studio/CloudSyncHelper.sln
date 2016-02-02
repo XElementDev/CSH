@@ -64,6 +64,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localization", "..\UI\Win32
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Localization", "..\UI\Win32\Test_Localization\Test_Localization.csproj", "{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_CloudSyncHelper_win32", "..\UI\Win32\Test_CloudSyncHelper_win32\Test_CloudSyncHelper_win32.csproj", "{BB1DFF92-3F30-4F59-93E5-6BA809BD4438}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -148,6 +150,10 @@ Global
 		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB1DFF92-3F30-4F59-93E5-6BA809BD4438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB1DFF92-3F30-4F59-93E5-6BA809BD4438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB1DFF92-3F30-4F59-93E5-6BA809BD4438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB1DFF92-3F30-4F59-93E5-6BA809BD4438}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,5 +176,6 @@ Global
 		{98CCC88A-8E07-4471-9ED1-44FA11C0833D} = {0900FBEA-3737-4DCE-A4D3-5E14380CDCD2}
 		{CC6AD910-F9F2-40B0-90AC-F347C73B5EF7} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
 		{4745F43A-FBC7-4F3A-A2F5-DACB8C4CB30D} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
+		{BB1DFF92-3F30-4F59-93E5-6BA809BD4438} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
 	EndGlobalSection
 EndGlobal
