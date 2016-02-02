@@ -6,7 +6,7 @@ using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
-    #region not unit-tested
+#region not unit-tested
     [Export]
     internal class ProgramInfosModel
     {
