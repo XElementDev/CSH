@@ -47,6 +47,7 @@
     <Compile Include="Data\Apps\ExactAudioCopy.cs" />
     <Compile Include="Data\Apps\Mp3tag.cs" />
     <Compile Include="Data\Apps\TeamSpeak3.cs" />
+    <Compile Include="Data\Apps\NotepadPlusPlus.cs" />
     <Compile Include="Data\Apps\Winamp.cs" />
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\GameManager.cs" />

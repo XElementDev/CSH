@@ -45,6 +45,20 @@
     </OS>
     <IsSteamCloudSupported value="false" />
   </App>
+  <App DisplayName="Notepad++" FolderName="Notepad++" Id="97c5d94b-2794-45d1-8442-710754e41d77" TechNameMatcher="Notepad\+\+">
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="config.xml" SourceId="config.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="contextMenu.xml" SourceId="contextMenu.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="functionList.xml" SourceId="functionList.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="langs.xml" SourceId="langs.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="nativeLang.xml" SourceId="nativeLang.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="shortcuts.xml" SourceId="shortcuts.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="stylers.xml" SourceId="stylers.xml" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </App>
   <App DisplayName="Winamp" FolderName="Winamp" Id="b2d4a228-a950-4036-949b-4f328f416866" TechNameMatcher="Winamp">
     <OS id="Win81">
       <Links>
