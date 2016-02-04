@@ -8,7 +8,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.Filter
 #region not unit-tested
     [Export]
     public class ViewModel : ViewModelBase, 
-                             INotifyPropertyChanged
+                             INotifyPropertyChanged, 
+                             IPartImportsSatisfiedNotification
     {
         public string CurrentFilter
         {
@@ -18,6 +19,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.Filter
                 this._filterModel.Filter = value;
                 this.RaisePropertyChanged( nameof( this.CurrentFilter ) );
             }
+        }
+
+        void IPartImportsSatisfiedNotification.OnImportsSatisfied()
+        {
+            this._filterModel.PropertyChanged += ( s, e ) =>
+            {
+                this.RaisePropertyChanged( "CurrentFilter" );
+            };
         }
 
         [Import]

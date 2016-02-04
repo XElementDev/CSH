@@ -1,6 +1,6 @@
 ﻿namespace XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu
 {
-    internal interface IApplicationMenuContainer
+    public interface IApplicationMenuContainer
     {
         void HideApplicationMenu();
         void ShowApplicationMenu();

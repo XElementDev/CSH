@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    internal class IconCrawlerModel : IPartImportsSatisfiedNotification
+    public class IconCrawlerModel : IPartImportsSatisfiedNotification
     {
         private string GetIdStringFromCrawlInfo( ICrawlInformation crawlInformation )
         {
