@@ -101,6 +101,9 @@
   <Game DisplayName="Battlefield 3" FolderName="Battlefield 2011 [Battlefield 3]" Id="bfea2a56-3721-40ab-b0c2-8e3f81678e51" TechNameMatcher="Battlefield 3™">
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game DisplayName="Borderlands" FolderName="Borderlands 2009 [Borderlands]" Id="fa773668-0021-4493-9c3f-2d981c98244e" TechNameMatcher="Borderlands">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game DisplayName="Clicker Heroes" FolderName="Clicker Heroes" Id="359f7286-d6c6-426f-98ed-117b1ee49a0a" TechNameMatcher="Clicker Heroes">
     <IsSteamCloudSupported value="true" />
   </Game>

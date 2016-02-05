@@ -55,6 +55,7 @@
     <Compile Include="Data\Games\AgeOfEmpiresIIHD.cs" />
     <Compile Include="Data\Games\Anno2070.cs" />
     <Compile Include="Data\Games\Battlefield3.cs" />
+    <Compile Include="Data\Games\Borderlands.cs" />
     <Compile Include="Data\Games\ClickerHeroes.cs" />
     <Compile Include="Data\Games\PlantsVsZombies.cs" />
     <Compile Include="Data\Games\Risen3.cs" />
