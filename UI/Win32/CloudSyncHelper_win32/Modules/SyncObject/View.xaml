@@ -41,12 +41,10 @@
             </VisualBrush>
         </Grid.Background>
 
-        <TextBlock 
-                    Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" 
-                    Text="{Binding Path=DisplayName, Mode=OneWay}" 
-                    TextTrimming="CharacterEllipsis" 
-                    VerticalAlignment="Center" 
-                    ToolTip="{Binding Path=DisplayName, Mode=OneWay}" 
+        <Label 
+               Content="{Binding Path=DisplayName, Mode=OneWay}" 
+               ToolTip="{Binding Path=DisplayName, Mode=OneWay}" 
+               Style="{StaticResource ApplicationTitleStyle}" 
         />
 
         <GroupBox 
