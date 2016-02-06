@@ -14,8 +14,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}">
-        <Setter Property="Margin" Value="2 0 2 0" />
-    </Style>
-
 </ResourceDictionary>

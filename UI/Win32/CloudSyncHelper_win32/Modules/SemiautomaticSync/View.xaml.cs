@@ -2,9 +2,9 @@
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules
 {
-    public partial class ProgramDetailsView : UserControl
+    public partial class SemiautomaticSyncUC : UserControl
     {
-        public ProgramDetailsView()
+        public SemiautomaticSyncUC()
         {
             InitializeComponent();
         }

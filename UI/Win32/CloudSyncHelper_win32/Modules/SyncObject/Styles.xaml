@@ -5,19 +5,21 @@
         <Setter Property="Opacity" Value=".4" />
         <Setter Property="OpacityMask">
             <Setter.Value>
-                <RadialGradientBrush 
-                                     Center="0, 0" 
-                                     GradientOrigin="0, 0" 
-                                     RadiusX="1" RadiusY="1">
-                    <GradientStop Offset="0.1" Color="Black" />
+                <LinearGradientBrush 
+                                     StartPoint="0, .5" EndPoint="1, .5">
+                    <GradientStop Offset="0.3" Color="Black" />
                     <GradientStop Offset="0.9" Color="Transparent" />
-                </RadialGradientBrush>
+                </LinearGradientBrush>
             </Setter.Value>
         </Setter>
     </Style>
 
+    <Style x:Key="RootGridStyle" TargetType="{x:Type Grid}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
     <Style TargetType="{x:Type StackPanel}">
-        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
 </ResourceDictionary>

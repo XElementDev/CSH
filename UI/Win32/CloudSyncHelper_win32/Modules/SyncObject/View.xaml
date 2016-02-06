@@ -16,33 +16,54 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
-        <StackPanel>
-            <StackPanel.Background>
-                <VisualBrush 
-                             Stretch="Uniform" 
-                             AlignmentX="Left" AlignmentY="Top">
-                    <VisualBrush.Visual>
-                        <Image 
-                               Source="{Binding Path=ImagePath}" 
-                               Style="{StaticResource BackgroundImageStyle}" 
-                        />
-                    </VisualBrush.Visual>
-                </VisualBrush>
-            </StackPanel.Background>
+    <Grid 
+          Style="{StaticResource RootGridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
 
-            <modules:ProgramHeaderView DataContext="{Binding}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <modules:ProgramDetailsView DataContext="{Binding}" />
+        <Grid.Background>
+            <VisualBrush 
+                         Stretch="Uniform" 
+                         AlignmentX="Left" AlignmentY="Top">
+                <VisualBrush.Visual>
+                    <Image 
+                           Source="{Binding Path=ImagePath}" 
+                           Style="{StaticResource BackgroundImageStyle}" 
+                    />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Background>
 
-            <!--<GroupBox 
-                      Header="automatisch">
-            </GroupBox>
+        <TextBlock 
+                    Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" 
+                    Text="{Binding Path=DisplayName, Mode=OneWay}" 
+                    TextTrimming="CharacterEllipsis" 
+                    VerticalAlignment="Center" 
+                    ToolTip="{Binding Path=DisplayName, Mode=OneWay}" 
+        />
 
-            <GroupBox 
-                      Header="manuell">
-            </GroupBox>-->
-        </StackPanel>
+        <GroupBox 
+                  Grid.Column="0" Grid.Row="1" 
+                  Header="vollautomatisch">
+            <modules:FullyAutomaticSyncUC 
+                                          DataContext="{Binding}" 
+            />
+        </GroupBox>
+
+        <GroupBox 
+                  Grid.Column="1" Grid.Row="1" 
+                  Header="semi-automatisch">
+            <modules:SemiautomaticSyncUC 
+                                         DataContext="{Binding}" 
+            />
+        </GroupBox>
     </Grid>
 
 </UserControl>
