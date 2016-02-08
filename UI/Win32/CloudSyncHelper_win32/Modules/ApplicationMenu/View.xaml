@@ -28,7 +28,8 @@
             </TabItem>
             <TabItem 
                      Header="{Binding Path=Localization.ApplicationMenu_About, 
-                                      Source={StaticResource XamlLocalization}}">
+                                      Source={StaticResource XamlLocalization}}" 
+                     Style="{StaticResource About}">
                 <modules:AboutUC DataContext="{Binding Path=AboutVM}" />
             </TabItem>
         </TabControl>
