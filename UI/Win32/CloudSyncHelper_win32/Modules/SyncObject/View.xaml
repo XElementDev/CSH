@@ -16,8 +16,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid 
-          Style="{StaticResource RootGridStyle}">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*" />
             <ColumnDefinition Width="50*" />
