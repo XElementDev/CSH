@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.UI.Win32.Model;
-using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 using XElement.Common.UI;
 using SupportedOperatingSystemsViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems.ViewModel;
 
@@ -12,10 +12,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 #region not unit-tested
     public class ProgramViewModel : ViewModelBase
     {
-        public ProgramViewModel( IconRetrieverModel iconRetrieverModel )
+        public ProgramViewModel( BannerRetrieverModel bannerRetrieverModel )
         {
-            this._iconRetrieverModel = iconRetrieverModel;
-            this._iconRetrieverModel.PropertyChanged += 
+            this._bannerRetrieverModel = bannerRetrieverModel;
+            this._bannerRetrieverModel.PropertyChanged += 
                 ( s, e ) => this.RaisePropertyChanged( "ImagePath" );
             InitializeCommands();
         }
@@ -28,8 +28,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             get
             {
-                IIconId iconId = this._programInfoVM;
-                return this._iconRetrieverModel.GetPathToIcon( iconId );
+                IBannerId iconId = this._programInfoVM;
+                return this._bannerRetrieverModel.GetPathToIcon( iconId );
             }
         }
 
@@ -131,7 +131,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             this.RaisePropertiesChanged();
         }
 
-        private IconRetrieverModel _iconRetrieverModel;
+        private BannerRetrieverModel _bannerRetrieverModel;
     }
 #endregion
 }

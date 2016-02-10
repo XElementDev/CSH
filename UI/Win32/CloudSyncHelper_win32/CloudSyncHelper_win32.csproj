@@ -198,12 +198,12 @@
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
     <Compile Include="Model\FilterModel.cs" />
-    <Compile Include="Model\IconCrawler\IconCrawlerModel.cs" />
-    <Compile Include="Model\IconCrawler\IIconId.cs" />
-    <Compile Include="Model\IconCrawler\IObjectToCrawl.cs" />
+    <Compile Include="Model\BannerCrawler\BannerCrawlerModel.cs" />
+    <Compile Include="Model\BannerCrawler\IBannerId.cs" />
+    <Compile Include="Model\BannerCrawler\IObjectToCrawl.cs" />
     <Compile Include="Model\IConfig.cs" />
     <Compile Include="Model\Factories\IFactoryT1.cs" />
-    <Compile Include="Model\IconCrawler\IconRetrieverModel.cs" />
+    <Compile Include="Model\BannerCrawler\BannerRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />

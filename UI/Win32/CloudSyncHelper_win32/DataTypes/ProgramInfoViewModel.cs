@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.BannerCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Model;
-using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
@@ -45,7 +45,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        Guid IIconId.Id { get { return this._programInfo.Id; } }
+        Guid IBannerId.Id { get { return this._programInfo.Id; } }
 
         private void InitializeExecutionLogic( IProgramInfo programInfo )
         {

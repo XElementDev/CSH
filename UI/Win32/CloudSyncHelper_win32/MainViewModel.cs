@@ -50,7 +50,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
 #pragma warning disable CS0414
         //  --> crawling will start on import
         [Import]
-        private IconCrawlerModel _iconCrawlerModel = null;
+        private BannerCrawlerModel _bannerCrawlerModel = null;
 #pragma warning restore CS0414
     }
 #endregion

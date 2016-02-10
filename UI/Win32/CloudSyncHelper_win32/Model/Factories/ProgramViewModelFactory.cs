@@ -9,11 +9,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     {
         public ProgramViewModel /*IFactory<T>.*/Get()
         {
-            return new ProgramViewModel( this._iconRetrieverModel );
+            return new ProgramViewModel( this._bannerRetrieverModel );
         }
 
         [Import]
-        private IconRetrieverModel _iconRetrieverModel = null;
+        private BannerRetrieverModel _bannerRetrieverModel = null;
     }
 #endregion
 }

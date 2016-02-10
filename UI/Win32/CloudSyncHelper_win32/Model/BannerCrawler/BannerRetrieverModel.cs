@@ -4,14 +4,14 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using System.Timers;
-using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    public class IconRetrieverModel : ViewModelBase, IPartImportsSatisfiedNotification
+    public class BannerRetrieverModel : ViewModelBase, IPartImportsSatisfiedNotification
     {
         private void DoRetrieval()
         {
@@ -20,7 +20,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             this._cachedImageFilePaths = cachedImageFilePaths;
         }
 
-        public string GetPathToIcon( IIconId iconInformation )
+        public string GetPathToIcon( IBannerId iconInformation )
         {
             var pathToIcon = default( string );
 

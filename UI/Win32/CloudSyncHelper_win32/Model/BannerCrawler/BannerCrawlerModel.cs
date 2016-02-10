@@ -5,13 +5,13 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.UI.BannerCrawler;
-using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    public class IconCrawlerModel : IPartImportsSatisfiedNotification
+    public class BannerCrawlerModel : IPartImportsSatisfiedNotification
     {
         private string GetIdStringFromCrawlInfo( ICrawlInformation crawlInformation )
         {
