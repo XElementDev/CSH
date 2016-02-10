@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 
-namespace XElement.CloudSyncHelper.UI.IconCrawler
+namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
     [ExcludeFromCodeCoverage]
     [TestClass]

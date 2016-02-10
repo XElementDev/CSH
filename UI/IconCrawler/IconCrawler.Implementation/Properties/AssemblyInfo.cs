@@ -36,5 +36,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion( "1.0.0.0" )]
 
 #if DEBUG
-[assembly: InternalsVisibleTo( "Test_XElement.CloudSyncHelper.UI.IconCrawler.Implementation" )]
+[assembly: InternalsVisibleTo( "Test_XElement.CloudSyncHelper.UI.BannerCrawler.Implementation" )]
 #endif

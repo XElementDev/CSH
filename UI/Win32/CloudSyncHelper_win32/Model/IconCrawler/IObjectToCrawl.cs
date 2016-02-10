@@ -1,4 +1,4 @@
-﻿using XElement.CloudSyncHelper.UI.IconCrawler;
+﻿using XElement.CloudSyncHelper.UI.BannerCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler
 {

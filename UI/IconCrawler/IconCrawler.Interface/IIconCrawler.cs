@@ -1,4 +1,4 @@
-﻿namespace XElement.CloudSyncHelper.UI.IconCrawler
+﻿namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
     public interface IIconCrawler
     {

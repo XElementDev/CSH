@@ -6,7 +6,7 @@ using System.Net;
 using System.Web;
 using System.Xml.XPath;
 
-namespace XElement.CloudSyncHelper.UI.IconCrawler
+namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
 #region not unit-tested
     public class SteamBannerCrawler : IPriotizableIconCrawler

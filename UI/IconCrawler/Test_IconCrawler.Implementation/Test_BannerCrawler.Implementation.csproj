@@ -6,8 +6,8 @@
     <ProjectGuid>{4478D557-E984-4D2E-92F4-7DE0FD4A268B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.CloudSyncHelper.UI.IconCrawler</RootNamespace>
-    <AssemblyName>Test_XElement.CloudSyncHelper.UI.IconCrawler.Implementation</AssemblyName>
+    <RootNamespace>XElement.CloudSyncHelper.UI.BannerCrawler</RootNamespace>
+    <AssemblyName>Test_XElement.CloudSyncHelper.UI.BannerCrawler.Implementation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -57,9 +57,9 @@
     <Compile Include="testTitleComparer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IconCrawler.Implementation\IconCrawler.Implementation.csproj">
+    <ProjectReference Include="..\IconCrawler.Implementation\BannerCrawler.Implementation.csproj">
       <Project>{f8711829-1502-448f-98da-ece60f79922a}</Project>
-      <Name>IconCrawler.Implementation</Name>
+      <Name>BannerCrawler.Implementation</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

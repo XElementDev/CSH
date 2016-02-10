@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.Composition;
 
-namespace XElement.CloudSyncHelper.UI.IconCrawler.MefExtensions
+namespace XElement.CloudSyncHelper.UI.BannerCrawler.MefExtensions
 {
     [Export( typeof ( IPriotizableIconCrawler ) )]
     internal class SteamIconCrawler : 
-        global::XElement.CloudSyncHelper.UI.IconCrawler.SteamBannerCrawler, 
+        global::XElement.CloudSyncHelper.UI.BannerCrawler.SteamBannerCrawler, 
         IPriotizableIconCrawler { }
 }

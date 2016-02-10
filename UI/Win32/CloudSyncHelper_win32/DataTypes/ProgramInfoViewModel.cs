@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.UI.IconCrawler;
+using XElement.CloudSyncHelper.UI.BannerCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 
-namespace XElement.CloudSyncHelper.UI.IconCrawler.MefExtensions
+namespace XElement.CloudSyncHelper.UI.BannerCrawler.MefExtensions
 {
 #region not unit-tested
     //[Export( typeof( IIconCrawler ) )]

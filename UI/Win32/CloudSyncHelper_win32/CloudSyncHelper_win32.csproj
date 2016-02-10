@@ -293,13 +293,13 @@
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj">
+    <ProjectReference Include="..\..\IconCrawler\IconCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
-      <Name>IconCrawler.Interface</Name>
+      <Name>BannerCrawler.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj">
+    <ProjectReference Include="..\..\IconCrawler\IconCrawler.MefExtensions\BannerCrawler.MefExtensions.csproj">
       <Project>{ab150370-485f-4489-a381-73b388a674ad}</Project>
-      <Name>IconCrawler.MefExtensions</Name>
+      <Name>BannerCrawler.MefExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj">
       <Project>{77d3002b-68fe-4a1d-b10f-8b15c3ae6a1d}</Project>

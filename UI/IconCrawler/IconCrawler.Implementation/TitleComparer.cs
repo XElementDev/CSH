@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace XElement.CloudSyncHelper.UI.IconCrawler
+namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
     internal class TitleComparer
     {

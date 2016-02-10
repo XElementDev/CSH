@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
-using XElement.CloudSyncHelper.UI.IconCrawler;
+using XElement.CloudSyncHelper.UI.BannerCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
