@@ -43,11 +43,11 @@
     <Compile Include="SteamIconCrawler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IconCrawler.Implementation\BannerCrawler.Implementation.csproj">
+    <ProjectReference Include="..\BannerCrawler.Implementation\BannerCrawler.Implementation.csproj">
       <Project>{f8711829-1502-448f-98da-ece60f79922a}</Project>
       <Name>BannerCrawler.Implementation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IconCrawler.Interface\BannerCrawler.Interface.csproj">
+    <ProjectReference Include="..\BannerCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
       <Name>BannerCrawler.Interface</Name>
     </ProjectReference>

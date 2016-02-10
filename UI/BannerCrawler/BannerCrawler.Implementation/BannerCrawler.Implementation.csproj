@@ -50,7 +50,7 @@
     <Compile Include="TitleComparer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IconCrawler.Interface\BannerCrawler.Interface.csproj">
+    <ProjectReference Include="..\BannerCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
       <Name>BannerCrawler.Interface</Name>
     </ProjectReference>

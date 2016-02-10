@@ -46,13 +46,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BannerCrawler", "BannerCrawler", "{DE41DF9E-A189-44AA-B1A8-3F505DF2A740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerCrawler.Interface", "..\UI\IconCrawler\IconCrawler.Interface\BannerCrawler.Interface.csproj", "{9C9543BD-380B-46BA-AE78-D34E05E49CF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerCrawler.Interface", "..\UI\BannerCrawler\BannerCrawler.Interface\BannerCrawler.Interface.csproj", "{9C9543BD-380B-46BA-AE78-D34E05E49CF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerCrawler.Implementation", "..\UI\IconCrawler\IconCrawler.Implementation\BannerCrawler.Implementation.csproj", "{F8711829-1502-448F-98DA-ECE60F79922A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerCrawler.Implementation", "..\UI\BannerCrawler\BannerCrawler.Implementation\BannerCrawler.Implementation.csproj", "{F8711829-1502-448F-98DA-ECE60F79922A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerCrawler.MefExtensions", "..\UI\IconCrawler\IconCrawler.MefExtensions\BannerCrawler.MefExtensions.csproj", "{AB150370-485F-4489-A381-73B388A674AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerCrawler.MefExtensions", "..\UI\BannerCrawler\BannerCrawler.MefExtensions\BannerCrawler.MefExtensions.csproj", "{AB150370-485F-4489-A381-73B388A674AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_BannerCrawler.Implementation", "..\UI\IconCrawler\Test_IconCrawler.Implementation\Test_BannerCrawler.Implementation.csproj", "{4478D557-E984-4D2E-92F4-7DE0FD4A268B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_BannerCrawler.Implementation", "..\UI\BannerCrawler\Test_BannerCrawler.Implementation\Test_BannerCrawler.Implementation.csproj", "{4478D557-E984-4D2E-92F4-7DE0FD4A268B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecialCharacters", "..\XElement\DotNet\System\Text\SpecialCharacters\SpecialCharacters.csproj", "{092AD2AD-CE22-4ABB-9C87-E9A5083C25FA}"
 EndProject
