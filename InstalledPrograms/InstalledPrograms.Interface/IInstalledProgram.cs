@@ -3,5 +3,6 @@
     public interface IInstalledProgram
     {
         string DisplayName { get; }
+        string InstallLocation { get; }
     }
 }

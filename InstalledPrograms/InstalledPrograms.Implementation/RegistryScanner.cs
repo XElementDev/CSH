@@ -33,10 +33,7 @@ namespace XElement.CloudSyncHelper.InstalledPrograms
                         {
                             if ( subKey.GetValueNames().Length != 0 )
                             {
-                                var installedApplication = new InstalledProgram();
-                                installedApplication.DisplayName = subKey.GetValueOrDefault<string>( "DisplayName" );
-                                installedApplication.EstimatedSize = subKey.GetValue( "EstimatedSize" );
-
+                                var installedApplication = RetrieveInstalledProgram( subKey );
                                 result.Add( installedApplication );
                             }
                         }
@@ -45,6 +42,17 @@ namespace XElement.CloudSyncHelper.InstalledPrograms
             }
 
             return result;
+        }
+
+        private static IInstalledProgram RetrieveInstalledProgram( RegistryKey subKey )
+        {
+            var installedApplication = new InstalledProgram();
+
+            installedApplication.DisplayName = subKey.GetValueOrDefault<string>( "DisplayName" );
+            installedApplication.EstimatedSize = subKey.GetValue( "EstimatedSize" );
+            installedApplication.InstallLocation = subKey.GetValueOrDefault<string>( "InstallLocation" );
+
+            return installedApplication;
         }
 
         private const string UNINSTALL_KEY = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
