@@ -93,7 +93,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         public string /*IConfig.*/PathToImageCache
         {
-            get { return Path.Combine( PathToRoamingConfigFolder, "cache", "images" ); }
+            get { return Path.Combine( PathToRoamingConfigFolder, "cache", "banners" ); }
         }
 
         private static string PathToRoamingConfig
