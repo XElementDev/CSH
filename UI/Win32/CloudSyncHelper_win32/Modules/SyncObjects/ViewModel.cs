@@ -8,6 +8,7 @@ using System.Windows.Data;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
+using SyncObjectViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.ViewModel;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
 {
@@ -22,6 +23,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         {
 #region not unit-tested
             this.LoadProgramViewModels();
+            this.LoadSyncObjectVMs();
             this._filterModel.PropertyChanged += ( s, e ) =>
             {
                 this.ProgramViewModelsView.Refresh();
@@ -46,10 +48,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         private ProgramViewModelFactory _programVmFactory = null;
 
 
-        #region not unit-tested
+#region not unit-tested
         [ImportingConstructor]
         public ViewModel()
         {
+            this._programViewModels = new ObservableCollection<ProgramViewModel>();
+            this._syncObjectVMs = new ObservableCollection<SyncObjectViewModel>();
             this.SetupProgramViewModelsView();
         }
 
@@ -81,36 +85,49 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
             }
         }
 
-        private ObservableCollection<ProgramViewModel> _programViewModels;
+        private void LoadSyncObjectVMs()
+        {
+            foreach ( var programVM in this._programViewModels )
+            {
+                var syncObjectVM = new SyncObjectViewModel( programVM, this._iconRetrieverModel );
+                this._syncObjectVMs.Add( syncObjectVM );
+            }
+        }
+
+        private ObservableCollection<SyncObjectViewModel> _syncObjectVMs;
         public ListCollectionView ProgramViewModelsView { get; private set; }
 
         private bool ProgramViewModelsView_Filter( object obj )
         {
-            var programVM = obj as ProgramViewModel;
-            return programVM != null &&
-                   programVM.DisplayName != null &&
-                   programVM.DisplayName != String.Empty &&
-                   !this.UserFilteredForThis( programVM );
+            var syncObjectVM = obj as SyncObjectViewModel;
+            return syncObjectVM != null &&
+                   syncObjectVM.ProgramVM.DisplayName != null &&
+                   syncObjectVM.ProgramVM.DisplayName != String.Empty &&
+                   !this.UserFilteredForThis( syncObjectVM );
         }
 
         private void SetupProgramViewModelsView()
         {
-            this._programViewModels = new ObservableCollection<ProgramViewModel>();
-            this.ProgramViewModelsView = new ListCollectionView( this._programViewModels );
-            var displayNameSorting = new SortDescription( "DisplayName", ListSortDirection.Ascending );
+            this.ProgramViewModelsView = new ListCollectionView( this._syncObjectVMs );
+            var displayNameSorting = new SortDescription( "ProgramVM.DisplayName", ListSortDirection.Ascending );
             this.ProgramViewModelsView.SortDescriptions.Add( displayNameSorting );
             this.ProgramViewModelsView.Filter = this.ProgramViewModelsView_Filter;
         }
 
-        private bool UserFilteredForThis( ProgramViewModel programVM )
+        private bool UserFilteredForThis( SyncObjectViewModel syncObjectVM )
         {
-            var displayName = programVM.DisplayName.ToLower();
+            var displayName = syncObjectVM.ProgramVM.DisplayName.ToLower();
             Lazy<string> lazyFilter = new Lazy<string>( () => this._filterModel.Filter.ToLower() );
             return this._filterModel != null &&
                    this._filterModel.Filter != null &&
                    this._filterModel.Filter != String.Empty &&
                    !displayName.Contains( lazyFilter.Value );
         }
+
+        [Import]
+        private IconRetrieverModel _iconRetrieverModel = null;
+
+        private ObservableCollection<ProgramViewModel> _programViewModels;
     }
 #endregion
 }

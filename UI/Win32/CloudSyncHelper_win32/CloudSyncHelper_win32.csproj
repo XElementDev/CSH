@@ -204,6 +204,7 @@
     <Compile Include="Model\IConfig.cs" />
     <Compile Include="Model\Factories\IFactoryT1.cs" />
     <Compile Include="Model\BannerCrawler\BannerRetrieverModel.cs" />
+    <Compile Include="Model\IconRetriever\IconRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
@@ -252,9 +253,11 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\SyncObjects\ViewModel.cs" />
+    <Compile Include="Modules\SyncObject\IconToImageSourceConverter.cs" />
     <Compile Include="Modules\SyncObject\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SyncObject\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

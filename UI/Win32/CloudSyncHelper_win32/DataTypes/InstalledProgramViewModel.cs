@@ -17,6 +17,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             get { return this._installedProgram.DisplayName ?? String.Empty; }
         }
 
+        public string InstallLocation
+        {
+            get { return this._installedProgram.InstallLocation ?? String.Empty; }
+        }
+
         private IInstalledProgram _installedProgram;
     }
 #endregion
