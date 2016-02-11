@@ -137,10 +137,6 @@
     <value>Filter</value>
     <comment>// 2016-02-01</comment>
   </data>
-  <data name="ProgramDetails_CloudProvider" xml:space="preserve">
-    <value>Cloud-Provider:</value>
-    <comment>// 2015-12-31</comment>
-  </data>
   <data name="ProgramDetails_OsConfigs" xml:space="preserve">
     <value>Betriebssystem-Konfigurationen:</value>
     <comment>// 2015-12-31</comment>

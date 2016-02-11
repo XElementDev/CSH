@@ -18,15 +18,8 @@
 
     <Grid>
         <StackPanel 
-                    Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Cloud-000000-16}" 
-                   VerticalAlignment="Top" 
-                />
-            <TextBlock 
-                       Text="{Binding Path=Localization.ProgramDetails_CloudProvider, 
-                                      Source={StaticResource XamlLocalization}}" 
-                />
+                    Orientation="Vertical">
+            <Image Style="{StaticResource HeaderIcon}" />
 
             <StackPanel 
                         Orientation="Horizontal" 
@@ -34,7 +27,7 @@
                         Visibility="{Binding Path=SupportsSteamCloud, 
                                              Converter={StaticResource InversedBoolToVisibilityConverter}}">
                 <Image Source="{StaticResource Steam-Black-16}" />
-                <TextBlock Text="Steam" />
+                <TextBlock Text="Steam Cloud" />
             </StackPanel>
 
             <StackPanel 
@@ -42,7 +35,7 @@
                         Visibility="{Binding Path=SupportsSteamCloud, 
                                              Converter={StaticResource BoolToVisibilityConverter}}">
                 <Image Source="{StaticResource Steam-Black-16}" />
-                <TextBlock Text="Steam" />
+                <TextBlock Text="Steam Cloud" />
             </StackPanel>
         </StackPanel>
     </Grid>

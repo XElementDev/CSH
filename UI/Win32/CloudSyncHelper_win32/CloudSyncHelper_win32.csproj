@@ -359,6 +359,7 @@
       <Link>CloudSyncHelper.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Cloud-Refresh_d16-p0_000000.png" />
     <Resource Include="Resources\Dialog-Box-About_d16-p3_000000.png" />
     <Resource Include="Resources\Filter-Standard_d48-p8_000000.png" />
     <Resource Include="Resources\GitHub-Mark-000000-32.png" />
