@@ -1,17 +1,26 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+
+    <Style x:Key="_imageBase" TargetType="{x:Type Image}">
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Margin" Value="2 0 2 0" />
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Width" Value="16" />
+    </Style>
+
+
+    <Style x:Key="HeaderIconsContainer" TargetType="{x:Type StackPanel}">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="16 -36 0 0" />
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+
+
     <Style TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="2 0 2 0" />
     </Style>
 
-    <Style TargetType="{x:Type Image}">
-        <Setter Property="Margin" Value="2 0 2 0" />
-        <Style.Triggers>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".2" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+    <Style TargetType="{x:Type Image}" BasedOn="{StaticResource _imageBase}" />
 
 </ResourceDictionary>

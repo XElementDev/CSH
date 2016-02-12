@@ -21,30 +21,20 @@
     <StackPanel 
                 Orientation="Vertical">
         <StackPanel 
-                    Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Installation-03-16}" 
-                   Visibility="{Binding Path=IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsInstalled, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-            <Image 
-                   Source="{StaticResource Installation-03-16}" 
-                   Visibility="{Binding Path=IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-                   Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInstalled, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-
+                    Style="{StaticResource HeaderIconsContainer}">
             <Image 
                    Source="{StaticResource Settings-02-16}" 
-                   Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+                   Visibility="{Binding Path=HasSuitableConfig, 
+                                        Converter={StaticResource BoolToVisibilityConverter}, 
+                                        Mode=OneWay}" 
                    ToolTip="{Binding Path=Localization.ProgramHeader_ConfigAvailable, 
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Image 
                    Source="{StaticResource Settings-02-16}" 
-                   Visibility="{Binding Path=HasSuitableConfig, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                   Visibility="{Binding Path=HasSuitableConfig, 
+                                        Converter={StaticResource InversedBoolToVisibilityConverter}, 
+                                        Mode=OneWay}" 
                    Opacity=".25" 
                    ToolTip="{Binding Path=Localization.ProgramHeader_NoConfigAvailable, 
                                      Source={StaticResource XamlLocalization}}" 
@@ -65,6 +55,24 @@
                    ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInCloud, 
                                      Source={StaticResource XamlLocalization}}" 
             />
+        </StackPanel>
+
+        <StackPanel 
+                    Orientation="Horizontal">
+            <Image 
+                   Source="{StaticResource Installation-03-16}" 
+                   Visibility="{Binding Path=IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+                   ToolTip="{Binding Path=Localization.ProgramHeader_IsInstalled, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+            <Image 
+                   Source="{StaticResource Installation-03-16}" 
+                   Visibility="{Binding Path=IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                   Opacity=".25" 
+                   ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInstalled, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+
 
             <Image 
                    Source="{StaticResource Link-16}" 
