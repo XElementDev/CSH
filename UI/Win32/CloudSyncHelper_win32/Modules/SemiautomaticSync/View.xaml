@@ -41,7 +41,7 @@
             />
 
             <Image 
-                   Source="{StaticResource Cloud-000000-16}" 
+                   Source="{StaticResource CloudUpload-d16p0-black}" 
                    Visibility="{Binding Path=IsInCloud, 
                                 Converter={StaticResource BoolToVisibilityConverter}, 
                                 Mode=OneWay}" 
@@ -49,7 +49,7 @@
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Image 
-                   Source="{StaticResource Cloud-000000-16}" 
+                   Source="{StaticResource CloudUpload-d16p0-black}" 
                    Visibility="{Binding Path=IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                    Opacity=".25" 
                    ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInCloud, 

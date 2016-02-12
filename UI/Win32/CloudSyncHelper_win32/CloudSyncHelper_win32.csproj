@@ -346,9 +346,6 @@
     <Resource Include="Resources\Arrow-Expand-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Cloud-000000-16.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Cloud-Upload-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
