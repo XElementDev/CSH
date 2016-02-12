@@ -90,10 +90,14 @@
                        Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
                                       Source={StaticResource XamlLocalization}}" 
             />
+        </StackPanel>
+
+        <Border 
+                Style="{StaticResource SupportedOSs}">
             <modules:SupportedOSs 
                                   DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
             />
-        </StackPanel>
+        </Border>
 
         <modules:PathMap 
                          DataContext="{Binding Path=PathMap, Mode=OneWay}" 

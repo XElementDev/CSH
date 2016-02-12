@@ -12,6 +12,10 @@
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
+    <Style x:Key="SupportedOSs" TargetType="{x:Type Border}">
+        <Setter Property="Margin" Value="16 4 0 0" />
+    </Style>
+
 
     <Style TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="2 0 2 0" />
