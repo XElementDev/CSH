@@ -43,15 +43,15 @@
 
 
     <Style x:Key="AppHeaderContainerStyle" TargetType="{x:Type StackPanel}">
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.ColumnSpan" Value="2" />
+        <Setter Property="Grid.Row" Value="0" />
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
     <Style x:Key="ApplicationTitleStyle" TargetType="{x:Type Label}">
         <Setter Property="Background" Value="{StaticResource _background}" />
         <Setter Property="FontSize" Value="{StaticResource _titleFontSize}" />
-        <Setter Property="Grid.Column" Value="0" />
-        <Setter Property="Grid.ColumnSpan" Value="2" />
-        <Setter Property="Grid.Row" Value="0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Padding" Value="8 2 8 2" />
         <Setter Property="TextBlock.TextTrimming" Value="CharacterEllipsis" />
