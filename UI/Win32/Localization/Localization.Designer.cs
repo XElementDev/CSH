@@ -106,110 +106,110 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Operating system configurations:.
-        /// </summary>
-        public static string ProgramDetails_OsConfigs {
-            get {
-                return ResourceManager.GetString("ProgramDetails_OsConfigs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Configuration available.
         /// </summary>
-        public static string ProgramHeader_ConfigAvailable {
+        public static string SemiautomaticSync_ConfigAvailable {
             get {
-                return ResourceManager.GetString("ProgramHeader_ConfigAvailable", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_ConfigAvailable", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Data is stored in cloud.
         /// </summary>
-        public static string ProgramHeader_IsInCloud {
+        public static string SemiautomaticSync_IsInCloud {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsInCloud", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsInCloud", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Installed.
         /// </summary>
-        public static string ProgramHeader_IsInstalled {
+        public static string SemiautomaticSync_IsInstalled {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsInstalled", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsInstalled", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Linked.
         /// </summary>
-        public static string ProgramHeader_IsLinked {
+        public static string SemiautomaticSync_IsLinked {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsLinked", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsLinked", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to No data stored in cloud yet.
         /// </summary>
-        public static string ProgramHeader_IsNotInCloud {
+        public static string SemiautomaticSync_IsNotInCloud {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsNotInCloud", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsNotInCloud", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Not installed.
         /// </summary>
-        public static string ProgramHeader_IsNotInstalled {
+        public static string SemiautomaticSync_IsNotInstalled {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsNotInstalled", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsNotInstalled", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Not linked.
         /// </summary>
-        public static string ProgramHeader_IsNotLinked {
+        public static string SemiautomaticSync_IsNotLinked {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsNotLinked", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsNotLinked", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Create link.
         /// </summary>
-        public static string ProgramHeader_Link {
+        public static string SemiautomaticSync_Link {
             get {
-                return ResourceManager.GetString("ProgramHeader_Link", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_Link", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Move data to cloud.
         /// </summary>
-        public static string ProgramHeader_MoveToCloud {
+        public static string SemiautomaticSync_MoveToCloud {
             get {
-                return ResourceManager.GetString("ProgramHeader_MoveToCloud", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_MoveToCloud", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to No configuration available.
         /// </summary>
-        public static string ProgramHeader_NoConfigAvailable {
+        public static string SemiautomaticSync_NoConfigAvailable {
             get {
-                return ResourceManager.GetString("ProgramHeader_NoConfigAvailable", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_NoConfigAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operating system configurations:.
+        /// </summary>
+        public static string SemiautomaticSync_OsConfigs {
+            get {
+                return ResourceManager.GetString("SemiautomaticSync_OsConfigs", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Remove link.
         /// </summary>
-        public static string ProgramHeader_Unlink {
+        public static string SemiautomaticSync_Unlink {
             get {
-                return ResourceManager.GetString("ProgramHeader_Unlink", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_Unlink", resourceCulture);
             }
         }
         

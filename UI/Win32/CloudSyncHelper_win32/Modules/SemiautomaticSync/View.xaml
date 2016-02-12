@@ -27,7 +27,7 @@
                    Visibility="{Binding Path=HasSuitableConfig, 
                                         Converter={StaticResource BoolToVisibilityConverter}, 
                                         Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_ConfigAvailable, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_ConfigAvailable, 
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Image 
@@ -36,7 +36,7 @@
                                         Converter={StaticResource InversedBoolToVisibilityConverter}, 
                                         Mode=OneWay}" 
                    Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_NoConfigAvailable, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_NoConfigAvailable, 
                                      Source={StaticResource XamlLocalization}}" 
             />
 
@@ -45,14 +45,14 @@
                    Visibility="{Binding Path=IsInCloud, 
                                 Converter={StaticResource BoolToVisibilityConverter}, 
                                 Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsInCloud, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInCloud, 
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Image 
                    Source="{StaticResource CloudUpload-d16p0-black}" 
                    Visibility="{Binding Path=IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                    Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInCloud, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInCloud, 
                                      Source={StaticResource XamlLocalization}}" 
             />
         </StackPanel>
@@ -62,14 +62,14 @@
             <Image 
                    Source="{StaticResource Installation-03-16}" 
                    Visibility="{Binding Path=IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsInstalled, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInstalled, 
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Image 
                    Source="{StaticResource Installation-03-16}" 
                    Visibility="{Binding Path=IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                    Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsNotInstalled, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInstalled, 
                                      Source={StaticResource XamlLocalization}}" 
             />
 
@@ -77,14 +77,14 @@
             <Image 
                    Source="{StaticResource Link-16}" 
                    Visibility="{Binding Path=IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsLinked, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsLinked, 
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Image 
                    Source="{StaticResource Link-16}" 
                    Visibility="{Binding Path=IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                    Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.ProgramHeader_IsNotLinked, 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotLinked, 
                                      Source={StaticResource XamlLocalization}}" 
             />
         </StackPanel>
@@ -93,7 +93,7 @@
                     Orientation="Horizontal">
             <Button Visibility="Collapsed" 
                     Command="{Binding Path=MoveToCloudCommand}" 
-                    ToolTip="{Binding Path=Localization.ProgramHeader_MoveToCloud, 
+                    ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
                                      Source={StaticResource XamlLocalization}}">
                 <Button.Content>
                     <Image Source="{StaticResource MoveToCloud-Black-16}" />
@@ -102,12 +102,12 @@
 
             <Button 
                     Command="{Binding Path=LinkCommand}" 
-                    Content="{Binding Path=Localization.ProgramHeader_Link, 
+                    Content="{Binding Path=Localization.SemiautomaticSync_Link, 
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Button 
                     Command="{Binding Path=UnlinkCommand}" 
-                    Content="{Binding Path=Localization.ProgramHeader_Unlink, 
+                    Content="{Binding Path=Localization.SemiautomaticSync_Unlink, 
                                      Source={StaticResource XamlLocalization}}" 
             />
         </StackPanel>
@@ -119,7 +119,7 @@
                    VerticalAlignment="Top" 
                 />
             <TextBlock 
-                       Text="{Binding Path=Localization.ProgramDetails_OsConfigs, 
+                       Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
                                       Source={StaticResource XamlLocalization}}" 
                 />
             <modules:SupportedOSs 
