@@ -124,47 +124,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Installed.
-        /// </summary>
-        public static string SemiautomaticSync_IsInstalled {
-            get {
-                return ResourceManager.GetString("SemiautomaticSync_IsInstalled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Linked.
-        /// </summary>
-        public static string SemiautomaticSync_IsLinked {
-            get {
-                return ResourceManager.GetString("SemiautomaticSync_IsLinked", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to No data stored in cloud yet.
         /// </summary>
         public static string SemiautomaticSync_IsNotInCloud {
             get {
                 return ResourceManager.GetString("SemiautomaticSync_IsNotInCloud", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not installed.
-        /// </summary>
-        public static string SemiautomaticSync_IsNotInstalled {
-            get {
-                return ResourceManager.GetString("SemiautomaticSync_IsNotInstalled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not linked.
-        /// </summary>
-        public static string SemiautomaticSync_IsNotLinked {
-            get {
-                return ResourceManager.GetString("SemiautomaticSync_IsNotLinked", resourceCulture);
             }
         }
         
@@ -255,6 +219,42 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string SupportedOperatingSystem_OsIsSupported_StringFormat {
             get {
                 return ResourceManager.GetString("SupportedOperatingSystem_OsIsSupported_StringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installed.
+        /// </summary>
+        public static string SyncObject_IsInstalled {
+            get {
+                return ResourceManager.GetString("SyncObject_IsInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linked.
+        /// </summary>
+        public static string SyncObject_IsLinked {
+            get {
+                return ResourceManager.GetString("SyncObject_IsLinked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not installed.
+        /// </summary>
+        public static string SyncObject_IsNotInstalled {
+            get {
+                return ResourceManager.GetString("SyncObject_IsNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not linked.
+        /// </summary>
+        public static string SyncObject_IsNotLinked {
+            get {
+                return ResourceManager.GetString("SyncObject_IsNotLinked", resourceCulture);
             }
         }
         

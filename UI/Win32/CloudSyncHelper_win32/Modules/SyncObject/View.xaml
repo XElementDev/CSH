@@ -80,28 +80,28 @@
                     <Image 
                            Source="{StaticResource Installation-03-16}" 
                            Visibility="{Binding Path=ProgramVM.IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInstalled, 
+                           ToolTip="{Binding Path=Localization.SyncObject_IsInstalled, 
                                              Source={StaticResource XamlLocalization}}" 
                     />
                     <Image 
                            Source="{StaticResource Installation-03-16}" 
                            Visibility="{Binding Path=ProgramVM.IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                            Opacity=".25" 
-                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInstalled, 
+                           ToolTip="{Binding Path=Localization.SyncObject_IsNotInstalled, 
                                              Source={StaticResource XamlLocalization}}" 
                     />
 
                     <Image 
                            Source="{StaticResource Link-16}" 
                            Visibility="{Binding Path=ProgramVM.IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsLinked, 
+                           ToolTip="{Binding Path=Localization.SyncObject_IsLinked, 
                                              Source={StaticResource XamlLocalization}}" 
                     />
                     <Image 
                            Source="{StaticResource Link-16}" 
                            Visibility="{Binding Path=ProgramVM.IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                            Opacity=".25" 
-                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotLinked, 
+                           ToolTip="{Binding Path=Localization.SyncObject_IsNotLinked, 
                                              Source={StaticResource XamlLocalization}}" 
                     />
                 </StackPanel>

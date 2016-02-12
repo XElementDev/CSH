@@ -149,11 +149,11 @@
     <value>Daten sind in der Cloud</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_IsInstalled" xml:space="preserve">
+  <data name="SyncObject_IsInstalled" xml:space="preserve">
     <value>Installiert</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_IsLinked" xml:space="preserve">
+  <data name="SyncObject_IsLinked" xml:space="preserve">
     <value>Verknüpft</value>
     <comment>// 2015-12-31</comment>
   </data>
@@ -161,11 +161,11 @@
     <value>Daten sind nicht in der Cloud</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_IsNotInstalled" xml:space="preserve">
+  <data name="SyncObject_IsNotInstalled" xml:space="preserve">
     <value>Nicht installiert</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_IsNotLinked" xml:space="preserve">
+  <data name="SyncObject_IsNotLinked" xml:space="preserve">
     <value>Nicht verknüpft</value>
     <comment>// 2015-12-31</comment>
   </data>
