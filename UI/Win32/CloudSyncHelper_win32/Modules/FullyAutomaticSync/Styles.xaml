@@ -13,6 +13,10 @@
         <Setter Property="Source" Value="{StaticResource CloudRefresh-d16p0-black}" />
     </Style>
 
+    <Style x:Key="SteamCloudIcon" TargetType="{x:Type Image}" BasedOn="{StaticResource IconBase}">
+        <Setter Property="Source" Value="{StaticResource Steam-Black-16}" />
+    </Style>
+
 
     <Style TargetType="{x:Type Image}" BasedOn="{StaticResource IconBase}" />
 

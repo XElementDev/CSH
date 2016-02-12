@@ -10,7 +10,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./Styles.xaml" />
-                <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -26,15 +25,14 @@
                         Opacity=".25" 
                         Visibility="{Binding Path=SupportsSteamCloud, 
                                              Converter={StaticResource InversedBoolToVisibilityConverter}}">
-                <Image Source="{StaticResource Steam-Black-16}" />
+                <Image Style="{StaticResource SteamCloudIcon}" />
                 <TextBlock Text="Steam Cloud" />
             </StackPanel>
-
             <StackPanel 
                         Orientation="Horizontal" 
                         Visibility="{Binding Path=SupportsSteamCloud, 
                                              Converter={StaticResource BoolToVisibilityConverter}}">
-                <Image Source="{StaticResource Steam-Black-16}" />
+                <Image Style="{StaticResource SteamCloudIcon}" />
                 <TextBlock Text="Steam Cloud" />
             </StackPanel>
         </StackPanel>
