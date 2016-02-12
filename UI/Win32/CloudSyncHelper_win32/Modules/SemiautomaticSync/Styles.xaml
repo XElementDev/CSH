@@ -5,6 +5,7 @@
         <ResourceDictionary Source="../../Dictionaries/Styles.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+
     <Style x:Key="HeaderIconsContainer" TargetType="{x:Type StackPanel}">
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="Margin" Value="16 -36 0 0" />

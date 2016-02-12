@@ -59,38 +59,6 @@
 
         <StackPanel 
                     Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Installation-03-16}" 
-                   Visibility="{Binding Path=IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInstalled, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-            <Image 
-                   Source="{StaticResource Installation-03-16}" 
-                   Visibility="{Binding Path=IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-                   Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInstalled, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-
-
-            <Image 
-                   Source="{StaticResource Link-16}" 
-                   Visibility="{Binding Path=IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsLinked, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-            <Image 
-                   Source="{StaticResource Link-16}" 
-                   Visibility="{Binding Path=IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-                   Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotLinked, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-        </StackPanel>
-
-        <StackPanel 
-                    Orientation="Horizontal">
             <Button Visibility="Collapsed" 
                     Command="{Binding Path=MoveToCloudCommand}" 
                     ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
@@ -117,14 +85,14 @@
             <Image 
                    Source="{StaticResource Settings-02-16}" 
                    VerticalAlignment="Top" 
-                />
+            />
             <TextBlock 
                        Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
                                       Source={StaticResource XamlLocalization}}" 
-                />
+            />
             <modules:SupportedOSs 
                                   DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
-                />
+            />
         </StackPanel>
 
         <modules:PathMap 

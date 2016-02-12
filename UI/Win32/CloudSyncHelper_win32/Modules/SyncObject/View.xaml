@@ -12,6 +12,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -72,6 +73,39 @@
                    ToolTip="{Binding Path=ProgramVM.DisplayName, Mode=OneWay}" 
                    Style="{StaticResource ApplicationTitleStyle}" 
             />
+
+            <Border 
+                    Style="{StaticResource IndicatorsContainerStyle}">
+                <StackPanel>
+                    <Image 
+                           Source="{StaticResource Installation-03-16}" 
+                           Visibility="{Binding Path=ProgramVM.IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInstalled, 
+                                             Source={StaticResource XamlLocalization}}" 
+                    />
+                    <Image 
+                           Source="{StaticResource Installation-03-16}" 
+                           Visibility="{Binding Path=ProgramVM.IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                           Opacity=".25" 
+                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInstalled, 
+                                             Source={StaticResource XamlLocalization}}" 
+                    />
+
+                    <Image 
+                           Source="{StaticResource Link-16}" 
+                           Visibility="{Binding Path=ProgramVM.IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsLinked, 
+                                             Source={StaticResource XamlLocalization}}" 
+                    />
+                    <Image 
+                           Source="{StaticResource Link-16}" 
+                           Visibility="{Binding Path=ProgramVM.IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                           Opacity=".25" 
+                           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotLinked, 
+                                             Source={StaticResource XamlLocalization}}" 
+                    />
+                </StackPanel>
+            </Border>
         </StackPanel>
 
         <GroupBox 

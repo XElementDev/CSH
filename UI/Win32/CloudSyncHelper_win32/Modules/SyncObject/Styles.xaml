@@ -77,6 +77,21 @@
         <Setter Property="Width" Value="32" />
     </Style>
 
+    <Style x:Key="IndicatorsContainerStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{StaticResource _background}" />
+        <Setter Property="Margin" Value="4 0 0 0" />
+        <Setter Property="Padding" Value="4 2 4 2" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Style.Resources>
+            <Style TargetType="{x:Type Image}">
+                <Setter Property="Margin" Value="2" />
+            </Style>
+            <Style TargetType="{x:Type StackPanel}">
+                <Setter Property="Orientation" Value="Horizontal" />
+            </Style>
+        </Style.Resources>
+    </Style>
+
     <Style x:Key="NoIconIndicatorStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="{StaticResource _titleFontSize}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
