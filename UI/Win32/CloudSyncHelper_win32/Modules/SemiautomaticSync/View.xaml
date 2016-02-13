@@ -20,7 +20,7 @@
 
     <StackPanel 
                 Orientation="Vertical">
-        <StackPanel Style="{StaticResource HeaderIconsContainer}">
+        <StackPanel Style="{StaticResource FullySemiSyncIndicatorsContainer}">
             <Image 
                    Source="{StaticResource Settings-02-16}" 
                    Visibility="{Binding Path=HasSuitableConfig, 

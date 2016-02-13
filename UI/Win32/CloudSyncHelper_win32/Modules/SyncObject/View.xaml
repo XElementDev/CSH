@@ -114,7 +114,7 @@
                                    Mode=OneTime, 
                                    Source={StaticResource XamlLocalization}}">
             <modules:FullyAutomaticSyncUC 
-                                          DataContext="{Binding Path=ProgramVM}" 
+                                          DataContext="{Binding Path=FullyAutomaticSyncVM}" 
             />
         </GroupBox>
 

@@ -18,7 +18,18 @@
     <Grid>
         <StackPanel 
                     Orientation="Vertical">
-            <Image Style="{StaticResource HeaderIcon}" />
+            <StackPanel Style="{StaticResource FullySemiSyncIndicatorsContainer}">
+                <Image 
+                       Visibility="{Binding Path=IsLinked, 
+                                            Converter={StaticResource BoolToVisibilityConverter}}" 
+                       Style="{StaticResource IsLinkedIndicatorIcon}" 
+                />
+                <Image 
+                       Visibility="{Binding Path=IsLinked, 
+                                            Converter={StaticResource InversedBoolToVisibilityConverter}}" 
+                       Style="{StaticResource IsNotLinkedIndicatorIcon}" 
+                />
+            </StackPanel>
 
             <StackPanel 
                         Orientation="Horizontal" 

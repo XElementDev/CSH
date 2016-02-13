@@ -222,6 +222,7 @@
     <Compile Include="Modules\FullyAutomaticSync\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\FullyAutomaticSync\ViewModel.cs" />
     <Compile Include="Modules\MenuBar\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>

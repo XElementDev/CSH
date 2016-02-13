@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using FullyAutomaticSyncViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.ViewModel;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
@@ -11,6 +12,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
         public ViewModel( ProgramViewModel programVM,
                           IconRetrieverModel iconRetrieverModel )
         {
+            this.FullyAutomaticSyncVM = new FullyAutomaticSyncViewModel( programVM.ProgramInfoVM );
             this.ProgramVM = programVM;
             this._iconRetrieverModel = iconRetrieverModel;
 
@@ -28,6 +30,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
                 this.RaisePropertyChanged( nameof( this.IsAnIconAvailable ) );
             }
         }
+
+        public FullyAutomaticSyncViewModel FullyAutomaticSyncVM { get; private set; }
 
         public bool IsAnIconAvailable { get { return this.ApplicationIcon != null; } }
 
