@@ -223,7 +223,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to fully automatic.
         /// </summary>
         public static string SyncObject_FullyAutomaticGroupBox_Header {
             get {
@@ -268,7 +268,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to semiautomatic.
         /// </summary>
         public static string SyncObject_SemiautomaticGroupBox_Header {
             get {
