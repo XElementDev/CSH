@@ -209,4 +209,12 @@
     <value>No entries found.</value>
     <comment>// 2016-02-02</comment>
   </data>
+  <data name="SyncObject_FullyAutomaticGroupBox_Header" xml:space="preserve">
+    <value />
+    <comment>// 2016-02-12</comment>
+  </data>
+  <data name="SyncObject_SemiautomaticGroupBox_Header" xml:space="preserve">
+    <value />
+    <comment>// 2016-02-12</comment>
+  </data>
 </root>

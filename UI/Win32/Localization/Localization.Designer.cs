@@ -223,6 +223,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SyncObject_FullyAutomaticGroupBox_Header {
+            get {
+                return ResourceManager.GetString("SyncObject_FullyAutomaticGroupBox_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Installed.
         /// </summary>
         public static string SyncObject_IsInstalled {
@@ -255,6 +264,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string SyncObject_IsNotLinked {
             get {
                 return ResourceManager.GetString("SyncObject_IsNotLinked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SyncObject_SemiautomaticGroupBox_Header {
+            get {
+                return ResourceManager.GetString("SyncObject_SemiautomaticGroupBox_Header", resourceCulture);
             }
         }
         

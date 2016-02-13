@@ -110,7 +110,9 @@
 
         <GroupBox 
                   Grid.Column="0" Grid.Row="1" 
-                  Header="vollautomatisch">
+                  Header="{Binding Path=Localization.SyncObject_FullyAutomaticGroupBox_Header, 
+                                   Mode=OneTime, 
+                                   Source={StaticResource XamlLocalization}}">
             <modules:FullyAutomaticSyncUC 
                                           DataContext="{Binding Path=ProgramVM}" 
             />
@@ -118,7 +120,9 @@
 
         <GroupBox 
                   Grid.Column="1" Grid.Row="1" 
-                  Header="semi-automatisch">
+                  Header="{Binding Path=Localization.SyncObject_SemiautomaticGroupBox_Header, 
+                                   Mode=OneTime, 
+                                   Source={StaticResource XamlLocalization}}">
             <modules:SemiautomaticSyncUC 
                                          DataContext="{Binding Path=ProgramVM}" 
             />
