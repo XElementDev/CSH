@@ -89,7 +89,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         {
             foreach ( var programVM in this._programViewModels )
             {
-                var syncObjectVM = new SyncObjectViewModel( programVM, this._iconRetrieverModel );
+                var syncObjectVM = this._syncObjectVmFactory.Get( programVM );
                 this._syncObjectVMs.Add( syncObjectVM );
             }
         }
@@ -125,7 +125,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         }
 
         [Import]
-        private IconRetrieverModel _iconRetrieverModel = null;
+        private IFactory<SyncObjectViewModel, ProgramViewModel> _syncObjectVmFactory = null;
 
         private ObservableCollection<ProgramViewModel> _programViewModels;
     }

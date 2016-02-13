@@ -197,6 +197,7 @@
     <Compile Include="Model\Config.cs" />
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
+    <Compile Include="Model\Factories\IFactoryT2.cs" />
     <Compile Include="Model\FilterModel.cs" />
     <Compile Include="Model\BannerCrawler\BannerCrawlerModel.cs" />
     <Compile Include="Model\BannerCrawler\IBannerId.cs" />
@@ -254,6 +255,7 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\SyncObjects\ViewModel.cs" />
+    <Compile Include="Modules\SyncObject\ViewModelFactory.cs" />
     <Compile Include="Modules\SyncObject\IconToImageSourceConverter.cs" />
     <Compile Include="Modules\SyncObject\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
