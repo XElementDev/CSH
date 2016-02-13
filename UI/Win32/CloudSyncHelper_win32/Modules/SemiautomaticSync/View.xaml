@@ -20,8 +20,7 @@
 
     <StackPanel 
                 Orientation="Vertical">
-        <StackPanel 
-                    Style="{StaticResource HeaderIconsContainer}">
+        <StackPanel Style="{StaticResource HeaderIconsContainer}">
             <Image 
                    Source="{StaticResource Settings-02-16}" 
                    Visibility="{Binding Path=HasSuitableConfig, 
@@ -57,8 +56,7 @@
             />
         </StackPanel>
 
-        <StackPanel 
-                    Orientation="Horizontal">
+        <StackPanel Style="{StaticResource ButtonsContainer}">
             <Button Visibility="Collapsed" 
                     Command="{Binding Path=MoveToCloudCommand}" 
                     ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
@@ -92,8 +90,7 @@
             />
         </StackPanel>
 
-        <Border 
-                Style="{StaticResource SupportedOSs}">
+        <Border Style="{StaticResource SupportedOSs}">
             <modules:SupportedOSs 
                                   DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
             />

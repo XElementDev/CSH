@@ -6,6 +6,11 @@
     </ResourceDictionary.MergedDictionaries>
 
 
+    <Style x:Key="ButtonsContainer" TargetType="{x:Type StackPanel}">
+        <Setter Property="Margin" Value="0 4 0 8" />
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+
     <Style x:Key="HeaderIconsContainer" TargetType="{x:Type StackPanel}">
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="Margin" Value="16 -36 0 0" />
