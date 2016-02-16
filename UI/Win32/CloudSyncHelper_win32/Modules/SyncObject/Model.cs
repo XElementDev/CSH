@@ -1,125 +1,79 @@
-﻿using Microsoft.Practices.Prism.Commands;
-using System;
-using System.Collections.Generic;
-using System.Windows.Input;
+﻿using System;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync;
 using IFullyAutomaticSyncVmCtorParams = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.IViewModelConstructorParameters;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
-using SupportedOperatingSystemsViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems.ViewModel;
+using SemiautomaticSyncModel = XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync.Model;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 {
 #region not unit-tested
     public class Model : NotifyPropertyChanged, 
-                         IBannerId, 
-                         IFullyAutomaticSyncVmCtorParams
+                         IBannerId,
+                         IFullyAutomaticSyncVmCtorParams, 
+                         SemiautomaticSync.IModelConstructorParameters
     {
         public Model( ProgramInfoViewModel programInfoVM ) : this( programInfoVM, null ) { }
         public Model( ProgramInfoViewModel programInfoVM, 
                       InstalledProgramViewModel installedProgramVM )
         {
-            this._installedProgramVM = installedProgramVM;
-            this._programInfoVM = programInfoVM;
-
-            this.SupportedOSsVM = new SupportedOperatingSystemsViewModel( this._programInfoVM.OsConfigs );
-            InitializeCommands();
+            Initialize( programInfoVM, installedProgramVM );
+            RegisterPropertyChangedEvents();
         }
 
         public string DisplayName { get { return this._programInfoVM.DisplayName; } }
 
-        public bool HasSuitableConfig { get { return this._programInfoVM.HasSuitableConfig; } }
-
         Guid IBannerId.Id { get { return ((IBannerId)this._programInfoVM).Id; } }
 
-        private void InitializeCommands()
+        private void Initialize( ProgramInfoViewModel programInfoVM, InstalledProgramViewModel installedProgramVM )
         {
-            this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
-            this.MoveToCloudCommand = new DelegateCommand( this.MoveToCloudCommand_Execute,
-                                                           this.MoveToCloudCommand_CanExecute );
-            this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
+            this._installedProgramVM = installedProgramVM;
+            this._programInfoVM = programInfoVM;
+
+            var modelCtorParams = (SemiautomaticSync.IModelConstructorParameters)this;
+            this.SemiautomaticSyncModel = new SemiautomaticSyncModel( modelCtorParams );
         }
 
         public string InstallLocation { get { return this._installedProgramVM.InstallLocation; } }
 
-        public bool IsInCloud { get { return this._programInfoVM.IsInCloud; } }
+        public bool /*IFullyAutomaticSyncVmCtorParams.*/
 
-        public bool IsInstalled { get { return this._installedProgramVM != null; } }
+                   /*SemiautomaticSync.IModelConstructorParameters.*/IsInstalled
+        {
+            get { return this._installedProgramVM != null; }
+        }
 
         public bool IsLinked
         {
             get
             {
                 var linkingDoneByCloudProvider = this.IsInstalled && this.SupportsSteamCloud;
-                return this._programInfoVM.IsLinked || linkingDoneByCloudProvider;
+                return this.SemiautomaticSyncModel.IsLinked || linkingDoneByCloudProvider;
             }
         }
 
-        public ICommand LinkCommand { get; private set; }
-        private bool LinkCommand_CanExecute()
+        ProgramInfoViewModel /*SemiautomaticSync.*/IModelConstructorParameters.ProgramInfoVM
         {
-            return this.IsInstalled &&
-                this.HasSuitableConfig &&
-                this.IsInCloud &&
-                !this.IsLinked;
-        }
-        private void LinkCommand_Execute()
-        {
-            this._programInfoVM.ExecutionLogic.Link();
-            this.RaisePropertiesChanged();
+            get { return this._programInfoVM; }
         }
 
-        public ICommand MoveToCloudCommand { get; private set; }
-        private bool MoveToCloudCommand_CanExecute()
+        private void RegisterPropertyChangedEvents()
         {
-            return this.IsInstalled &&
-                this.HasSuitableConfig &&
-                !this.IsInCloud;
-        }
-        private void MoveToCloudCommand_Execute()
-        {
-            this._programInfoVM.ExecutionLogic.MoveToCloud();
-            this.RaisePropertiesChanged();
-        }
-
-        public IEnumerable<Tuple<string, string>> PathMap
-        {
-            get
+            this.SemiautomaticSyncModel.PropertyChanged += ( s, e ) =>
             {
-                var pathMap = new List<Tuple<string, string>>();
-                foreach ( var osConfig in this._programInfoVM.ExecutionLogic.Config )
+                if ( e.PropertyName == nameof( this.SemiautomaticSyncModel.IsLinked ) )
                 {
-                    pathMap.Add( new Tuple<string, string>( osConfig.LinkPath, osConfig.TargetPath ) );
+                    this.RaisePropertyChanged( nameof( this.IsLinked ) );
                 }
-                return pathMap;
-            }
+            };
         }
 
-        private void RaisePropertiesChanged()
-        {
-            this.RaisePropertyChanged( "IsInCloud" );
-            this.RaisePropertyChanged( "IsLinked" );
-            (this.LinkCommand as DelegateCommand).RaiseCanExecuteChanged();
-            (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
-            (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
-        }
+        public SemiautomaticSyncModel SemiautomaticSyncModel { get; private set; }
 
-        public SupportedOperatingSystemsViewModel SupportedOSsVM { get; private set; }
-
-        public bool /*IFullyAutomaticSyncConstructorParameters.*/SupportsSteamCloud
+        public bool /*IFullyAutomaticSyncVmCtorParams.*/SupportsSteamCloud
         {
             get { return this._programInfoVM.SupportsSteamCloud; }
-        }
-
-        public ICommand UnlinkCommand { get; private set; }
-        private bool UnlinkCommand_CanExecute()
-        {
-            return this.IsLinked && !this.SupportsSteamCloud;
-        }
-        private void UnlinkCommand_Execute()
-        {
-            this._programInfoVM.ExecutionLogic.Unlink();
-            this.RaisePropertiesChanged();
         }
 
         private InstalledProgramViewModel _installedProgramVM;

@@ -124,7 +124,7 @@
                                    Mode=OneTime, 
                                    Source={StaticResource XamlLocalization}}">
             <modules:SemiautomaticSyncUC 
-                                         DataContext="{Binding Path=Model}" 
+                                         DataContext="{Binding Path=SemiautoSyncVM}" 
             />
         </GroupBox>
     </Grid>

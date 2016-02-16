@@ -23,7 +23,7 @@
         <StackPanel Style="{StaticResource FullySemiSyncIndicatorsContainer}">
             <Image 
                    Source="{StaticResource Settings-02-16}" 
-                   Visibility="{Binding Path=HasSuitableConfig, 
+                   Visibility="{Binding Path=Model.HasSuitableConfig, 
                                         Converter={StaticResource BoolToVisibilityConverter}, 
                                         Mode=OneWay}" 
                    ToolTip="{Binding Path=Localization.SemiautomaticSync_ConfigAvailable, 
@@ -31,7 +31,7 @@
             />
             <Image 
                    Source="{StaticResource Settings-02-16}" 
-                   Visibility="{Binding Path=HasSuitableConfig, 
+                   Visibility="{Binding Path=Model.HasSuitableConfig, 
                                         Converter={StaticResource InversedBoolToVisibilityConverter}, 
                                         Mode=OneWay}" 
                    Opacity=".25" 
@@ -41,7 +41,7 @@
 
             <Image 
                    Source="{StaticResource CloudUpload-d16p0-black}" 
-                   Visibility="{Binding Path=IsInCloud, 
+                   Visibility="{Binding Path=Model.IsInCloud, 
                                 Converter={StaticResource BoolToVisibilityConverter}, 
                                 Mode=OneWay}" 
                    ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInCloud, 
@@ -49,7 +49,7 @@
             />
             <Image 
                    Source="{StaticResource CloudUpload-d16p0-black}" 
-                   Visibility="{Binding Path=IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                   Visibility="{Binding Path=Model.IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                    Opacity=".25" 
                    ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInCloud, 
                                      Source={StaticResource XamlLocalization}}" 
@@ -58,7 +58,7 @@
 
         <StackPanel Style="{StaticResource ButtonsContainer}">
             <Button Visibility="Collapsed" 
-                    Command="{Binding Path=MoveToCloudCommand}" 
+                    Command="{Binding Path=Model.MoveToCloudCommand}" 
                     ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
                                      Source={StaticResource XamlLocalization}}">
                 <Button.Content>
@@ -67,12 +67,12 @@
             </Button>
 
             <Button 
-                    Command="{Binding Path=LinkCommand}" 
+                    Command="{Binding Path=Model.LinkCommand}" 
                     Content="{Binding Path=Localization.SemiautomaticSync_Link, 
                                      Source={StaticResource XamlLocalization}}" 
             />
             <Button 
-                    Command="{Binding Path=UnlinkCommand}" 
+                    Command="{Binding Path=Model.UnlinkCommand}" 
                     Content="{Binding Path=Localization.SemiautomaticSync_Unlink, 
                                      Source={StaticResource XamlLocalization}}" 
             />
@@ -92,12 +92,12 @@
 
         <Border Style="{StaticResource SupportedOSs}">
             <modules:SupportedOSs 
-                                  DataContext="{Binding Path=SupportedOSsVM, Mode=OneWay}" 
+                                  DataContext="{Binding Path=Model.SupportedOSsVM, Mode=OneWay}" 
             />
         </Border>
 
         <modules:PathMap 
-                         DataContext="{Binding Path=PathMap, Mode=OneWay}" 
+                         DataContext="{Binding Path=Model.PathMap, Mode=OneWay}" 
         />
     </StackPanel>
 

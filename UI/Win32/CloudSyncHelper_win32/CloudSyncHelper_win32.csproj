@@ -233,9 +233,12 @@
     <Compile Include="Modules\Filter\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SemiautomaticSync\IModelConstructorParameters.cs" />
+    <Compile Include="Modules\SemiautomaticSync\Model.cs" />
     <Compile Include="Modules\SemiautomaticSync\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SemiautomaticSync\ViewModel.cs" />
     <Compile Include="Modules\Settings\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>

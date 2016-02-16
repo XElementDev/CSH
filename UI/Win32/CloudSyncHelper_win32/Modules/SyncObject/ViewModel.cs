@@ -3,6 +3,7 @@ using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 using FullyAutomaticSyncViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.ViewModel;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
+using SemiautomaticSyncViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync.ViewModel;
 using SyncObjectModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.Model;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
@@ -14,15 +15,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
                           BannerRetrieverModel bannerRetrieverModel, 
                           IconRetrieverModel iconRetrieverModel )
         {
-            this.Model = syncObjectModel;
-            this.FullyAutomaticSyncVM = new FullyAutomaticSyncViewModel( this.Model );
-
-            this._bannerRetrieverModel = bannerRetrieverModel;
-            this._bannerRetrieverModel.PropertyChanged +=
-                ( s, e ) => this.RaisePropertyChanged( nameof( this.ImagePath ) );
-
-            this._iconRetrieverModel = iconRetrieverModel;
-
+            this.Initialize( syncObjectModel, bannerRetrieverModel, iconRetrieverModel );
+            this.RegisterPropertyChangedEvents();
             this.RetrieveApplicationIcon();
         }
 
@@ -49,9 +43,27 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             }
         }
 
+        private void Initialize( SyncObjectModel syncObjectModel, 
+                                 BannerRetrieverModel bannerRetrieverModel, 
+                                 IconRetrieverModel iconRetrieverModel )
+        {
+            this.Model = syncObjectModel;
+            this.FullyAutomaticSyncVM = new FullyAutomaticSyncViewModel( this.Model );
+            this.SemiautoSyncVM = new SemiautomaticSyncViewModel( this.Model.SemiautomaticSyncModel );
+
+            this._bannerRetrieverModel = bannerRetrieverModel;
+            this._iconRetrieverModel = iconRetrieverModel;
+        }
+
         public bool IsAnIconAvailable { get { return this.ApplicationIcon != null; } }
 
         public SyncObjectModel Model { get; private set; }
+
+        private void RegisterPropertyChangedEvents()
+        {
+            this._bannerRetrieverModel.PropertyChanged +=
+                            ( s, e ) => this.RaisePropertyChanged( nameof( this.ImagePath ) );
+        }
 
         private void RetrieveApplicationIcon()
         {
@@ -62,6 +74,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
                 this.ApplicationIcon = icon;
             }
         }
+
+        public SemiautomaticSyncViewModel SemiautoSyncVM { get; private set; }
 
         private BannerRetrieverModel _bannerRetrieverModel;
         private IconRetrieverModel _iconRetrieverModel;
