@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using IFullyAutomaticSyncVmCtorParams = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.IViewModelConstructorParameters;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 using SupportedOperatingSystemsViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems.ViewModel;
 
@@ -11,7 +12,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 {
 #region not unit-tested
     public class Model : NotifyPropertyChanged, 
-                         IBannerId
+                         IBannerId, 
+                         IFullyAutomaticSyncVmCtorParams
     {
         public Model( ProgramInfoViewModel programInfoVM ) : this( programInfoVM, null ) { }
         public Model( ProgramInfoViewModel programInfoVM, 
@@ -104,7 +106,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         public SupportedOperatingSystemsViewModel SupportedOSsVM { get; private set; }
 
-        public bool SupportsSteamCloud { get { return this._programInfoVM.SupportsSteamCloud; } }
+        public bool /*IFullyAutomaticSyncConstructorParameters.*/SupportsSteamCloud
+        {
+            get { return this._programInfoVM.SupportsSteamCloud; }
+        }
 
         public ICommand UnlinkCommand { get; private set; }
         private bool UnlinkCommand_CanExecute()

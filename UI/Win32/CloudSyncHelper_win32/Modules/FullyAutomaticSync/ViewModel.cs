@@ -1,14 +1,11 @@
-﻿using SyncObjectModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.Model;
-
-namespace XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync
+﻿namespace XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync
 {
 #region not unit-tested
     public class ViewModel
     {
-        // TODO: Use IProgramInfo
-        public ViewModel( SyncObjectModel syncObjectModel )
+        public ViewModel( IViewModelConstructorParameters ctorParams )
         {
-            this.SupportsSteamCloud = syncObjectModel.SupportsSteamCloud;
+            this.SupportsSteamCloud = ctorParams.SupportsSteamCloud;
         }
 
         public bool IsLinked { get { return this.SupportsSteamCloud; } }
