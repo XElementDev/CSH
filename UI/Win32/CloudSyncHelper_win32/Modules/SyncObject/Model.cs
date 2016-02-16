@@ -2,7 +2,7 @@
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync;
-using IFullyAutomaticSyncVmCtorParams = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.IViewModelConstructorParameters;
+using IFullyAutomaticSyncVmCtorParams = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.IModelConstructorParameters;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 using SemiautomaticSyncModel = XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync.Model;
 
@@ -24,6 +24,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         public string DisplayName { get { return this._programInfoVM.DisplayName; } }
 
+        public FullyAutomaticSync.Model FullyAutoSyncModel { get; private set; }
+
         Guid IBannerId.Id { get { return ((IBannerId)this._programInfoVM).Id; } }
 
         private void Initialize( ProgramInfoViewModel programInfoVM, InstalledProgramViewModel installedProgramVM )
@@ -31,8 +33,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             this._installedProgramVM = installedProgramVM;
             this._programInfoVM = programInfoVM;
 
-            var modelCtorParams = (SemiautomaticSync.IModelConstructorParameters)this;
-            this.SemiautomaticSyncModel = new SemiautomaticSyncModel( modelCtorParams );
+            var fully = (FullyAutomaticSync.IModelConstructorParameters)this;
+            this.FullyAutoSyncModel = new FullyAutomaticSync.Model( fully );
+            var semi = (SemiautomaticSync.IModelConstructorParameters)this;
+            this.SemiautomaticSyncModel = new SemiautomaticSyncModel( semi );
         }
 
         public string InstallLocation { get { return this._installedProgramVM.InstallLocation; } }

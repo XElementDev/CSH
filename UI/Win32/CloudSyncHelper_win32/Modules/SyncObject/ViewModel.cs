@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
-using FullyAutomaticSyncViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.ViewModel;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 using SemiautomaticSyncViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync.ViewModel;
 using SyncObjectModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.Model;
@@ -32,7 +31,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             }
         }
 
-        public FullyAutomaticSyncViewModel FullyAutomaticSyncVM { get; private set; }
+        public FullyAutomaticSync.ViewModel FullyAutomaticSyncVM { get; private set; }
 
         public string ImagePath
         {
@@ -48,7 +47,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
                                  IconRetrieverModel iconRetrieverModel )
         {
             this.Model = syncObjectModel;
-            this.FullyAutomaticSyncVM = new FullyAutomaticSyncViewModel( this.Model );
+            this.FullyAutomaticSyncVM = new FullyAutomaticSync.ViewModel( this.Model.FullyAutoSyncModel );
             this.SemiautoSyncVM = new SemiautomaticSyncViewModel( this.Model.SemiautomaticSyncModel );
 
             this._bannerRetrieverModel = bannerRetrieverModel;

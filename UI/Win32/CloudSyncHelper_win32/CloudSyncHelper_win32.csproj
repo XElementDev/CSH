@@ -218,10 +218,11 @@
     </Compile>
     <Compile Include="Modules\ApplicationMenu\ViewModel.cs" />
     <Compile Include="Modules\Filter\ViewModel.cs" />
-    <Compile Include="Modules\FullyAutomaticSync\IViewModelConstructorParameters.cs" />
+    <Compile Include="Modules\FullyAutomaticSync\IModelConstructorParameters.cs" />
     <Compile Include="Modules\FullyAutomaticSync\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\FullyAutomaticSync\Model.cs" />
     <Compile Include="Modules\FullyAutomaticSync\ViewModel.cs" />
     <Compile Include="Modules\MenuBar\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>

@@ -20,12 +20,12 @@
                     Orientation="Vertical">
             <StackPanel Style="{StaticResource FullySemiSyncIndicatorsContainer}">
                 <Image 
-                       Visibility="{Binding Path=IsLinked, 
+                       Visibility="{Binding Path=Model.IsLinked, 
                                             Converter={StaticResource BoolToVisibilityConverter}}" 
                        Style="{StaticResource IsLinkedIndicatorIcon}" 
                 />
                 <Image 
-                       Visibility="{Binding Path=IsLinked, 
+                       Visibility="{Binding Path=Model.IsLinked, 
                                             Converter={StaticResource InversedBoolToVisibilityConverter}}" 
                        Style="{StaticResource IsNotLinkedIndicatorIcon}" 
                 />
@@ -34,14 +34,14 @@
             <StackPanel 
                         Orientation="Horizontal" 
                         Opacity=".25" 
-                        Visibility="{Binding Path=SupportsSteamCloud, 
+                        Visibility="{Binding Path=Model.SupportsSteamCloud, 
                                              Converter={StaticResource InversedBoolToVisibilityConverter}}">
                 <Image Style="{StaticResource SteamCloudIcon}" />
                 <TextBlock Text="Steam Cloud" />
             </StackPanel>
             <StackPanel 
                         Orientation="Horizontal" 
-                        Visibility="{Binding Path=SupportsSteamCloud, 
+                        Visibility="{Binding Path=Model.SupportsSteamCloud, 
                                              Converter={StaticResource BoolToVisibilityConverter}}">
                 <Image Style="{StaticResource SteamCloudIcon}" />
                 <TextBlock Text="Steam Cloud" />
