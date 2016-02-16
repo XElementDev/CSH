@@ -1,6 +1,5 @@
 ﻿namespace XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync
 {
-#region not unit-tested
     public class ViewModel
     {
         public ViewModel( IViewModelConstructorParameters ctorParams )
@@ -12,5 +11,4 @@
 
         public bool SupportsSteamCloud { get; private set; }
     }
-#endregion
 }

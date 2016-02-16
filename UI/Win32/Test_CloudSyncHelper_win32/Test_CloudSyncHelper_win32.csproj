@@ -64,6 +64,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Modules\FullyAutomaticSync\testViewModel.cs" />
     <Compile Include="Modules\MenuBar\testViewModel.cs" />
     <Compile Include="Modules\SyncObjects\testViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
