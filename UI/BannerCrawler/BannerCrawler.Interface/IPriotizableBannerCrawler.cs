@@ -1,6 +1,6 @@
 ﻿namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
-    public interface IPriotizableIconCrawler : IIconCrawler
+    public interface IPriotizableBannerCrawler : IBannerCrawler
     {
         Reliability Reliability { get; }
     }

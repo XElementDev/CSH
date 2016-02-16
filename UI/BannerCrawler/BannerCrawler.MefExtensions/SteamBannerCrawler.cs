@@ -2,8 +2,8 @@
 
 namespace XElement.CloudSyncHelper.UI.BannerCrawler.MefExtensions
 {
-    [Export( typeof ( IPriotizableIconCrawler ) )]
-    internal class SteamIconCrawler : 
+    [Export( typeof ( IPriotizableBannerCrawler ) )]
+    internal class SteamBannerCrawler : 
         global::XElement.CloudSyncHelper.UI.BannerCrawler.SteamBannerCrawler, 
-        IPriotizableIconCrawler { }
+        IPriotizableBannerCrawler { }
 }

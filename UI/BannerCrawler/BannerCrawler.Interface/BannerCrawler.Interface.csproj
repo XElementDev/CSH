@@ -42,8 +42,8 @@
   <ItemGroup>
     <Compile Include="ICrawlInformation.cs" />
     <Compile Include="ICrawlResult.cs" />
-    <Compile Include="IPriotizableIconCrawler.cs" />
-    <Compile Include="IIconCrawler.cs" />
+    <Compile Include="IPriotizableBannerCrawler.cs" />
+    <Compile Include="IBannerCrawler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reliability.cs" />
   </ItemGroup>

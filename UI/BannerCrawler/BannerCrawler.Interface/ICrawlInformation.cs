@@ -2,6 +2,6 @@
 {
     public interface ICrawlInformation
     {
-        string SoftwareName { get; }
+        string ApplicationName { get; }
     }
 }

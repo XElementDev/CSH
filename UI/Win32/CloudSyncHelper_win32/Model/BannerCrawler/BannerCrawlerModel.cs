@@ -90,8 +90,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         [Import]
         private IConfig _config = null;
 
-        [Import( typeof( IPriotizableIconCrawler ) )]
-        private IIconCrawler _iconCrawler = null;
+        [Import( typeof( IPriotizableBannerCrawler ) )]
+        private IBannerCrawler _iconCrawler = null;
 
         [Import]
         private ProgramInfosModel _programInfosModel = null;

@@ -21,6 +21,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             InitializeExecutionLogic( programInfo );
         }
 
+        string ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
+
         public string DisplayName
         {
             get
@@ -66,8 +68,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             get { return this._programInfo.Configuration.OsConfigs; }
         }
-
-        string ICrawlInformation.SoftwareName { get { return this.DisplayName; } }
 
         public bool SupportsSteamCloud
         {

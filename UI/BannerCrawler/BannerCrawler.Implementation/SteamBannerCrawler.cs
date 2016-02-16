@@ -9,7 +9,7 @@ using System.Xml.XPath;
 namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
 #region not unit-tested
-    public class SteamBannerCrawler : IPriotizableIconCrawler
+    public class SteamBannerCrawler : IPriotizableBannerCrawler
     {
         private Image Crawl()
         {
@@ -89,7 +89,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
 
         private HtmlNode GetFirstSearchResultEntry()
         {
-            var encodedName = HttpUtility.UrlEncode( this._crawlInfo.SoftwareName );
+            var encodedName = HttpUtility.UrlEncode( this._crawlInfo.ApplicationName );
             var storeSearchUri = String.Format( STORE_SEARCH_URI_FORMAT, encodedName );
             HtmlDocument htmlDoc = new HtmlWeb().Load( storeSearchUri );
             var aTag = htmlDoc.DocumentNode.SelectSingleNode( ABSOLUTE_XPATH_TO_BEST_MATCHING_ENTRY );
@@ -106,7 +106,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
 
         private bool IsExpectedTitle( string searchResult )
         {
-            var expected = this._crawlInfo.SoftwareName;
+            var expected = this._crawlInfo.ApplicationName;
             var actual = searchResult;
             return new TitleComparer().Compare( expected , actual );
         }

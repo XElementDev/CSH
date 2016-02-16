@@ -40,7 +40,7 @@
   <ItemGroup>
     <Compile Include="CompletePrioritizedCrawler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SteamIconCrawler.cs" />
+    <Compile Include="SteamBannerCrawler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BannerCrawler.Implementation\BannerCrawler.Implementation.csproj">

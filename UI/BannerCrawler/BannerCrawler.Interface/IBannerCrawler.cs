@@ -1,6 +1,6 @@
 ﻿namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
-    public interface IIconCrawler
+    public interface IBannerCrawler
     {
         ICrawlResult CrawlSingle( ICrawlInformation crawlInfo );
     }
