@@ -2,16 +2,14 @@
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync;
-using IFullyAutomaticSyncVmCtorParams = XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync.IModelConstructorParameters;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
-using SemiautomaticSyncModel = XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync.Model;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 {
 #region not unit-tested
     public class Model : NotifyPropertyChanged, 
                          IBannerId,
-                         IFullyAutomaticSyncVmCtorParams, 
+                         FullyAutomaticSync.IModelConstructorParameters, 
                          SemiautomaticSync.IModelConstructorParameters
     {
         public Model( ProgramInfoViewModel programInfoVM ) : this( programInfoVM, null ) { }
@@ -36,12 +34,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             var fully = (FullyAutomaticSync.IModelConstructorParameters)this;
             this.FullyAutoSyncModel = new FullyAutomaticSync.Model( fully );
             var semi = (SemiautomaticSync.IModelConstructorParameters)this;
-            this.SemiautomaticSyncModel = new SemiautomaticSyncModel( semi );
+            this.SemiautomaticSyncModel = new SemiautomaticSync.Model( semi );
         }
 
         public string InstallLocation { get { return this._installedProgramVM.InstallLocation; } }
 
-        public bool /*IFullyAutomaticSyncVmCtorParams.*/
+        public bool /*FullyAutomaticSync.IModelConstructorParameters.*/
 
                    /*SemiautomaticSync.IModelConstructorParameters.*/IsInstalled
         {
@@ -73,9 +71,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             };
         }
 
-        public SemiautomaticSyncModel SemiautomaticSyncModel { get; private set; }
+        public SemiautomaticSync.Model SemiautomaticSyncModel { get; private set; }
 
-        public bool /*IFullyAutomaticSyncVmCtorParams.*/SupportsSteamCloud
+        public bool /*FullyAutomaticSync.IModelConstructorParameters.*/SupportsSteamCloud
         {
             get { return this._programInfoVM.SupportsSteamCloud; }
         }

@@ -15,7 +15,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync
             var target = new /*FullyAutomaticSync.*/ViewModel( model );
 
             Assert.IsNotNull( target.Model );
-            Assert.AreEqual( model, target.Model );
+            Assert.AreSame( model, target.Model );
         }
     }
 }

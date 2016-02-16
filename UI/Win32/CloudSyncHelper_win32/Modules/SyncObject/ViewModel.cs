@@ -2,15 +2,13 @@
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
-using SemiautomaticSyncViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync.ViewModel;
-using SyncObjectModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.Model;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 {
 #region not unit-tested
     public class ViewModel : NotifyPropertyChanged
     {
-        public ViewModel( SyncObjectModel syncObjectModel,
+        public ViewModel( /*SyncObject.*/Model syncObjectModel,
                           BannerRetrieverModel bannerRetrieverModel, 
                           IconRetrieverModel iconRetrieverModel )
         {
@@ -42,13 +40,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             }
         }
 
-        private void Initialize( SyncObjectModel syncObjectModel, 
+        private void Initialize( /*SyncObject.*/Model syncObjectModel, 
                                  BannerRetrieverModel bannerRetrieverModel, 
                                  IconRetrieverModel iconRetrieverModel )
         {
             this.Model = syncObjectModel;
             this.FullyAutomaticSyncVM = new FullyAutomaticSync.ViewModel( this.Model.FullyAutoSyncModel );
-            this.SemiautoSyncVM = new SemiautomaticSyncViewModel( this.Model.SemiautomaticSyncModel );
+            this.SemiautoSyncVM = new SemiautomaticSync.ViewModel( this.Model.SemiautomaticSyncModel );
 
             this._bannerRetrieverModel = bannerRetrieverModel;
             this._iconRetrieverModel = iconRetrieverModel;
@@ -56,7 +54,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         public bool IsAnIconAvailable { get { return this.ApplicationIcon != null; } }
 
-        public SyncObjectModel Model { get; private set; }
+        public /*SyncObject.*/Model Model { get; private set; }
 
         private void RegisterPropertyChangedEvents()
         {
@@ -74,7 +72,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             }
         }
 
-        public SemiautomaticSyncViewModel SemiautoSyncVM { get; private set; }
+        public SemiautomaticSync.ViewModel SemiautoSyncVM { get; private set; }
 
         private BannerRetrieverModel _bannerRetrieverModel;
         private IconRetrieverModel _iconRetrieverModel;

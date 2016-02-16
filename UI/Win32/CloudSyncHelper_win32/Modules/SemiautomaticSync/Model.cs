@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
-using SupportedOperatingSystemsViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems.ViewModel;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 {
@@ -16,7 +15,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this._isInstalled = ctorParams.IsInstalled;
             this._programInfoVM = ctorParams.ProgramInfoVM;
 
-            this.SupportedOSsVM = new SupportedOperatingSystemsViewModel( this._programInfoVM.OsConfigs );
+            this.SupportedOSsVM = new SupportedOperatingSystems.ViewModel( this._programInfoVM.OsConfigs );
 
             InitializeCommands();
         }
@@ -84,7 +83,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
         }
 
-        public SupportedOperatingSystemsViewModel SupportedOSsVM { get; private set; }
+        public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 
         public ICommand UnlinkCommand { get; private set; }
         private bool UnlinkCommand_CanExecute()
