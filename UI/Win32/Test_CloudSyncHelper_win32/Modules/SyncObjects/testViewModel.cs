@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
+using System.Linq;
 using Telerik.JustMock;
 using XElement.CloudSyncHelper.InstalledPrograms;
 using XElement.CloudSyncHelper.UI.Win32.Model;
@@ -36,23 +37,25 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         [TestMethod]
         public void testSyncObjectsViewModel_ImplementsINotifyPropertyChanged()
         {
-            var target = new SyncObjectsViewModel();
+            this.InitializeTargetViaMef();
 
-            Assert.IsInstanceOfType( target, typeof( INotifyPropertyChanged ) );
+            Assert.IsInstanceOfType( this._target, typeof( INotifyPropertyChanged ) );
         }
 
 
         [TestMethod]
         public void testSyncObjectsViewModel_HasEntries_False()
         {
-            var target = new SyncObjectsViewModel();
-            foreach ( var item in target.ProgramViewModelsView )
+            this.InitializeTargetViaMef();
+            var items = this._target.SyncObjectViewModelsView.SourceCollection
+                                .OfType<object>().ToList();
+            foreach ( var item in items )
             {
-                target.ProgramViewModelsView.Remove( item );
+                this._target.SyncObjectViewModelsView.Remove( item );
             }
 
-            Assert.AreEqual( 0, target.ProgramViewModelsView.Count );
-            Assert.IsFalse( target.HasEntries );
+            Assert.AreEqual( 0, this._target.SyncObjectViewModelsView.Count );
+            Assert.IsFalse( this._target.HasEntries );
         }
 
         [TestMethod]
@@ -60,7 +63,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         {
             this.InitializeTargetViaMef();
 
-            Assert.AreNotEqual( 0, this._target.ProgramViewModelsView.Count );
+            Assert.AreNotEqual( 0, this._target.SyncObjectViewModelsView.Count );
             Assert.IsTrue( this._target.HasEntries );
         }
 

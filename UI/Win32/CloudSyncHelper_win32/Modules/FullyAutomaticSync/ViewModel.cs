@@ -1,4 +1,4 @@
-﻿using XElement.CloudSyncHelper.UI.Win32.DataTypes;
+﻿using SyncObjectModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.Model;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync
 {
@@ -6,9 +6,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.FullyAutomaticSync
     public class ViewModel
     {
         // TODO: Use IProgramInfo
-        public ViewModel( ProgramInfoViewModel programInfoVM )
+        public ViewModel( SyncObjectModel syncObjectModel )
         {
-            this.SupportsSteamCloud = programInfoVM.SupportsSteamCloud;
+            this.SupportsSteamCloud = syncObjectModel.SupportsSteamCloud;
         }
 
         public bool IsLinked { get { return this.SupportsSteamCloud; } }

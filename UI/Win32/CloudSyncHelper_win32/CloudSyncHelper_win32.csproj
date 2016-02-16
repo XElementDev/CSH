@@ -193,7 +193,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypes\ProgramViewModel.cs" />
     <Compile Include="Model\Config.cs" />
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
@@ -209,7 +208,6 @@
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
-    <Compile Include="Model\Factories\ProgramViewModelFactory.cs" />
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -251,10 +249,13 @@
     <Compile Include="Modules\SupportedOperatingSystem\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SyncObjects\Model.cs" />
     <Compile Include="Modules\SyncObjects\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\SyncObjects\ViewModel.cs" />
+    <Compile Include="Modules\SyncObject\Model.cs" />
+    <Compile Include="Modules\SyncObject\ModelFactory.cs" />
     <Compile Include="Modules\SyncObject\ViewModelFactory.cs" />
     <Compile Include="Modules\SyncObject\IconToImageSourceConverter.cs" />
     <Compile Include="Modules\SyncObject\View.xaml.cs">

@@ -37,7 +37,7 @@
                          AlignmentX="Left" AlignmentY="Top">
                 <VisualBrush.Visual>
                     <Image 
-                           Source="{Binding Path=ProgramVM.ImagePath}" 
+                           Source="{Binding Path=ImagePath}" 
                            Style="{StaticResource BackgroundImageStyle}" 
                     />
                 </VisualBrush.Visual>
@@ -69,8 +69,8 @@
             </Border>
 
             <Label 
-                   Content="{Binding Path=ProgramVM.DisplayName, Mode=OneWay}" 
-                   ToolTip="{Binding Path=ProgramVM.DisplayName, Mode=OneWay}" 
+                   Content="{Binding Path=Model.DisplayName, Mode=OneWay}" 
+                   ToolTip="{Binding Path=Model.DisplayName, Mode=OneWay}" 
                    Style="{StaticResource ApplicationTitleStyle}" 
             />
 
@@ -79,13 +79,13 @@
                 <StackPanel>
                     <Image 
                            Source="{StaticResource Installation-03-16}" 
-                           Visibility="{Binding Path=ProgramVM.IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+                           Visibility="{Binding Path=Model.IsInstalled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
                            ToolTip="{Binding Path=Localization.SyncObject_IsInstalled, 
                                              Source={StaticResource XamlLocalization}}" 
                     />
                     <Image 
                            Source="{StaticResource Installation-03-16}" 
-                           Visibility="{Binding Path=ProgramVM.IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                           Visibility="{Binding Path=Model.IsInstalled, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                            Opacity=".25" 
                            ToolTip="{Binding Path=Localization.SyncObject_IsNotInstalled, 
                                              Source={StaticResource XamlLocalization}}" 
@@ -93,13 +93,13 @@
 
                     <Image 
                            Source="{StaticResource Link-16}" 
-                           Visibility="{Binding Path=ProgramVM.IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
+                           Visibility="{Binding Path=Model.IsLinked, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" 
                            ToolTip="{Binding Path=Localization.SyncObject_IsLinked, 
                                              Source={StaticResource XamlLocalization}}" 
                     />
                     <Image 
                            Source="{StaticResource Link-16}" 
-                           Visibility="{Binding Path=ProgramVM.IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                           Visibility="{Binding Path=Model.IsLinked, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
                            Opacity=".25" 
                            ToolTip="{Binding Path=Localization.SyncObject_IsNotLinked, 
                                              Source={StaticResource XamlLocalization}}" 
@@ -124,7 +124,7 @@
                                    Mode=OneTime, 
                                    Source={StaticResource XamlLocalization}}">
             <modules:SemiautomaticSyncUC 
-                                         DataContext="{Binding Path=ProgramVM}" 
+                                         DataContext="{Binding Path=Model}" 
             />
         </GroupBox>
     </Grid>
