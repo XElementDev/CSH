@@ -8,15 +8,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    internal class ProgramInfosModel
+    internal class ProgramInfosModel : IPartImportsSatisfiedNotification
     {
         [ImportingConstructor]
-        public ProgramInfosModel( ProgramInfoViewModelFactory factory )
-        {
-            this._programInfoVmFactory = factory;
-
-            this.LoadProgramInfos();
-        }
+        private ProgramInfosModel() { }
 
         private void LoadProgramInfos()
         {
@@ -34,9 +29,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             this.ProgramInfoVMs = programInfoVMs;
         }
 
+        void IPartImportsSatisfiedNotification.OnImportsSatisfied()
+        {
+            this.LoadProgramInfos();
+        }
+
         public IEnumerable<ProgramInfoViewModel> ProgramInfoVMs { get; private set; }
 
-        private ProgramInfoViewModelFactory _programInfoVmFactory;
+        [Import]
+        private ProgramInfoViewModelFactory _programInfoVmFactory = null;
     }
 #endregion
 }
