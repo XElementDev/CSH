@@ -2,6 +2,7 @@
 {
     public interface IViewModelConstructorParameters
     {
+        bool IsInstalled { get; }
         bool SupportsSteamCloud { get; }
     }
 }
