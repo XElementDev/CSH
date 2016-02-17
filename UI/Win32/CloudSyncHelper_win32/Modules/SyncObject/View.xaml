@@ -37,7 +37,7 @@
                          AlignmentX="Left" AlignmentY="Top">
                 <VisualBrush.Visual>
                     <Image 
-                           Source="{Binding Path=ImagePath}" 
+                           Source="{Binding Path=BannerPath}" 
                            Style="{StaticResource BackgroundImageStyle}" 
                     />
                 </VisualBrush.Visual>

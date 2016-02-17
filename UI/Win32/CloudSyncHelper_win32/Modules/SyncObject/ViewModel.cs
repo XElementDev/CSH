@@ -31,12 +31,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         public FullyAutomaticSync.ViewModel FullyAutomaticSyncVM { get; private set; }
 
-        public string ImagePath
+        public string BannerPath
         {
             get
             {
                 IBannerId iconId = this.Model;
-                return this._bannerRetrieverModel.GetPathToIcon( iconId );
+                return this._bannerRetrieverModel.GetPathToBanner( iconId );
             }
         }
 
@@ -59,7 +59,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
         private void RegisterPropertyChangedEvents()
         {
             this._bannerRetrieverModel.PropertyChanged +=
-                            ( s, e ) => this.RaisePropertyChanged( nameof( this.ImagePath ) );
+                            ( s, e ) => this.RaisePropertyChanged( nameof( this.BannerPath ) );
         }
 
         private void RetrieveApplicationIcon()
