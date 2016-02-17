@@ -15,18 +15,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     {
         private void DoRetrieval()
         {
-            var cachedImageFilePaths = Directory.EnumerateFiles( this._config.PathToImageCache, 
+            var cachedImageFilePaths = Directory.EnumerateFiles( this._config.PathToBannerCache, 
                                                                  "*.*", SearchOption.TopDirectoryOnly );
             this._cachedImageFilePaths = cachedImageFilePaths;
         }
 
-        public string GetPathToIcon( IBannerId iconInformation )
+        public string GetPathToIcon( IBannerId bannerInformation )
         {
             var pathToIcon = default( string );
 
             if ( this._cachedImageFilePaths != null )
             {
-                var id = iconInformation.Id.ToString();
+                var id = bannerInformation.Id.ToString();
                 pathToIcon = this._cachedImageFilePaths.FirstOrDefault( fileName =>
                 {
                     var fileNameWoExtension = Path.GetFileNameWithoutExtension( fileName );

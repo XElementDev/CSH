@@ -91,7 +91,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
-        public string /*IConfig.*/PathToImageCache
+        public string /*IConfig.*/PathToBannerCache
         {
             get { return Path.Combine( PathToRoamingConfigFolder, "cache", "banners" ); }
         }
@@ -122,7 +122,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private void TryCreateRoamingSubFolders()
         {
-            var pathToImageCache = this.PathToImageCache;
+            var pathToImageCache = this.PathToBannerCache;
             if ( !Directory.Exists( pathToImageCache ) )
             {
                 Directory.CreateDirectory( pathToImageCache );

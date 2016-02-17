@@ -23,7 +23,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         private IEnumerable<ICrawlInformation> GetInformationToCrawl()
         {
             var searchPattern = String.Format( "*{0}", IMAGE_FILE_EXTENSION );
-            var cachedImageFilePaths = Directory.EnumerateFiles( this._config.PathToImageCache, 
+            var cachedImageFilePaths = Directory.EnumerateFiles( this._config.PathToBannerCache, 
                                                                  searchPattern, 
                                                                  SearchOption.TopDirectoryOnly );
             var fileNamesWoExtension = cachedImageFilePaths
@@ -75,7 +75,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             if ( crawlResult.Image != null )
             {
                 var noExtensionFileName = this.GetIdStringFromCrawlInfo( crawlResult.Input );
-                var noExtensionFilePath = Path.Combine( this._config.PathToImageCache, noExtensionFileName );
+                var noExtensionFilePath = Path.Combine( this._config.PathToBannerCache, noExtensionFileName );
                 var filePath = Path.ChangeExtension( noExtensionFilePath, IMAGE_FILE_EXTENSION );
                 using ( Stream fileStream = new FileStream( filePath, FileMode.Create, FileAccess.Write ) )
                 {
