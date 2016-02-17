@@ -57,7 +57,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         {
             foreach ( var crawlInfo in input )
             {
-                var result = this._iconCrawler.CrawlSingle( crawlInfo );
+                var result = this._bannerCrawler.CrawlSingle( crawlInfo );
                 this.StoreCrawlResult( result );
             }
         }
@@ -91,7 +91,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         private IConfig _config = null;
 
         [Import( typeof( IPriotizableBannerCrawler ) )]
-        private IBannerCrawler _iconCrawler = null;
+        private IBannerCrawler _bannerCrawler = null;
 
         [Import]
         private ProgramInfosModel _programInfosModel = null;
