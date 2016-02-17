@@ -202,12 +202,12 @@
     <Compile Include="Model\Crawlers\Icon\IObjectToCrawl.cs" />
     <Compile Include="Model\Factories\IFactoryT2.cs" />
     <Compile Include="Model\FilterModel.cs" />
-    <Compile Include="Model\BannerCrawler\BannerCrawlerModel.cs" />
-    <Compile Include="Model\BannerCrawler\IBannerId.cs" />
-    <Compile Include="Model\BannerCrawler\IObjectToCrawl.cs" />
+    <Compile Include="Model\Crawlers\Banner\BannerCrawlerModel.cs" />
+    <Compile Include="Model\Crawlers\Banner\IBannerId.cs" />
+    <Compile Include="Model\Crawlers\Banner\IObjectToCrawl.cs" />
     <Compile Include="Model\IConfig.cs" />
     <Compile Include="Model\Factories\IFactoryT1.cs" />
-    <Compile Include="Model\BannerCrawler\BannerRetrieverModel.cs" />
+    <Compile Include="Model\Crawlers\Banner\BannerRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
