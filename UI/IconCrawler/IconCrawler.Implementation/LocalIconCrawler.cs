@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace XElement.CloudSyncHelper.UI.IconCrawler
 {
@@ -17,7 +19,9 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
             if ( this._input.InstallFolderPath != null && 
                  this._input.InstallFolderPath != String.Empty )
             {
-                var filePath = this.GetFilePath();
+                this.SelectManyFilePaths();
+                this.FilterFilePaths();
+                var filePath = this._possibleFilePaths.FirstOrDefault();
                 if ( filePath != default( string ) )
                 {
                     result = this.IconFromFilePath( filePath );
@@ -34,12 +38,21 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
             return new CrawlResult { Icon = icon, Input = this._input };
         }
 
-        private string GetFilePath()
+        private void FilterFilePaths()
         {
-            var files = Directory.EnumerateFiles( this._input.InstallFolderPath, 
-                                                  "*.exe", 
-                                                  SearchOption.AllDirectories ).ToList();
-            return files.FirstOrDefault();
+            var toRemove = new List<string>();
+            foreach ( var filePath in this._possibleFilePaths )
+            {
+                var blacklist = EXE_NAME_BLACKLIST_REGEX.Union( FOLDER_NAME_BLACKLIST_REGEX ).ToList();
+                foreach ( var blacklistEntry in blacklist )
+                {
+                    if ( Regex.IsMatch( filePath, blacklistEntry, RegexOptions.IgnoreCase ) )
+                    {
+                        toRemove.Add( filePath );
+                    }
+                }
+            }
+            toRemove.ForEach( s => this._possibleFilePaths.Remove( s ) );
         }
 
         //  --> Based on: https://stackoverflow.com/questions/2907565/get-a-list-of-installed-programs-with-application-icons
@@ -55,7 +68,29 @@ namespace XElement.CloudSyncHelper.UI.IconCrawler
             return result;
         }
 
+        private void SelectManyFilePaths()
+        {
+            var files = Directory.EnumerateFiles( this._input.InstallFolderPath, 
+                                                  "*.exe", 
+                                                  SearchOption.AllDirectories ).ToList();
+            this._possibleFilePaths = files;
+        }
+
+        private static IEnumerable<string> EXE_NAME_BLACKLIST_REGEX = new List<string>
+        {
+            "dotNet.*", 
+            ".*install.*", 
+            ".*setup.*", 
+            "vcredist.*"
+        };
+
+        private static IEnumerable<string> FOLDER_NAME_BLACKLIST_REGEX = new List<string>
+        {
+            "Redist"
+        };
+
         private ICrawlInformation _input;
+        private ICollection<string> _possibleFilePaths;
     }
 #endregion
 }
