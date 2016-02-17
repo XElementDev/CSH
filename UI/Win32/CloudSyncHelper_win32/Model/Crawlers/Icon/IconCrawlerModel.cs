@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.UI.IconCrawler;
@@ -76,13 +77,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
                 var filePath = Path.ChangeExtension( noExtensionFilePath, IMAGE_FILE_EXTENSION );
                 using ( Stream fileStream = new FileStream( filePath, FileMode.Create, FileAccess.Write ) )
                 {
-                    crawlResult.Icon.Save( fileStream );
+                    var bitmap = crawlResult.Icon.ToBitmap();
+                    bitmap.Save( fileStream, ImageFormat.Png );
                 }
                 crawlResult.Icon.Dispose();
             }
         }
 
-        private const string IMAGE_FILE_EXTENSION = ".jpg";
+        private const string IMAGE_FILE_EXTENSION = ".png";
 
         [Import]
         private IConfig _config = null;
