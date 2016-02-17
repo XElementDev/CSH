@@ -16,7 +16,6 @@
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <local:IconToImageSourceConverter x:Key="_iconToImageSourceConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -50,9 +49,8 @@
                     Style="{StaticResource IconContainerStyle}">
                 <Grid>
                     <Image 
-                           Source="{Binding Path=ApplicationIcon, 
-                                            Mode=OneWay, 
-                                            Converter={StaticResource _iconToImageSourceConverter}}" 
+                           Source="{Binding Path=IconPath, 
+                                            Mode=OneWay}" 
                            Visibility="{Binding Path=IsAnIconAvailable, 
                                                 Mode=OneWay, 
                                                 Converter={StaticResource BoolToVisibilityConverter}}" 

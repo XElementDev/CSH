@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.UI.BannerCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using UiBannerCrawler = XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
 #region not unit-tested
-    public class ProgramInfoViewModel : IObjectToCrawl
+    public class ProgramInfoViewModel : UiIconCrawler.IIconId, UiBannerCrawler.IObjectToCrawl
     {
         public ProgramInfoViewModel( IProgramInfo programInfo, 
                                      IConfig config, 
@@ -21,7 +22,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             InitializeExecutionLogic( programInfo );
         }
 
-        string ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
+        string BannerCrawler.ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
 
         public string DisplayName
         {
@@ -48,6 +49,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         }
 
         Guid IBannerId.Id { get { return this._programInfo.Id; } }
+
+        Guid UiIconCrawler.IIconId.Id { get { return this._programInfo.Id; } }
 
         private void InitializeExecutionLogic( IProgramInfo programInfo )
         {

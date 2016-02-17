@@ -1,6 +1,6 @@
-﻿using System.Drawing;
-using XElement.CloudSyncHelper.UI.Win32.Model;
+﻿using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
@@ -14,19 +14,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
         {
             this.Initialize( syncObjectModel, bannerRetrieverModel, iconRetrieverModel );
             this.RegisterPropertyChangedEvents();
-            this.RetrieveApplicationIcon();
-        }
-
-        private Icon _applicationIcon;
-        public Icon ApplicationIcon
-        {
-            get { return this._applicationIcon; }
-            private set
-            {
-                this._applicationIcon = value;
-                this.RaisePropertyChanged( nameof( this.ApplicationIcon ) );
-                this.RaisePropertyChanged( nameof( this.IsAnIconAvailable ) );
-            }
         }
 
         public FullyAutomaticSync.ViewModel FullyAutomaticSyncVM { get; private set; }
@@ -35,8 +22,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
         {
             get
             {
-                IBannerId iconId = this.Model;
-                return this._bannerRetrieverModel.GetPathToBanner( iconId );
+                IBannerId bannerId = this.Model;
+                return this._bannerRetrieverModel.GetPathToBanner( bannerId );
+            }
+        }
+
+        public string IconPath
+        {
+            get
+            {
+                IIconId iconId = this.Model;
+                return this._iconRetrieverModel.GetPathToIcon( iconId );
             }
         }
 
@@ -52,24 +48,19 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             this._iconRetrieverModel = iconRetrieverModel;
         }
 
-        public bool IsAnIconAvailable { get { return this.ApplicationIcon != null; } }
+        public bool IsAnIconAvailable { get { return this.IconPath != null; } }
 
         public /*SyncObject.*/Model Model { get; private set; }
 
         private void RegisterPropertyChangedEvents()
         {
-            this._bannerRetrieverModel.PropertyChanged +=
+            this._bannerRetrieverModel.PropertyChanged += 
                             ( s, e ) => this.RaisePropertyChanged( nameof( this.BannerPath ) );
-        }
-
-        private void RetrieveApplicationIcon()
-        {
-            if ( this.Model.IsInstalled )
+            this._iconRetrieverModel.PropertyChanged += ( s, e ) =>
             {
-                var installLocation = this.Model.InstallLocation;
-                var icon = this._iconRetrieverModel.GetIconFromInstallLocation( installLocation );
-                this.ApplicationIcon = icon;
-            }
+                this.RaisePropertyChanged( nameof( this.IconPath ) );
+                this.RaisePropertyChanged( nameof( this.IsAnIconAvailable ) );
+            };
         }
 
         public SemiautomaticSync.ViewModel SemiautoSyncVM { get; private set; }

@@ -2,7 +2,6 @@
 {
     public interface ICrawlInformation
     {
-        string ExeName { get; }
         string InstallFolderPath { get; }
     }
 }

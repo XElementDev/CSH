@@ -196,6 +196,10 @@
     <Compile Include="Model\Config.cs" />
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
+    <Compile Include="Model\Crawlers\Icon\IconCrawlerModel.cs" />
+    <Compile Include="Model\Crawlers\Icon\IconRetrieverModel.cs" />
+    <Compile Include="Model\Crawlers\Icon\IIconId.cs" />
+    <Compile Include="Model\Crawlers\Icon\IObjectToCrawl.cs" />
     <Compile Include="Model\Factories\IFactoryT2.cs" />
     <Compile Include="Model\FilterModel.cs" />
     <Compile Include="Model\BannerCrawler\BannerCrawlerModel.cs" />
@@ -204,7 +208,6 @@
     <Compile Include="Model\IConfig.cs" />
     <Compile Include="Model\Factories\IFactoryT1.cs" />
     <Compile Include="Model\BannerCrawler\BannerRetrieverModel.cs" />
-    <Compile Include="Model\IconRetriever\IconRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
@@ -262,7 +265,6 @@
     <Compile Include="Modules\SyncObject\Model.cs" />
     <Compile Include="Modules\SyncObject\ModelFactory.cs" />
     <Compile Include="Modules\SyncObject\ViewModelFactory.cs" />
-    <Compile Include="Modules\SyncObject\IconToImageSourceConverter.cs" />
     <Compile Include="Modules\SyncObject\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -324,6 +326,14 @@
     <ProjectReference Include="..\..\..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj">
+      <Project>{3c60204d-6858-4692-98ac-2685a184c26e}</Project>
+      <Name>IconCrawler.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj">
+      <Project>{d80ca4dc-a78b-4d74-982b-037de065fe53}</Project>
+      <Name>IconCrawler.MefExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Localization\Localization.csproj">
       <Project>{cc6ad910-f9f2-40b0-90ac-f347c73b5ef7}</Project>

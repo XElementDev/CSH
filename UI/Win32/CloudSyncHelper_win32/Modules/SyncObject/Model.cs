@@ -1,16 +1,19 @@
 ﻿using System;
+using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
-using XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
+using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 {
 #region not unit-tested
     public class Model : NotifyPropertyChanged, 
-                         IBannerId,
+                         /*BannerCrawler.*/IBannerId, 
+                         UiIconCrawler.IIconId, 
                          FullyAutomaticSync.IModelConstructorParameters, 
-                         SemiautomaticSync.IModelConstructorParameters
+                         SemiautomaticSync.IModelConstructorParameters,
+                         UiIconCrawler.IObjectToCrawl
     {
         public Model( ProgramInfoViewModel programInfoVM ) : this( programInfoVM, null ) { }
         public Model( ProgramInfoViewModel programInfoVM, 
@@ -26,6 +29,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         Guid IBannerId.Id { get { return ((IBannerId)this._programInfoVM).Id; } }
 
+        Guid UiIconCrawler.IIconId.Id
+        {
+            get { return ((UiIconCrawler.IIconId)this._programInfoVM).Id; }
+        }
+
         private void Initialize( ProgramInfoViewModel programInfoVM, InstalledProgramViewModel installedProgramVM )
         {
             this._installedProgramVM = installedProgramVM;
@@ -37,7 +45,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             this.SemiautomaticSyncModel = new SemiautomaticSync.Model( semi );
         }
 
-        public string InstallLocation { get { return this._installedProgramVM.InstallLocation; } }
+        public string InstallLocation
+        {
+            get
+            {
+                return this.IsInstalled ? 
+                       this._installedProgramVM.InstallLocation : 
+                       default( string );
+            }
+        }
+
+        string ICrawlInformation.InstallFolderPath { get { return this.InstallLocation; } }
 
         public bool /*FullyAutomaticSync.IModelConstructorParameters.*/
 
@@ -55,7 +73,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             }
         }
 
-        ProgramInfoViewModel /*SemiautomaticSync.*/IModelConstructorParameters.ProgramInfoVM
+        ProgramInfoViewModel SemiautomaticSync.IModelConstructorParameters.ProgramInfoVM
         {
             get { return this._programInfoVM; }
         }
