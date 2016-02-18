@@ -5,7 +5,7 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.UI.BannerCrawler;
-using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {

@@ -1,6 +1,4 @@
-﻿using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
-
-namespace XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler
+﻿namespace XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons
 {
     public interface IIconId : IRetrievalIdContainer { }
 }

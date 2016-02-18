@@ -1,6 +1,4 @@
-﻿using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
-
-namespace XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler
+﻿namespace XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners
 {
     public interface IBannerId : IRetrievalIdContainer { }
 }

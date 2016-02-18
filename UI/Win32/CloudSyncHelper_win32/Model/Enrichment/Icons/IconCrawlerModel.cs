@@ -5,8 +5,8 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.UI.IconCrawler;
-using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
-using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {

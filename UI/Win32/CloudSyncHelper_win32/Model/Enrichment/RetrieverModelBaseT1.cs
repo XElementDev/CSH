@@ -6,7 +6,7 @@ using System.Linq;
 using System.Timers;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
-namespace XElement.CloudSyncHelper.UI.Win32.Model.Crawlers
+namespace XElement.CloudSyncHelper.UI.Win32.Model.Enrichment
 {
 #region not unit-tested
     public abstract class RetrieverModelBase<TId> : NotifyPropertyChanged, 

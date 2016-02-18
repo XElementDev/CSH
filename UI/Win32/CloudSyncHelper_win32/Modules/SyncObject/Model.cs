@@ -1,10 +1,10 @@
 ﻿using System;
 using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
-using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
-using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
-using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 {

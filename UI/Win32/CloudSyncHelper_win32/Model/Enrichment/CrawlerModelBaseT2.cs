@@ -5,7 +5,7 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 
-namespace XElement.CloudSyncHelper.UI.Win32.Model.Crawlers
+namespace XElement.CloudSyncHelper.UI.Win32.Model.Enrichment
 {
 #region not unit-tested
     internal abstract class CrawlerModelBase<TCrawlInformation, 

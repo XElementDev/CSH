@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
-using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
-using UiBannerCrawler = XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
-using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
+using UiBannerCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
+using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {

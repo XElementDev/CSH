@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
-using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {

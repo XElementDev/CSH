@@ -1,6 +1,6 @@
 ﻿using XElement.CloudSyncHelper.UI.Win32.Model;
-using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
-using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
