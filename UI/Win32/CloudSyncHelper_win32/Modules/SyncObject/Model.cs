@@ -2,6 +2,7 @@
 using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 
@@ -27,11 +28,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         public FullyAutomaticSync.Model FullyAutoSyncModel { get; private set; }
 
-        Guid IBannerId.Id { get { return ((IBannerId)this._programInfoVM).Id; } }
-
-        Guid UiIconCrawler.IIconId.Id
+        Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
         {
-            get { return ((UiIconCrawler.IIconId)this._programInfoVM).Id; }
+            get { return ((IRetrievalIdContainer)this._programInfoVM).Id; }
         }
 
         private void Initialize( ProgramInfoViewModel programInfoVM, InstalledProgramViewModel installedProgramVM )

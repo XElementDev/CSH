@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
-using XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Crawlers;
 using UiBannerCrawler = XElement.CloudSyncHelper.UI.Win32.Model.BannerCrawler;
 using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
 
@@ -48,9 +48,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        Guid IBannerId.Id { get { return this._programInfo.Id; } }
-
-        Guid UiIconCrawler.IIconId.Id { get { return this._programInfo.Id; } }
+        Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
+        {
+            get { return this._programInfo.Id; }
+        }
 
         private void InitializeExecutionLogic( IProgramInfo programInfo )
         {
