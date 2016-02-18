@@ -196,6 +196,7 @@
     <Compile Include="Model\Config.cs" />
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
+    <Compile Include="Model\Crawlers\CrawlerModelBaseT2.cs" />
     <Compile Include="Model\Crawlers\Icon\IconCrawlerModel.cs" />
     <Compile Include="Model\Crawlers\Icon\IconRetrieverModel.cs" />
     <Compile Include="Model\Crawlers\Icon\IIconId.cs" />
