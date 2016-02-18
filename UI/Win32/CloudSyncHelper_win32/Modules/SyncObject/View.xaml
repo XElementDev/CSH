@@ -13,7 +13,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
-                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -36,7 +36,9 @@
                          AlignmentX="Left" AlignmentY="Top">
                 <VisualBrush.Visual>
                     <Image 
-                           Source="{Binding Path=BannerPath}" 
+                           Source="{Binding Path=BannerPath, 
+                                            Mode=OneWay, 
+                                            Converter={StaticResource StringToImageSource}}" 
                            Style="{StaticResource BackgroundImageStyle}" 
                     />
                 </VisualBrush.Visual>
@@ -50,7 +52,8 @@
                 <Grid>
                     <Image 
                            Source="{Binding Path=IconPath, 
-                                            Mode=OneWay}" 
+                                            Mode=OneWay, 
+                                            Converter={StaticResource StringToImageSource}}" 
                            Visibility="{Binding Path=IsAnIconAvailable, 
                                                 Mode=OneWay, 
                                                 Converter={StaticResource BoolToVisibilityConverter}}" 

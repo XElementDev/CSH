@@ -183,6 +183,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\SyncObject\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\SyncObject\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -267,6 +271,7 @@
     <Compile Include="Modules\SyncObjects\ViewModel.cs" />
     <Compile Include="Modules\SyncObject\Model.cs" />
     <Compile Include="Modules\SyncObject\ModelFactory.cs" />
+    <Compile Include="Modules\SyncObject\StringToImageSourceConverter.cs" />
     <Compile Include="Modules\SyncObject\ViewModelFactory.cs" />
     <Compile Include="Modules\SyncObject\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
