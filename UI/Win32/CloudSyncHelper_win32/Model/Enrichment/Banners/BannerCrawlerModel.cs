@@ -1,35 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using XElement.CloudSyncHelper.UI.BannerCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    public class BannerCrawlerModel : IPartImportsSatisfiedNotification
+    internal class BannerCrawlerModel : CrawlerModelBase</*BannerCrawler.*/ICrawlInformation, 
+                                                       /*BannerCrawler.*/ICrawlResult>, 
+                                      IPartImportsSatisfiedNotification
     {
-        private string GetIdStringFromCrawlInfo( ICrawlInformation crawlInformation )
+        protected override ICrawlResult CrawlSingle( ICrawlInformation crawlInfo )
         {
-            var correspondingObjectToCrawl = this.ObjectsToCrawl.Single( 
-                otc => ICrawlInformation.ReferenceEquals( crawlInformation, otc ) );
-            return correspondingObjectToCrawl.Id.ToString();
+            return this._bannerCrawler.CrawlSingle( crawlInfo );
         }
 
-        private IEnumerable<ICrawlInformation> GetInformationToCrawl()
+        protected override IEnumerable<ICrawlInformation> GetFilteredObjectsToCrawl( IEnumerable<string> fileNamesWoExtension )
         {
-            var searchPattern = String.Format( "*{0}", IMAGE_FILE_EXTENSION );
-            var cachedImageFilePaths = Directory.EnumerateFiles( this._config.PathToBannerCache, 
-                                                                 searchPattern, 
-                                                                 SearchOption.TopDirectoryOnly );
-            var fileNamesWoExtension = cachedImageFilePaths
-                .Select( cifn => Path.GetFileNameWithoutExtension( cifn ) )
-                .ToList();
-
             var filteredObjectsToCrawl = this.ObjectsToCrawl.Where( otc =>
             {
                 var id = otc.Id.ToString().ToLower();
@@ -39,6 +30,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             return filteredObjectsToCrawl;
         }
 
+        protected override string GetIdStringFromCrawlInfo( ICrawlInformation crawlInformation )
+        {
+            var correspondingObjectToCrawl = this.ObjectsToCrawl.Single( 
+                otc => ICrawlInformation.ReferenceEquals( crawlInformation, otc ) );
+            return correspondingObjectToCrawl.Id.ToString();
+        }
+
+        protected override string ImageFileExtension { get { return IMAGE_FILE_EXTENSION; } }
+
         private IEnumerable<IObjectToCrawl> ObjectsToCrawl
         {
             get
@@ -47,30 +47,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
-        public void OnImportsSatisfied()
+        protected override string PathToImageCache
         {
-            IEnumerable<ICrawlInformation> input = this.GetInformationToCrawl();
-            this.StartCrawlingInBackground( input );
+            get { return this._config.PathToBannerCache; }
         }
 
-        private void StartCrawling( IEnumerable<ICrawlInformation> input )
-        {
-            foreach ( var crawlInfo in input )
-            {
-                var result = this._bannerCrawler.CrawlSingle( crawlInfo );
-                this.StoreCrawlResult( result );
-            }
-        }
-
-        private void StartCrawlingInBackground( IEnumerable<ICrawlInformation> input )
-        {
-            var backgroundWorker = new BackgroundWorker();
-            backgroundWorker.DoWork += ( s, e ) => this.StartCrawling( input );
-            backgroundWorker.RunWorkerCompleted += ( s, e ) => backgroundWorker.Dispose();
-            backgroundWorker.RunWorkerAsync();
-        }
-
-        private void StoreCrawlResult( ICrawlResult crawlResult )
+        protected override void StoreCrawlResult( ICrawlResult crawlResult )
         {
             if ( crawlResult.Image != null )
             {
@@ -85,16 +67,16 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
-        private const string IMAGE_FILE_EXTENSION = ".jpg";
-
-        [Import]
-        private IConfig _config = null;
-
         [Import( typeof( IPriotizableBannerCrawler ) )]
         private IBannerCrawler _bannerCrawler = null;
 
         [Import]
+        private IConfig _config = null;
+
+        [Import]
         private ProgramInfosModel _programInfosModel = null;
+
+        private const string IMAGE_FILE_EXTENSION = ".jpg";
     }
 #endregion
 }

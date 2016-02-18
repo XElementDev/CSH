@@ -21,7 +21,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model.Enrichment
         private IEnumerable<TCrawlInformation> GetInformationToCrawl()
         {
             var searchPattern = String.Format( "*{0}", ImageFileExtension );
-            var cachedIconFilePaths = Directory.EnumerateFiles( this._config.PathToIconCache,
+            var cachedIconFilePaths = Directory.EnumerateFiles( this.PathToImageCache,
                                                                 searchPattern,
                                                                 SearchOption.TopDirectoryOnly );
             var fileNamesWoExtension = cachedIconFilePaths
@@ -39,6 +39,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model.Enrichment
             IEnumerable<TCrawlInformation> input = this.GetInformationToCrawl();
             this.StartCrawlingInBackground( input );
         }
+
+        protected abstract string PathToImageCache { get; }
 
         private void StartCrawling( IEnumerable<TCrawlInformation> input )
         {
@@ -58,9 +60,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model.Enrichment
         }
 
         protected abstract void StoreCrawlResult( TCrawlResult crawlResult );
-
-        [Import]
-        protected IConfig _config = null;
     }
 #endregion
 }

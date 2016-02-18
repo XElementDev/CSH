@@ -46,6 +46,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             get { return this._syncObjectsModel.SyncObjectModels; }
         }
 
+        protected override string PathToImageCache { get { return this._config.PathToIconCache; } }
+
         protected override void StoreCrawlResult( ICrawlResult crawlResult )
         {
             if ( crawlResult.Icon != null )
@@ -61,6 +63,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
                 crawlResult.Icon.Dispose();
             }
         }
+
+        [Import]
+        private IConfig _config = null;
 
         [Import]
         private ICrawler _iconCrawler = null;
