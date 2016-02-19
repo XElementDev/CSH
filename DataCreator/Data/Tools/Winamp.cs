@@ -85,7 +85,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
                 GetConfigForWindows8_1(),   // TODO: Check config for Win8.1
                 GetConfigForWindows10()
             };
-            this.Definition = this._configFactory.Get( osConfigs );
+            this.Definition = this._definitionFactory.Get( osConfigs );
         }
     }
 }

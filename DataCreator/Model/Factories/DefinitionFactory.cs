@@ -6,7 +6,7 @@ using XElement.CloudSyncHelper.Serialization.DataTypes;
 namespace XElement.CloudSyncHelper.DataCreator.Model
 {
     [Export]
-    internal class ConfigurationFactory
+    internal class DefinitionFactory
     {
         public Definition Get( IEnumerable<OsConfiguration> osConfigs )
         {
