@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
@@ -45,6 +46,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
 
 
         [TestMethod]
+        public void testMenuBarVM_ImplementsINotifyPropertyChanged()
+        {
+            this.InitializeTargetViaMef();
+
+            Assert.IsInstanceOfType( this._target, typeof( INotifyPropertyChanged ) );
+        }
+
+
+        [TestMethod]
         public void testMenuBarVM_Constructor_InitializesSubElements()
         {
             this.InitializeTargetViaMef();
@@ -78,6 +88,44 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             this._target.IsFilterVisible = false;
 
             Assert.AreEqual( String.Empty, filterModelMock.Filter );
+        }
+
+        [TestMethod]
+        public void testMenuBarVM_IsFilterVisible_Set_RaisesPropertyChanged__RandomValue()
+        {
+            bool propertyChangedRaised = false;
+            this.InitializeTargetViaMef();
+            this._target.PropertyChanged += ( s, e ) => propertyChangedRaised = true;
+
+            this._target.IsFilterVisible = XeRandom.RandomBool();
+
+            Assert.IsTrue( propertyChangedRaised );
+        }
+
+        [TestMethod]
+        public void testMenuBarVM_IsFilterVisible_Set_RaisesPropertyChangedInCorrectOrder__RandomValue()
+        {
+            bool expected = XeRandom.RandomBool();
+            bool actual = !expected;
+            this.InitializeTargetViaMef();
+            this._target.PropertyChanged += ( s, e ) => actual = this._target.IsFilterVisible;
+
+            this._target.IsFilterVisible = expected;
+
+            Assert.AreEqual( expected, actual );
+        }
+
+        [TestMethod]
+        public void testMenuBarVM_IsFilterVisible_Set_RaisesPropertyChangedWithCorrectParameter__RandomValue()
+        {
+            this.InitializeTargetViaMef();
+            var expectedPropertyName = nameof( this._target.IsFilterVisible );
+            string actualPropertyName = null;
+            this._target.PropertyChanged += ( s, e ) => actualPropertyName = e.PropertyName;
+
+            this._target.IsFilterVisible = XeRandom.RandomBool();
+
+            Assert.AreEqual( expectedPropertyName, actualPropertyName );
         }
 
 

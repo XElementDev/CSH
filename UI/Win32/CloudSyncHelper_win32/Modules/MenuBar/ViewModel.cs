@@ -1,15 +1,17 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu;
 using FilterViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.Filter.ViewModel;
+using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
 {
     [Export]
-    public class ViewModel
+    public class ViewModel : NotifyPropertyChanged, INotifyPropertyChanged
     {
         [ImportingConstructor]
         private ViewModel()
@@ -31,6 +33,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
                 {
                     this._filterModel.Filter = String.Empty;
                 }
+                this.RaisePropertyChanged( nameof( IsFilterVisible ) );
             }
         }
 
