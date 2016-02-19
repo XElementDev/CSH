@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         [XmlAttribute( "DestTargetName" )]
         public string DestinationTargetName { get; set; }
 
-        [XmlAttribute( "SourceId" )]
+        [XmlAttribute( nameof( SourceId ) )]
         public string SourceId { get; set; }
     }
 #endregion
