@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.UI.Win32.Model;
-using XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu;
 using XElement.CloudSyncHelper.UI.Win32.Modules.StatusBar;
+using XElement.CloudSyncHelper.UI.Win32.Shortcuts;
 using XElement.Common.UI;
 using ApplicationMenuViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu.ViewModel;
 using MenuBarViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar.ViewModel;
@@ -11,15 +11,31 @@ namespace XElement.CloudSyncHelper.UI.Win32
 {
 #region not unit-tested
     [Export]
-    [Export( typeof( IApplicationMenuContainer ) )]
-    public class MainViewModel : ViewModelBase, IApplicationMenuContainer
+    [Export( typeof( Modules.ApplicationMenu.IApplicationMenuContainer ) )]
+    [Export( typeof( Shortcuts.IApplicationMenuContainer ) )]
+    [Export( typeof( /*Shortcuts.*/IFilterContainer ) )]
+    public class MainViewModel : ViewModelBase, 
+                                 Modules.ApplicationMenu.IApplicationMenuContainer, 
+                                 Shortcuts.IApplicationMenuContainer,
+                                 /*Shortcuts.*/IFilterContainer
     {
         [Import]
         public ApplicationMenuViewModel ApplicationMenuVM { get; private set; }
 
-        void IApplicationMenuContainer.HideApplicationMenu()
+        void Modules.ApplicationMenu.IApplicationMenuContainer.HideApplicationMenu()
         {
             this.SelectedIndex = 0;
+        }
+
+        bool Shortcuts.IApplicationMenuContainer.IsApplicationMenuOpen
+        {
+            get { return this.SelectedIndex == 1; }
+        }
+
+        bool IFilterContainer.IsFilterVisible
+        {
+            get { return this.MenuBarVM.IsFilterVisible; }
+            set { this.MenuBarVM.IsFilterVisible = value; }
         }
 
         [Import]
@@ -36,7 +52,10 @@ namespace XElement.CloudSyncHelper.UI.Win32
             }
         }
 
-        void IApplicationMenuContainer.ShowApplicationMenu()
+        [Import]
+        public ShortcutCommandsViewModel ShortcutCommandsVM { get; private set; }
+
+        void Modules.ApplicationMenu.IApplicationMenuContainer.ShowApplicationMenu()
         {
             this.SelectedIndex = 1;
         }

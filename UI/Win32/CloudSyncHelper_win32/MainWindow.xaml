@@ -19,6 +19,13 @@
         </ResourceDictionary>
     </Window.Resources>
 
+    <Window.InputBindings>
+        <KeyBinding 
+                    Command="{Binding Path=ShortcutCommandsVM.ShowFilter}" 
+                    Modifiers="Ctrl" Key="F" 
+        />
+    </Window.InputBindings>
+
     <TabControl 
                 SelectedIndex="{Binding Path=SelectedIndex, Mode=OneWay}" 
                 Style="{StaticResource HiddenTabHeaders}">
