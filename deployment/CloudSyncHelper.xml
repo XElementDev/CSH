@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <App DisplayName="Exact Audio Copy" FolderName="Exact Audio Copy" Id="0408347b-5d6b-4561-88f0-06f3f379232b" TechNameMatcher="Exact Audio Copy.*">
+  <Tool ApplicationName="Exact Audio Copy" FolderName="Exact Audio Copy" Id="0408347b-5d6b-4561-88f0-06f3f379232b" TechNameMatcher="Exact Audio Copy.*">
     <OS id="Win81">
       <Links>
         <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
@@ -12,8 +12,8 @@
       </Links>
     </OS>
     <IsSteamCloudSupported value="false" />
-  </App>
-  <App DisplayName="Mp3tag" FolderName="Mp3tag" Id="9a78a831-c24b-47cd-8eb6-2889cb3100af" TechNameMatcher="Mp3tag">
+  </Tool>
+  <Tool ApplicationName="Mp3tag" FolderName="Mp3tag" Id="9a78a831-c24b-47cd-8eb6-2889cb3100af" TechNameMatcher="Mp3tag">
     <OS id="Win81">
       <Links>
         <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
@@ -31,8 +31,8 @@
       </Links>
     </OS>
     <IsSteamCloudSupported value="false" />
-  </App>
-  <App DisplayName="TeamSpeak 3" FolderName="TeamSpeak 3" Id="bf5b72bc-6351-481d-a25d-265bf9f063cb" TechNameMatcher="TeamSpeak 3 Client">
+  </Tool>
+  <Tool ApplicationName="TeamSpeak 3" FolderName="TeamSpeak 3" Id="bf5b72bc-6351-481d-a25d-265bf9f063cb" TechNameMatcher="TeamSpeak 3 Client">
     <OS id="Win81">
       <Links>
         <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
@@ -44,8 +44,8 @@
       </Links>
     </OS>
     <IsSteamCloudSupported value="false" />
-  </App>
-  <App DisplayName="Notepad++" FolderName="Notepad++" Id="97c5d94b-2794-45d1-8442-710754e41d77" TechNameMatcher="Notepad\+\+">
+  </Tool>
+  <Tool ApplicationName="Notepad++" FolderName="Notepad++" Id="97c5d94b-2794-45d1-8442-710754e41d77" TechNameMatcher="Notepad\+\+">
     <OS id="Win10">
       <Links>
         <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="config.xml" SourceId="config.xml" />
@@ -58,8 +58,8 @@
       </Links>
     </OS>
     <IsSteamCloudSupported value="false" />
-  </App>
-  <App DisplayName="Winamp" FolderName="Winamp" Id="b2d4a228-a950-4036-949b-4f328f416866" TechNameMatcher="Winamp">
+  </Tool>
+  <Tool ApplicationName="Winamp" FolderName="Winamp" Id="b2d4a228-a950-4036-949b-4f328f416866" TechNameMatcher="Winamp">
     <OS id="Win81">
       <Links>
         <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
@@ -81,11 +81,11 @@
       </Links>
     </OS>
     <IsSteamCloudSupported value="false" />
-  </App>
-  <Game DisplayName="Age of Empires II: HD Edition" FolderName="Age Of Empires 2013 [Age of Empires II_ HD Edition]" Id="feaa47fc-feda-4945-9a4b-011c15f44e3f" TechNameMatcher="Age of Empires II: HD Edition">
+  </Tool>
+  <Game ApplicationName="Age of Empires II: HD Edition" FolderName="Age Of Empires 2013 [Age of Empires II_ HD Edition]" Id="feaa47fc-feda-4945-9a4b-011c15f44e3f" TechNameMatcher="Age of Empires II: HD Edition">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="ANNO 2070" FolderName="Anno 2011 [ANNO 2070]" Id="fe83fd10-2446-45bf-a31b-3149150d6ed3" TechNameMatcher="ANNO 2070">
+  <Game ApplicationName="ANNO 2070" FolderName="Anno 2011 [ANNO 2070]" Id="fe83fd10-2446-45bf-a31b-3149150d6ed3" TechNameMatcher="ANNO 2070">
     <OS id="Win81">
       <Links>
         <FolderLink DestRoot="Personal" DestSubFolderPath="ANNO 2070\Accounts\%UPLAY_ACCOUNT_NAME%" DestTargetName="Savegames" SourceId="Savegames" />
@@ -98,34 +98,34 @@
     </OS>
     <IsSteamCloudSupported value="false" />
   </Game>
-  <Game DisplayName="Battlefield 3" FolderName="Battlefield 2011 [Battlefield 3]" Id="bfea2a56-3721-40ab-b0c2-8e3f81678e51" TechNameMatcher="Battlefield 3™">
+  <Game ApplicationName="Battlefield 3" FolderName="Battlefield 2011 [Battlefield 3]" Id="bfea2a56-3721-40ab-b0c2-8e3f81678e51" TechNameMatcher="Battlefield 3™">
     <IsSteamCloudSupported value="false" />
   </Game>
-  <Game DisplayName="Borderlands" FolderName="Borderlands 2009 [Borderlands]" Id="fa773668-0021-4493-9c3f-2d981c98244e" TechNameMatcher="Borderlands">
+  <Game ApplicationName="Borderlands" FolderName="Borderlands 2009 [Borderlands]" Id="fa773668-0021-4493-9c3f-2d981c98244e" TechNameMatcher="Borderlands">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Clicker Heroes" FolderName="Clicker Heroes" Id="359f7286-d6c6-426f-98ed-117b1ee49a0a" TechNameMatcher="Clicker Heroes">
+  <Game ApplicationName="Clicker Heroes" FolderName="Clicker Heroes" Id="359f7286-d6c6-426f-98ed-117b1ee49a0a" TechNameMatcher="Clicker Heroes">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Plants vs. Zombies" FolderName="Plants vs. Zombies 2009 [Pflanzen gegen Zombies]" Id="12e4bb5c-3361-47a4-9bb1-2d420c6228cf" TechNameMatcher="Pflanzen gegen Zombies™">
+  <Game ApplicationName="Plants vs. Zombies" FolderName="Plants vs. Zombies 2009 [Pflanzen gegen Zombies]" Id="12e4bb5c-3361-47a4-9bb1-2d420c6228cf" TechNameMatcher="Pflanzen gegen Zombies™">
     <IsSteamCloudSupported value="false" />
   </Game>
-  <Game DisplayName="Risen 3 - Titan Lords" FolderName="Risen 2014 [Risen 3 - Titan Lords]" Id="7b57b2ab-8b0f-40eb-88f4-2e20002a4eb0" TechNameMatcher="Risen 3 - Titan Lords">
+  <Game ApplicationName="Risen 3 - Titan Lords" FolderName="Risen 2014 [Risen 3 - Titan Lords]" Id="7b57b2ab-8b0f-40eb-88f4-2e20002a4eb0" TechNameMatcher="Risen 3 - Titan Lords">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Life Is Strange" FolderName="Life Is Strange 2015 [Life Is Strange]" Id="f2929f42-6dc3-4049-99a4-2823d797657e" TechNameMatcher="Life Is Strange™">
+  <Game ApplicationName="Life Is Strange" FolderName="Life Is Strange 2015 [Life Is Strange]" Id="f2929f42-6dc3-4049-99a4-2823d797657e" TechNameMatcher="Life Is Strange™">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Saints Row IV" FolderName="Saints Row 2013 [Saints Row IV]" Id="b4c5e79f-4594-4d9b-b40a-38385d261c9b" TechNameMatcher="Saints Row IV">
+  <Game ApplicationName="Saints Row IV" FolderName="Saints Row 2013 [Saints Row IV]" Id="b4c5e79f-4594-4d9b-b40a-38385d261c9b" TechNameMatcher="Saints Row IV">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Middle-earth: Shadow of Mordor" FolderName="Middle-earth_ Shadow of Mordor" Id="4d79f7a4-8588-4242-8dc0-9694b5bbcaac" TechNameMatcher="Middle-earth: Shadow of Mordor">
+  <Game ApplicationName="Middle-earth: Shadow of Mordor" FolderName="Middle-earth_ Shadow of Mordor" Id="4d79f7a4-8588-4242-8dc0-9694b5bbcaac" TechNameMatcher="Middle-earth: Shadow of Mordor">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="The LEGO Movie - Videogame" FolderName="LEGO 2014 [The LEGO Movie - Videogame]" Id="2d01a67e-3a6f-4a5e-b774-5b0206c09bf9" TechNameMatcher="The LEGO® Movie - Videogame">
+  <Game ApplicationName="The LEGO Movie - Videogame" FolderName="LEGO 2014 [The LEGO Movie - Videogame]" Id="2d01a67e-3a6f-4a5e-b774-5b0206c09bf9" TechNameMatcher="The LEGO® Movie - Videogame">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Die Sims 3 [DE]" FolderName="The Sims 2009 [The Sims 3]" Id="0aed2ddf-6109-401f-9467-484fa853450f" TechNameMatcher="Die Sims™ 3">
+  <Game ApplicationName="Die Sims 3 [DE]" FolderName="The Sims 2009 [The Sims 3]" Id="0aed2ddf-6109-401f-9467-484fa853450f" TechNameMatcher="Die Sims™ 3">
     <OS id="Win10">
       <Links>
         <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Mods" SourceId="Mods" />
@@ -134,55 +134,55 @@
     </OS>
     <IsSteamCloudSupported value="false" />
   </Game>
-  <Game DisplayName="The Stanley Parable" FolderName="The Stanley Parable 2013 [The Stanley Parable]" Id="7b7ee663-825c-4fdf-b1e9-85009096c212" TechNameMatcher="The Stanley Parable">
+  <Game ApplicationName="The Stanley Parable" FolderName="The Stanley Parable 2013 [The Stanley Parable]" Id="7b7ee663-825c-4fdf-b1e9-85009096c212" TechNameMatcher="The Stanley Parable">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Teddy Floppy Ear - The Race" FolderName="Teddy Floppy Ear 2012 [Teddy Floppy Ear - The Race]" Id="45fdf15f-afd9-42ca-99a4-6a262064cffb" TechNameMatcher="Teddy Floppy Ear - The Race">
+  <Game ApplicationName="Teddy Floppy Ear - The Race" FolderName="Teddy Floppy Ear 2012 [Teddy Floppy Ear - The Race]" Id="45fdf15f-afd9-42ca-99a4-6a262064cffb" TechNameMatcher="Teddy Floppy Ear - The Race">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Type:Rider" FolderName="Type_Rider 2013 [Type_Rider]" Id="0af42b1f-92af-4e81-93a2-4acbbe478647" TechNameMatcher="Type:Rider">
+  <Game ApplicationName="Type:Rider" FolderName="Type_Rider 2013 [Type_Rider]" Id="0af42b1f-92af-4e81-93a2-4acbbe478647" TechNameMatcher="Type:Rider">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="The Testament of Sherlock Holmes" FolderName="Sherlock Holmes 2012 [The Testament of Sherlock Holmes]" Id="739b85a5-328f-4293-9d7e-184556ba1555" TechNameMatcher="The Testament of Sherlock Holmes">
+  <Game ApplicationName="The Testament of Sherlock Holmes" FolderName="Sherlock Holmes 2012 [The Testament of Sherlock Holmes]" Id="739b85a5-328f-4293-9d7e-184556ba1555" TechNameMatcher="The Testament of Sherlock Holmes">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="The Cave" FolderName="The Cave 2013 [The Cave]" Id="af32d0f2-36de-40eb-813f-bafa91e178fe" TechNameMatcher="The Cave">
+  <Game ApplicationName="The Cave" FolderName="The Cave 2013 [The Cave]" Id="af32d0f2-36de-40eb-813f-bafa91e178fe" TechNameMatcher="The Cave">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Syder Arcade" FolderName="Syder Arcade 2013 [Syder Arcade]" Id="1e4e19e9-cbfa-411d-a926-fe80fe67950e" TechNameMatcher="Syder Arcade">
+  <Game ApplicationName="Syder Arcade" FolderName="Syder Arcade 2013 [Syder Arcade]" Id="1e4e19e9-cbfa-411d-a926-fe80fe67950e" TechNameMatcher="Syder Arcade">
     <IsSteamCloudSupported value="false" />
   </Game>
-  <Game DisplayName="Joe Danger" FolderName="Joe Danger 2013 [Joe Danger]" Id="53c7bc46-aa43-413f-8f13-9cfeb4df9ff0" TechNameMatcher="Joe Danger">
+  <Game ApplicationName="Joe Danger" FolderName="Joe Danger 2013 [Joe Danger]" Id="53c7bc46-aa43-413f-8f13-9cfeb4df9ff0" TechNameMatcher="Joe Danger">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="F1 2013" FolderName="F1 2013 [F1 2013]" Id="bbf68042-6a44-4fc7-a243-4a640c4f2134" TechNameMatcher="F1 2013">
+  <Game ApplicationName="F1 2013" FolderName="F1 2013 [F1 2013]" Id="bbf68042-6a44-4fc7-a243-4a640c4f2134" TechNameMatcher="F1 2013">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Left 4 Dead 2" FolderName="Left 4 Dead 2009 [Left 4 Dead 2]" Id="27f4c600-ee69-48b2-be52-f2918db21ced" TechNameMatcher="Left 4 Dead 2">
+  <Game ApplicationName="Left 4 Dead 2" FolderName="Left 4 Dead 2009 [Left 4 Dead 2]" Id="27f4c600-ee69-48b2-be52-f2918db21ced" TechNameMatcher="Left 4 Dead 2">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Orcs Must Die! 2" FolderName="Orcs Must Die 2012 [Orcs Must Die! 2]" Id="41128df6-5e43-45a1-9da3-70ee2760fcfe" TechNameMatcher="Orcs Must Die! 2">
+  <Game ApplicationName="Orcs Must Die! 2" FolderName="Orcs Must Die 2012 [Orcs Must Die! 2]" Id="41128df6-5e43-45a1-9da3-70ee2760fcfe" TechNameMatcher="Orcs Must Die! 2">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Rocket League" FolderName="Rocket League 2015 [Rocket League]" Id="f4b10ead-6195-47f3-a99e-cbdb4c93029c" TechNameMatcher="Rocket League">
+  <Game ApplicationName="Rocket League" FolderName="Rocket League 2015 [Rocket League]" Id="f4b10ead-6195-47f3-a99e-cbdb4c93029c" TechNameMatcher="Rocket League">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Terraria" FolderName="Terraria 2011 [Terraria]" Id="367cbed1-9ff1-4226-9baf-e3230ae19efb" TechNameMatcher="Terraria">
+  <Game ApplicationName="Terraria" FolderName="Terraria 2011 [Terraria]" Id="367cbed1-9ff1-4226-9baf-e3230ae19efb" TechNameMatcher="Terraria">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Evolve" FolderName="Evolve 2015 [Evolve]" Id="23d95f4a-43a2-4084-809e-5f8001714f97" TechNameMatcher="Evolve">
+  <Game ApplicationName="Evolve" FolderName="Evolve 2015 [Evolve]" Id="23d95f4a-43a2-4084-809e-5f8001714f97" TechNameMatcher="Evolve">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Borderlands 2" FolderName="Borderlands 2012 [Borderlands 2]" Id="8a5665b2-1454-49b4-9ee4-2a7b7a3396b5" TechNameMatcher="Borderlands 2">
+  <Game ApplicationName="Borderlands 2" FolderName="Borderlands 2012 [Borderlands 2]" Id="8a5665b2-1454-49b4-9ee4-2a7b7a3396b5" TechNameMatcher="Borderlands 2">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Toki Tori" FolderName="Toki Tori 2010 [Toki Tori]" Id="a2ace881-7dbf-40ed-8ba9-72689e8ed9ec" TechNameMatcher="Toki Tori">
+  <Game ApplicationName="Toki Tori" FolderName="Toki Tori 2010 [Toki Tori]" Id="a2ace881-7dbf-40ed-8ba9-72689e8ed9ec" TechNameMatcher="Toki Tori">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="BioShock Infinite" FolderName="BioShock 2013 [BioShock Infinite]" Id="e3471346-dfc0-4b01-b064-1fc8cd5a5ebb" TechNameMatcher="BioShock Infinite">
+  <Game ApplicationName="BioShock Infinite" FolderName="BioShock 2013 [BioShock Infinite]" Id="e3471346-dfc0-4b01-b064-1fc8cd5a5ebb" TechNameMatcher="BioShock Infinite">
     <IsSteamCloudSupported value="true" />
   </Game>
-  <Game DisplayName="Pro Evolution Soccer 2015" FolderName="PES 2014 [Pro Evolution Soccer 2015]" Id="e14c9a54-0243-4d24-9e8f-12bdb609386f" TechNameMatcher="Pro Evolution Soccer 2015">
+  <Game ApplicationName="Pro Evolution Soccer 2015" FolderName="PES 2014 [Pro Evolution Soccer 2015]" Id="e14c9a54-0243-4d24-9e8f-12bdb609386f" TechNameMatcher="Pro Evolution Soccer 2015">
     <OS id="Win81">
       <Links>
         <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />

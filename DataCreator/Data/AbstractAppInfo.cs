@@ -6,7 +6,7 @@ using XElement.CloudSyncHelper.Serialization.DataTypes;
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
 #region not unit-tested
-    internal abstract class AbstractAppInfo : AppInfo, IPartImportsSatisfiedNotification
+    internal abstract class AbstractAppInfo : ToolInfo, IPartImportsSatisfiedNotification
     {
         protected AbstractAppInfo( string guid )
         {

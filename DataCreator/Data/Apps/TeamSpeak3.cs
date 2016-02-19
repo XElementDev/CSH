@@ -49,7 +49,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
                 this.GetConfigForWindows8_1(),  // TODO: Check config for Win8.1
                 this.GetConfigForWindows10()    // TODO: Check config for Win10
             };
-            this.Configuration = this._configFactory.Get( osConfigs );
+            this.Definition = this._configFactory.Get( osConfigs );
         }
     }
 }

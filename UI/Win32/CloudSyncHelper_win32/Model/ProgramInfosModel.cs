@@ -21,7 +21,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             var serializationMgr = new SerializationManager( uri );
             var syncData = serializationMgr.Deserialize();
             var programInfoVMs = new List<ProgramInfoViewModel>();
-            foreach ( var programInfo in syncData.ProgramInfos )
+            foreach ( var programInfo in syncData.ApplicationInfos )
             {
                 var programInfoVM = this._programInfoVmFactory.Get( programInfo );
                 programInfoVMs.Add( programInfoVM );

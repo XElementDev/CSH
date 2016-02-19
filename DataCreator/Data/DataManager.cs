@@ -13,10 +13,10 @@ namespace XElement.CloudSyncHelper.DataCreator
         {
             var syncData = new SyncData
             {
-                ProgramInfos = new List<AbstractProgramInfo>()
+                ApplicationInfos = new List<AbstractApplicationInfo>()
             };
-            syncData.ProgramInfos.AddRange( this._apps.AppLinkInfos );
-            syncData.ProgramInfos.AddRange( this._games.GameLinkInfos );
+            syncData.ApplicationInfos.AddRange( this._apps.AppLinkInfos );
+            syncData.ApplicationInfos.AddRange( this._games.GameLinkInfos );
 
             this.SyncData = syncData;
         }

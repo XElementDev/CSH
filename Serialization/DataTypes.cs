@@ -22,9 +22,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         public string SourceId { get; set; }
     }
 
-    public class AppInfo : AbstractProgramInfo, IToolInfo { }
-
-    public class Configuration : IDefinition
+    public class Definition : IDefinition
     {
         [XmlIgnore]
         public List<OsConfiguration> OsConfigs { get; set; }
@@ -39,7 +37,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
     public class FolderLinkInfo : AbstractLinkInfo, IFolderLinkInfo { }
 
-    public class GameInfo : AbstractProgramInfo, IGameInfo { }
+    public class GameInfo : AbstractApplicationInfo, IGameInfo { }
 
     public class OsConfiguration : IOsConfiguration
     {
@@ -56,10 +54,12 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
     [XmlRoot( "SyncData" )]
     public class SyncData : ISyncData
     {
-        [XmlElement( "App" , typeof(AppInfo) ),
-         XmlElement( "Game", typeof(GameInfo) )]
-        public List<AbstractProgramInfo> ProgramInfos { get; set; }
-        IReadOnlyList<IApplicationInfo> ISyncData.ProgramInfos { get { return this.ProgramInfos; } }
+        [XmlElement( "Game", typeof(GameInfo) ), 
+         XmlElement( "Tool" , typeof(ToolInfo) )]
+        public List<AbstractApplicationInfo> ApplicationInfos { get; set; }
+        IReadOnlyList<IApplicationInfo> ISyncData.ApplicationInfos { get { return this.ApplicationInfos; } }
     }
+
+    public class ToolInfo : AbstractApplicationInfo, IToolInfo { }
 #endregion
 }

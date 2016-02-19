@@ -5,38 +5,39 @@ using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Serialization.DataTypes
 {
-    public abstract class AbstractProgramInfo : IApplicationInfo
+#region not unit-tested
+    public abstract class AbstractApplicationInfo : IApplicationInfo
     {
-        public AbstractProgramInfo()
+        public AbstractApplicationInfo()
         {
-            this.Configuration = new Configuration();
+            this.Definition = new Definition();
         }
 
-        [XmlIgnore]
-        public Configuration Configuration { get; set; }
-        IDefinition IApplicationInfo.Definition { get { return this.Configuration; } }
-
-        [XmlAttribute( "DisplayName" )]
+        [XmlAttribute( "ApplicationName" )]
         public string ApplicationName { get; set; }
+
+        [XmlIgnore]
+        public Definition Definition { get; set; }
+        IDefinition IApplicationInfo.Definition { get { return this.Definition; } }
 
         [XmlAttribute( "FolderName" )]
         public string FolderName { get; set; }
 
         [XmlAttribute( "Id" )]
-        public Guid /*IProgramInfo.*/Id { get; set; }
+        public Guid /*IApplicationInfo.*/Id { get; set; }
 
         [XmlElement( "OS" )]
         public List<OsConfiguration> OsConfigs
         {
-            get { return this.Configuration.OsConfigs; }
-            set { this.Configuration.OsConfigs = value; }
+            get { return this.Definition.OsConfigs; }
+            set { this.Definition.OsConfigs = value; }
         }
 
         [XmlElement( "IsSteamCloudSupported" )]
         public IsSteamCloudSupported SupportsSteamCloud
         {
-            get { return new IsSteamCloudSupported { Value = this.Configuration.SupportsSteamCloud }; }
-            set { this.Configuration.SupportsSteamCloud = value.Value; }
+            get { return new IsSteamCloudSupported { Value = this.Definition.SupportsSteamCloud }; }
+            set { this.Definition.SupportsSteamCloud = value.Value; }
         }
 
         [XmlAttribute( "TechNameMatcher" )]
@@ -48,4 +49,5 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         [XmlAttribute( "value" )]
         public bool Value { get; set; }
     }
+#endregion
 }

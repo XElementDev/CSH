@@ -8,17 +8,17 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
     internal class AppManager : IPartImportsSatisfiedNotification
     {
         [ImportMany( typeof( AbstractAppInfo ) )]
-        public List<AbstractProgramInfo> AppLinkInfos { get; private set; }
+        public List<AbstractApplicationInfo> AppLinkInfos { get; private set; }
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
-            var gameLinkInfos = new List<AbstractProgramInfo>();
+            var gameLinkInfos = new List<AbstractApplicationInfo>();
 
             foreach ( var derivedAppInfo in this.AppLinkInfos )
             {
-                var baseAppInfo = new AppInfo
+                var baseAppInfo = new ToolInfo
                 {
-                    Configuration = derivedAppInfo.Configuration,
+                    Definition = derivedAppInfo.Definition,
                     ApplicationName = derivedAppInfo.ApplicationName,
                     Id = derivedAppInfo.Id,
                     FolderName = derivedAppInfo.FolderName,
