@@ -7,21 +7,6 @@
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
-    <!-- 2016-01-15: https://social.msdn.microsoft.com/Forums/vstudio/en-US/f500ff28-83e7-439a-ad78-be0e6a3b7587/how-to-hide-the-tab-headers-for-a-tabcontrol?forum=wpf -->
-    <Style x:Key="HiddenTabHeaders" TargetType="{x:Type TabControl}">
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="0 -2 0 0" />
-        <Style.Resources>
-            <Style TargetType="TabItem">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="TabItem" />
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Style.Resources>
-    </Style>
-
     <Style x:Key="Header" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="36" />
         <Setter Property="FontWeight" Value="Light" />

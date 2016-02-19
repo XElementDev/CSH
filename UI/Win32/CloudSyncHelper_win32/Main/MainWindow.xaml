@@ -12,9 +12,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="./Dictionaries/Images.xaml" />
-                <ResourceDictionary Source="./Dictionaries/Resources.xaml" />
-                <ResourceDictionary Source="./Dictionaries/Styles.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
