@@ -2,6 +2,6 @@
 {
     public interface IApplicationMenuContainer
     {
-        bool IsApplicationMenuOpen { get; }
+        bool IsApplicationMenuOpen { get; set; }
     }
 }

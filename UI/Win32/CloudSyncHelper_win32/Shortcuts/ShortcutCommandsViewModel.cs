@@ -11,7 +11,22 @@ namespace XElement.CloudSyncHelper.UI.Win32
     {
         public ShortcutCommandsViewModel()
         {
+            this.Esc = new DelegateCommand( this.Esc_Execute );
             this.ShowFilter = new DelegateCommand( this.ShowFilter_Execute, this.ShowFilter_CanExecute );
+        }
+
+        public ICommand Esc { get; private set; }
+
+        private void Esc_Execute()
+        {
+            if ( this._appMenuContainer.IsApplicationMenuOpen )
+            {
+                this._appMenuContainer.IsApplicationMenuOpen = false;
+            }
+            else if ( this._filterContainer.IsFilterVisible )
+            {
+                this._filterContainer.IsFilterVisible = false;
+            }
         }
 
         public ICommand ShowFilter { get; private set; }

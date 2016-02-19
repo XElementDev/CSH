@@ -30,6 +30,11 @@ namespace XElement.CloudSyncHelper.UI.Win32
         bool Shortcuts.IApplicationMenuContainer.IsApplicationMenuOpen
         {
             get { return this.SelectedIndex == 1; }
+            set
+            {
+                var openMenu = value;
+                this.SelectedIndex = openMenu ? 1 : 0;
+            }
         }
 
         bool IFilterContainer.IsFilterVisible
