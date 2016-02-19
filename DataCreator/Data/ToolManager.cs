@@ -2,7 +2,7 @@
 using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
+namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
 {
 #region not unit-tested
     [Export]

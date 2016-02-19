@@ -5,7 +5,7 @@ using System.IO;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 using XElement.DotNet.System.Environment;
 
-namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
+namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
 {
     [Export( typeof( AbstractToolInfo ) )]
     internal class Mp3tag : AbstractToolInfo
