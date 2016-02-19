@@ -1,87 +1,5 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Tool ApplicationName="Exact Audio Copy" FolderName="Exact Audio Copy" Id="0408347b-5d6b-4561-88f0-06f3f379232b" TechNameMatcher="Exact Audio Copy.*">
-    <OS id="Win81">
-      <Links>
-        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
-      </Links>
-    </OS>
-    <OS id="Win10">
-      <Links>
-        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
-      </Links>
-    </OS>
-    <IsSteamCloudSupported value="false" />
-  </Tool>
-  <Tool ApplicationName="Mp3tag" FolderName="Mp3tag" Id="9a78a831-c24b-47cd-8eb6-2889cb3100af" TechNameMatcher="Mp3tag">
-    <OS id="Win81">
-      <Links>
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
-      </Links>
-    </OS>
-    <OS id="Win10">
-      <Links>
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
-      </Links>
-    </OS>
-    <IsSteamCloudSupported value="false" />
-  </Tool>
-  <Tool ApplicationName="TeamSpeak 3" FolderName="TeamSpeak 3" Id="bf5b72bc-6351-481d-a25d-265bf9f063cb" TechNameMatcher="TeamSpeak 3 Client">
-    <OS id="Win81">
-      <Links>
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
-      </Links>
-    </OS>
-    <OS id="Win10">
-      <Links>
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
-      </Links>
-    </OS>
-    <IsSteamCloudSupported value="false" />
-  </Tool>
-  <Tool ApplicationName="Notepad++" FolderName="Notepad++" Id="97c5d94b-2794-45d1-8442-710754e41d77" TechNameMatcher="Notepad\+\+">
-    <OS id="Win10">
-      <Links>
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="config.xml" SourceId="config.xml" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="contextMenu.xml" SourceId="contextMenu.xml" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="functionList.xml" SourceId="functionList.xml" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="langs.xml" SourceId="langs.xml" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="nativeLang.xml" SourceId="nativeLang.xml" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="shortcuts.xml" SourceId="shortcuts.xml" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="stylers.xml" SourceId="stylers.xml" />
-      </Links>
-    </OS>
-    <IsSteamCloudSupported value="false" />
-  </Tool>
-  <Tool ApplicationName="Winamp" FolderName="Winamp" Id="b2d4a228-a950-4036-949b-4f328f416866" TechNameMatcher="Winamp">
-    <OS id="Win81">
-      <Links>
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
-      </Links>
-    </OS>
-    <OS id="Win10">
-      <Links>
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
-        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
-      </Links>
-    </OS>
-    <IsSteamCloudSupported value="false" />
-  </Tool>
   <Game ApplicationName="Age of Empires II: HD Edition" FolderName="Age Of Empires 2013 [Age of Empires II_ HD Edition]" Id="feaa47fc-feda-4945-9a4b-011c15f44e3f" TechNameMatcher="Age of Empires II: HD Edition">
     <IsSteamCloudSupported value="true" />
   </Game>
@@ -195,4 +113,86 @@
     </OS>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Tool ApplicationName="Exact Audio Copy" FolderName="Exact Audio Copy" Id="0408347b-5d6b-4561-88f0-06f3f379232b" TechNameMatcher="Exact Audio Copy.*">
+    <OS id="Win81">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Tool>
+  <Tool ApplicationName="Mp3tag" FolderName="Mp3tag" Id="9a78a831-c24b-47cd-8eb6-2889cb3100af" TechNameMatcher="Mp3tag">
+    <OS id="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Tool>
+  <Tool ApplicationName="TeamSpeak 3" FolderName="TeamSpeak 3" Id="bf5b72bc-6351-481d-a25d-265bf9f063cb" TechNameMatcher="TeamSpeak 3 Client">
+    <OS id="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Tool>
+  <Tool ApplicationName="Notepad++" FolderName="Notepad++" Id="97c5d94b-2794-45d1-8442-710754e41d77" TechNameMatcher="Notepad\+\+">
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="config.xml" SourceId="config.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="contextMenu.xml" SourceId="contextMenu.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="functionList.xml" SourceId="functionList.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="langs.xml" SourceId="langs.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="nativeLang.xml" SourceId="nativeLang.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="shortcuts.xml" SourceId="shortcuts.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="stylers.xml" SourceId="stylers.xml" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Tool>
+  <Tool ApplicationName="Winamp" FolderName="Winamp" Id="b2d4a228-a950-4036-949b-4f328f416866" TechNameMatcher="Winamp">
+    <OS id="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
+      </Links>
+    </OS>
+    <OS id="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
+      </Links>
+    </OS>
+    <IsSteamCloudSupported value="false" />
+  </Tool>
 </SyncData>
