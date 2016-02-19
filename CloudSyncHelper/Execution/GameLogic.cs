@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.Execution
 #region not unit-tested
     internal class GameLogic : IProgramLogic
     {
-        public GameLogic( IProgramInfo programInfo )
+        public GameLogic( IApplicationInfo programInfo )
         {
             this._programInfo = programInfo;
         }
@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.Execution
             get { return Path.Combine( "GAMEs", "PC", this._programInfo.FolderName, "SAVEs" ); }
         }
 
-        private IProgramInfo _programInfo;
+        private IApplicationInfo _programInfo;
     }
 #endregion
 }

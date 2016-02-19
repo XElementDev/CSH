@@ -7,7 +7,7 @@ namespace XElement.CloudSyncHelper.Execution
 #region not unit-tested
     internal class FolderLink : LinkBase, ILink
     {
-        public FolderLink( IProgramInfo programInfo, IFolderLinkInfo folderLinkInfo, PathVariablesDTO pathVariables )
+        public FolderLink( IApplicationInfo programInfo, IFolderLinkInfo folderLinkInfo, PathVariablesDTO pathVariables )
             : base( programInfo, folderLinkInfo, pathVariables ) { }
 
         private void AbstractSourceDestLinker( Func<string, string[]> sourcePathsGetter, 

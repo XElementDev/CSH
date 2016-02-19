@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 #region not unit-tested
     public class ProgramInfoViewModel : UiIconCrawler.IIconId, UiBannerCrawler.IObjectToCrawl
     {
-        public ProgramInfoViewModel( IProgramInfo programInfo, 
+        public ProgramInfoViewModel( IApplicationInfo programInfo, 
                                      IConfig config, 
                                      ConfigForOsHelper cfg4OsHelper )
         {
@@ -31,7 +31,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                 var displayName = String.Empty;
                 if ( this._programInfo != null )
                 {
-                    displayName = this._programInfo.DisplayName;
+                    displayName = this._programInfo.ApplicationName;
                 }
                 return displayName;
             }
@@ -53,7 +53,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             get { return this._programInfo.Id; }
         }
 
-        private void InitializeExecutionLogic( IProgramInfo programInfo )
+        private void InitializeExecutionLogic( IApplicationInfo programInfo )
         {
             var pathVariables = new PathVariablesDTO
             {
@@ -70,19 +70,19 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public IEnumerable<IOsConfiguration> OsConfigs
         {
-            get { return this._programInfo.Configuration.OsConfigs; }
+            get { return this._programInfo.Definition.OsConfigs; }
         }
 
         public bool SupportsSteamCloud
         {
-            get { return this._programInfo.Configuration.SupportsSteamCloud; }
+            get { return this._programInfo.Definition.SupportsSteamCloud; }
         }
 
         public string TechnicalNameMatcher { get { return this._programInfo.TechnicalNameMatcher; } }
 
         private IConfig _config;
         private ConfigForOsHelper _configForOsHelper;
-        private IProgramInfo _programInfo;
+        private IApplicationInfo _programInfo;
     }
 #endregion
 }

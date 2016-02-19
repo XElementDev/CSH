@@ -19,7 +19,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                 var baseGameInfo = new GameInfo
                 {
                     Configuration = derivedGameInfo.Configuration,
-                    DisplayName = derivedGameInfo.DisplayName,
+                    ApplicationName = derivedGameInfo.ApplicationName,
                     FolderName = derivedGameInfo.FolderName,
                     Id = derivedGameInfo.Id,
                     TechnicalNameMatcher = derivedGameInfo.TechnicalNameMatcher

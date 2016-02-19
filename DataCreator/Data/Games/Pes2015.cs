@@ -13,7 +13,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public Pes2015() : base( "E14C9A54-0243-4D24-9E8F-12BDB609386F" )
         {
-            this.DisplayName = "Pro Evolution Soccer 2015";
+            this.ApplicationName = "Pro Evolution Soccer 2015";
             this.FolderName = "PES 2014 [Pro Evolution Soccer 2015]";
             this.TechnicalNameMatcher = "Pro Evolution Soccer 2015";
         }

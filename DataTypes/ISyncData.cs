@@ -4,6 +4,6 @@ namespace XElement.CloudSyncHelper.DataTypes
 {
     public interface ISyncData
     {
-        IReadOnlyList<IProgramInfo> ProgramInfos { get; }
+        IReadOnlyList<IApplicationInfo> ProgramInfos { get; }
     }
 }

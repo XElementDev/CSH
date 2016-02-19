@@ -39,14 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAppInfo.cs" />
-    <Compile Include="IConfiguration.cs" />
+    <Compile Include="IToolInfo.cs" />
+    <Compile Include="IDefinition.cs" />
     <Compile Include="IFileLinkInfo.cs" />
     <Compile Include="IFolderLinkInfo.cs" />
     <Compile Include="IGameInfo.cs" />
     <Compile Include="ILinkInfo.cs" />
     <Compile Include="IOsConfiguration.cs" />
-    <Compile Include="IProgramInfo.cs" />
+    <Compile Include="IApplicationInfo.cs" />
     <Compile Include="ISyncData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

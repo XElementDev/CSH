@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public ClickerHeroes() : base( "359F7286-D6C6-426F-98ED-117B1EE49A0A" )
         {
-            this.DisplayName = "Clicker Heroes";
+            this.ApplicationName = "Clicker Heroes";
             this.FolderName = "Clicker Heroes";
             this.TechnicalNameMatcher = "Clicker Heroes";
         }

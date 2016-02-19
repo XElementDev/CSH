@@ -13,7 +13,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
         [ImportingConstructor]
         public TeamSpeak3() : base( "BF5B72BC-6351-481D-A25D-265BF9F063CB" )
         {
-            this.DisplayName = "TeamSpeak 3";
+            this.ApplicationName = "TeamSpeak 3";
             this.FolderName = "TeamSpeak 3";
             this.TechnicalNameMatcher = "TeamSpeak 3 Client";   // TODO: check matcher
         }

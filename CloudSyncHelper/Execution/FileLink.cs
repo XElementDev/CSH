@@ -7,7 +7,7 @@ namespace XElement.CloudSyncHelper.Execution
 #region not unit-tested
     internal class FileLink : LinkBase, ILink
     {
-        public FileLink( IProgramInfo programInfo, IFileLinkInfo fileLinkInfo, PathVariablesDTO pathVariables )
+        public FileLink( IApplicationInfo programInfo, IFileLinkInfo fileLinkInfo, PathVariablesDTO pathVariables )
             : base( programInfo, fileLinkInfo, pathVariables ) { }
 
         protected override FileSystemInfo /*LinkBase.*/FileSystemInfo

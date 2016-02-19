@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public Left4Dead2() : base( "27F4C600-EE69-48B2-BE52-F2918DB21CED" )
         {
-            this.DisplayName = "Left 4 Dead 2";
+            this.ApplicationName = "Left 4 Dead 2";
             this.FolderName = "Left 4 Dead 2009 [Left 4 Dead 2]";
             this.TechnicalNameMatcher = "Left 4 Dead 2";
         }

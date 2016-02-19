@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public Borderlands() : base( "FA773668-0021-4493-9C3F-2D981C98244E" )
         {
-            this.DisplayName = "Borderlands";
+            this.ApplicationName = "Borderlands";
             this.FolderName = "Borderlands 2009 [Borderlands]";
             this.TechnicalNameMatcher = "Borderlands";
         }

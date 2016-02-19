@@ -22,17 +22,17 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         public string SourceId { get; set; }
     }
 
-    public class AppInfo : AbstractProgramInfo, IAppInfo { }
+    public class AppInfo : AbstractProgramInfo, IToolInfo { }
 
-    public class Configuration : IConfiguration
+    public class Configuration : IDefinition
     {
         [XmlIgnore]
         public List<OsConfiguration> OsConfigs { get; set; }
-        IEnumerable<IOsConfiguration> IConfiguration.OsConfigs { get { return this.OsConfigs; } }
+        IEnumerable<IOsConfiguration> IDefinition.OsConfigs { get { return this.OsConfigs; } }
 
         [XmlIgnore]
         public bool SupportsSteamCloud { get; set; }
-        bool IConfiguration.SupportsSteamCloud { get { return this.SupportsSteamCloud; } }
+        bool IDefinition.SupportsSteamCloud { get { return this.SupportsSteamCloud; } }
     }
 
     public class FileLinkInfo : AbstractLinkInfo, IFileLinkInfo { }
@@ -59,7 +59,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         [XmlElement( "App" , typeof(AppInfo) ),
          XmlElement( "Game", typeof(GameInfo) )]
         public List<AbstractProgramInfo> ProgramInfos { get; set; }
-        IReadOnlyList<IProgramInfo> ISyncData.ProgramInfos { get { return this.ProgramInfos; } }
+        IReadOnlyList<IApplicationInfo> ISyncData.ProgramInfos { get { return this.ProgramInfos; } }
     }
 #endregion
 }

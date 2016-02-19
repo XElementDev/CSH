@@ -13,7 +13,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public Anno2070() : base( "FE83FD10-2446-45BF-A31B-3149150D6ED3" )
         {
-            this.DisplayName = "ANNO 2070";
+            this.ApplicationName = "ANNO 2070";
             this.FolderName = "Anno 2011 [ANNO 2070]";
             this.TechnicalNameMatcher = "ANNO 2070";    // TODO: check matcher
         }

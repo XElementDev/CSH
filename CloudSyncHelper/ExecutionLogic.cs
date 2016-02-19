@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper
 #region not unit-tested
     public class ExecutionLogic
     {
-        public ExecutionLogic( IProgramInfo programInfo, 
+        public ExecutionLogic( IApplicationInfo programInfo, 
                                PathVariablesDTO pathVariables, 
                                ConfigForOsHelper cfg4OsHelper )
         {
@@ -21,7 +21,7 @@ namespace XElement.CloudSyncHelper
         {
             get
             {
-                var osConfigs = this._programInfo.Configuration.OsConfigs;
+                var osConfigs = this._programInfo.Definition.OsConfigs;
                 var suitableConfig = this._configForOsHelper.GetSuitableConfig( osConfigs );
                 var config = new List<ILink>();
                 foreach ( ILinkInfo linkInfo in suitableConfig )
@@ -105,7 +105,7 @@ namespace XElement.CloudSyncHelper
 
         private ConfigForOsHelper _configForOsHelper;
         private PathVariablesDTO _pathVariables;
-        private IProgramInfo _programInfo;
+        private IApplicationInfo _programInfo;
     }
 #endregion
 }

@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public TheSims3() : base( "0AED2DDF-6109-401F-9467-484FA853450F" )
         {
-            this.DisplayName = "Die Sims 3 [DE]";
+            this.ApplicationName = "Die Sims 3 [DE]";
             this.FolderName = "The Sims 2009 [The Sims 3]";
             this.TechnicalNameMatcher = String.Format( "Die Sims{0} 3",
                                                        SpecialCharacters.TRADEMARK );

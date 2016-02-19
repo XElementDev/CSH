@@ -5,7 +5,7 @@ using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Serialization.DataTypes
 {
-    public abstract class AbstractProgramInfo : IProgramInfo
+    public abstract class AbstractProgramInfo : IApplicationInfo
     {
         public AbstractProgramInfo()
         {
@@ -14,10 +14,10 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
         [XmlIgnore]
         public Configuration Configuration { get; set; }
-        IConfiguration IProgramInfo.Configuration { get { return this.Configuration; } }
+        IDefinition IApplicationInfo.Definition { get { return this.Configuration; } }
 
         [XmlAttribute( "DisplayName" )]
-        public string DisplayName { get; set; }
+        public string ApplicationName { get; set; }
 
         [XmlAttribute( "FolderName" )]
         public string FolderName { get; set; }

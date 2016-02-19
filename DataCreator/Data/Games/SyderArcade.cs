@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public SyderArcade() : base( "1E4E19E9-CBFA-411D-A926-FE80FE67950E" )
         {
-            this.DisplayName = "Syder Arcade";
+            this.ApplicationName = "Syder Arcade";
             this.FolderName = "Syder Arcade 2013 [Syder Arcade]";
             this.TechnicalNameMatcher = "Syder Arcade"; // TODO: check matcher
         }

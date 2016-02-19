@@ -2,11 +2,11 @@
 
 namespace XElement.CloudSyncHelper.DataTypes
 {
-    public interface IProgramInfo
+    public interface IApplicationInfo
     {
-        IConfiguration Configuration { get; }
+        string ApplicationName { get; }
 
-        string DisplayName { get; }
+        IDefinition Definition { get; }
 
         string FolderName { get; }
 

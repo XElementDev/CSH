@@ -13,7 +13,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
         [ImportingConstructor]
         public Winamp() : base( "B2D4A228-A950-4036-949B-4F328F416866" )
         {
-            this.DisplayName = "Winamp";
+            this.ApplicationName = "Winamp";
             this.FolderName = "Winamp";
             this.TechnicalNameMatcher = "Winamp";
         }

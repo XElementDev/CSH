@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         {
             throw new NotImplementedException();
         }
-        public ProgramInfoViewModel /*IFactory<T>.*/Get( IProgramInfo programInfo )
+        public ProgramInfoViewModel /*IFactory<T>.*/Get( IApplicationInfo programInfo )
         {
             return new ProgramInfoViewModel( programInfo, this._config, this._configForOsHelper );
         }

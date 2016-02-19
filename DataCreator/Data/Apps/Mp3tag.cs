@@ -13,7 +13,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
         [ImportingConstructor]
         public Mp3tag() : base( "9A78A831-C24B-47CD-8EB6-2889CB3100AF" )
         {
-            this.DisplayName = "Mp3tag";
+            this.ApplicationName = "Mp3tag";
             this.FolderName = "Mp3tag";
             this.TechnicalNameMatcher = "Mp3tag";
         }

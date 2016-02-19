@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public Risen3() : base( "7B57B2AB-8B0F-40EB-88F4-2E20002A4EB0" )
         {
-            this.DisplayName = "Risen 3 - Titan Lords";
+            this.ApplicationName = "Risen 3 - Titan Lords";
             this.FolderName = "Risen 2014 [Risen 3 - Titan Lords]";
             this.TechnicalNameMatcher = "Risen 3 - Titan Lords";
         }

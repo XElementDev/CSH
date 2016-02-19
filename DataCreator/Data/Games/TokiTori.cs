@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public TokiTori() : base( "A2ACE881-7DBF-40ED-8BA9-72689E8ED9EC" )
         {
-            this.DisplayName = "Toki Tori";
+            this.ApplicationName = "Toki Tori";
             this.FolderName = "Toki Tori 2010 [Toki Tori]";
             this.TechnicalNameMatcher = "Toki Tori";    // TODO: check matcher
         }

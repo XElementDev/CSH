@@ -2,7 +2,7 @@
 
 namespace XElement.CloudSyncHelper.DataTypes
 {
-    public interface IConfiguration
+    public interface IDefinition
     {
         IEnumerable<IOsConfiguration> OsConfigs { get; }
 

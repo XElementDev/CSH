@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.Execution
 #region not unit-tested
     internal abstract class LinkBase : ILink
     {
-        public LinkBase( IProgramInfo programInfo, ILinkInfo linkInfo, PathVariablesDTO pathVariables )
+        public LinkBase( IApplicationInfo programInfo, ILinkInfo linkInfo, PathVariablesDTO pathVariables )
         {
             this._linkInfo = linkInfo;
             this._pathVariables = pathVariables;
@@ -60,9 +60,9 @@ namespace XElement.CloudSyncHelper.Execution
                 this.LinkPath, this.TargetPath );
         }
 
-        private void Initialize( IProgramInfo programInfo )
+        private void Initialize( IApplicationInfo programInfo )
         {
-            if ( programInfo is IAppInfo )
+            if ( programInfo is IToolInfo )
             {
                 this._programLogic = new AppLogic( programInfo );
             }

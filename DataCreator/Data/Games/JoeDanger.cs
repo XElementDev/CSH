@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public JoeDanger() : base( "53C7BC46-AA43-413F-8F13-9CFEB4DF9FF0" )
         {
-            this.DisplayName = "Joe Danger";
+            this.ApplicationName = "Joe Danger";
             this.FolderName = "Joe Danger 2013 [Joe Danger]";
             this.TechnicalNameMatcher = "Joe Danger";   // TODO: check matcher
         }

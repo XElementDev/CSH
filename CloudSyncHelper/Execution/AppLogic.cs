@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.Execution
 #region not unit-tested
     internal class AppLogic : IProgramLogic
     {
-        public AppLogic( IProgramInfo programInfo )
+        public AppLogic( IApplicationInfo programInfo )
         {
             this._programInfo = programInfo;
         }
@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.Execution
             get { return Path.Combine( "APPs", this._programInfo.FolderName ); }
         }
 
-        private IProgramInfo _programInfo;
+        private IApplicationInfo _programInfo;
     }
 #endregion
 }

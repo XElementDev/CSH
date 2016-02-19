@@ -13,7 +13,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
         [ImportingConstructor]
         public NotepadPlusPlus() : base( "97C5D94B-2794-45D1-8442-710754E41D77" )
         {
-            this.DisplayName = "Notepad++";
+            this.ApplicationName = "Notepad++";
             this.FolderName = "Notepad++";
             this.TechnicalNameMatcher = "Notepad\\+\\+";
         }

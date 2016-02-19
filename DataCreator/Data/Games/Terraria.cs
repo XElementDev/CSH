@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         [ImportingConstructor]
         public Terraria() : base( "367CBED1-9FF1-4226-9BAF-E3230AE19EFB" )
         {
-            this.DisplayName = "Terraria";
+            this.ApplicationName = "Terraria";
             this.FolderName = "Terraria 2011 [Terraria]";
             this.TechnicalNameMatcher = "Terraria";
         }
