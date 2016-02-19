@@ -20,29 +20,35 @@
     </UserControl.Resources>
 
     <StackPanel 
-                Orientation="Vertical">
-        <local:SupportedOperatingSystemView 
-                                            OsName="Windows 7" 
-                                            IsOsSupported="{Binding Path=IsWindows7Supported}" 
-                                            OsImageSource="{StaticResource Windows_7-000000-16}" 
+                Style="{StaticResource RootContainer}">
+        <TextBlock 
+                   Text="Windows:" 
         />
 
-        <local:SupportedOperatingSystemView 
-                                            OsName="Windows 8" 
-                                            IsOsSupported="{Binding Path=IsWindows8Supported}" 
-                                            OsImageSource="{StaticResource Windows_8-000000-16}" 
-        />
+        <WrapPanel>
+            <local:SupportedOperatingSystemView 
+                                                OsName="7" 
+                                                IsOsSupported="{Binding Path=IsWindows7Supported}" 
+                                                OsImageSource="{StaticResource Windows_7-000000-16}" 
+            />
 
-        <local:SupportedOperatingSystemView 
-                                            OsName="Windows 8.1" 
-                                            IsOsSupported="{Binding Path=IsWindows81Supported}" 
-                                            OsImageSource="{StaticResource Windows_8_1-000000-16}" 
-        />
+            <local:SupportedOperatingSystemView 
+                                                OsName="8" 
+                                                IsOsSupported="{Binding Path=IsWindows8Supported}" 
+                                                OsImageSource="{StaticResource Windows_8-000000-16}" 
+            />
 
-        <local:SupportedOperatingSystemView 
-                                            OsName="Windows 10" 
-                                            IsOsSupported="{Binding Path=IsWindows10Supported}" 
-                                            OsImageSource="{StaticResource Windows_10-000000-16}" 
-        />
+            <local:SupportedOperatingSystemView 
+                                                OsName="8.1" 
+                                                IsOsSupported="{Binding Path=IsWindows81Supported}" 
+                                                OsImageSource="{StaticResource Windows_8_1-000000-16}" 
+            />
+
+            <local:SupportedOperatingSystemView 
+                                                OsName="10" 
+                                                IsOsSupported="{Binding Path=IsWindows10Supported}" 
+                                                OsImageSource="{StaticResource Windows_10-000000-16}" 
+            />
+        </WrapPanel>
     </StackPanel>
 </UserControl>

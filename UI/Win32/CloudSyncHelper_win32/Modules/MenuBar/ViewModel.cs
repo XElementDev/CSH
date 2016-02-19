@@ -1,28 +1,53 @@
 ﻿using Microsoft.Practices.Prism.Commands;
+using System;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
-using System.Windows;
 using System.Windows.Input;
+using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.CloudSyncHelper.UI.Win32.Modules.ApplicationMenu;
+using FilterViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.Filter.ViewModel;
+using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
 {
-#region not unit-tested
     [Export]
-    public class ViewModel
+    public class ViewModel : NotifyPropertyChanged, INotifyPropertyChanged
     {
-        public ViewModel()
+        [ImportingConstructor]
+        private ViewModel()
         {
-            this.ShowAbout = new DelegateCommand( this.ShowAbout_Execute );
+            this.ShowApplicationMenu = new DelegateCommand( this.ShowApplicationMenu_Execute );
         }
 
-        public ICommand ShowAbout { get; private set; }
+        [Import]
+        public FilterViewModel FilterVM { get; private set; }
 
-        private void ShowAbout_Execute()
+        private bool _isFilterVisible;
+        public bool IsFilterVisible
         {
-            this._window = new AboutWindow();
-            this._window.ShowDialog();
+            get { return this._isFilterVisible; }
+            set
+            {
+                this._isFilterVisible = value;
+                if ( !this.IsFilterVisible )
+                {
+                    this._filterModel.Filter = String.Empty;
+                }
+                this.RaisePropertyChanged( nameof( IsFilterVisible ) );
+            }
         }
 
-        private Window _window;
+        public ICommand ShowApplicationMenu { get; private set; }
+
+        private void ShowApplicationMenu_Execute()
+        {
+            this._appMenuContainer.ShowApplicationMenu();
+        }
+
+        [Import]
+        private IApplicationMenuContainer _appMenuContainer = null;
+
+        [Import]
+        private FilterModel _filterModel = null;
     }
-#endregion
 }

@@ -46,13 +46,6 @@
                            Text="Windows 10" 
                 />
             </StackPanel>
-
-            <StatusBarItem 
-                           HorizontalAlignment="Right">
-                <TextBlock 
-                           Text="{Binding Path=Version, Mode=OneTime}" 
-                />
-            </StatusBarItem>
         </StatusBar>
     </Grid>
 

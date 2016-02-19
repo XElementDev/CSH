@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+        <ResourceDictionary Source="../../Dictionaries/Styles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="IsLinkedIndicatorIcon" TargetType="{x:Type Image}" BasedOn="{StaticResource IndicatorIconBase_active}">
+        <Setter Property="Source" Value="{StaticResource CloudRefresh-d16p0-black}" />
+    </Style>
+
+    <Style x:Key="IsNotLinkedIndicatorIcon" TargetType="{x:Type Image}" BasedOn="{StaticResource IndicatorIconBase_inactive}">
+        <Setter Property="Source" Value="{StaticResource CloudRefresh-d16p0-black}" />
+    </Style>
+
+    <Style x:Key="SteamCloudIcon" TargetType="{x:Type Image}" BasedOn="{StaticResource IndicatorIconBase_active}">
+        <Setter Property="Source" Value="{StaticResource Steam-Black-16}" />
+    </Style>
+
+
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin" Value="2 0 2 0" />
+    </Style>
+
+</ResourceDictionary>

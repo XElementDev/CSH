@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="NoEntryTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 16 0 0" />
+    </Style>
+
+
+    <Style TargetType="ItemsControl">
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="FrameworkElement.Margin" Value="0 4 0 4" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

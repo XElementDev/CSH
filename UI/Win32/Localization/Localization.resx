@@ -117,61 +117,81 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MenuBar_AboutButton" xml:space="preserve">
-    <value>About…</value>
-    <comment>// 2015-12-22</comment>
+  <data name="About_Header" xml:space="preserve">
+    <value>About</value>
+    <comment>// 2016-01-03</comment>
   </data>
-  <data name="ProgramDetails_CloudProvider" xml:space="preserve">
-    <value>Cloud provider:</value>
-    <comment>// 2015-12-31</comment>
+  <data name="ApplicationMenu_About" xml:space="preserve">
+    <value>About</value>
+    <comment>// 2016-01-15</comment>
   </data>
-  <data name="ProgramDetails_OsConfigs" xml:space="preserve">
+  <data name="ApplicationMenu_Settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>// 2016-01-27</comment>
+  </data>
+  <data name="FilterUC_Watermark_Text" xml:space="preserve">
+    <value>Filter</value>
+    <comment>// 2016-02-01</comment>
+  </data>
+  <data name="MenuBarUC_FilterButton_Tooltip" xml:space="preserve">
+    <value>Filter (Ctrl+F)</value>
+    <comment>// 2016-02-01</comment>
+  </data>
+  <data name="SemiautomaticSync_OsConfigs" xml:space="preserve">
     <value>Operating system configurations:</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_ConfigAvailable" xml:space="preserve">
+  <data name="SemiautomaticSync_ConfigAvailable" xml:space="preserve">
     <value>Configuration available</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_IsInCloud" xml:space="preserve">
+  <data name="SemiautomaticSync_IsInCloud" xml:space="preserve">
     <value>Data is stored in cloud</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_IsInstalled" xml:space="preserve">
+  <data name="SyncObject_IsInstalled" xml:space="preserve">
     <value>Installed</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_IsLinked" xml:space="preserve">
+  <data name="SyncObject_IsLinked" xml:space="preserve">
     <value>Linked</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_IsNotInCloud" xml:space="preserve">
+  <data name="SemiautomaticSync_IsNotInCloud" xml:space="preserve">
     <value>No data stored in cloud yet</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_IsNotInstalled" xml:space="preserve">
+  <data name="SyncObject_IsNotInstalled" xml:space="preserve">
     <value>Not installed</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_IsNotLinked" xml:space="preserve">
+  <data name="SyncObject_IsNotLinked" xml:space="preserve">
     <value>Not linked</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_Link" xml:space="preserve">
+  <data name="SemiautomaticSync_Link" xml:space="preserve">
     <value>Create link</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_MoveToCloud" xml:space="preserve">
+  <data name="SemiautomaticSync_MoveToCloud" xml:space="preserve">
     <value>Move data to cloud</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_NoConfigAvailable" xml:space="preserve">
+  <data name="SemiautomaticSync_NoConfigAvailable" xml:space="preserve">
     <value>No configuration available</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="ProgramHeader_Unlink" xml:space="preserve">
+  <data name="SemiautomaticSync_Unlink" xml:space="preserve">
     <value>Remove link</value>
     <comment>// 2015-12-31</comment>
+  </data>
+  <data name="Settings_Header" xml:space="preserve">
+    <value>Settings</value>
+    <comment>// 2016-01-28</comment>
+  </data>
+  <data name="Settings_Placeholder" xml:space="preserve">
+    <value>Soon available.</value>
+    <comment>// 2016-01-27</comment>
   </data>
   <data name="StatusBar_CurrentOs" xml:space="preserve">
     <value>Current operating system:</value>
@@ -184,5 +204,17 @@
   <data name="SupportedOperatingSystem_OsIsSupported_StringFormat" xml:space="preserve">
     <value>There is a configuration for {0} available</value>
     <comment>// 2015-12-31</comment>
+  </data>
+  <data name="SyncObjects_NoEntries_Text" xml:space="preserve">
+    <value>No entries found.</value>
+    <comment>// 2016-02-02</comment>
+  </data>
+  <data name="SyncObject_FullyAutomaticGroupBox_Header" xml:space="preserve">
+    <value>fully automatic</value>
+    <comment>// 2016-02-12</comment>
+  </data>
+  <data name="SyncObject_SemiautomaticGroupBox_Header" xml:space="preserve">
+    <value>semiautomatic</value>
+    <comment>// 2016-02-12</comment>
   </data>
 </root>

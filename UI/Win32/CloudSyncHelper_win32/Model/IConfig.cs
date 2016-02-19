@@ -2,7 +2,8 @@
 {
     public interface IConfig
     {
-        string PathToImageCache { get; }
+        string PathToBannerCache { get; }
+        string PathToIconCache { get; }
         string PathToSyncFolder { get; }
         string UplayAccountName { get; }
         string UserName { get; }

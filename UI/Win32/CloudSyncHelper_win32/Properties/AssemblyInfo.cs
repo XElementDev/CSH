@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "Cloud Sync Helper" )]
-[assembly: AssemblyCopyright( "Copyright © XElementSoftware 2015-206" )]
+[assembly: AssemblyCopyright( "Copyright © XElementSoftware 2015-2016" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 

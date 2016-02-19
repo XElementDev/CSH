@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.Model;
-using XElement.CloudSyncHelper.UI.Win32.Model.IconCrawler;
+using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
+using UiBannerCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
+using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
 #region not unit-tested
-    public class ProgramInfoViewModel : IObjectToCrawl
+    public class ProgramInfoViewModel : UiIconCrawler.IIconId, UiBannerCrawler.IObjectToCrawl
     {
         public ProgramInfoViewModel( IProgramInfo programInfo, 
                                      IConfig config, 
@@ -20,6 +21,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
             InitializeExecutionLogic( programInfo );
         }
+
+        string BannerCrawler.ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
 
         public string DisplayName
         {
@@ -45,7 +48,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        Guid IIconId.Id { get { return this._programInfo.Id; } }
+        Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
+        {
+            get { return this._programInfo.Id; }
+        }
 
         private void InitializeExecutionLogic( IProgramInfo programInfo )
         {
@@ -66,8 +72,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         {
             get { return this._programInfo.Configuration.OsConfigs; }
         }
-
-        string ICrawlInformation.SoftwareName { get { return this.DisplayName; } }
 
         public bool SupportsSteamCloud
         {

@@ -36,6 +36,9 @@
   <PropertyGroup>
     <ApplicationManifest>exe.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CloudSyncHelper.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\..\..\externals\Prism\Microsoft.Practices.Prism.dll</HintPath>
@@ -65,11 +68,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Shortcuts\IApplicationMenuContainer.cs" />
+    <Compile Include="Shortcuts\IFilterContainer.cs" />
+    <Compile Include="Shortcuts\ShortcutCommandsViewModel.cs" />
+    <Page Include="Dictionaries\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\Images.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Dictionaries\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -79,8 +93,8 @@
     </Compile>
     <Compile Include="DataTypes\InstalledProgramViewModel.cs" />
     <Compile Include="DataTypes\ProgramInfoViewModel.cs" />
-    <Compile Include="MainViewModel.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -88,11 +102,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Main\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\About\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\About\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\About\Window.xaml">
+    <Page Include="Modules\ApplicationMenu\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\ApplicationMenu\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\FullyAutomaticSync\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\FullyAutomaticSync\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\MenuBar\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,19 +142,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\ProgramDetails\Styles.xaml">
+    <Page Include="Modules\SemiautomaticSync\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\ProgramDetails\View.xaml">
+    <Page Include="Modules\Filter\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\ProgramHeader\Styles.xaml">
+    <Page Include="Modules\Filter\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modules\ProgramHeader\View.xaml">
+    <Page Include="Modules\SemiautomaticSync\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Settings\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,29 +182,65 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\SyncObjects\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\SyncObjects\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\SyncObject\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\SyncObject\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\SyncObject\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypes\ProgramViewModel.cs" />
     <Compile Include="Model\Config.cs" />
     <Compile Include="Model\Configuration\LocalConfig.cs" />
     <Compile Include="Model\Configuration\RoamingConfig.cs" />
-    <Compile Include="Model\Events.cs" />
-    <Compile Include="Model\IconCrawler\IconCrawlerModel.cs" />
-    <Compile Include="Model\IconCrawler\IIconId.cs" />
-    <Compile Include="Model\IconCrawler\IObjectToCrawl.cs" />
+    <Compile Include="Model\Enrichment\CrawlerModelBaseT2.cs" />
+    <Compile Include="Model\Enrichment\Icons\IconCrawlerModel.cs" />
+    <Compile Include="Model\Enrichment\Icons\IconRetrieverModel.cs" />
+    <Compile Include="Model\Enrichment\Icons\IIconId.cs" />
+    <Compile Include="Model\Enrichment\Icons\IObjectToCrawl.cs" />
+    <Compile Include="Model\Enrichment\IRetrievalIdContainer.cs" />
+    <Compile Include="Model\Enrichment\RetrieverModelBaseT1.cs" />
+    <Compile Include="Model\Factories\IFactoryT2.cs" />
+    <Compile Include="Model\FilterModel.cs" />
+    <Compile Include="Model\Enrichment\Banners\BannerCrawlerModel.cs" />
+    <Compile Include="Model\Enrichment\Banners\IBannerId.cs" />
+    <Compile Include="Model\Enrichment\Banners\IObjectToCrawl.cs" />
     <Compile Include="Model\IConfig.cs" />
     <Compile Include="Model\Factories\IFactoryT1.cs" />
-    <Compile Include="Model\IconCrawler\IconRetrieverModel.cs" />
+    <Compile Include="Model\Enrichment\Banners\BannerRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
     <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
-    <Compile Include="Model\Factories\ProgramViewModelFactory.cs" />
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\About\Window.xaml.cs">
-      <DependentUpon>Window.xaml</DependentUpon>
+    <Compile Include="Modules\About\ViewModel.cs" />
+    <Compile Include="Modules\ApplicationMenu\IApplicationMenuContainer.cs" />
+    <Compile Include="Modules\ApplicationMenu\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ApplicationMenu\ViewModel.cs" />
+    <Compile Include="Modules\Filter\ViewModel.cs" />
+    <Compile Include="Modules\FullyAutomaticSync\IModelConstructorParameters.cs" />
+    <Compile Include="Modules\FullyAutomaticSync\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\FullyAutomaticSync\Model.cs" />
+    <Compile Include="Modules\FullyAutomaticSync\ViewModel.cs" />
     <Compile Include="Modules\MenuBar\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -170,10 +248,16 @@
     <Compile Include="Modules\PathMap\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\ProgramDetails\View.xaml.cs">
+    <Compile Include="Modules\Filter\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\ProgramHeader\View.xaml.cs">
+    <Compile Include="Modules\SemiautomaticSync\IModelConstructorParameters.cs" />
+    <Compile Include="Modules\SemiautomaticSync\Model.cs" />
+    <Compile Include="Modules\SemiautomaticSync\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SemiautomaticSync\ViewModel.cs" />
+    <Compile Include="Modules\Settings\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\StatusBar\ViewModel.cs" />
@@ -187,6 +271,19 @@
     <Compile Include="Modules\SupportedOperatingSystem\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SyncObjects\Model.cs" />
+    <Compile Include="Modules\SyncObjects\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SyncObjects\ViewModel.cs" />
+    <Compile Include="Modules\SyncObject\Model.cs" />
+    <Compile Include="Modules\SyncObject\ModelFactory.cs" />
+    <Compile Include="Modules\SyncObject\StringToImageSourceConverter.cs" />
+    <Compile Include="Modules\SyncObject\ViewModelFactory.cs" />
+    <Compile Include="Modules\SyncObject\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SyncObject\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -225,13 +322,13 @@
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj">
+    <ProjectReference Include="..\..\BannerCrawler\BannerCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
-      <Name>IconCrawler.Interface</Name>
+      <Name>BannerCrawler.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj">
+    <ProjectReference Include="..\..\BannerCrawler\BannerCrawler.MefExtensions\BannerCrawler.MefExtensions.csproj">
       <Project>{ab150370-485f-4489-a381-73b388a674ad}</Project>
-      <Name>IconCrawler.MefExtensions</Name>
+      <Name>BannerCrawler.MefExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj">
       <Project>{77d3002b-68fe-4a1d-b10f-8b15c3ae6a1d}</Project>
@@ -244,6 +341,14 @@
     <ProjectReference Include="..\..\..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IconCrawler\IconCrawler.Interface\IconCrawler.Interface.csproj">
+      <Project>{3c60204d-6858-4692-98ac-2685a184c26e}</Project>
+      <Name>IconCrawler.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\IconCrawler\IconCrawler.MefExtensions\IconCrawler.MefExtensions.csproj">
+      <Project>{d80ca4dc-a78b-4d74-982b-037de065fe53}</Project>
+      <Name>IconCrawler.MefExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Localization\Localization.csproj">
       <Project>{cc6ad910-f9f2-40b0-90ac-f347c73b5ef7}</Project>
@@ -275,9 +380,6 @@
     <Resource Include="Resources\Arrow-Expand-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Cloud-000000-16.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Cloud-Upload-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
@@ -288,7 +390,14 @@
       <Link>CloudSyncHelper.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Cloud-Refresh_d16-p0_000000.png" />
+    <Resource Include="Resources\Dialog-Box-About_d16-p3_000000.png" />
+    <Resource Include="Resources\Filter-Standard_d48-p8_000000.png" />
+    <Resource Include="Resources\GitHub-Mark-000000-32.png" />
+    <Resource Include="Resources\Swap-Left-d48-p4-000000.png" />
+    <Resource Include="CloudSyncHelper.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

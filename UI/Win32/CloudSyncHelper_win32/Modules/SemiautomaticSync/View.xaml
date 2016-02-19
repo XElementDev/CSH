@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSyncUC" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" 
+
+             xmlns:modules="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Styles.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel 
+                Orientation="Vertical">
+        <StackPanel Style="{StaticResource FullySemiSyncIndicatorsContainer}">
+            <Image 
+                   Source="{StaticResource Settings-02-16}" 
+                   Visibility="{Binding Path=Model.HasSuitableConfig, 
+                                        Converter={StaticResource BoolToVisibilityConverter}, 
+                                        Mode=OneWay}" 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_ConfigAvailable, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+            <Image 
+                   Source="{StaticResource Settings-02-16}" 
+                   Visibility="{Binding Path=Model.HasSuitableConfig, 
+                                        Converter={StaticResource InversedBoolToVisibilityConverter}, 
+                                        Mode=OneWay}" 
+                   Opacity=".25" 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_NoConfigAvailable, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+
+            <Image 
+                   Source="{StaticResource CloudUpload-d16p0-black}" 
+                   Visibility="{Binding Path=Model.IsInCloud, 
+                                Converter={StaticResource BoolToVisibilityConverter}, 
+                                Mode=OneWay}" 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInCloud, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+            <Image 
+                   Source="{StaticResource CloudUpload-d16p0-black}" 
+                   Visibility="{Binding Path=Model.IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
+                   Opacity=".25" 
+                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInCloud, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource ButtonsContainer}">
+            <Button Visibility="Collapsed" 
+                    Command="{Binding Path=Model.MoveToCloudCommand}" 
+                    ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
+                                     Source={StaticResource XamlLocalization}}">
+                <Button.Content>
+                    <Image Source="{StaticResource MoveToCloud-Black-16}" />
+                </Button.Content>
+            </Button>
+
+            <Button 
+                    Command="{Binding Path=Model.LinkCommand}" 
+                    Content="{Binding Path=Localization.SemiautomaticSync_Link, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+            <Button 
+                    Command="{Binding Path=Model.UnlinkCommand}" 
+                    Content="{Binding Path=Localization.SemiautomaticSync_Unlink, 
+                                     Source={StaticResource XamlLocalization}}" 
+            />
+        </StackPanel>
+
+        <StackPanel 
+                    Orientation="Horizontal">
+            <Image 
+                   Source="{StaticResource Settings-02-16}" 
+                   VerticalAlignment="Top" 
+            />
+            <TextBlock 
+                       Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
+                                      Source={StaticResource XamlLocalization}}" 
+            />
+        </StackPanel>
+
+        <Border Style="{StaticResource SupportedOSs}">
+            <modules:SupportedOSs 
+                                  DataContext="{Binding Path=Model.SupportedOSsVM, Mode=OneWay}" 
+            />
+        </Border>
+
+        <modules:PathMap 
+                         DataContext="{Binding Path=Model.PathMap, Mode=OneWay}" 
+        />
+    </StackPanel>
+
+</UserControl>

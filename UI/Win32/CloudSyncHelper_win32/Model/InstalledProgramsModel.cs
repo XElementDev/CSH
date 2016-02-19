@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     internal class InstalledProgramsModel : IPartImportsSatisfiedNotification
     {
         [ImportingConstructor]
-        public InstalledProgramsModel()
+        private InstalledProgramsModel()
         {
             this.InstalledProgramVMs = new List<InstalledProgramViewModel>();
         }

@@ -10,6 +10,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Styles.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -17,25 +20,86 @@
     <StackPanel 
                 Orientation="Vertical">
         <TextBlock 
-                   Text="Credits:" 
+                   Text="{Binding Path=Localization.About_Header, 
+                                  Source={StaticResource XamlLocalization}}" 
+                   Style="{StaticResource Header}" 
         />
-        <StackPanel 
-                    Orientation="Horizontal">
-            <Image 
-                   Source="{StaticResource Steam-Black-16}" 
-            />
-            <TextBlock>
-                <Span>
-                    <Run Text="Icon made by"/>
-                    <Hyperlink NavigateUri="http://www.simpleicon.com/">
-                        <Run Text="SimpleIcon"/>
-                    </Hyperlink>
-                    <Run Text="from"/>
-                    <Hyperlink NavigateUri="http://www.flaticon.com/">
-                        <Run Text="www.flaticon.com"/>
-                    </Hyperlink>
-                </Span>
-            </TextBlock>
-        </StackPanel>
+
+        <GroupBox>
+            <StackPanel 
+                        Orientation="Vertical">
+                <TextBlock 
+                           Text="{Binding Path=ProductName, Mode=OneTime}" 
+                />
+                <TextBlock 
+                           Text="{Binding Path=Version, Mode=OneTime}" 
+                />
+                <TextBlock 
+                           Text="{Binding Path=Copyright, Mode=OneTime}" 
+                />
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox 
+                  Header="Credits:">
+            <StackPanel 
+                        Orientation="Vertical">
+                <TextBlock>
+                    <Span>
+                        <Run Text="Thanks to" />
+                        <Hyperlink NavigateUri="http://flaticons.net/" 
+                                   RequestNavigate="Hyperlink_RequestNavigate">
+                            <Run Text="FlatIcons"/>
+                        </Hyperlink>
+                    </Span>
+                </TextBlock>
+                <TextBlock>
+                    <Span>
+                        <Run Text="Thanks to" />
+                        <Hyperlink NavigateUri="https://flatuicolors.com/" 
+                                   RequestNavigate="Hyperlink_RequestNavigate">
+                            <Run Text="Flat UI Colors"/>
+                        </Hyperlink>
+                    </Span>
+                </TextBlock>
+                <StackPanel 
+                            Orientation="Horizontal">
+                    <Image 
+                           Source="{StaticResource Steam-Black-16}" 
+                           Margin="0 0 4 0" 
+                    />
+                    <TextBlock>
+                        <Span>
+                            <Run Text="Icon made by" />
+                            <Hyperlink NavigateUri="http://www.simpleicon.com/" 
+                                       RequestNavigate="Hyperlink_RequestNavigate">
+                                <Run Text="SimpleIcon" />
+                            </Hyperlink>
+                            <Run Text="from" />
+                            <Hyperlink NavigateUri="http://www.flaticon.com/" 
+                                       RequestNavigate="Hyperlink_RequestNavigate">
+                                <Run Text="www.flaticon.com" />
+                            </Hyperlink>
+                        </Span>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <TextBlock 
+                   Margin="0 4 0 0">
+            <Span>
+                <Image 
+                       Source="{StaticResource GitHub-000000-32}" 
+                       Height="32" Width="32" 
+                       Margin="0 0 4 0" 
+                />
+                <Run Text="Visit us on" />
+                <Hyperlink NavigateUri="https://github.com/XElementSoftware/CloudSyncHelper" 
+                           RequestNavigate="Hyperlink_RequestNavigate">
+                    <Run Text="GitHub"/>
+                </Hyperlink>
+            </Span>
+        </TextBlock>
     </StackPanel>
 </UserControl>

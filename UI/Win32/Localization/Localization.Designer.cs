@@ -61,128 +61,137 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About….
+        ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string MenuBar_AboutButton {
+        public static string About_Header {
             get {
-                return ResourceManager.GetString("MenuBar_AboutButton", resourceCulture);
+                return ResourceManager.GetString("About_Header", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cloud provider:.
+        ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string ProgramDetails_CloudProvider {
+        public static string ApplicationMenu_About {
             get {
-                return ResourceManager.GetString("ProgramDetails_CloudProvider", resourceCulture);
+                return ResourceManager.GetString("ApplicationMenu_About", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Operating system configurations:.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string ProgramDetails_OsConfigs {
+        public static string ApplicationMenu_Settings {
             get {
-                return ResourceManager.GetString("ProgramDetails_OsConfigs", resourceCulture);
+                return ResourceManager.GetString("ApplicationMenu_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string FilterUC_Watermark_Text {
+            get {
+                return ResourceManager.GetString("FilterUC_Watermark_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter (Ctrl+F).
+        /// </summary>
+        public static string MenuBarUC_FilterButton_Tooltip {
+            get {
+                return ResourceManager.GetString("MenuBarUC_FilterButton_Tooltip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Configuration available.
         /// </summary>
-        public static string ProgramHeader_ConfigAvailable {
+        public static string SemiautomaticSync_ConfigAvailable {
             get {
-                return ResourceManager.GetString("ProgramHeader_ConfigAvailable", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_ConfigAvailable", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Data is stored in cloud.
         /// </summary>
-        public static string ProgramHeader_IsInCloud {
+        public static string SemiautomaticSync_IsInCloud {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsInCloud", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Installed.
-        /// </summary>
-        public static string ProgramHeader_IsInstalled {
-            get {
-                return ResourceManager.GetString("ProgramHeader_IsInstalled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Linked.
-        /// </summary>
-        public static string ProgramHeader_IsLinked {
-            get {
-                return ResourceManager.GetString("ProgramHeader_IsLinked", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsInCloud", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to No data stored in cloud yet.
         /// </summary>
-        public static string ProgramHeader_IsNotInCloud {
+        public static string SemiautomaticSync_IsNotInCloud {
             get {
-                return ResourceManager.GetString("ProgramHeader_IsNotInCloud", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not installed.
-        /// </summary>
-        public static string ProgramHeader_IsNotInstalled {
-            get {
-                return ResourceManager.GetString("ProgramHeader_IsNotInstalled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not linked.
-        /// </summary>
-        public static string ProgramHeader_IsNotLinked {
-            get {
-                return ResourceManager.GetString("ProgramHeader_IsNotLinked", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_IsNotInCloud", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Create link.
         /// </summary>
-        public static string ProgramHeader_Link {
+        public static string SemiautomaticSync_Link {
             get {
-                return ResourceManager.GetString("ProgramHeader_Link", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_Link", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Move data to cloud.
         /// </summary>
-        public static string ProgramHeader_MoveToCloud {
+        public static string SemiautomaticSync_MoveToCloud {
             get {
-                return ResourceManager.GetString("ProgramHeader_MoveToCloud", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_MoveToCloud", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to No configuration available.
         /// </summary>
-        public static string ProgramHeader_NoConfigAvailable {
+        public static string SemiautomaticSync_NoConfigAvailable {
             get {
-                return ResourceManager.GetString("ProgramHeader_NoConfigAvailable", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_NoConfigAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operating system configurations:.
+        /// </summary>
+        public static string SemiautomaticSync_OsConfigs {
+            get {
+                return ResourceManager.GetString("SemiautomaticSync_OsConfigs", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Remove link.
         /// </summary>
-        public static string ProgramHeader_Unlink {
+        public static string SemiautomaticSync_Unlink {
             get {
-                return ResourceManager.GetString("ProgramHeader_Unlink", resourceCulture);
+                return ResourceManager.GetString("SemiautomaticSync_Unlink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings_Header {
+            get {
+                return ResourceManager.GetString("Settings_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soon available..
+        /// </summary>
+        public static string Settings_Placeholder {
+            get {
+                return ResourceManager.GetString("Settings_Placeholder", resourceCulture);
             }
         }
         
@@ -210,6 +219,69 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string SupportedOperatingSystem_OsIsSupported_StringFormat {
             get {
                 return ResourceManager.GetString("SupportedOperatingSystem_OsIsSupported_StringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to fully automatic.
+        /// </summary>
+        public static string SyncObject_FullyAutomaticGroupBox_Header {
+            get {
+                return ResourceManager.GetString("SyncObject_FullyAutomaticGroupBox_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installed.
+        /// </summary>
+        public static string SyncObject_IsInstalled {
+            get {
+                return ResourceManager.GetString("SyncObject_IsInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linked.
+        /// </summary>
+        public static string SyncObject_IsLinked {
+            get {
+                return ResourceManager.GetString("SyncObject_IsLinked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not installed.
+        /// </summary>
+        public static string SyncObject_IsNotInstalled {
+            get {
+                return ResourceManager.GetString("SyncObject_IsNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not linked.
+        /// </summary>
+        public static string SyncObject_IsNotLinked {
+            get {
+                return ResourceManager.GetString("SyncObject_IsNotLinked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to semiautomatic.
+        /// </summary>
+        public static string SyncObject_SemiautomaticGroupBox_Header {
+            get {
+                return ResourceManager.GetString("SyncObject_SemiautomaticGroupBox_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No entries found..
+        /// </summary>
+        public static string SyncObjects_NoEntries_Text {
+            get {
+                return ResourceManager.GetString("SyncObjects_NoEntries_Text", resourceCulture);
             }
         }
     }

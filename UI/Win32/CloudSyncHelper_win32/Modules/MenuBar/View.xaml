@@ -4,27 +4,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" 
+
+             xmlns:modules="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules">
 
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StatusBar>
-        <StatusBarItem 
-                        HorizontalAlignment="Right">
-            <Button 
-                    Command="{Binding Path=ShowAbout, Mode=OneWay}" 
-                    Content="{Binding Path=Localization.MenuBar_AboutButton, 
-                                      Source={StaticResource XamlLocalization}}" 
-                    ToolTip="{Binding Path=Localization.MenuBar_AboutButton, 
-                                      Source={StaticResource XamlLocalization}}" 
-            />
-        </StatusBarItem>
-    </StatusBar>
+    <StackPanel 
+                Orientation="Vertical">
+        <StatusBar>
+            <StatusBarItem 
+                           HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button 
+                        Command="{Binding Path=ShowApplicationMenu, Mode=OneWay}" 
+                        Content="Cloud Sync Helper" 
+                        Style="{StaticResource ApplicationMenuButton}" 
+                />
+            </StatusBarItem>
+
+            <StatusBarItem 
+                           HorizontalAlignment="Right">
+                <ToggleButton x:Name="_toggleFilter" 
+                              IsChecked="{Binding Path=IsFilterVisible, Mode=TwoWay}" 
+                              ToolTip="{Binding Path=Localization.MenuBarUC_FilterButton_Tooltip, 
+                                                Source={StaticResource XamlLocalization}}" 
+                              Style="{StaticResource SearchToggleButton}" 
+                />
+            </StatusBarItem>
+        </StatusBar>
+
+        <modules:FilterUC 
+                          DataContext="{Binding Path=FilterVM}" 
+                          Visibility="{Binding ElementName=_toggleFilter, 
+                                               Path=IsChecked, 
+                                               Converter={StaticResource BoolToVisibilityConverter}}" 
+        />
+    </StackPanel>
 
 </UserControl>
