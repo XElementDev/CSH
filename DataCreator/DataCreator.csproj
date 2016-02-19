@@ -44,11 +44,11 @@
   <ItemGroup>
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
-    <Compile Include="Data\Apps\ExactAudioCopy.cs" />
-    <Compile Include="Data\Apps\Mp3tag.cs" />
-    <Compile Include="Data\Apps\TeamSpeak3.cs" />
-    <Compile Include="Data\Apps\NotepadPlusPlus.cs" />
-    <Compile Include="Data\Apps\Winamp.cs" />
+    <Compile Include="Data\Tools\ExactAudioCopy.cs" />
+    <Compile Include="Data\Tools\Mp3tag.cs" />
+    <Compile Include="Data\Tools\TeamSpeak3.cs" />
+    <Compile Include="Data\Tools\NotepadPlusPlus.cs" />
+    <Compile Include="Data\Tools\Winamp.cs" />
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\GameManager.cs" />
     <Compile Include="Data\ToolManager.cs" />
