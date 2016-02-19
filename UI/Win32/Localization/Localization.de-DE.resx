@@ -134,7 +134,7 @@
     <comment>// 2016-02-01</comment>
   </data>
   <data name="MenuBarUC_FilterButton_Tooltip" xml:space="preserve">
-    <value>Filter</value>
+    <value>Filter (Strg+F)</value>
     <comment>// 2016-02-01</comment>
   </data>
   <data name="SemiautomaticSync_OsConfigs" xml:space="preserve">

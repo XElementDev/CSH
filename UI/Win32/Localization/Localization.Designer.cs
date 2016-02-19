@@ -97,7 +97,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filter.
+        ///   Looks up a localized string similar to Filter (Ctrl+F).
         /// </summary>
         public static string MenuBarUC_FilterButton_Tooltip {
             get {
