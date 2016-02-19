@@ -4,6 +4,7 @@ using XElement.CloudSyncHelper.Serialization.DataTypes;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
+#region not unit-tested
     [Export]
     internal class GameManager : IPartImportsSatisfiedNotification
     {
@@ -30,4 +31,5 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.GameLinkInfos = gameLinkInfos;
         }
     }
+#endregion
 }

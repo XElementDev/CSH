@@ -7,8 +7,8 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AbstractAppInfo ) )]
-    internal class Winamp : AbstractAppInfo
+    [Export( typeof( AbstractToolInfo ) )]
+    internal class Winamp : AbstractToolInfo
     {
         [ImportingConstructor]
         public Winamp() : base( "B2D4A228-A950-4036-949B-4F328F416866" )

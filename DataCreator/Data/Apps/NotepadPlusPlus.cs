@@ -7,8 +7,8 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AbstractAppInfo ) )]
-    internal class NotepadPlusPlus : AbstractAppInfo
+    [Export( typeof( AbstractToolInfo ) )]
+    internal class NotepadPlusPlus : AbstractToolInfo
     {
         [ImportingConstructor]
         public NotepadPlusPlus() : base( "97C5D94B-2794-45D1-8442-710754E41D77" )

@@ -7,8 +7,8 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AbstractAppInfo ) )]
-    internal class ExactAudioCopy : AbstractAppInfo
+    [Export( typeof( AbstractToolInfo ) )]
+    internal class ExactAudioCopy : AbstractToolInfo
     {
         [ImportingConstructor]
         public ExactAudioCopy() : base( "0408347B-5D6B-4561-88F0-06F3F379232B" )

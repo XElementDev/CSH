@@ -7,8 +7,8 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AbstractAppInfo ) )]
-    internal class Mp3tag : AbstractAppInfo
+    [Export( typeof( AbstractToolInfo ) )]
+    internal class Mp3tag : AbstractToolInfo
     {
         [ImportingConstructor]
         public Mp3tag() : base( "9A78A831-C24B-47CD-8EB6-2889CB3100AF" )

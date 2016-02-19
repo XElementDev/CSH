@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\AbstractAppInfo.cs" />
+    <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
     <Compile Include="Data\Apps\ExactAudioCopy.cs" />
     <Compile Include="Data\Apps\Mp3tag.cs" />
@@ -51,7 +51,7 @@
     <Compile Include="Data\Apps\Winamp.cs" />
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\GameManager.cs" />
-    <Compile Include="Data\AppManager.cs" />
+    <Compile Include="Data\ToolManager.cs" />
     <Compile Include="Data\Games\AgeOfEmpiresIIHD.cs" />
     <Compile Include="Data\Games\Anno2070.cs" />
     <Compile Include="Data\Games\Battlefield3.cs" />

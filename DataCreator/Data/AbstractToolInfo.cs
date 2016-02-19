@@ -6,9 +6,9 @@ using XElement.CloudSyncHelper.Serialization.DataTypes;
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
 #region not unit-tested
-    internal abstract class AbstractAppInfo : ToolInfo, IPartImportsSatisfiedNotification
+    internal abstract class AbstractToolInfo : ToolInfo, IPartImportsSatisfiedNotification
     {
-        protected AbstractAppInfo( string guid )
+        protected AbstractToolInfo( string guid )
         {
             this.Id = Guid.Parse( guid );
         }

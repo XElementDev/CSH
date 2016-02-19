@@ -7,8 +7,8 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Apps
 {
-    [Export( typeof( AbstractAppInfo ) )]
-    internal class TeamSpeak3 : AbstractAppInfo
+    [Export( typeof( AbstractToolInfo ) )]
+    internal class TeamSpeak3 : AbstractToolInfo
     {
         [ImportingConstructor]
         public TeamSpeak3() : base( "BF5B72BC-6351-481D-A25D-265BF9F063CB" )
