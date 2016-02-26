@@ -9,8 +9,11 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
     public class Definition : IDefinition
     {
         [XmlIgnore]
-        public List<OsConfiguration> OsConfigs { get; set; }
-        IEnumerable<IOsConfiguration> IDefinition.OsConfigs { get { return this.OsConfigs; } }
+        public List<Configuration> Configurations { get; set; }
+        IEnumerable<IConfiguration> IDefinition.Configurations
+        {
+            get { return this.Configurations; }
+        }
 
         [XmlIgnore]
         public bool SupportsSteamCloud { get; set; }
