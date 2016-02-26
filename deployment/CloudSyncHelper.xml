@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Far Cry 4" FolderName="Far Cry 2014 [Far Cry 4]" Id="ca3c10fc-d045-4431-a73d-b9f06d992cdb" TechNameMatcher="Far Cry 4">
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Age of Empires II: HD Edition" FolderName="Age Of Empires 2013 [Age of Empires II_ HD Edition]" Id="feaa47fc-feda-4945-9a4b-011c15f44e3f" TechNameMatcher="Age of Empires II: HD Edition">
     <IsSteamCloudSupported value="true" />
   </Game>
