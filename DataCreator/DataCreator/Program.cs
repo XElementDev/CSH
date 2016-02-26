@@ -11,7 +11,7 @@ namespace XElement.CloudSyncHelper.DataCreator
     {
         static void Main( string[] args )
         {
-            var pathToDeploymentFolder = @"..\..\..\deployment";
+            var pathToDeploymentFolder = @"..\..\..\..\deployment";
             _filePath = Path.Combine( pathToDeploymentFolder, "CloudSyncHelper.xml" );
 
             try

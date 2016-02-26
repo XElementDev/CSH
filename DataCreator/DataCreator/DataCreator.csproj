@@ -92,19 +92,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
+    <ProjectReference Include="..\..\DataTypes\DataTypes.csproj">
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Serialization\Serialization.csproj">
+    <ProjectReference Include="..\..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serialization</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
+    <ProjectReference Include="..\..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
       <Name>OsRecognition.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XElement\DotNet\System\Text\SpecialCharacters\SpecialCharacters.csproj">
+    <ProjectReference Include="..\..\XElement\DotNet\System\Text\SpecialCharacters\SpecialCharacters.csproj">
       <Project>{092ad2ad-ce22-4abb-9c87-e9a5083c25fa}</Project>
       <Name>SpecialCharacters</Name>
     </ProjectReference>

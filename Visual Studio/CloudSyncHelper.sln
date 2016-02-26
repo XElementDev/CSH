@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSyncHelper", "..\Cloud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "..\Serialization\Serialization.csproj", "{9F1C5EA3-4D25-439F-A293-97A26B7C930D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCreator", "..\DataCreator\DataCreator.csproj", "{8867C025-099B-4AC5-B745-FC10E6A4988A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCreator", "..\DataCreator\DataCreator\DataCreator.csproj", "{8867C025-099B-4AC5-B745-FC10E6A4988A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypes", "..\DataTypes\DataTypes.csproj", "{1D9F1E8B-DAE5-40FF-81A2-F3366AC32C35}"
 EndProject
