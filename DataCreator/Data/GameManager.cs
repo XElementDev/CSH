@@ -6,29 +6,20 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
 #region not unit-tested
     [Export]
-    internal class GameManager : IPartImportsSatisfiedNotification
+    internal sealed class GameManager : AbstractManager<GameInfo>, 
+                                        IPartImportsSatisfiedNotification
     {
+        public IEnumerable<AbstractApplicationInfo> GameLinkInfos
+        {
+            get { return this.LinkInfos; }
+        }
+
         [ImportMany( typeof( AbstractGameInfo ) )]
-        public List<AbstractApplicationInfo> GameLinkInfos { get; private set; }
+        protected override IEnumerable<AbstractApplicationInfo> LinkInfos { get; set; }
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
-            var gameLinkInfos = new List<AbstractApplicationInfo>();
-
-            foreach ( var derivedGameInfo in this.GameLinkInfos )
-            {
-                var baseGameInfo = new GameInfo
-                {
-                    Definition = derivedGameInfo.Definition,
-                    ApplicationName = derivedGameInfo.ApplicationName,
-                    FolderName = derivedGameInfo.FolderName,
-                    Id = derivedGameInfo.Id,
-                    TechnicalNameMatcher = derivedGameInfo.TechnicalNameMatcher
-                };
-                gameLinkInfos.Add( baseGameInfo );
-            }
-
-            this.GameLinkInfos = gameLinkInfos;
+            this.PrepareLinkInfos();
         }
     }
 #endregion

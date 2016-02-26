@@ -6,29 +6,20 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
 {
 #region not unit-tested
     [Export]
-    internal class ToolManager : IPartImportsSatisfiedNotification
+    internal sealed class ToolManager : AbstractManager<ToolInfo>, 
+                                        IPartImportsSatisfiedNotification
     {
         [ImportMany( typeof( AbstractToolInfo ) )]
-        public List<AbstractApplicationInfo> ToolLinkInfos { get; private set; }
+        protected override IEnumerable<AbstractApplicationInfo> LinkInfos { get; set; }
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
-            var gameLinkInfos = new List<AbstractApplicationInfo>();
+            this.PrepareLinkInfos();
+        }
 
-            foreach ( var derivedAppInfo in this.ToolLinkInfos )
-            {
-                var baseAppInfo = new ToolInfo
-                {
-                    Definition = derivedAppInfo.Definition,
-                    ApplicationName = derivedAppInfo.ApplicationName,
-                    Id = derivedAppInfo.Id,
-                    FolderName = derivedAppInfo.FolderName,
-                    TechnicalNameMatcher = derivedAppInfo.TechnicalNameMatcher
-                };
-                gameLinkInfos.Add( baseAppInfo );
-            }
-
-            this.ToolLinkInfos = gameLinkInfos;
+        public IEnumerable<AbstractApplicationInfo> ToolLinkInfos
+        {
+            get { return this.LinkInfos; }
         }
     }
 #endregion
