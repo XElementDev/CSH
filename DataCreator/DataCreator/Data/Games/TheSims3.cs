@@ -11,14 +11,12 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
     [Export( typeof( AbstractGameInfo ) )]
     internal class TheSims3 : AbstractGameInfo
     {
-        // TODO: Add other languages besides [de-DE]
-
         [ImportingConstructor]
         public TheSims3() : base( "0AED2DDF-6109-401F-9467-484FA853450F" )
         {
-            this.ApplicationName = "Die Sims 3 [DE]";
+            this.ApplicationName = "The Sims 3";
             this.FolderName = "The Sims 2009 [The Sims 3]";
-            this.TechnicalNameMatcher = String.Format( "Die Sims{0} 3",
+            this.TechnicalNameMatcher = String.Format( ".*Sims{0} 3",
                                                        SpecialCharacters.TRADEMARK );
         }
 
