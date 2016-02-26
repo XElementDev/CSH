@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
@@ -70,7 +71,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public IEnumerable<IOsConfiguration> OsConfigs
         {
-            get { return this._programInfo.Definition.OsConfigs; }
+            get
+            {
+                IEnumerable<IOsConfiguration> result = new List<IOsConfiguration>();
+
+                var config = this._programInfo.Definition.Configurations.FirstOrDefault();
+                if ( config != default( IConfiguration ) )
+                {
+                    result = config.OsConfigs;
+                }
+
+                return result;
+            }
         }
 
         public bool SupportsSteamCloud

@@ -21,7 +21,10 @@ namespace XElement.CloudSyncHelper
         {
             get
             {
-                var osConfigs = this._programInfo.Definition.OsConfigs;
+                var configuration = this._programInfo.Definition.Configurations.FirstOrDefault();
+                var osConfigs = (configuration != default( IConfiguration ) ?
+                                    configuration.OsConfigs : 
+                                    new List<IOsConfiguration>());
                 var suitableConfig = this._configForOsHelper.GetSuitableConfig( osConfigs );
                 var config = new List<ILink>();
                 foreach ( ILinkInfo linkInfo in suitableConfig )
