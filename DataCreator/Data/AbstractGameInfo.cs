@@ -20,6 +20,9 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         protected abstract void OnImportsSatisfied();
 
         [Import]
+        protected ConfigurationFactory _configFactory = null;
+
+        [Import]
         protected DefinitionFactory _definitionFactory = null;
     }
 #endregion

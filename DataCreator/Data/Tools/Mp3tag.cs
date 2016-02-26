@@ -70,7 +70,8 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
                 GetConfigForWindows8_1(),
                 GetConfigForWindows10()
             };
-            this.Definition = this._definitionFactory.Get( osConfigs );
+            var config = this._configFactory.Get( osConfigs );
+            this.Definition = this._definitionFactory.Get( config );
         }
     }
 }

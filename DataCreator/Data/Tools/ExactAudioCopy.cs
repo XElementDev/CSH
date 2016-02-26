@@ -49,7 +49,8 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
                 this.GetConfigForWin8_1(),
                 this.GetConfigForWin10()
             };
-            this.Definition = this._definitionFactory.Get( osConfig );
+            var config = this._configFactory.Get( osConfig );
+            this.Definition = this._definitionFactory.Get( config );
         }
     }
 }

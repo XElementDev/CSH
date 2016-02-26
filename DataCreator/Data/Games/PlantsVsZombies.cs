@@ -13,15 +13,17 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.ApplicationName = "Plants vs. Zombies";
             this.FolderName = "Plants vs. Zombies 2009 [Pflanzen gegen Zombies]";
-            this.OsConfigs = new List<OsConfiguration>
-            {
-                // Origin
-            };
             this.TechnicalNameMatcher = "Pflanzen gegen Zombies" + SpecialCharacters.TRADEMARK;
         }
 
         protected override void OnImportsSatisfied()
         {
+            var osConfigs = new List<OsConfiguration>
+            {
+                // Origin
+            };
+            var config = this._configFactory.Get( osConfigs );
+            this.Definition = this._definitionFactory.Get( config );
         }
     }
 }

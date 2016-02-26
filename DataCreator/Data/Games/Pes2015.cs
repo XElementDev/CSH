@@ -49,7 +49,8 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                 this.GetConfigForWin8_1(),
                 this.GetConfigForWin10()
             };
-            this.Definition = this._definitionFactory.Get( osConfigs );
+            var config = this._configFactory.Get( osConfigs );
+            this.Definition = this._definitionFactory.Get( config );
         }
     }
 }
