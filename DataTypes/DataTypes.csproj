@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IConfiguration.cs" />
     <Compile Include="IToolInfo.cs" />
     <Compile Include="IDefinition.cs" />
     <Compile Include="IFileLinkInfo.cs" />
