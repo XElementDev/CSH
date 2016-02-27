@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.DataCreator.Data.Tools;
 using XElement.CloudSyncHelper.DataCreator.Data.Games;
+using XElement.CloudSyncHelper.DataCreator.Data.Tools;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 
 namespace XElement.CloudSyncHelper.DataCreator
 {
-#region not unit-tested
-    internal class DataManager : IPartImportsSatisfiedNotification
+    [Export]
+    public class DataManager : IPartImportsSatisfiedNotification
     {
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
@@ -29,5 +29,4 @@ namespace XElement.CloudSyncHelper.DataCreator
         [Import]
         private ToolManager _tools = null;
     }
-#endregion
 }

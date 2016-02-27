@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "DataCreator" )]
+[assembly: AssemblyTitle( "Test_DataCreator" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
-[assembly: AssemblyProduct( "DataCreator" )]
-[assembly: AssemblyCopyright( "Copyright ©  2015" )]
+[assembly: AssemblyProduct( "Test_DataCreator" )]
+[assembly: AssemblyCopyright( "Copyright ©  2016" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible( false )]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid( "f9418b34-f160-4453-b23d-8e740bddb3ac" )]
+[assembly: Guid( "ad222ef9-bb95-4a72-9b9d-813934d3354e" )]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,7 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion( "1.0.0.0" )]
 [assembly: AssemblyFileVersion( "1.0.0.0" )]
-
-#if DEBUG
-[assembly: InternalsVisibleTo( "Test_XElement.CloudSyncHelper.DataCreator" )]
-#endif
