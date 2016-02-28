@@ -4,6 +4,9 @@
     <Config author="XElement" name="default" />
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Final Fantasy XIII" FolderName="Final Fantasy 2009-2014 [Final Fantasy XIII]" Id="2fde9dbb-db61-4dec-8621-3b7bca0a9016" TechNameMatcher="FINAL FANTASY XIII">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Age of Empires II: HD Edition" FolderName="Age Of Empires 2013 [Age of Empires II_ HD Edition]" Id="feaa47fc-feda-4945-9a4b-011c15f44e3f" TechNameMatcher="Age of Empires II: HD Edition">
     <IsSteamCloudSupported value="true" />
   </Game>
