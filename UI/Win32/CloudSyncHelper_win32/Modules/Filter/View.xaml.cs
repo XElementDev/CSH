@@ -18,6 +18,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
         private void UserControl_IsVisibleChanged( object sender, 
                                                    DependencyPropertyChangedEventArgs e )
         {
+            // TODO: Set focus to _filterTextBox if filter is already open
             if ( this.IsVisible )
             {
                 this.Dispatcher.BeginInvoke( (Action)delegate { this._filterTextBox.Focus(); },
