@@ -112,7 +112,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\deployment\CloudSyncHelper.xml">
+    <Content Include="..\..\deployment\CloudSyncHelper.xml">
       <Link>CloudSyncHelper.xml</Link>
     </Content>
   </ItemGroup>
