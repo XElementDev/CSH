@@ -11,6 +11,13 @@
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
+    <Style x:Key="NoConfig" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 4 0 16" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+
     <Style x:Key="SupportedOSs" TargetType="{x:Type Border}">
         <Setter Property="Margin" Value="16 4 0 0" />
     </Style>

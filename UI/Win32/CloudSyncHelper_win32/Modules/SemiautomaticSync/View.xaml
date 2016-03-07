@@ -56,7 +56,7 @@
             />
         </StackPanel>
 
-        <TextBlock 
+        <TextBlock Style="{StaticResource NoConfig}" 
                    Text="{Binding Path=Localization.SemiautomaticSync_NoConfig, 
                                      Source={StaticResource XamlLocalization}}" 
                    Visibility="{Binding Path=IsAConfigurationAvailable, 
