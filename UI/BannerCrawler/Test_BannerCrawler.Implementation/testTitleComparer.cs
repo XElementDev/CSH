@@ -12,7 +12,9 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
         {
             var target = new TitleComparer();
 
-            Assert.IsTrue( target.Compare( "Age of Empires II: HD Edition", "Age of Empires II HD" ) );
+            var actual = target.Similarity( "Age of Empires II: HD Edition", "Age of Empires II HD" );
+
+            Assert.AreEqual( 1, actual, 0.3F );
         }
 
         [TestMethod]
@@ -22,7 +24,9 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             var crawledName = "Middle-earth™: Shadow of Mordor™";
             var target = new TitleComparer();
 
-            Assert.IsTrue( target.Compare( expectedName, crawledName ) );
+            var actual = target.Similarity( expectedName, crawledName );
+
+            Assert.AreEqual( 1, actual, 0.1F );
         }
 
         [TestMethod]
@@ -32,7 +36,9 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             var crawledName = "Anno 2070™";
             var target = new TitleComparer();
 
-            Assert.IsTrue( target.Compare( expectedName, crawledName ) );
+            var actual = target.Similarity( expectedName, crawledName );
+
+            Assert.AreEqual( 1, actual, 0.1F );
         }
 
         [TestMethod]
@@ -40,7 +46,9 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
         {
             var target = new TitleComparer();
 
-            Assert.IsFalse( target.Compare( "Exact Audio Copy", "Liquid Rhythm Push Control" ) );
+            var actual = target.Similarity( "Exact Audio Copy", "Liquid Rhythm Push Control" );
+
+            Assert.AreEqual( 0, actual, 0.05F );
         }
 
         [TestMethod]
@@ -48,7 +56,9 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
         {
             var target = new TitleComparer();
 
-            Assert.IsFalse( target.Compare( "Battlefield 3", "Battlefield: Bad Company 2 Vietnam" ) );
+            var actual = target.Similarity( "Battlefield 3", "Battlefield: Bad Company 2 Vietnam" );
+
+            Assert.AreEqual( 0.2, actual, 0.3F );
         }
     }
 }
