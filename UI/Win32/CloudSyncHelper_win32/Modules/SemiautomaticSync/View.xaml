@@ -91,7 +91,7 @@
 
             <GroupBox>
                 <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Style="{StaticResource ConfigurationsContainer}">
                         <TextBlock Text="{Binding Path=Localization.SemiautomaticSync_SelectedConfiguration, 
                                                   Source={StaticResource XamlLocalization}}" />
                         <ComboBox 
