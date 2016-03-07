@@ -25,6 +25,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         string BannerCrawler.ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
 
+        public IEnumerable<IConfiguration> Configurations
+        {
+            get { return this._applicationInfo.Definition.Configurations; }
+        }
+
         public string DisplayName
         {
             get

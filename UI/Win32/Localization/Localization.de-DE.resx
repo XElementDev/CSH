@@ -217,4 +217,12 @@
     <value>semi-automatisch</value>
     <comment>// 2016-02-12</comment>
   </data>
+  <data name="SemiautomaticSync_SelectedConfiguration" xml:space="preserve">
+    <value>Konfiguration:</value>
+    <comment>// 2016-03-07</comment>
+  </data>
+  <data name="SemiautomaticSync_AuthorNameLink" xml:space="preserve">
+    <value>von</value>
+    <comment>// 2016-03-07</comment>
+  </data>
 </root>

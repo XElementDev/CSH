@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
@@ -12,8 +14,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
     public class Model : NotifyPropertyChanged, 
                          /*BannerCrawler.*/IBannerId, 
                          UiIconCrawler.IIconId, 
-                         FullyAutomaticSync.IModelConstructorParameters, 
-                         SemiautomaticSync.IModelConstructorParameters,
                          UiIconCrawler.IObjectToCrawl
     {
         public Model( ProgramInfoViewModel programInfoVM ) : this( programInfoVM, null ) { }
@@ -22,6 +22,25 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
         {
             Initialize( programInfoVM, installedProgramVM );
             RegisterPropertyChangedEvents();
+        }
+
+        private FullyAutomaticSync.IModelConstructorParameters CreateFullyAutoSyncModelCtorParams()
+        {
+            return new Model.FullAutoSyncModelCtorParams
+            {
+                IsInstalled = this.IsInstalled, 
+                SupportsSteamCloud = this.SupportsSteamCloud
+            };
+        }
+
+        private SemiautomaticSync.IModelConstructorParameters CreateSemiautoSyncModelCtorParams()
+        {
+            return new Model.SemiautoSyncModelCtorParams
+            {
+                Configurations = this._programInfoVM.Configurations, 
+                IsInstalled = this.IsInstalled, 
+                ProgramInfoVM = this._programInfoVM
+            };
         }
 
         public string DisplayName { get { return this._programInfoVM.DisplayName; } }
@@ -38,9 +57,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             this._installedProgramVM = installedProgramVM;
             this._programInfoVM = programInfoVM;
 
-            var fully = (FullyAutomaticSync.IModelConstructorParameters)this;
+            var fully = this.CreateFullyAutoSyncModelCtorParams();
             this.FullyAutoSyncModel = new FullyAutomaticSync.Model( fully );
-            var semi = (SemiautomaticSync.IModelConstructorParameters)this;
+            var semi = this.CreateSemiautoSyncModelCtorParams();
             this.SemiautomaticSyncModel = new SemiautomaticSync.Model( semi );
         }
 
@@ -56,12 +75,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         string ICrawlInformation.InstallFolderPath { get { return this.InstallLocation; } }
 
-        public bool /*FullyAutomaticSync.IModelConstructorParameters.*/
-
-                   /*SemiautomaticSync.IModelConstructorParameters.*/IsInstalled
-        {
-            get { return this._installedProgramVM != null; }
-        }
+        public bool IsInstalled { get { return this._installedProgramVM != null; } }
 
         public bool IsLinked
         {
@@ -70,11 +84,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
                 var linkingDoneByCloudProvider = this.IsInstalled && this.SupportsSteamCloud;
                 return this.SemiautomaticSyncModel.IsLinked || linkingDoneByCloudProvider;
             }
-        }
-
-        ProgramInfoViewModel SemiautomaticSync.IModelConstructorParameters.ProgramInfoVM
-        {
-            get { return this._programInfoVM; }
         }
 
         private void RegisterPropertyChangedEvents()
@@ -90,13 +99,30 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         public SemiautomaticSync.Model SemiautomaticSyncModel { get; private set; }
 
-        public bool /*FullyAutomaticSync.IModelConstructorParameters.*/SupportsSteamCloud
+        public bool SupportsSteamCloud
         {
             get { return this._programInfoVM.SupportsSteamCloud; }
         }
 
         private InstalledProgramViewModel _installedProgramVM;
         private ProgramInfoViewModel _programInfoVM;
+
+
+        private class FullAutoSyncModelCtorParams : FullyAutomaticSync.IModelConstructorParameters
+        {
+            public bool IsInstalled { get; set; }
+
+            public bool SupportsSteamCloud { get; set; }
+        }
+
+        private class SemiautoSyncModelCtorParams : SemiautomaticSync.IModelConstructorParameters
+        {
+            public IEnumerable<IConfiguration> Configurations { get; set; }
+
+            public bool IsInstalled { get; set; }
+
+            public ProgramInfoViewModel ProgramInfoVM { get; set; }
+        }
     }
 #endregion
 }

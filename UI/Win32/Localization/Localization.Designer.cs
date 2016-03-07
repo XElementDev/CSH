@@ -106,6 +106,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to by.
+        /// </summary>
+        public static string SemiautomaticSync_AuthorNameLink {
+            get {
+                return ResourceManager.GetString("SemiautomaticSync_AuthorNameLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configuration available.
         /// </summary>
         public static string SemiautomaticSync_ConfigAvailable {
@@ -165,6 +174,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string SemiautomaticSync_OsConfigs {
             get {
                 return ResourceManager.GetString("SemiautomaticSync_OsConfigs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration:.
+        /// </summary>
+        public static string SemiautomaticSync_SelectedConfiguration {
+            get {
+                return ResourceManager.GetString("SemiautomaticSync_SelectedConfiguration", resourceCulture);
             }
         }
         
