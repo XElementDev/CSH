@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testTitleMatcher.cs" />
+    <Compile Include="testTitleSimilarity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\XElement\DotNet\System\Text\SpecialCharacters\SpecialCharacters.csproj">

@@ -21,11 +21,14 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             {
                 var searchResultEntryTags = this.GetAllSearchResultEntriesOnFirstPage();
                 var titlesToTagMap = this.ExtractSearchResultTitles( searchResultEntryTags );
-                string bestMachtingTitle = this.GetBestMatchingTitle( titlesToTagMap );
-                var bestMatchingEntry = titlesToTagMap[bestMachtingTitle];
-                image = this.DownloadBanner( bestMatchingEntry );
+                string bestMachtingTitle = this.GetBestMatchingTitleOrDefault( titlesToTagMap );
+                if ( bestMachtingTitle != null )
+                {
+                    var bestMatchingEntry = titlesToTagMap[bestMachtingTitle];
+                    image = this.DownloadBanner( bestMatchingEntry );
+                }
             }
-            catch ( Exception ) { }
+            catch ( XPathException ) { }
 
             return image;
         }
@@ -109,12 +112,19 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             }
         }
 
-        private string GetBestMatchingTitle( IDictionary<string, HtmlNode> titlesToTagMap )
+        private string GetBestMatchingTitleOrDefault( IDictionary<string, HtmlNode> titlesToTagMap )
         {
-            var search = this._crawlInfo.ApplicationName;
-            var titles = titlesToTagMap.Keys;
-            var bestMachtingTitle = new TitleMatcher().GetBestMatchingTitle( search, titles );
-            return bestMachtingTitle;
+            try
+            {
+                var search = this._crawlInfo.ApplicationName;
+                var titles = titlesToTagMap.Keys;
+                var bestMachtingTitle = new TitleMatcher().GetBestMatchingTitle( search, titles );
+                return bestMachtingTitle;
+            }
+            catch (Exception ex)
+            {
+                return default( string );
+            }
         }
 
         public Reliability Reliability { get { return Reliability.High; } }
