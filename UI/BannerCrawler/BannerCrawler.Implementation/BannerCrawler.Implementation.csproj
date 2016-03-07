@@ -44,10 +44,10 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TitleMatcher.cs" />
     <Compile Include="CrawlResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SteamBannerCrawler.cs" />
-    <Compile Include="TitleComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BannerCrawler.Interface\BannerCrawler.Interface.csproj">

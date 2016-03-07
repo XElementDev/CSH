@@ -5,14 +5,34 @@ using System.Text.RegularExpressions;
 
 namespace XElement.CloudSyncHelper.UI.BannerCrawler
 {
-    internal class TitleComparer
+    internal class TitleMatcher
     {
+        public string GetBestMatchingTitle( string searchInput, IEnumerable<string> titles )
+        {
+            var titleToSimilarityMap = new Dictionary<string, float>();
+            foreach ( var title in titles )
+            {
+                titleToSimilarityMap.Add( title, this.Similarity( searchInput, title ) );
+            }
+
+            var maxSimilarity = titleToSimilarityMap.Max( kvp => kvp.Value );
+            if ( maxSimilarity > THRESHOLD )
+            {
+                var firstEntryWithMaxSimilairty = titleToSimilarityMap.First( kvp => kvp.Value == maxSimilarity );
+                return firstEntryWithMaxSimilairty.Key;
+            }
+            else
+            {
+                throw new Exception();  // TODO: Should I throw this TYPE of exception?
+            }
+        }
+
         private string GetPreparedInput( string input )
         {
             return this.StripInvalidChars( input ).ToLower();
         }
 
-        public float Similarity( string expected, string actual )
+        private float Similarity( string expected, string actual )
         {
             float matchRatio = 0;
 
@@ -51,5 +71,6 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
         }
 
         private const string REGEX_VALID_CHARS = "[a-zA-z\\-\\ ]";
+        private const float THRESHOLD = 0.5F;
     }
 }

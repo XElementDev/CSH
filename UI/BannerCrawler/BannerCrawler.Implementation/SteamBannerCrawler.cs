@@ -21,11 +21,11 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             {
                 var searchResultEntryTags = this.GetAllSearchResultEntriesOnFirstPage();
                 var titlesToTagMap = this.ExtractSearchResultTitles( searchResultEntryTags );
-                var bestMachtingTitle = this.GetBestMatchingTitle( titlesToTagMap.Keys );
+                string bestMachtingTitle = this.GetBestMatchingTitle( titlesToTagMap );
                 var bestMatchingEntry = titlesToTagMap[bestMachtingTitle];
                 image = this.DownloadBanner( bestMatchingEntry );
             }
-            catch ( XPathException ) { }
+            catch ( Exception ) { }
 
             return image;
         }
@@ -109,21 +109,12 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             }
         }
 
-        private string GetBestMatchingTitle( IEnumerable<string> titles )
+        private string GetBestMatchingTitle( IDictionary<string, HtmlNode> titlesToTagMap )
         {
-            var expected = this._crawlInfo.ApplicationName;
-            var comparer = new TitleComparer();
-
-            var titleToSimilarityMap = new Dictionary<string, float>();
-            foreach ( var title in titles )
-            {
-                var similarity = comparer.Similarity( expected, title );
-                titleToSimilarityMap.Add( title, similarity );
-            }
-
-            var maxSimilarity = titleToSimilarityMap.Max( kvp => kvp.Value );
-            var firstEntryWithMaxSimilairty = titleToSimilarityMap.First( kvp => kvp.Value == maxSimilarity );
-            return firstEntryWithMaxSimilairty.Key;
+            var search = this._crawlInfo.ApplicationName;
+            var titles = titlesToTagMap.Keys;
+            var bestMachtingTitle = new TitleMatcher().GetBestMatchingTitle( search, titles );
+            return bestMachtingTitle;
         }
 
         public Reliability Reliability { get { return Reliability.High; } }
