@@ -121,7 +121,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
                 var bestMachtingTitle = new TitleMatcher().GetBestMatchingTitle( search, titles );
                 return bestMachtingTitle;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return default( string );
             }
