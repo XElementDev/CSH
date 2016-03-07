@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <DataTemplate x:Key="OsConfigurationComboBoxItem">
+        <TextBlock>
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} {1} {2}">
+                    <Binding Path="Name" />
+                    <Binding 
+                             Path="Localization.SemiautomaticSync_AuthorNameLink" 
+                             Source="{StaticResource XamlLocalization}" 
+                    />
+                    <Binding Path="Author" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+    </DataTemplate>
+
+</ResourceDictionary>

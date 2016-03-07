@@ -11,9 +11,9 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
-                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -91,25 +91,9 @@
                         <TextBlock Text="{Binding Path=Localization.SemiautomaticSync_SelectedConfiguration, 
                                                   Source={StaticResource XamlLocalization}}" />
                         <ComboBox 
-                                  ItemsSource="{Binding Path=Model.Configurations}" 
-                                  SelectedItem="{Binding Path=Model.SelectedConfiguration, Mode=OneWayToSource}">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock>
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="{}{0} {1} {2}">
-                                                <Binding Path="Name" />
-                                                <Binding 
-                                                         Path="Localization.SemiautomaticSync_AuthorNameLink" 
-                                                         Source="{StaticResource XamlLocalization}" 
-                                                />
-                                                <Binding Path="Author" />
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                                  ItemsSource="{Binding Path=Model.OsConfigs}" 
+                                  ItemTemplate="{StaticResource OsConfigurationComboBoxItem}" 
+                        />
                     </StackPanel>
                 </GroupBox.Header>
                 <GroupBox.Content>
