@@ -37,6 +37,11 @@
         <Setter Property="Margin" Value="2 0 2 0" />
     </Style>
 
+    <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource GroupBoxBase}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
     <Style TargetType="{x:Type Image}" BasedOn="{StaticResource IndicatorIconBase_active}" />
 
 </ResourceDictionary>

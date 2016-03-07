@@ -3,6 +3,11 @@
 
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Dictionaries/Styles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
     <Style TargetType="{x:Type StackPanel}">
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
@@ -12,33 +17,8 @@
     <sys:Double x:Key="_titleFontSize">16</sys:Double>
 
 
-    <Style TargetType="{x:Type GroupBox}">
+    <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource GroupBoxBase}">
         <Setter Property="Background" Value="{StaticResource _background}" />
-        <Setter Property="Margin" Value="4 4 0 4" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type GroupBox}">
-                    <Border 
-                            Background="{TemplateBinding Background}" 
-                            Margin="{TemplateBinding Margin}" 
-                            Padding="{TemplateBinding Padding}">
-                        <StackPanel 
-                                    Orientation="Vertical">
-                            <ContentPresenter 
-                                              ContentSource="Header" 
-                                              TextBlock.FontStyle="Italic" 
-                            />
-                            <Separator />
-                            <Border 
-                                    Padding="{TemplateBinding Padding}">
-                                <ContentPresenter />
-                            </Border>
-                        </StackPanel>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
 
