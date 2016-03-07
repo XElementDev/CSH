@@ -42,7 +42,6 @@
     <Compile Include="DataTypes.cs" />
     <Compile Include="DataTypes\AbstractApplicationInfo.cs" />
     <Compile Include="DataTypes\AbstractLinkInfo.cs" />
-    <Compile Include="DataTypes\Configuration.cs" />
     <Compile Include="ISerializationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationManager.cs" />

@@ -5,7 +5,7 @@ using XElement.CloudSyncHelper.Execution;
 
 namespace XElement.CloudSyncHelper
 {
-#region not unit-tested
+    #region not unit-tested
     public class ExecutionLogic
     {
         public ExecutionLogic( IApplicationInfo programInfo, 
@@ -21,9 +21,9 @@ namespace XElement.CloudSyncHelper
         {
             get
             {
-                var configuration = this._programInfo.Definition.Configurations.FirstOrDefault();
-                var osConfigs = (configuration != default( IConfiguration ) ?
-                                    configuration.OsConfigs : 
+                var definition = this._programInfo.Definition;
+                var osConfigs = (definition != default( IDefinition ) ?
+                                    definition.OsConfigs : 
                                     new List<IOsConfiguration>());
                 var suitableConfig = this._configForOsHelper.GetSuitableConfig( osConfigs );
                 var config = new List<ILink>();

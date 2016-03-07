@@ -1,44 +1,38 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Game ApplicationName="Far Cry 4" FolderName="Far Cry 2014 [Far Cry 4]" Id="ca3c10fc-d045-4431-a73d-b9f06d992cdb" TechNameMatcher="Far Cry 4">
-    <Config author="XElement" name="default" />
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Final Fantasy XIII" FolderName="Final Fantasy 2009-2014 [Final Fantasy XIII]" Id="2fde9dbb-db61-4dec-8621-3b7bca0a9016" TechNameMatcher="FINAL FANTASY XIII">
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Prison Architect" FolderName="Prison Architect 2015 [Prison Architect]" Id="d1350109-09fe-4458-8323-a2a087924ddf" TechNameMatcher="Prison Architect">
-    <Config author="XElement" name="default">
-      <OS id="Win10">
-        <Links>
-          <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="Campaign" SourceId="Campaign" />
-          <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="saves" SourceId="saves" />
-          <FileLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="unlocked.txt" SourceId="unlocked.txt" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="Campaign" SourceId="Campaign" />
+        <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="saves" SourceId="saves" />
+        <FileLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="unlocked.txt" SourceId="unlocked.txt" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Age of Empires II: HD Edition" FolderName="Age Of Empires 2013 [Age of Empires II_ HD Edition]" Id="feaa47fc-feda-4945-9a4b-011c15f44e3f" TechNameMatcher="Age of Empires II: HD Edition">
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="ANNO 2070" FolderName="Anno 2011 [ANNO 2070]" Id="fe83fd10-2446-45bf-a31b-3149150d6ed3" TechNameMatcher="ANNO 2070">
-    <Config author="XElement" name="default">
-      <OS id="Win81">
-        <Links>
-          <FolderLink DestRoot="Personal" DestSubFolderPath="ANNO 2070\Accounts\%UPLAY_ACCOUNT_NAME%" DestTargetName="Savegames" SourceId="Savegames" />
-        </Links>
-      </OS>
-      <OS id="Win10">
-        <Links>
-          <FolderLink DestRoot="Personal" DestSubFolderPath="ANNO 2070\Accounts\%UPLAY_ACCOUNT_NAME%" DestTargetName="Savegames" SourceId="Savegames" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win81">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="ANNO 2070\Accounts\%UPLAY_ACCOUNT_NAME%" DestTargetName="Savegames" SourceId="Savegames" />
+      </Links>
+    </OsConfig>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="ANNO 2070\Accounts\%UPLAY_ACCOUNT_NAME%" DestTargetName="Savegames" SourceId="Savegames" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Battlefield 3" FolderName="Battlefield 2011 [Battlefield 3]" Id="bfea2a56-3721-40ab-b0c2-8e3f81678e51" TechNameMatcher="Battlefield 3™">
-    <Config author="XElement" name="default" />
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Borderlands" FolderName="Borderlands 2009 [Borderlands]" Id="fa773668-0021-4493-9c3f-2d981c98244e" TechNameMatcher="Borderlands">
@@ -48,7 +42,6 @@
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Plants vs. Zombies" FolderName="Plants vs. Zombies 2009 [Pflanzen gegen Zombies]" Id="12e4bb5c-3361-47a4-9bb1-2d420c6228cf" TechNameMatcher="Pflanzen gegen Zombies™">
-    <Config author="XElement" name="default" />
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Risen 3 - Titan Lords" FolderName="Risen 2014 [Risen 3 - Titan Lords]" Id="7b57b2ab-8b0f-40eb-88f4-2e20002a4eb0" TechNameMatcher="Risen 3 - Titan Lords">
@@ -67,14 +60,12 @@
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="The Sims 3" FolderName="The Sims 2009 [The Sims 3]" Id="0aed2ddf-6109-401f-9467-484fa853450f" TechNameMatcher=".*Sims™ 3">
-    <Config author="XElement" name="[de-DE]">
-      <OS id="Win10">
-        <Links>
-          <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Mods" SourceId="Mods" />
-          <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Saves" SourceId="Saves" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="[de-DE]" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Mods" SourceId="Mods" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Saves" SourceId="Saves" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="The Stanley Parable" FolderName="The Stanley Parable 2013 [The Stanley Parable]" Id="7b7ee663-825c-4fdf-b1e9-85009096c212" TechNameMatcher="The Stanley Parable">
@@ -93,7 +84,6 @@
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Syder Arcade" FolderName="Syder Arcade 2013 [Syder Arcade]" Id="1e4e19e9-cbfa-411d-a926-fe80fe67950e" TechNameMatcher="Syder Arcade">
-    <Config author="XElement" name="default" />
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Joe Danger" FolderName="Joe Danger 2013 [Joe Danger]" Id="53c7bc46-aa43-413f-8f13-9cfeb4df9ff0" TechNameMatcher="Joe Danger">
@@ -127,110 +117,98 @@
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Pro Evolution Soccer 2015" FolderName="PES 2014 [Pro Evolution Soccer 2015]" Id="e14c9a54-0243-4d24-9e8f-12bdb609386f" TechNameMatcher="Pro Evolution Soccer 2015">
-    <Config author="XElement" name="default">
-      <OS id="Win81">
-        <Links>
-          <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />
-        </Links>
-      </OS>
-      <OS id="Win10">
-        <Links>
-          <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win81">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OsConfig>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2015" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
   <Tool ApplicationName="Exact Audio Copy" FolderName="Exact Audio Copy" Id="0408347b-5d6b-4561-88f0-06f3f379232b" TechNameMatcher="Exact Audio Copy.*">
-    <Config author="XElement" name="default">
-      <OS id="Win81">
-        <Links>
-          <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
-        </Links>
-      </OS>
-      <OS id="Win10">
-        <Links>
-          <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win81">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
+      </Links>
+    </OsConfig>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="EAC" DestTargetName="Profiles" SourceId="Profiles" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Tool>
   <Tool ApplicationName="Mp3tag" FolderName="Mp3tag" Id="9a78a831-c24b-47cd-8eb6-2889cb3100af" TechNameMatcher="Mp3tag">
-    <Config author="XElement" name="default">
-      <OS id="Win81">
-        <Links>
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
-        </Links>
-      </OS>
-      <OS id="Win10">
-        <Links>
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
+      </Links>
+    </OsConfig>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="columns.ini" SourceId="data\columns.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="genres.ini" SourceId="data\genres.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag\data" DestTargetName="usrfields.ini" SourceId="data\usrfields.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Mp3tag" DestTargetName="mp3tag.cfg" SourceId="mp3tag.cfg" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Tool>
   <Tool ApplicationName="TeamSpeak 3" FolderName="TeamSpeak 3" Id="bf5b72bc-6351-481d-a25d-265bf9f063cb" TechNameMatcher="TeamSpeak 3 Client">
-    <Config author="XElement" name="default">
-      <OS id="Win81">
-        <Links>
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
-        </Links>
-      </OS>
-      <OS id="Win10">
-        <Links>
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
+      </Links>
+    </OsConfig>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="TS3Client" DestTargetName="settings.db" SourceId="settings.db" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Tool>
   <Tool ApplicationName="Notepad++" FolderName="Notepad++" Id="97c5d94b-2794-45d1-8442-710754e41d77" TechNameMatcher="Notepad\+\+">
-    <Config author="XElement" name="default">
-      <OS id="Win10">
-        <Links>
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="config.xml" SourceId="config.xml" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="contextMenu.xml" SourceId="contextMenu.xml" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="functionList.xml" SourceId="functionList.xml" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="langs.xml" SourceId="langs.xml" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="nativeLang.xml" SourceId="nativeLang.xml" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="shortcuts.xml" SourceId="shortcuts.xml" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="stylers.xml" SourceId="stylers.xml" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="config.xml" SourceId="config.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="contextMenu.xml" SourceId="contextMenu.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="functionList.xml" SourceId="functionList.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="langs.xml" SourceId="langs.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="nativeLang.xml" SourceId="nativeLang.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="shortcuts.xml" SourceId="shortcuts.xml" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Notepad++" DestTargetName="stylers.xml" SourceId="stylers.xml" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Tool>
   <Tool ApplicationName="Winamp" FolderName="Winamp" Id="b2d4a228-a950-4036-949b-4f328f416866" TechNameMatcher="Winamp">
-    <Config author="XElement" name="default">
-      <OS id="Win81">
-        <Links>
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
-        </Links>
-      </OS>
-      <OS id="Win10">
-        <Links>
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
-          <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
-        </Links>
-      </OS>
-    </Config>
+    <OsConfig author="XElement" name="default" os="Win81">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
+      </Links>
+    </OsConfig>
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp\Plugins" DestTargetName="gen_ml.ini" SourceId="Plugins\gen_ml.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="auth.ini" SourceId="auth.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="studio.xnf" SourceId="studio.xnf" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="winamp.ini" SourceId="winamp.ini" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u" SourceId="Winamp.m3u" />
+        <FileLink DestRoot="ApplicationData" DestSubFolderPath="Winamp" DestTargetName="Winamp.m3u8" SourceId="Winamp.m3u8" />
+      </Links>
+    </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Tool>
 </SyncData>

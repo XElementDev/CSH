@@ -4,7 +4,7 @@ namespace XElement.CloudSyncHelper.DataTypes
 {
     public interface IDefinition
     {
-        IEnumerable<IConfiguration> Configurations { get; }
+        IEnumerable<IOsConfiguration> OsConfigs { get; }
 
         bool SupportsSteamCloud { get; }
     }

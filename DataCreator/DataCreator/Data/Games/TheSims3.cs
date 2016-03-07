@@ -20,11 +20,6 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                                                        SpecialCharacters.TRADEMARK );
         }
 
-        private OsConfiguration GetConfigForWin10()
-        {
-            return new OsConfiguration { Links = this.GetLinksForWin10(), OsId = OsId.Win10 };
-        }
-
         private List<AbstractLinkInfo> GetLinksForWin10()
         {
             return new List<AbstractLinkInfo>
@@ -50,10 +45,9 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             var osConfigs = new List<OsConfiguration>
             {
-                this.GetConfigForWin10()
+                this._osConfigFactory.Get( this.GetLinksForWin10(), OsId.Win10, "[de-DE]" )
             };
-            var config = this._configFactory.Get( osConfigs, "[de-DE]" );
-            this.Definition = this._definitionFactory.Get( config );
+            this.Definition = this._definitionFactory.Get( osConfigs );
         }
     }
 }

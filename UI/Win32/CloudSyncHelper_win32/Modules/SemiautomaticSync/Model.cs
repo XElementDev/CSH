@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
@@ -15,14 +14,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         {
             this._isInstalled = ctorParams.IsInstalled;
             this._programInfoVM = ctorParams.ProgramInfoVM;
-            this.Configurations = ctorParams.Configurations;
 
             this.SupportedOSsVM = new SupportedOperatingSystems.ViewModel( this._programInfoVM.OsConfigs );
 
             this.InitializeCommands();
         }
-
-        public IEnumerable<IConfiguration> Configurations { get; private set; }
 
         public bool HasSuitableConfig { get { return this._programInfoVM.HasSuitableConfig; } }
 
@@ -86,8 +82,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
             (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
         }
-
-        public IConfiguration SelectedConfiguration { get; set; }
 
         public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 

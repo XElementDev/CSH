@@ -5,8 +5,12 @@ namespace XElement.CloudSyncHelper.DataTypes
 {
     public interface IOsConfiguration
     {
+        string Author { get; }
+
         IReadOnlyList<ILinkInfo> Links { get; }
 
-        OsId OsId { get; set; }
+        string Name { get; }
+
+        OsId OsId { get; }
     }
 }

@@ -18,16 +18,6 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
             this.TechnicalNameMatcher = "Exact Audio Copy.*";
         }
 
-        private OsConfiguration GetConfigForWin8_1()
-        {
-            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win81 };
-        }
-
-        private OsConfiguration GetConfigForWin10()
-        {
-            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win10 };
-        }
-
         private List<AbstractLinkInfo> GetLinksForWin81_10()
         {
             return new List<AbstractLinkInfo>
@@ -46,11 +36,10 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
         {
             var osConfig = new List<OsConfiguration>
             {
-                this.GetConfigForWin8_1(),
-                this.GetConfigForWin10()
+                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win81 ), 
+                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win10 )
             };
-            var config = this._configFactory.Get( osConfig );
-            this.Definition = this._definitionFactory.Get( config );
+            this.Definition = this._definitionFactory.Get( osConfig );
         }
     }
 }

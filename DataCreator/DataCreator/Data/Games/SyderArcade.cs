@@ -21,8 +21,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             {
                 // TODO
             };
-            var config = this._configFactory.Get( osConfigs );
-            this.Definition = this._definitionFactory.Get( config );
+            this.Definition = this._definitionFactory.Get( osConfigs );
         }
     }
 }

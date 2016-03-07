@@ -20,10 +20,10 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
         protected abstract void OnImportsSatisfied();
 
         [Import]
-        protected ConfigurationFactory _configFactory = null;
+        protected DefinitionFactory _definitionFactory = null;
 
         [Import]
-        protected DefinitionFactory _definitionFactory = null;
+        protected OsConfigurationFactory _osConfigFactory = null;
     }
 #endregion
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
@@ -24,11 +23,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         }
 
         string BannerCrawler.ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
-
-        public IEnumerable<IConfiguration> Configurations
-        {
-            get { return this._applicationInfo.Definition.Configurations; }
-        }
 
         public string DisplayName
         {
@@ -80,10 +74,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             {
                 IEnumerable<IOsConfiguration> result = new List<IOsConfiguration>();
 
-                var config = this._applicationInfo.Definition.Configurations.FirstOrDefault();
-                if ( config != default( IConfiguration ) )
+                var definition = this._applicationInfo.Definition;
+                if ( definition != default( IDefinition ) )
                 {
-                    result = config.OsConfigs;
+                    result = definition.OsConfigs;
                 }
 
                 return result;

@@ -85,8 +85,8 @@
     <Compile Include="Data\Games\TokiTori.cs" />
     <Compile Include="Data\Games\BioshockInfinite.cs" />
     <Compile Include="Data\Games\Pes2015.cs" />
-    <Compile Include="Model\Factories\ConfigurationFactory.cs" />
     <Compile Include="Model\Factories\DefinitionFactory.cs" />
+    <Compile Include="Model\Factories\OsConfigurationFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

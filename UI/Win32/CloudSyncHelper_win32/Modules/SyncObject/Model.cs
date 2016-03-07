@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
@@ -37,7 +35,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
         {
             return new Model.SemiautoSyncModelCtorParams
             {
-                Configurations = this._programInfoVM.Configurations, 
                 IsInstalled = this.IsInstalled, 
                 ProgramInfoVM = this._programInfoVM
             };
@@ -116,7 +113,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         private class SemiautoSyncModelCtorParams : SemiautomaticSync.IModelConstructorParameters
         {
-            public IEnumerable<IConfiguration> Configurations { get; set; }
             public bool IsInstalled { get; set; }
             public ProgramInfoViewModel ProgramInfoVM { get; set; }
         }

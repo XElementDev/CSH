@@ -18,63 +18,59 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
             this.TechnicalNameMatcher = "Notepad\\+\\+";
         }
 
-        private OsConfiguration GetConfigForWindows10()
+        private List<AbstractLinkInfo> GetLinksForWindows10()
         {
-            return new OsConfiguration
+            return new List<AbstractLinkInfo>
             {
-                Links = new List<AbstractLinkInfo>
+                new FileLinkInfo
                 {
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Notepad++"),
-                        DestinationTargetName = "config.xml",
-                        SourceId = "config.xml"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Notepad++"),
-                        DestinationTargetName = "contextMenu.xml",
-                        SourceId = "contextMenu.xml"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Notepad++"),
-                        DestinationTargetName = "functionList.xml",
-                        SourceId = "functionList.xml"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Notepad++"),
-                        DestinationTargetName = "langs.xml",
-                        SourceId = "langs.xml"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Notepad++"),
-                        DestinationTargetName = "nativeLang.xml",
-                        SourceId = "nativeLang.xml"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Notepad++"),
-                        DestinationTargetName = "shortcuts.xml",
-                        SourceId = "shortcuts.xml"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Notepad++"),
-                        DestinationTargetName = "stylers.xml",
-                        SourceId = "stylers.xml"
-                    }
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Notepad++"),
+                    DestinationTargetName = "config.xml",
+                    SourceId = "config.xml"
                 },
-                OsId = OsId.Win10
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Notepad++"),
+                    DestinationTargetName = "contextMenu.xml",
+                    SourceId = "contextMenu.xml"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Notepad++"),
+                    DestinationTargetName = "functionList.xml",
+                    SourceId = "functionList.xml"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Notepad++"),
+                    DestinationTargetName = "langs.xml",
+                    SourceId = "langs.xml"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Notepad++"),
+                    DestinationTargetName = "nativeLang.xml",
+                    SourceId = "nativeLang.xml"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Notepad++"),
+                    DestinationTargetName = "shortcuts.xml",
+                    SourceId = "shortcuts.xml"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Notepad++"),
+                    DestinationTargetName = "stylers.xml",
+                    SourceId = "stylers.xml"
+                }
             };
         }
 
@@ -82,10 +78,9 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
         {
             var osConfigs = new List<OsConfiguration>
             {
-                GetConfigForWindows10()
+                this._osConfigFactory.Get( this.GetLinksForWindows10(), OsId.Win10 )
             };
-            var config = this._configFactory.Get( osConfigs );
-            this.Definition = this._definitionFactory.Get( config );
+            this.Definition = this._definitionFactory.Get( osConfigs );
         }
     }
 }

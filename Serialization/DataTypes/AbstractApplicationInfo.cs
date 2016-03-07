@@ -16,13 +16,6 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         [XmlAttribute( "ApplicationName" )]
         public string ApplicationName { get; set; }
 
-        [XmlElement( "Config" )]
-        public List<Configuration> Configurations
-        {
-            get { return this.Definition.Configurations; }
-            set { this.Definition.Configurations = value; }
-        }
-
         [XmlIgnore]
         public Definition Definition { get; set; }
         IDefinition IApplicationInfo.Definition { get { return this.Definition; } }
@@ -32,6 +25,14 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
         [XmlAttribute( "Id" )]
         public Guid /*IApplicationInfo.*/Id { get; set; }
+
+
+        [XmlElement( "OsConfig" )]
+        public List<OsConfiguration> OsConfigs
+        {
+            get { return this.Definition.OsConfigs; }
+            set { this.Definition.OsConfigs = value; }
+        }
 
         [XmlElement( "IsSteamCloudSupported" )]
         public IsSteamCloudSupported SupportsSteamCloud

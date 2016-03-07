@@ -18,16 +18,6 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
             this.TechnicalNameMatcher = "Mp3tag";
         }
 
-        private OsConfiguration GetConfigForWindows8_1()
-        {
-            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win81 };
-        }
-
-        private OsConfiguration GetConfigForWindows10()
-        {
-            return new OsConfiguration { Links = this.GetLinksForWin81_10(), OsId = OsId.Win10 };
-        }
-
         private List<AbstractLinkInfo> GetLinksForWin81_10()
         {
             return new List<AbstractLinkInfo>
@@ -67,11 +57,10 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
         {
             var osConfigs = new List<OsConfiguration>
             {
-                GetConfigForWindows8_1(),
-                GetConfigForWindows10()
+                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win81 ),
+                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win10 )
             };
-            var config = this._configFactory.Get( osConfigs );
-            this.Definition = this._definitionFactory.Get( config );
+            this.Definition = this._definitionFactory.Get( osConfigs );
         }
     }
 }

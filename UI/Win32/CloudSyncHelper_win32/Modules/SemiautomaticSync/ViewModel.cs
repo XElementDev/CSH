@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
+﻿namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 {
 #region not unit-tested
     public class ViewModel
@@ -8,7 +6,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         public ViewModel( /*SemiautomaticSync.*/Model semiautoSyncModel )
         {
             this.Model = semiautoSyncModel;
-            this.IsAConfigurationAvailable = this.Model.Configurations.Count() != 0;
+            this.IsAConfigurationAvailable = this.Model.SupportedOSsVM.IsWindows10Supported || 
+                                             this.Model.SupportedOSsVM.IsWindows81Supported;
         }
 
         public bool IsAConfigurationAvailable { get; private set; }

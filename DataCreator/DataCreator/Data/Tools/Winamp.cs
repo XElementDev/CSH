@@ -18,75 +18,63 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
             this.TechnicalNameMatcher = "Winamp";
         }
 
-        private OsConfiguration GetConfigForWindows8_1()
+        private List<AbstractLinkInfo> GetLinksForWindows81_10()
         {
-            return new OsConfiguration
+            return new List<AbstractLinkInfo>
             {
-                Links = new List<AbstractLinkInfo>
+                new FileLinkInfo
                 {
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Winamp", "Plugins"),
-                        DestinationTargetName = "gen_ml.ini",
-                        SourceId = Path.Combine("Plugins", "gen_ml.ini")
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Winamp"),
-                        DestinationTargetName = "auth.ini",
-                        SourceId = "auth.ini"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Winamp"),
-                        DestinationTargetName = "studio.xnf",
-                        SourceId = "studio.xnf"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Winamp"),
-                        DestinationTargetName = "winamp.ini",
-                        SourceId = "winamp.ini"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Winamp"),
-                        DestinationTargetName = "Winamp.m3u",
-                        SourceId = "Winamp.m3u"
-                    },
-                    new FileLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.ApplicationData,
-                        DestinationSubFolderPath = Path.Combine("Winamp"),
-                        DestinationTargetName = "Winamp.m3u8",
-                        SourceId = "Winamp.m3u8"
-                    }
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Winamp", "Plugins"),
+                    DestinationTargetName = "gen_ml.ini",
+                    SourceId = Path.Combine("Plugins", "gen_ml.ini")
                 },
-                OsId = OsId.Win81
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Winamp"),
+                    DestinationTargetName = "auth.ini",
+                    SourceId = "auth.ini"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Winamp"),
+                    DestinationTargetName = "studio.xnf",
+                    SourceId = "studio.xnf"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Winamp"),
+                    DestinationTargetName = "winamp.ini",
+                    SourceId = "winamp.ini"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Winamp"),
+                    DestinationTargetName = "Winamp.m3u",
+                    SourceId = "Winamp.m3u"
+                },
+                new FileLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.ApplicationData,
+                    DestinationSubFolderPath = Path.Combine("Winamp"),
+                    DestinationTargetName = "Winamp.m3u8",
+                    SourceId = "Winamp.m3u8"
+                }
             };
-        }
-
-        private OsConfiguration GetConfigForWindows10()
-        {
-            var win10Config = this.GetConfigForWindows8_1();
-            win10Config.OsId = OsId.Win10;
-            return win10Config;
         }
 
         protected override void OnImportsSatisfied()
         {
             var osConfigs = new List<OsConfiguration>
             {
-                GetConfigForWindows8_1(),   // TODO: Check config for Win8.1
-                GetConfigForWindows10()
+                this._osConfigFactory.Get( this.GetLinksForWindows81_10(), OsId.Win81 ), // TODO: Check config for Win8.1
+                this._osConfigFactory.Get( this.GetLinksForWindows81_10(), OsId.Win10 )
             };
-            var config = this._configFactory.Get( osConfigs );
-            this.Definition = this._definitionFactory.Get( config );
+            this.Definition = this._definitionFactory.Get( osConfigs );
         }
     }
 }

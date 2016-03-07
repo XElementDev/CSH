@@ -18,40 +18,28 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.TechnicalNameMatcher = "ANNO 2070";    // TODO: check matcher
         }
 
-        private OsConfiguration GetConfigForWin8_1()
+        private List<AbstractLinkInfo> GetLinksForWin81_10()
         {
-            return new OsConfiguration
+            return new List<AbstractLinkInfo>
             {
-                Links = new List<AbstractLinkInfo>
+                new FolderLinkInfo
                 {
-                    new FolderLinkInfo
-                    {
-                        DestinationRoot = Environment.SpecialFolder.MyDocuments,
-                        DestinationSubFolderPath = Path.Combine("ANNO 2070", "Accounts", "%UPLAY_ACCOUNT_NAME%"),
-                        DestinationTargetName = "Savegames",
-                        SourceId = "Savegames"
-                    }
-                },
-                OsId = OsId.Win81
+                    DestinationRoot = Environment.SpecialFolder.MyDocuments,
+                    DestinationSubFolderPath = Path.Combine("ANNO 2070", "Accounts", "%UPLAY_ACCOUNT_NAME%"),
+                    DestinationTargetName = "Savegames",
+                    SourceId = "Savegames"
+                }
             };
-        }
-
-        private OsConfiguration GetConfigForWin10()
-        {
-            var win10Config = this.GetConfigForWin8_1();
-            win10Config.OsId = OsId.Win10;
-            return win10Config;
         }
 
         protected override void OnImportsSatisfied()
         {
             var osConfigs = new List<OsConfiguration>
             {
-                GetConfigForWin8_1(),   // TODO: Check config for Win8.1
-                GetConfigForWin10()     // TODO: Check config for Win10
+                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win81 ),    // TODO: Check config for Win8.1
+                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win10 ) // TODO: Check config for Win10
             };
-            var config = this._configFactory.Get( osConfigs );
-            this.Definition = this._definitionFactory.Get( config );
+            this.Definition = this._definitionFactory.Get( osConfigs );
         }
     }
 }
