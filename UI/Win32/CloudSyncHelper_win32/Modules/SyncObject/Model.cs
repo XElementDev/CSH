@@ -111,16 +111,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
         private class FullAutoSyncModelCtorParams : FullyAutomaticSync.IModelConstructorParameters
         {
             public bool IsInstalled { get; set; }
-
             public bool SupportsSteamCloud { get; set; }
         }
 
         private class SemiautoSyncModelCtorParams : SemiautomaticSync.IModelConstructorParameters
         {
             public IEnumerable<IConfiguration> Configurations { get; set; }
-
             public bool IsInstalled { get; set; }
-
             public ProgramInfoViewModel ProgramInfoVM { get; set; }
         }
     }
