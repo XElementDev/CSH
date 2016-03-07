@@ -160,6 +160,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No semiautomatic sync configuration available..
+        /// </summary>
+        public static string SemiautomaticSync_NoConfig {
+            get {
+                return ResourceManager.GetString("SemiautomaticSync_NoConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No configuration available.
         /// </summary>
         public static string SemiautomaticSync_NoConfigAvailable {

@@ -57,7 +57,8 @@
         </StackPanel>
 
         <TextBlock 
-                   Text="No semiautomatic sync configuration available." 
+                   Text="{Binding Path=Localization.SemiautomaticSync_NoConfig, 
+                                     Source={StaticResource XamlLocalization}}" 
                    Visibility="{Binding Path=IsAConfigurationAvailable, 
                                         Converter={StaticResource InversedBoolToVisibilityConverter}}" 
         />

@@ -225,4 +225,8 @@
     <value>von</value>
     <comment>// 2016-03-07</comment>
   </data>
+  <data name="SemiautomaticSync_NoConfig" xml:space="preserve">
+    <value>Keine semi-automatische Konfiguration verfügbar.</value>
+    <comment>// 2016-03-07</comment>
+  </data>
 </root>
