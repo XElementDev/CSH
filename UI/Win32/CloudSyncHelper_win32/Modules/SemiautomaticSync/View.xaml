@@ -67,6 +67,24 @@
                     Orientation="Vertical" 
                     Visibility="{Binding Path=IsAConfigurationAvailable, 
                                          Converter={StaticResource BoolToVisibilityConverter}}">
+            <StackPanel 
+                        Orientation="Horizontal">
+                <Image 
+                       Source="{StaticResource Settings-02-16}" 
+                       VerticalAlignment="Top" 
+                />
+                <TextBlock 
+                           Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
+                                          Source={StaticResource XamlLocalization}}" 
+                />
+            </StackPanel>
+
+            <Border Style="{StaticResource SupportedOSs}">
+                <modules:SupportedOSs 
+                                      DataContext="{Binding Path=Model.SupportedOSsVM, Mode=OneWay}" 
+                />
+            </Border>
+
             <StackPanel Style="{StaticResource ButtonsContainer}">
                 <Button Visibility="Collapsed" 
                         Command="{Binding Path=Model.MoveToCloudCommand}" 
@@ -117,24 +135,6 @@
                     </StackPanel>
                 </GroupBox.Header>
             </GroupBox>
-
-            <StackPanel 
-                        Orientation="Horizontal">
-                <Image 
-                       Source="{StaticResource Settings-02-16}" 
-                       VerticalAlignment="Top" 
-                />
-                <TextBlock 
-                           Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
-                                          Source={StaticResource XamlLocalization}}" 
-                />
-            </StackPanel>
-
-            <Border Style="{StaticResource SupportedOSs}">
-                <modules:SupportedOSs 
-                                      DataContext="{Binding Path=Model.SupportedOSsVM, Mode=OneWay}" 
-                />
-            </Border>
 
             <modules:PathMap 
                              DataContext="{Binding Path=Model.PathMap, Mode=OneWay}" 
