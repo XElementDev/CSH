@@ -16,9 +16,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                                      IConfig config, 
                                      ConfigForOsHelper cfg4OsHelper )
         {
+            this._applicationInfo = applicationInfo;
             this._config = config;
             this._configForOsHelper = cfg4OsHelper;
-            this._applicationInfo = applicationInfo;
 
             InitializeExecutionLogic( applicationInfo );
         }
