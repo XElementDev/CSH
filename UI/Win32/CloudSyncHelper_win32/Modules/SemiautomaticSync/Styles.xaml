@@ -11,10 +11,10 @@
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
-    <Style x:Key="ConfigurationsContainer" TargetType="{x:Type StackPanel}">
-        <Setter Property="Orientation" Value="Horizontal" />
+    <Style x:Key="ConfigurationsContainer" TargetType="{x:Type DockPanel}">
         <Style.Resources>
             <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="DockPanel.Dock" Value="Left" />
                 <Setter Property="Margin" Value="0 0 4 0" />
                 <Setter Property="VerticalAlignment" Value="Center" />
             </Style>
