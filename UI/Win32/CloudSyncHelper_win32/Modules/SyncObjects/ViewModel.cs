@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Windows.Data;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 using SyncObjectModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.Model;
 using SyncObjectsModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects.Model;

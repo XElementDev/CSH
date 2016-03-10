@@ -2,6 +2,7 @@
 using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {

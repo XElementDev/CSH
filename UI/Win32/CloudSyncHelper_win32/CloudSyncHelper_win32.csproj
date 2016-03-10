@@ -233,13 +233,11 @@
     <Compile Include="Model\Enrichment\Icons\IObjectToCrawl.cs" />
     <Compile Include="Model\Enrichment\IRetrievalIdContainer.cs" />
     <Compile Include="Model\Enrichment\RetrieverModelBaseT1.cs" />
-    <Compile Include="Model\Factories\IFactoryT2.cs" />
     <Compile Include="Model\FilterModel.cs" />
     <Compile Include="Model\Enrichment\Banners\BannerCrawlerModel.cs" />
     <Compile Include="Model\Enrichment\Banners\IBannerId.cs" />
     <Compile Include="Model\Enrichment\Banners\IObjectToCrawl.cs" />
     <Compile Include="Model\IConfig.cs" />
-    <Compile Include="Model\Factories\IFactoryT1.cs" />
     <Compile Include="Model\Enrichment\Banners\BannerRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
@@ -340,6 +338,10 @@
     <ProjectReference Include="..\..\..\DataTypes\DataTypes.csproj">
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
+      <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\BannerCrawler\BannerCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 using SyncObjectModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject.Model;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject

@@ -1,7 +1,7 @@
 ﻿namespace XElement.DesignPatterns.CreationalPatterns.FactoryMethod
 {
-    public interface IFactory<TOut, TIn>
+    public interface IFactory<TOut>
     {
-        TOut Get( TIn parameter );
+        TOut Get();
     }
 }

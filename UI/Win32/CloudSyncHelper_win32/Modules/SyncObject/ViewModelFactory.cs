@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 {
