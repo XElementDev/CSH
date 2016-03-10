@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
@@ -16,13 +17,27 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this._isInstalled = ctorParams.IsInstalled;
             this._programInfoVM = ctorParams.ProgramInfoVM;
 
-            this.OsConfigs = this._programInfoVM.OsConfigs;
-            this.SupportedOSsVM = new SupportedOperatingSystems.ViewModel( this._programInfoVM.OsConfigs );
-
+            this.Initialize();
             this.InitializeCommands();
         }
 
+        public bool CanConfigBeChanged
+        {
+            get { return !this.IsLinked; }
+        }
+
         public bool HasSuitableConfig { get { return this._programInfoVM.HasSuitableConfig; } }
+
+        private void Initialize()
+        {
+            this.OsConfigs = this._programInfoVM.OsConfigs;
+            this.SupportedOSsVM = new SupportedOperatingSystems.ViewModel( this._programInfoVM.OsConfigs );
+
+            if ( this.OsConfigs.Count() != 0 )
+            {
+                this.SelectedConfiguration = this.OsConfigs.First();
+            }
+        }
 
         private void InitializeCommands()
         {
@@ -50,6 +65,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.RaisePropertiesChanged();
         }
 
+        // TODO: Finish move to cloud feature
         public ICommand MoveToCloudCommand { get; private set; }
         private bool MoveToCloudCommand_CanExecute()
         {
@@ -65,6 +81,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         public IEnumerable<IOsConfiguration> OsConfigs { get; private set; }
 
+        // TODO: Update on configuration changed
         public IEnumerable<Tuple<string, string>> PathMap
         {
             get
@@ -85,10 +102,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             (this.LinkCommand as DelegateCommand).RaiseCanExecuteChanged();
             (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
             (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
+            this.RaisePropertyChanged( nameof( this.CanConfigBeChanged ) );
         }
+
+        //  TODO: find best fitting config (done in ExecutionLogic?!)
+        public IOsConfiguration SelectedConfiguration { get; set; }
 
         public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 
+        //  TODO: Copy cloud files to local
         public ICommand UnlinkCommand { get; private set; }
         private bool UnlinkCommand_CanExecute()
         {

@@ -92,6 +92,8 @@
                                                   Source={StaticResource XamlLocalization}}" />
                         <ComboBox 
                                   ItemsSource="{Binding Path=OsConfigVMs}" 
+                                  SelectedItem="{Binding Path=SelectedConfiguration, Mode=TwoWay}" 
+                                  IsEnabled="{Binding Path=Model.CanConfigBeChanged}" 
                                   ItemTemplate="{StaticResource OsConfigurationComboBoxItem}" 
                         />
                     </DockPanel>
