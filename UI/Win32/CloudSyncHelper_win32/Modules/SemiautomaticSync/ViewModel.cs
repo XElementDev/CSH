@@ -25,12 +25,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         private void InitializeOsConfigVMs()
         {
-            this._osConfigToVmMap = new Dictionary<IOsConfiguration, OsConfigurationViewModel>();
+            this._osConfigToOsConfigVmMap = new Dictionary<IOsConfiguration, OsConfigurationViewModel>();
+            this._osConfigVmToOsConfigMap = new Dictionary<OsConfigurationViewModel, IOsConfiguration>();
             var osConfigVMs = new List<OsConfigurationViewModel>( this.Model.OsConfigs.Count() );
             foreach ( var osConfig in this.Model.OsConfigs )
             {
                 var osConfigVM = new OsConfigurationViewModel( osConfig );
-                this._osConfigToVmMap.Add( osConfig, osConfigVM );
+                this._osConfigToOsConfigVmMap.Add( osConfig, osConfigVM );
+                this._osConfigVmToOsConfigMap.Add( osConfigVM, osConfig );
                 osConfigVMs.Add( osConfigVM );
             }
             this.OsConfigVMs = osConfigVMs;
@@ -41,7 +43,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             if ( this.Model.SelectedConfiguration != null )
             {
                 var newRawValue = this.Model.SelectedConfiguration;
-                var newVmValue = this._osConfigToVmMap[newRawValue];
+                var newVmValue = this._osConfigToOsConfigVmMap[newRawValue];
                 this.SelectedConfiguration = newVmValue;
             }
         }
@@ -52,9 +54,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         public IEnumerable<OsConfigurationViewModel> OsConfigVMs { get; private set; }
 
-        public OsConfigurationViewModel SelectedConfiguration { get; set; }
+        private OsConfigurationViewModel _selectedConfiguration;
+        public OsConfigurationViewModel SelectedConfiguration
+        {
+            get { return this._selectedConfiguration; }
+            set
+            {
+                this._selectedConfiguration = value;
+                var rawValue = this._osConfigVmToOsConfigMap[this.SelectedConfiguration];
+                this.Model.SelectedConfiguration = rawValue;
+            }
+        }
 
-        private IDictionary<IOsConfiguration, OsConfigurationViewModel> _osConfigToVmMap;
+        private IDictionary<IOsConfiguration, OsConfigurationViewModel> _osConfigToOsConfigVmMap;
+        private IDictionary<OsConfigurationViewModel, IOsConfiguration> _osConfigVmToOsConfigMap;
     }
 #endregion
 }
