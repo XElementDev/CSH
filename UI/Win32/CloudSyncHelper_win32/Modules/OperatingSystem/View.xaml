@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="XElement.CloudSyncHelper.UI.Win32.Modules.OperatingSystemUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel 
+                Orientation="Horizontal">
+        <Image 
+               Source="{StaticResource Windows_8_1-000000-16}" 
+               Visibility="{Binding Path=ShowWindows81, 
+                                    Converter={StaticResource BoolToVisibilityConverter}}" 
+        />
+        <Image 
+               Source="{StaticResource Windows_10-000000-16}" 
+               Visibility="{Binding Path=ShowWindows10, 
+                                    Converter={StaticResource BoolToVisibilityConverter}}" 
+        />
+
+        <TextBlock 
+                   Text="{Binding Path=OsName}" 
+        />
+    </StackPanel>
+
+</UserControl>

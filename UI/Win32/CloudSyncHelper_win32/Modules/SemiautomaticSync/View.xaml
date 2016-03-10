@@ -91,7 +91,7 @@
                         <TextBlock Text="{Binding Path=Localization.SemiautomaticSync_SelectedConfiguration, 
                                                   Source={StaticResource XamlLocalization}}" />
                         <ComboBox 
-                                  ItemsSource="{Binding Path=Model.OsConfigs}" 
+                                  ItemsSource="{Binding Path=OsConfigVMs}" 
                                   ItemTemplate="{StaticResource OsConfigurationComboBoxItem}" 
                         />
                     </StackPanel>

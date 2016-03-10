@@ -1,6 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+
+                    xmlns:modules="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
@@ -8,18 +9,32 @@
 
 
     <DataTemplate x:Key="OsConfigurationComboBoxItem">
-        <TextBlock>
-            <TextBlock.Text>
-                <MultiBinding StringFormat="{}{0} {1} {2}">
-                    <Binding Path="Name" />
-                    <Binding 
-                             Path="Localization.SemiautomaticSync_AuthorNameLink" 
-                             Source="{StaticResource XamlLocalization}" 
-                    />
-                    <Binding Path="Author" />
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock 
+                       Grid.Column="0">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} {1} {2}">
+                        <Binding Path="Name" />
+                        <Binding 
+                                 Path="Localization.SemiautomaticSync_AuthorNameLink" 
+                                 Source="{StaticResource XamlLocalization}" 
+                        />
+                        <Binding Path="Author" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+
+            <modules:OperatingSystemUC 
+                                       Grid.Column="2" 
+                                       DataContext="{Binding Path=OperatingSystemVM}" 
+            />
+        </Grid>
     </DataTemplate>
 
 </ResourceDictionary>
