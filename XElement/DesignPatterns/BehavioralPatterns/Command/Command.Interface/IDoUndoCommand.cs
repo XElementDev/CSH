@@ -1,4 +1,4 @@
-﻿namespace XElement.CloudSyncHelper
+﻿namespace XElement.DesignPatterns.BehavioralPatterns.Command
 {
     public interface IDoUndoCommand
     {

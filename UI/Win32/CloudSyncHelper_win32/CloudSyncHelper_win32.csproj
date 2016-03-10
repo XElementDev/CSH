@@ -339,6 +339,10 @@
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
+      <Project>{197c5b66-cd95-4cec-a2b9-178d553ecb3f}</Project>
+      <Name>Command.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
       <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
       <Name>FactoryMethod.Interface</Name>
