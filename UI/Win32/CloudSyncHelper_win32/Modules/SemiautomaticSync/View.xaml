@@ -90,9 +90,9 @@
                     <DockPanel Style="{StaticResource ConfigurationsContainer}">
                         <TextBlock Text="{Binding Path=Localization.SemiautomaticSync_SelectedConfiguration, 
                                                   Source={StaticResource XamlLocalization}}" />
-                                  <!--SelectedItem="{Binding Path=SelectedConfiguration, Mode=TwoWay}"--> 
                         <ComboBox 
                                   ItemsSource="{Binding Path=OsConfigAtGlanceVMs}" 
+                                  SelectedItem="{Binding Path=SelectedConfigAtGlance, Mode=TwoWay}" 
                                   IsEnabled="{Binding Path=Model.CanConfigBeChanged}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>

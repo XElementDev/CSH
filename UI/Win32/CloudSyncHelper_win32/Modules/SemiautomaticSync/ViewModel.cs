@@ -25,28 +25,33 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         private void InitializeOsConfigAtGlanceVMs()
         {
-            this._osConfigToOsConfigVmMap = new Dictionary<IOsConfiguration, OsConfigurationAtGlance.ViewModel>();
-            this._osConfigVmToOsConfigMap = new Dictionary<OsConfigurationAtGlance.ViewModel, IOsConfiguration>();
-            var osConfigAtGlanceVMs = new List<OsConfigurationAtGlance.ViewModel>( this.Model.OsConfigs.Count() );
+            var capacity = this.Model.OsConfigs.Count();
+            this._osConfigAtGlanceVmToOsConfigMap = 
+                new Dictionary<OsConfigurationAtGlance.ViewModel, IOsConfiguration>( capacity );
+            this._osConfigToOsConfigAtGlanceVmMap = 
+                new Dictionary<IOsConfiguration, OsConfigurationAtGlance.ViewModel>( capacity );
+            var osConfigAtGlanceVMs = new List<OsConfigurationAtGlance.ViewModel>( capacity );
+
             foreach ( var osConfig in this.Model.OsConfigs )
             {
                 var osConfigAtGlanceModel = new OsConfigurationAtGlance.Model( osConfig );
                 var osConfigAtGlanceVM = new OsConfigurationAtGlance.ViewModel( osConfigAtGlanceModel );
-                this._osConfigToOsConfigVmMap.Add( osConfig, osConfigAtGlanceVM );
-                this._osConfigVmToOsConfigMap.Add( osConfigAtGlanceVM, osConfig );
                 osConfigAtGlanceVMs.Add( osConfigAtGlanceVM );
+                this._osConfigToOsConfigAtGlanceVmMap.Add( osConfig, osConfigAtGlanceVM );
+                this._osConfigAtGlanceVmToOsConfigMap.Add( osConfigAtGlanceVM, osConfig );
             }
+
             this.OsConfigAtGlanceVMs = osConfigAtGlanceVMs;
         }
 
         private void InitializeSelectedConfiguration()
         {
-            //if ( this.Model.SelectedConfiguration != null )
-            //{
-            //    var newRawValue = this.Model.SelectedConfiguration;
-            //    var newVmValue = this._osConfigToOsConfigVmMap[newRawValue];
-            //    this.SelectedConfiguration = newVmValue;
-            //}
+            if ( this.Model.SelectedConfiguration != null )
+            {
+                var newRawValue = this.Model.SelectedConfiguration;
+                var newVmValue = this._osConfigToOsConfigAtGlanceVmMap[newRawValue];
+                this.SelectedConfigAtGlance = newVmValue;
+            }
         }
 
         public bool IsAConfigurationAvailable { get; private set; }
@@ -55,22 +60,26 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         public IEnumerable<OsConfigurationAtGlance.ViewModel> OsConfigAtGlanceVMs { get; private set; }
 
-        //private OsConfigurationViewModel _selectedConfiguration;
-        //public OsConfigurationViewModel SelectedConfiguration
+        private OsConfigurationAtGlance.ViewModel _selectedConfigAtGlance;
+        public OsConfigurationAtGlance.ViewModel SelectedConfigAtGlance
+        {
+            get { return this._selectedConfigAtGlance; }
+            set
+            {
+                this._selectedConfigAtGlance = value;
+
+                var rawValue = this._osConfigAtGlanceVmToOsConfigMap[this.SelectedConfigAtGlance];
+                this.Model.SelectedConfiguration = rawValue;
+            }
+        }
+
         //{
-        //    get { return this._selectedConfiguration; }
-        //    set
         //    {
-        //        this._selectedConfiguration = value;
-        //        var rawValue = this._osConfigVmToOsConfigMap[this.SelectedConfiguration];
-        //        this.Model.SelectedConfiguration = rawValue;
         //    }
         //}
 
-        //public OsConfiguration.ViewModel
-
-        private IDictionary<IOsConfiguration, OsConfigurationAtGlance.ViewModel> _osConfigToOsConfigVmMap;
-        private IDictionary<OsConfigurationAtGlance.ViewModel, IOsConfiguration> _osConfigVmToOsConfigMap;
+        private IDictionary<OsConfigurationAtGlance.ViewModel, IOsConfiguration> _osConfigAtGlanceVmToOsConfigMap;
+        private IDictionary<IOsConfiguration, OsConfigurationAtGlance.ViewModel> _osConfigToOsConfigAtGlanceVmMap;
     }
 #endregion
 }
