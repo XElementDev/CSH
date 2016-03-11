@@ -11,9 +11,9 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="./Resources.xaml" />
-                <ResourceDictionary Source="./Styles.xaml" />
                 <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -90,12 +90,16 @@
                     <DockPanel Style="{StaticResource ConfigurationsContainer}">
                         <TextBlock Text="{Binding Path=Localization.SemiautomaticSync_SelectedConfiguration, 
                                                   Source={StaticResource XamlLocalization}}" />
+                                  <!--SelectedItem="{Binding Path=SelectedConfiguration, Mode=TwoWay}"--> 
                         <ComboBox 
-                                  ItemsSource="{Binding Path=OsConfigVMs}" 
-                                  SelectedItem="{Binding Path=SelectedConfiguration, Mode=TwoWay}" 
-                                  IsEnabled="{Binding Path=Model.CanConfigBeChanged}" 
-                                  ItemTemplate="{StaticResource OsConfigurationComboBoxItem}" 
-                        />
+                                  ItemsSource="{Binding Path=OsConfigAtGlanceVMs}" 
+                                  IsEnabled="{Binding Path=Model.CanConfigBeChanged}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <modules:OsConfigurationAtGlanceUC DataContext="{Binding}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </DockPanel>
                 </GroupBox.Header>
                 <GroupBox.Content>

@@ -108,9 +108,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         /// <summary>
         ///   Looks up a localized string similar to by.
         /// </summary>
-        public static string SemiautomaticSync_AuthorNameLink {
+        public static string OsConfigurationAtGlance_AuthorNameLink {
             get {
-                return ResourceManager.GetString("SemiautomaticSync_AuthorNameLink", resourceCulture);
+                return ResourceManager.GetString("OsConfigurationAtGlance_AuthorNameLink", resourceCulture);
             }
         }
         
