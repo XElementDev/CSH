@@ -48,6 +48,7 @@
     <Compile Include="Data\Games\FarCry4.cs" />
     <Compile Include="Data\Games\FinalFantasy13.cs" />
     <Compile Include="Data\Games\PrisonArchitect.cs" />
+    <Compile Include="Data\Games\SaintsRowGooH.cs" />
     <Compile Include="Data\Tools\ExactAudioCopy.cs" />
     <Compile Include="Data\Tools\Mp3tag.cs" />
     <Compile Include="Data\Tools\TeamSpeak3.cs" />
