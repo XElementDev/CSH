@@ -8,20 +8,20 @@ namespace XElement.CloudSyncHelper
     #region not unit-tested
     public class ExecutionLogic
     {
-        public ExecutionLogic( IApplicationInfo programInfo, 
+        public ExecutionLogic( IApplicationInfo appInfo, 
                                PathVariablesDTO pathVariables, 
                                ConfigForOsHelper cfg4OsHelper )
         {
             this._configForOsHelper = cfg4OsHelper;
             this._pathVariables = pathVariables;
-            this._programInfo = programInfo;
+            this._appInfo = appInfo;
         }
 
         public IEnumerable<ILink> Config
         {
             get
             {
-                var definition = this._programInfo.Definition;
+                var definition = this._appInfo.Definition;
                 var osConfigs = (definition != default( IDefinition ) ?
                                     definition.OsConfigs : 
                                     new List<IOsConfiguration>());
@@ -31,9 +31,9 @@ namespace XElement.CloudSyncHelper
                 {
                     ILink link = null;
                     if ( linkInfo is IFolderLinkInfo )
-                        link = new FolderLink( this._programInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
+                        link = new FolderLink( this._appInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
                     else
-                        link = new FileLink( this._programInfo, linkInfo as IFileLinkInfo, this._pathVariables );
+                        link = new FileLink( this._appInfo, linkInfo as IFileLinkInfo, this._pathVariables );
                     config.Add( link );
                 }
                 return config;
@@ -106,9 +106,9 @@ namespace XElement.CloudSyncHelper
             }
         }
 
+        private IApplicationInfo _appInfo;
         private ConfigForOsHelper _configForOsHelper;
         private PathVariablesDTO _pathVariables;
-        private IApplicationInfo _programInfo;
     }
 #endregion
 }
