@@ -48,6 +48,7 @@
     <Compile Include="Data\Games\FarCry4.cs" />
     <Compile Include="Data\Games\FinalFantasy13.cs" />
     <Compile Include="Data\Games\HitmanAbsolution.cs" />
+    <Compile Include="Data\Games\EuroTruckSimulator2.cs" />
     <Compile Include="Data\Games\PrisonArchitect.cs" />
     <Compile Include="Data\Games\SaintsRowGooH.cs" />
     <Compile Include="Data\Tools\ExactAudioCopy.cs" />
