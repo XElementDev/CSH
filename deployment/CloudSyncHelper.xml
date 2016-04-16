@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="The Walking Dead" FolderName="The Walking Dead 2012-2013 [The Walking Dead]" Id="28bd5524-ac8d-4f07-8987-524a4384722c" TechNameMatcher="The Walking Dead">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Far Cry 4" FolderName="Far Cry 2014 [Far Cry 4]" Id="ca3c10fc-d045-4431-a73d-b9f06d992cdb" TechNameMatcher="Far Cry 4">
     <IsSteamCloudSupported value="false" />
   </Game>
