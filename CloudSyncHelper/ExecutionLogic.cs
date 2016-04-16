@@ -5,7 +5,7 @@ using XElement.CloudSyncHelper.Execution;
 
 namespace XElement.CloudSyncHelper
 {
-    #region not unit-tested
+#region not unit-tested
     public class ExecutionLogic
     {
         public ExecutionLogic( IApplicationInfo appInfo, 
