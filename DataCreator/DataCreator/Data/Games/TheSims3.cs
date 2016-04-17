@@ -20,17 +20,10 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                                                        SpecialCharacters.TRADEMARK );
         }
 
-        private List<AbstractLinkInfo> GetLinksForWin10()
+        private List<AbstractLinkInfo> GetLinksForWin10_deDE()
         {
             return new List<AbstractLinkInfo>
             {
-                new FolderLinkInfo
-                {
-                    DestinationRoot = Environment.SpecialFolder.MyDocuments,
-                    DestinationSubFolderPath = Path.Combine( "Electronic Arts", "Die Sims 3" ),
-                    DestinationTargetName = "Mods",
-                    SourceId = "Mods"
-                },
                 new FolderLinkInfo
                 {
                     DestinationRoot = Environment.SpecialFolder.MyDocuments,
@@ -41,11 +34,28 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             };
         }
 
+        private List<AbstractLinkInfo> GetLinksForWin10_deDE_InclMods()
+        {
+            var configuration = this.GetLinksForWin10_deDE();
+            configuration.Add
+                (
+                    new FolderLinkInfo
+                    {
+                        DestinationRoot = Environment.SpecialFolder.MyDocuments,
+                        DestinationSubFolderPath = Path.Combine( "Electronic Arts", "Die Sims 3" ),
+                        DestinationTargetName = "Mods",
+                        SourceId = "Mods"
+                    }
+                );
+            return configuration;
+        }
+
         protected override void OnImportsSatisfied()
         {
             var osConfigs = new List<OsConfiguration>
             {
-                this._osConfigFactory.Get( this.GetLinksForWin10(), OsId.Win10, "[de-DE]" )
+                this._osConfigFactory.Get( this.GetLinksForWin10_deDE(), OsId.Win10, "[de-DE]" ), 
+                this._osConfigFactory.Get( this.GetLinksForWin10_deDE_InclMods(), OsId.Win10, "[de-DE] mit Mods" )
             };
             this.Definition = this._definitionFactory.Get( osConfigs );
         }

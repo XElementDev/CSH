@@ -79,8 +79,13 @@
   <Game ApplicationName="The Sims 3" FolderName="The Sims 2009 [The Sims 3]" Id="0aed2ddf-6109-401f-9467-484fa853450f" TechNameMatcher=".*Sims™ 3">
     <OsConfig author="XElement" name="[de-DE]" os="Win10">
       <Links>
-        <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Mods" SourceId="Mods" />
         <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Saves" SourceId="Saves" />
+      </Links>
+    </OsConfig>
+    <OsConfig author="XElement" name="[de-DE] mit Mods" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Saves" SourceId="Saves" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Electronic Arts\Die Sims 3" DestTargetName="Mods" SourceId="Mods" />
       </Links>
     </OsConfig>
     <IsSteamCloudSupported value="false" />
