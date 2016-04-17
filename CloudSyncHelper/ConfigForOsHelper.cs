@@ -17,7 +17,7 @@ namespace XElement.CloudSyncHelper
 
             if ( osId.HasValue )
             {
-                var osConfig = osConfigs.SingleOrDefault( c => c.OsId == osId.Value );
+                var osConfig = osConfigs.FirstOrDefault( c => c.OsId == osId.Value );
                 if ( osConfig != null )
                 {
                     suitableConfig = osConfig.Links;
