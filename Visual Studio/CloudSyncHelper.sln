@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSyncHelper_win32", "..\UI\Win32\CloudSyncHelper_win32\CloudSyncHelper_win32.csproj", "{8F9F2D42-0BD7-4760-A64A-630C14014FC9}"
 EndProject
@@ -83,6 +83,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Command", "Command", "{90F8552B-A867-449F-B027-D08BB02F9CE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command.Interface", "..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj", "{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{79ED10F5-B256-47E0-8C11-2AF152A6CDCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic.Interface", "..\Logic\Logic.Interface\Logic.Interface.csproj", "{F5E56BF7-6A32-4765-8538-812531CD679E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic.Implementation", "..\Logic\Logic.Implementation\Logic.Implementation.csproj", "{411FC166-4D90-4915-AFFD-6C4C1ECF1396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic.MefExtensions", "..\Logic\Logic.MefExtensions\Logic.MefExtensions.csproj", "{0F5BA595-1293-4429-AD68-47A5E1413778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -192,6 +200,18 @@ Global
 		{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5E56BF7-6A32-4765-8538-812531CD679E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5E56BF7-6A32-4765-8538-812531CD679E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5E56BF7-6A32-4765-8538-812531CD679E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5E56BF7-6A32-4765-8538-812531CD679E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{411FC166-4D90-4915-AFFD-6C4C1ECF1396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{411FC166-4D90-4915-AFFD-6C4C1ECF1396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{411FC166-4D90-4915-AFFD-6C4C1ECF1396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{411FC166-4D90-4915-AFFD-6C4C1ECF1396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F5BA595-1293-4429-AD68-47A5E1413778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F5BA595-1293-4429-AD68-47A5E1413778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F5BA595-1293-4429-AD68-47A5E1413778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F5BA595-1293-4429-AD68-47A5E1413778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -225,5 +245,8 @@ Global
 		{33808539-38B7-47C6-85D5-7FA8C9705C5F} = {06A61363-7B57-464E-8D8F-EAB947FD16E5}
 		{90F8552B-A867-449F-B027-D08BB02F9CE0} = {33808539-38B7-47C6-85D5-7FA8C9705C5F}
 		{197C5B66-CD95-4CEC-A2B9-178D553ECB3F} = {90F8552B-A867-449F-B027-D08BB02F9CE0}
+		{F5E56BF7-6A32-4765-8538-812531CD679E} = {79ED10F5-B256-47E0-8C11-2AF152A6CDCD}
+		{411FC166-4D90-4915-AFFD-6C4C1ECF1396} = {79ED10F5-B256-47E0-8C11-2AF152A6CDCD}
+		{0F5BA595-1293-4429-AD68-47A5E1413778} = {79ED10F5-B256-47E0-8C11-2AF152A6CDCD}
 	EndGlobalSection
 EndGlobal
