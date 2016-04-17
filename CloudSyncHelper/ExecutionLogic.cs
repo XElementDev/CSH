@@ -15,46 +15,51 @@ namespace XElement.CloudSyncHelper
             this._configForOsHelper = cfg4OsHelper;
             this._pathVariables = pathVariables;
             this._appInfo = appInfo;
+
+            this.Initialize();
         }
 
-        public IEnumerable<ILink> Config
+        public IEnumerable<ILink> Config { get; private set; }
+
+        public bool HasSuitableConfig { get; private set; }
+
+        private void Initialize()
         {
-            get
-            {
-                var definition = this._appInfo.Definition;
-                var osConfigs = (definition != default( IDefinition ) ?
-                                    definition.OsConfigs : 
-                                    new List<IOsConfiguration>());
-                var suitableConfig = this._configForOsHelper.GetSuitableConfig( osConfigs );
-                var config = new List<ILink>();
-                foreach ( ILinkInfo linkInfo in suitableConfig )
-                {
-                    ILink link = null;
-                    if ( linkInfo is IFolderLinkInfo )
-                        link = new FolderLink( this._appInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
-                    else
-                        link = new FileLink( this._appInfo, linkInfo as IFileLinkInfo, this._pathVariables );
-                    config.Add( link );
-                }
-                return config;
-            }
+            this.Initialize_Config();
+            this.Initialize_HasSuitableConfig();
+            this.IsInCloud = this.Config.Count() != 0 && this.Config.All( c => c.IsInCloud );
+            this.IsLinked = this.Config.Count() != 0 && this.Config.All( c => c.IsLinked );
         }
 
-        public bool HasSuitableConfig()
+        private void Initialize_Config()
+        {
+            var definition = this._appInfo.Definition;
+            var osConfigs = (definition != default( IDefinition ) ?
+                                definition.OsConfigs :
+                                new List<IOsConfiguration>());
+            var suitableConfig = this._configForOsHelper.GetSuitableConfig( osConfigs );
+            var config = new List<ILink>();
+            foreach ( ILinkInfo linkInfo in suitableConfig )
+            {
+                ILink link = null;
+                if ( linkInfo is IFolderLinkInfo )
+                    link = new FolderLink( this._appInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
+                else
+                    link = new FileLink( this._appInfo, linkInfo as IFileLinkInfo, this._pathVariables );
+                config.Add( link );
+            }
+            this.Config = config;
+        }
+
+        private void Initialize_HasSuitableConfig()
         {
             var isThereAConfigForThisOs = this.Config.Count() != 0;
-            return isThereAConfigForThisOs;
+            this.HasSuitableConfig = isThereAConfigForThisOs;
         }
 
-        public bool IsInCloud
-        {
-            get { return this.Config.Count() != 0 && this.Config.All( c => c.IsInCloud ); }
-        }
+        public bool IsInCloud { get; private set; }
 
-        public bool IsLinked
-        {
-            get { return this.Config.Count() != 0 && this.Config.All( c => c.IsLinked ); }
-        }
+        public bool IsLinked { get; private set; }
 
         public void Link()
         {

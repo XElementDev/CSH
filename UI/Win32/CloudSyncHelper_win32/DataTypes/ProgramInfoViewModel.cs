@@ -44,7 +44,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             get
             {
                 return this.ExecutionLogic != null &&
-                    this.ExecutionLogic.HasSuitableConfig();
+                    this.ExecutionLogic.HasSuitableConfig;
             }
         }
 
