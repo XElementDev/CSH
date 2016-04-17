@@ -64,37 +64,11 @@ namespace XElement.CloudSyncHelper
             }
         }
 
-        public IEnumerable<string> LinkPaths
-        {
-            get
-            {
-                var linkPaths = new List<string>();
-                foreach ( ILink link in this.Config )
-                {
-                    linkPaths.Add( link.LinkPath );
-                }
-                return linkPaths;
-            }
-        }
-
         public void MoveToCloud()
         {
             foreach ( ILink link in this.Config )
             {
                 link.MoveToCloud();
-            }
-        }
-
-        public IEnumerable<string> TargetPaths
-        {
-            get
-            {
-                var targetPaths = new List<string>();
-                foreach ( ILink link in this.Config )
-                {
-                    targetPaths.Add( link.TargetPath );
-                }
-                return targetPaths;
             }
         }
 
