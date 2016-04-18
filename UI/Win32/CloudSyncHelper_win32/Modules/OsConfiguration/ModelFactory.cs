@@ -23,14 +23,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         private IOsChecker _osChecker = null;
 
         [Import]
-        private IOsConfigurationExecutor _osConfigExecutor = null;
+        private IOsConfiguration _osConfigExecutor = null;
 
 
         private class ModelDependencies : IModelDependencies
         {
             public IOsChecker OsChecker { get; set; }
 
-            public IOsConfigurationExecutor OsConfigurationExecutor { get; set; }
+            public IOsConfiguration OsConfigurationExecutor { get; set; }
         }
     }
 #endregion

@@ -2,7 +2,7 @@
 
 namespace XElement.CloudSyncHelper.Logic
 {
-    public interface IOsConfigurationExecutor
+    public interface IOsConfiguration
     {
         bool IsInCloud( IOsConfigurationInfo osConfig );
 

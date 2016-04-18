@@ -6,6 +6,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
     {
         IOsChecker OsChecker { get; }
 
-        IOsConfigurationExecutor OsConfigurationExecutor { get; }
+        IOsConfiguration OsConfigurationExecutor { get; }
     }
 }

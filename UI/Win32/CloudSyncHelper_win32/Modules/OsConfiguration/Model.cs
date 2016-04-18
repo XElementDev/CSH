@@ -77,7 +77,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
 
         private IOsChecker _osChecker;
-        private IOsConfigurationExecutor _osConfigExecutor;
+        private IOsConfiguration _osConfigExecutor;
         private IOsConfigurationInfo _osConfiguration;
     }
 #endregion
