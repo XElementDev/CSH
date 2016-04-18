@@ -11,20 +11,30 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         public Model( IModelParameters @params, 
                       IModelDependencies dependencies )
         {
-            this.IsInstalled = @params.IsInstalled;
-            this._osChecker = dependencies.OsChecker;
-            this._osConfigExecutor = dependencies.OsConfigurationExecutor;
-            this._osConfiguration = @params.OsConfiguration;
-
-            this.InitializeCommands();
+            this.Initialize( @params, dependencies );
 
             this.UpdateCachedProperties();
+        }
+
+        private void Initialize( IModelParameters @params, IModelDependencies dependencies )
+        {
+            this.InitializeCommands();
+            this.InitializeComponents( @params, dependencies );
+
+            //this._osConfiguration = new 
         }
 
         private void InitializeCommands()
         {
             this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
             this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
+        }
+
+        private void InitializeComponents( IModelParameters @params, IModelDependencies dependencies )
+        {
+            this.IsInstalled = @params.IsInstalled;
+            this._osChecker = dependencies.OsChecker;
+            this._osConfigurationInfo = @params.OsConfigurationInfo;
         }
 
         private bool IsInCloud { get; set; }
@@ -45,7 +55,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
         private void LinkCommand_Execute()
         {
-            this._osConfigExecutor.Link( this._osConfiguration );
+            this._osConfiguration.Link();
             this.UpdateCachedProperties();
             this.RaisePropertiesChanged();
         }
@@ -58,16 +68,16 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
         private void UnlinkCommand_Execute()
         {
-            this._osConfigExecutor.Unlink( this._osConfiguration );
+            this._osConfiguration.Unlink();
             this.UpdateCachedProperties();
             this.RaisePropertiesChanged();
         }
 
         private void UpdateCachedProperties()
         {
-            this.IsInCloud = this._osConfigExecutor.IsInCloud( this._osConfiguration );
-            this.IsLinked = this._osConfigExecutor.IsLinked( this._osConfiguration );
-            this.IsSuitableForOs = this._osChecker.IsSuitableForOs( this._osConfiguration );
+            this.IsInCloud = this._osConfiguration.IsInCloud;
+            this.IsLinked = this._osConfiguration.IsLinked;
+            this.IsSuitableForOs = this._osChecker.IsSuitableForOs( this._osConfigurationInfo );
         }
 
         private void RaisePropertiesChanged()
@@ -77,8 +87,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
 
         private IOsChecker _osChecker;
-        private IOsConfiguration _osConfigExecutor;
-        private IOsConfigurationInfo _osConfiguration;
+        private IOsConfiguration _osConfiguration;
+        private IOsConfigurationInfo _osConfigurationInfo;
     }
 #endregion
 }

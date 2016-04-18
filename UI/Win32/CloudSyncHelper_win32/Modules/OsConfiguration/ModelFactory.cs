@@ -12,8 +12,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         {
             var dependencies = new ModelDependencies
             {
-                OsChecker = this._osChecker, 
-                OsConfigurationExecutor = this._osConfigExecutor
+                OsChecker = this._osChecker
             };
             var model = new Model( @params, dependencies );
             return model;
@@ -22,15 +21,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         [Import]
         private IOsChecker _osChecker = null;
 
-        [Import]
-        private IOsConfiguration _osConfigExecutor = null;
-
 
         private class ModelDependencies : IModelDependencies
         {
             public IOsChecker OsChecker { get; set; }
-
-            public IOsConfiguration OsConfigurationExecutor { get; set; }
         }
     }
 #endregion

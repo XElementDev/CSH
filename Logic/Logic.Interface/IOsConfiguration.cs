@@ -1,15 +1,15 @@
-﻿using XElement.CloudSyncHelper.DataTypes;
+﻿using XElement.DesignPatterns.BehavioralPatterns.Command;
 
 namespace XElement.CloudSyncHelper.Logic
 {
-    public interface IOsConfiguration
+    public interface IOsConfiguration : IDoUndoCommand
     {
-        bool IsInCloud( IOsConfigurationInfo osConfig );
+        bool IsInCloud { get; }
 
-        bool IsLinked( IOsConfigurationInfo osConfig );
+        bool IsLinked { get; }
 
-        void Link( IOsConfigurationInfo osConfig );
+        void Link();
 
-        void Unlink( IOsConfigurationInfo osConfig );
+        void Unlink();
     }
 }

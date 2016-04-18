@@ -6,6 +6,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
     {
         bool IsInstalled { get; }
 
-        IOsConfigurationInfo OsConfiguration { get; }
+        IOsConfigurationInfo OsConfigurationInfo { get; }
     }
 }
