@@ -4,12 +4,12 @@ namespace XElement.CloudSyncHelper.Logic
 {
     public interface IOsConfigurationExecutor
     {
-        bool IsInCloud( IOsConfiguration osConfig );
+        bool IsInCloud( IOsConfigurationInfo osConfig );
 
-        bool IsLinked( IOsConfiguration osConfig );
+        bool IsLinked( IOsConfigurationInfo osConfig );
 
-        void Link( IOsConfiguration osConfig );
+        void Link( IOsConfigurationInfo osConfig );
 
-        void Unlink( IOsConfiguration osConfig );
+        void Unlink( IOsConfigurationInfo osConfig );
     }
 }

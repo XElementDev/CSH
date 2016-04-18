@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfigurationAtGlance
 #region not unit-tested
     public class Model
     {
-        public Model( IOsConfiguration osConfig )
+        public Model( IOsConfigurationInfo osConfig )
         {
             this._osConfig = osConfig;
             this.InitializeOperatingSystemModel();
@@ -35,7 +35,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfigurationAtGlance
 
         public OperatingSystem.Model OperatingSystemModel { get; private set; }
 
-        private IOsConfiguration _osConfig;
+        private IOsConfigurationInfo _osConfig;
 
 
         private class OperatingSystemModelCtorParams : OperatingSystem.IModelConstructorParameters

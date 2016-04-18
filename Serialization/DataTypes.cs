@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
     {
         [XmlIgnore]
         public List<OsConfiguration> OsConfigs { get; set; }
-        IEnumerable<IOsConfiguration> IDefinition.OsConfigs { get { return this.OsConfigs; } }
+        IEnumerable<IOsConfigurationInfo> IDefinition.OsConfigs { get { return this.OsConfigs; } }
 
         [XmlIgnore]
         public bool SupportsSteamCloud { get; set; }
@@ -23,7 +23,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
     public class GameInfo : AbstractApplicationInfo, IGameInfo { }
 
-    public class OsConfiguration : IOsConfiguration
+    public class OsConfiguration : IOsConfigurationInfo
     {
         [XmlAttribute( "author" )]
         public string Author { get; set; }
@@ -32,7 +32,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         [XmlArrayItem( "FileLink"  , typeof( FileLinkInfo ) ),
          XmlArrayItem( "FolderLink", typeof( FolderLinkInfo ) )]
         public List<AbstractLinkInfo> Links { get; set; }
-        IReadOnlyList<ILinkInfo> IOsConfiguration.Links { get { return this.Links; } }
+        IReadOnlyList<ILinkInfo> IOsConfigurationInfo.Links { get { return this.Links; } }
 
         [XmlAttribute( "name" )]
         public string Name { get; set; }

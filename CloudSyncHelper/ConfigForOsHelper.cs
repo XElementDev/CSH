@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper
     [Export]
     public class ConfigForOsHelper
     {
-        public IReadOnlyList<ILinkInfo> GetSuitableConfig( IEnumerable<IOsConfiguration> osConfigs )
+        public IReadOnlyList<ILinkInfo> GetSuitableConfig( IEnumerable<IOsConfigurationInfo> osConfigs )
         {
             IReadOnlyList<ILinkInfo> suitableConfig = new List<ILinkInfo>();
             var osId = this._osRecognizer.GetOsId();

@@ -27,9 +27,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         {
             var capacity = this.Model.OsConfigs.Count();
             this._osConfigAtGlanceVmToOsConfigMap = 
-                new Dictionary<OsConfigurationAtGlance.ViewModel, IOsConfiguration>( capacity );
+                new Dictionary<OsConfigurationAtGlance.ViewModel, IOsConfigurationInfo>( capacity );
             this._osConfigToOsConfigAtGlanceVmMap = 
-                new Dictionary<IOsConfiguration, OsConfigurationAtGlance.ViewModel>( capacity );
+                new Dictionary<IOsConfigurationInfo, OsConfigurationAtGlance.ViewModel>( capacity );
             var osConfigAtGlanceVMs = new List<OsConfigurationAtGlance.ViewModel>( capacity );
 
             foreach ( var osConfig in this.Model.OsConfigs )
@@ -78,8 +78,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         //    }
         //}
 
-        private IDictionary<OsConfigurationAtGlance.ViewModel, IOsConfiguration> _osConfigAtGlanceVmToOsConfigMap;
-        private IDictionary<IOsConfiguration, OsConfigurationAtGlance.ViewModel> _osConfigToOsConfigAtGlanceVmMap;
+        private IDictionary<OsConfigurationAtGlance.ViewModel, IOsConfigurationInfo> _osConfigAtGlanceVmToOsConfigMap;
+        private IDictionary<IOsConfigurationInfo, OsConfigurationAtGlance.ViewModel> _osConfigToOsConfigAtGlanceVmMap;
     }
 #endregion
 }

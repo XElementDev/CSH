@@ -4,6 +4,6 @@ namespace XElement.CloudSyncHelper.Logic
 {
     public interface IOsChecker
     {
-        bool IsSuitableForOs( IOsConfiguration osConfig );
+        bool IsSuitableForOs( IOsConfigurationInfo osConfig );
     }
 }

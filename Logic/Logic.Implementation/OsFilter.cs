@@ -13,9 +13,9 @@ namespace XElement.CloudSyncHelper.Logic
             this._osRecognizer = osRecognizer;
         }
 
-        public IEnumerable<IOsConfiguration> GetFilteredOsConfigs( IEnumerable<IOsConfiguration> osConfigs )
+        public IEnumerable<IOsConfigurationInfo> GetFilteredOsConfigs( IEnumerable<IOsConfigurationInfo> osConfigs )
         {
-            var filteredOsConfigs = new List<IOsConfiguration>();
+            var filteredOsConfigs = new List<IOsConfigurationInfo>();
             var osId = this._osRecognizer.GetOsId();
 
             if ( osId.HasValue )

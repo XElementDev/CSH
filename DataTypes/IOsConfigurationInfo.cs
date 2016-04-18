@@ -3,7 +3,7 @@ using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataTypes
 {
-    public interface IOsConfiguration
+    public interface IOsConfigurationInfo
     {
         string Author { get; }
 

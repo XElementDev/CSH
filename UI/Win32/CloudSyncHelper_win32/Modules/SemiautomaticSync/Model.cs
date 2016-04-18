@@ -79,7 +79,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.RaisePropertiesChanged();
         }
 
-        public IEnumerable<IOsConfiguration> OsConfigs { get; private set; }
+        public IEnumerable<IOsConfigurationInfo> OsConfigs { get; private set; }
 
         // TODO: Update on configuration changed
         public IEnumerable<Tuple<string, string>> PathMap
@@ -106,7 +106,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         }
 
         //  TODO: find best fitting config (done in ExecutionLogic?!)
-        public IOsConfiguration SelectedConfiguration { get; set; }
+        public IOsConfigurationInfo SelectedConfiguration { get; set; }
 
         public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 

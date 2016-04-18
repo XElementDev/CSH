@@ -68,11 +68,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public bool IsLinked { get { return this.ExecutionLogic.IsLinked; } }
 
-        public IEnumerable<IOsConfiguration> OsConfigs
+        public IEnumerable<IOsConfigurationInfo> OsConfigs
         {
             get
             {
-                IEnumerable<IOsConfiguration> result = new List<IOsConfiguration>();
+                IEnumerable<IOsConfigurationInfo> result = new List<IOsConfigurationInfo>();
 
                 var definition = this._applicationInfo.Definition;
                 if ( definition != default( IDefinition ) )

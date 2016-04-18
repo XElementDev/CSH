@@ -45,7 +45,7 @@
     <Compile Include="IFolderLinkInfo.cs" />
     <Compile Include="IGameInfo.cs" />
     <Compile Include="ILinkInfo.cs" />
-    <Compile Include="IOsConfiguration.cs" />
+    <Compile Include="IOsConfigurationInfo.cs" />
     <Compile Include="IApplicationInfo.cs" />
     <Compile Include="ISyncData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
