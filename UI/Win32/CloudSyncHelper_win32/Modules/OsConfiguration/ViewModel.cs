@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
     {
         public ViewModel( OsConfiguration.Model model )
         {
-            this.InitializePathMap( model.Links );
+            //this.InitializePathMap( model.Links );
         }
 
         private void InitializePathMap( IEnumerable<ILink> links )

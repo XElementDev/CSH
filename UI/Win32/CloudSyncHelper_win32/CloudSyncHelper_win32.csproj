@@ -78,7 +78,8 @@
     <Compile Include="Modules\OsConfigurationAtGlance\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\OsConfiguration\IModelConstructorParameters.cs" />
+    <Compile Include="Modules\OsConfiguration\IModelDependencies.cs" />
+    <Compile Include="Modules\OsConfiguration\IModelParameters.cs" />
     <Compile Include="Modules\OsConfiguration\Model.cs" />
     <Compile Include="Modules\OsConfiguration\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
@@ -353,6 +354,10 @@
     <ProjectReference Include="..\..\..\DataTypes\DataTypes.csproj">
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logic\Logic.Interface\Logic.Interface.csproj">
+      <Project>{f5e56bf7-6a32-4765-8538-812531cd679e}</Project>
+      <Name>Logic.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
       <Project>{197c5b66-cd95-4cec-a2b9-178d553ecb3f}</Project>
