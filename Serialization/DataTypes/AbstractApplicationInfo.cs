@@ -28,7 +28,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
 
         [XmlElement( "OsConfig" )]
-        public List<OsConfiguration> OsConfigs
+        public List<OsConfigurationInfo> OsConfigs
         {
             get { return this.Definition.OsConfigs; }
             set { this.Definition.OsConfigs = value; }

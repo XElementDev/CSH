@@ -52,7 +52,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 
         protected override void OnImportsSatisfied()
         {
-            var osConfigs = new List<OsConfiguration>
+            var osConfigs = new List<OsConfigurationInfo>
             {
                 this._osConfigFactory.Get( this.GetLinksForWin10_deDE(), OsId.Win10, "[de-DE]" ), 
                 this._osConfigFactory.Get( this.GetLinksForWin10_deDE_InclMods(), OsId.Win10, "[de-DE] mit Mods" )

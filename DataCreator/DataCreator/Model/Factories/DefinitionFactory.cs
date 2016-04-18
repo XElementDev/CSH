@@ -9,7 +9,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Model
     [Export]
     internal class DefinitionFactory
     {
-        public Definition Get( IEnumerable<OsConfiguration> osConfigs )
+        public Definition Get( IEnumerable<OsConfigurationInfo> osConfigs )
         {
             return new Definition
             {

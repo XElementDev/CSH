@@ -48,7 +48,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 
         protected override void OnImportsSatisfied()
         {
-            var osConfigs = new List<OsConfiguration>
+            var osConfigs = new List<OsConfigurationInfo>
             {
                 this._osConfigFactory.Get( this.GetLinksForWin10(), OsId.Win10 )
             };

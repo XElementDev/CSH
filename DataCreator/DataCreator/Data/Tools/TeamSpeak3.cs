@@ -34,7 +34,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
 
         protected override void OnImportsSatisfied()
         {
-            var osConfigs = new List<OsConfiguration>
+            var osConfigs = new List<OsConfigurationInfo>
             {
                 this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win81 ),    // TODO: Check config for Win8.1
                 this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win10 ),    // TODO: Check config for Win10

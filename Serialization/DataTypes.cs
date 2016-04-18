@@ -9,7 +9,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
     public class Definition : IDefinition
     {
         [XmlIgnore]
-        public List<OsConfiguration> OsConfigs { get; set; }
+        public List<OsConfigurationInfo> OsConfigs { get; set; }
         IEnumerable<IOsConfigurationInfo> IDefinition.OsConfigs { get { return this.OsConfigs; } }
 
         [XmlIgnore]
@@ -23,7 +23,7 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
 
     public class GameInfo : AbstractApplicationInfo, IGameInfo { }
 
-    public class OsConfiguration : IOsConfigurationInfo
+    public class OsConfigurationInfo : IOsConfigurationInfo
     {
         [XmlAttribute( "author" )]
         public string Author { get; set; }

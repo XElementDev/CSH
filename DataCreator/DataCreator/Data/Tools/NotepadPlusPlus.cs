@@ -76,7 +76,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
 
         protected override void OnImportsSatisfied()
         {
-            var osConfigs = new List<OsConfiguration>
+            var osConfigs = new List<OsConfigurationInfo>
             {
                 this._osConfigFactory.Get( this.GetLinksForWindows10(), OsId.Win10 )
             };

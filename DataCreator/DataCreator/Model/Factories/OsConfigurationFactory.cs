@@ -9,14 +9,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Model
     [Export]
     internal class OsConfigurationFactory
     {
-        public OsConfiguration Get( List<AbstractLinkInfo> links, OsId osId )
+        public OsConfigurationInfo Get( List<AbstractLinkInfo> links, OsId osId )
         {
             return this.Get( links: links, osId: osId, name: "default" );
         }
 
-        public OsConfiguration Get( List<AbstractLinkInfo> links, OsId osId, string name )
+        public OsConfigurationInfo Get( List<AbstractLinkInfo> links, OsId osId, string name )
         {
-            return new OsConfiguration
+            return new OsConfigurationInfo
             {
                 Author = "XElement", 
                 Links = links, 
