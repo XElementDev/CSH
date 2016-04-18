@@ -1,8 +1,8 @@
 ﻿using XElement.DesignPatterns.BehavioralPatterns.Command;
 
-namespace XElement.CloudSyncHelper.Logic
+namespace XElement.CloudSyncHelper.Logic.Execution
 {
-    public interface IOsConfiguration : IDoUndoCommand
+    internal interface ILink : IDoUndoCommand
     {
         bool IsInCloud { get; }
 

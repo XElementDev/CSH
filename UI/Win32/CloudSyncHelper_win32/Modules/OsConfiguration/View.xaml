@@ -8,7 +8,29 @@
 
              xmlns:modules="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules">
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <StackPanel>
+        <StackPanel Style="{StaticResource ButtonsContainer}">
+            <Button 
+                    Command="{Binding Path=Model.LinkCommand}" 
+                    Content="{Binding Path=Localization.SemiautomaticSync_Link, 
+                                      Source={StaticResource XamlLocalization}}" 
+            />
+            <Button 
+                    Command="{Binding Path=Model.UnlinkCommand}" 
+                    Content="{Binding Path=Localization.SemiautomaticSync_Unlink, 
+                                      Source={StaticResource XamlLocalization}}" 
+            />
+        </StackPanel>
+
         <modules:PathMap 
                          DataContext="{Binding Path=PathMap, Mode=OneWay}" 
         />

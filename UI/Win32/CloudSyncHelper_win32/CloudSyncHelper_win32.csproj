@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Factories\OsConfigurationFactory.cs" />
     <Compile Include="Modules\OperatingSystem\IModelConstructorParameters.cs" />
     <Compile Include="Modules\OperatingSystem\Model.cs" />
     <Compile Include="Modules\OperatingSystem\View.xaml.cs">
@@ -168,6 +169,10 @@
     <Page Include="Modules\OsConfigurationAtGlance\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\OsConfiguration\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Modules\OsConfiguration\View.xaml">
       <SubType>Designer</SubType>
@@ -354,6 +359,10 @@
     <ProjectReference Include="..\..\..\DataTypes\DataTypes.csproj">
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logic\Logic.Implementation\Logic.Implementation.csproj">
+      <Project>{411fc166-4d90-4915-affd-6c4c1ecf1396}</Project>
+      <Name>Logic.Implementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Logic\Logic.Interface\Logic.Interface.csproj">
       <Project>{f5e56bf7-6a32-4765-8538-812531cd679e}</Project>

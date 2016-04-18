@@ -21,7 +21,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this.InitializeCommands();
             this.InitializeComponents( @params, dependencies );
 
-            //this._osConfiguration = new 
+            this._osConfiguration = new Logic.OsConfiguration( @params.ApplicationInfo, 
+                                                               @params.OsConfigurationInfo, 
+                                                               dependencies.PathVariables );
         }
 
         private void InitializeCommands()
@@ -55,7 +57,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
         private void LinkCommand_Execute()
         {
-            this._osConfiguration.Link();
+            this._osConfiguration.Do();
             this.UpdateCachedProperties();
             this.RaisePropertiesChanged();
         }
@@ -68,7 +70,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
         private void UnlinkCommand_Execute()
         {
-            this._osConfiguration.Unlink();
+            this._osConfiguration.Undo();
             this.UpdateCachedProperties();
             this.RaisePropertiesChanged();
         }
