@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IOsChecker.cs" />
+    <Compile Include="IOsConfigurationExecutor.cs" />
     <Compile Include="IOsFilter.cs" />
     <Compile Include="IPathVariables.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
