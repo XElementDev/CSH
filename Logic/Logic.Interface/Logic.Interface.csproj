@@ -7,7 +7,7 @@
     <ProjectGuid>{F5E56BF7-6A32-4765-8538-812531CD679E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.CloudSyncHelper</RootNamespace>
+    <RootNamespace>XElement.CloudSyncHelper.Logic</RootNamespace>
     <AssemblyName>XElement.CloudSyncHelper.Logic.Interface</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -3,7 +3,7 @@ using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.DotNet.System.Environment;
 
-namespace XElement.CloudSyncHelper
+namespace XElement.CloudSyncHelper.Logic
 {
 #region not unit-tested
     public class OsFilter : IOsFilter

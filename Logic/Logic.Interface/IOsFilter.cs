@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper
+namespace XElement.CloudSyncHelper.Logic
 {
     public interface IOsFilter
     {

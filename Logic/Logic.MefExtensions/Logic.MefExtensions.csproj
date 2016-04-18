@@ -7,7 +7,7 @@
     <ProjectGuid>{0F5BA595-1293-4429-AD68-47A5E1413778}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.CloudSyncHelper.MefExtensions</RootNamespace>
+    <RootNamespace>XElement.CloudSyncHelper.Logic.MefExtensions</RootNamespace>
     <AssemblyName>XElement.CloudSyncHelper.Logic.MefExtensions</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

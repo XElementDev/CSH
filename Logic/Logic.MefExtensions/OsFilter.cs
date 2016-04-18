@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.Composition;
 using XElement.DotNet.System.Environment;
 
-namespace XElement.CloudSyncHelper.MefExtensions
+namespace XElement.CloudSyncHelper.Logic.MefExtensions
 {
 #region not unit-tested
     [Export]
-    internal class OsFilter : global::XElement.CloudSyncHelper.OsFilter, 
+    internal class OsFilter : global::XElement.CloudSyncHelper.Logic.OsFilter, 
                               IPartImportsSatisfiedNotification
     {
         private OsFilter() : base( null ) { }
