@@ -47,7 +47,9 @@
     <Reference Include="XElement.TestUtils">
       <HintPath>..\..\..\externals\XElement\XElement.TestUtils.dll</HintPath>
     </Reference>
-    <Reference Include="XElement.UiCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="XElement.UiCommon">
+       <HintPath>..\..\..\externals\XElement\XElement.UiCommon.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
