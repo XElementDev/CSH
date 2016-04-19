@@ -6,15 +6,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     [Export]
-    internal class OsConfigurationFactory : IFactory<OsConfiguration>
+    internal class OsConfigurationFactory : IFactory<OsConfiguration, IOsConfigurationParameters>
     {
 
-        public OsConfiguration Get()
+        public OsConfiguration Get( IOsConfigurationParameters osConfigParams )
         {
             var pathVariables = new PathVariables
             {
+                PathToSyncFolder = this._config.PathToSyncFolder, 
+                UplayUserName = this._config.UplayAccountName, 
+                UserName = this._config.UserName
             };
-            return new OsConfiguration( appInfo, osConfigInfo, pathVariables );
+            return new OsConfiguration( osConfigParams.ApplicationInfo, 
+                                        osConfigParams.OsConfigurationInfo, 
+                                        pathVariables );
         }
 
         [Import]

@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Factories\IOsConfigurationParameters.cs" />
     <Compile Include="Model\Factories\OsConfigurationFactory.cs" />
     <Compile Include="Modules\OperatingSystem\IModelConstructorParameters.cs" />
     <Compile Include="Modules\OperatingSystem\Model.cs" />

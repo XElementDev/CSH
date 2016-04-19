@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Logic;
+using XElement.CloudSyncHelper.UI.Win32.Model;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 {
@@ -21,9 +22,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this.InitializeCommands();
             this.InitializeComponents( @params, dependencies );
 
-            this._osConfiguration = new Logic.OsConfiguration( @params.ApplicationInfo, 
-                                                               @params.OsConfigurationInfo, 
-                                                               dependencies.PathVariables );
+            var factoryParam = new OsConfigurationParameters
+            {
+                ApplicationInfo = @params.ApplicationInfo, 
+                OsConfigurationInfo = @params.OsConfigurationInfo
+            };
+            this._osConfiguration = dependencies.OsConfigurationFactory.Get( factoryParam );
         }
 
         private void InitializeCommands()
@@ -91,6 +95,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         private IOsChecker _osChecker;
         private IOsConfiguration _osConfiguration;
         private IOsConfigurationInfo _osConfigurationInfo;
+
+
+        private class OsConfigurationParameters : IOsConfigurationParameters
+        {
+            public IApplicationInfo ApplicationInfo { get; set; }
+
+            public IOsConfigurationInfo OsConfigurationInfo { get; set; }
+        }
     }
 #endregion
 }
