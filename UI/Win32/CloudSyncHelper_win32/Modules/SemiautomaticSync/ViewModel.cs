@@ -73,11 +73,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             }
         }
 
-        //{
-        //    {
-        //    }
-        //}
-
         private IDictionary<OsConfigurationAtGlance.ViewModel, IOsConfigurationInfo> _osConfigAtGlanceVmToOsConfigMap;
         private IDictionary<IOsConfigurationInfo, OsConfigurationAtGlance.ViewModel> _osConfigToOsConfigAtGlanceVmMap;
     }
