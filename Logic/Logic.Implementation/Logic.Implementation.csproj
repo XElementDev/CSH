@@ -42,13 +42,13 @@
   <ItemGroup>
     <Compile Include="Execution\Link\LinkFactory.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfigurationFactory.cs" />
-    <Compile Include="Execution\ToolLogic.cs" />
-    <Compile Include="Execution\FileLink.cs" />
-    <Compile Include="Execution\FolderLink.cs" />
-    <Compile Include="Execution\GameLogic.cs" />
-    <Compile Include="Execution\ILinkInt.cs" />
-    <Compile Include="Execution\IApplicationLogic.cs" />
-    <Compile Include="Execution\LinkBase.cs" />
+    <Compile Include="Execution\Link\ToolLogic.cs" />
+    <Compile Include="Execution\Link\FileLink.cs" />
+    <Compile Include="Execution\Link\FolderLink.cs" />
+    <Compile Include="Execution\Link\GameLogic.cs" />
+    <Compile Include="Execution\Link\ILinkInt.cs" />
+    <Compile Include="Execution\Link\IApplicationLogic.cs" />
+    <Compile Include="Execution\Link\LinkBase.cs" />
     <Compile Include="OsChecker.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfiguration.cs" />
     <Compile Include="OsFilter.cs" />
