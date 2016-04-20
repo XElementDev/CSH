@@ -6,7 +6,7 @@ using XElement.CloudSyncHelper.DataTypes;
 namespace XElement.CloudSyncHelper.Logic.Execution
 {
 #region not unit-tested
-    internal abstract class LinkBase : ILink
+    internal abstract class LinkBase : ILinkInt
     {
         public LinkBase( IApplicationInfo appInfo, 
                          ILinkInfo linkInfo, 

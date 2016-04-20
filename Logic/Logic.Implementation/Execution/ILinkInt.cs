@@ -2,7 +2,7 @@
 
 namespace XElement.CloudSyncHelper.Logic.Execution
 {
-    internal interface ILink : IDoUndoCommand
+    internal interface ILinkInt : IDoUndoCommand, ILink
     {
         bool IsInCloud { get; }
 

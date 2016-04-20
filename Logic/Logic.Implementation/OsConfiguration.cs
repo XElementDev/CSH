@@ -20,7 +20,7 @@ namespace XElement.CloudSyncHelper.Logic
 
         public void Do()
         {
-            foreach ( ILink link in this._links )
+            foreach ( ILinkInt link in this._links )
             {
                 link.Do();
             }
@@ -29,10 +29,10 @@ namespace XElement.CloudSyncHelper.Logic
         private void InitializeLinks()
         {
             var capacity = this._osConfigInfo.Links.Count;
-            this._links = new List<ILink>( capacity );
+            this._links = new List<ILinkInt>( capacity );
             foreach ( var linkInfo in this._osConfigInfo.Links )
             {
-                ILink link = null;
+                ILinkInt link = null;
                 if ( linkInfo is IFolderLinkInfo )
                     link = new FolderLink( this._appInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
                 else
@@ -47,14 +47,14 @@ namespace XElement.CloudSyncHelper.Logic
 
         public void Undo()
         {
-            foreach ( ILink link in this._links )
+            foreach ( ILinkInt link in this._links )
             {
                 link.Undo();
             }
         }
 
         private IApplicationInfo _appInfo;
-        private IList<ILink> _links;
+        private IList<ILinkInt> _links;
         private IOsConfigurationInfo _osConfigInfo;
         private IPathVariables _pathVariables;
     }

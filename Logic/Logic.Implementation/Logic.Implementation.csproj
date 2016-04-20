@@ -44,7 +44,7 @@
     <Compile Include="Execution\FileLink.cs" />
     <Compile Include="Execution\FolderLink.cs" />
     <Compile Include="Execution\GameLogic.cs" />
-    <Compile Include="Execution\ILink.cs" />
+    <Compile Include="Execution\ILinkInt.cs" />
     <Compile Include="Execution\IApplicationLogic.cs" />
     <Compile Include="Execution\LinkBase.cs" />
     <Compile Include="OsChecker.cs" />
