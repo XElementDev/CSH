@@ -6,8 +6,8 @@ using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 {
 #region not unit-tested
-    [Export( typeof( IFactory<OsConfiguration.Model, IModelParameters> ) )]
-    internal class ModelFactory : IFactory<OsConfiguration.Model, IModelParameters>
+    [Export( typeof( IFactory<Model, IModelParameters> ) )]
+    internal class ModelFactory : IFactory<Model, IModelParameters>
     {
         public Model Get( IModelParameters @params )
         {
