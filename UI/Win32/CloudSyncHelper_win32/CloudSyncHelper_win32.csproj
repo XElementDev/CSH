@@ -69,6 +69,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Factories\IOsConfigurationParameters.cs" />
+    <Compile Include="Model\Factories\LinkFactory.cs" />
+    <Compile Include="Model\Factories\LinkParametersDTO.cs" />
     <Compile Include="Model\Factories\OsConfigurationFactory.cs" />
     <Compile Include="Modules\OperatingSystem\IModelConstructorParameters.cs" />
     <Compile Include="Modules\OperatingSystem\Model.cs" />
@@ -80,7 +82,7 @@
     <Compile Include="Modules\OsConfigurationAtGlance\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\OsConfiguration\IModelDependencies.cs" />
+    <Compile Include="Modules\OsConfiguration\ModelDependenciesDTO.cs" />
     <Compile Include="Modules\OsConfiguration\IModelParameters.cs" />
     <Compile Include="Modules\OsConfiguration\Model.cs" />
     <Compile Include="Modules\OsConfiguration\ModelParameters.cs" />

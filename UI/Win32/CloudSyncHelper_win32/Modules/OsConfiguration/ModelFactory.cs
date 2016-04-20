@@ -10,8 +10,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
     {
         public Model Get( IModelParameters @params )
         {
-            var dependencies = new ModelDependencies
+            var dependencies = new ModelDependenciesDTO
             {
+                LinkFactory = this._linkFactory, 
                 OsChecker = this._osChecker, 
                 OsConfigurationFactory = this._osConfigFactory
             };
@@ -20,22 +21,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
 
         [Import]
+        private IFactory<Logic.ILink, Win32.Model.LinkParametersDTO> _linkFactory = null;
+
+        [Import]
         private IOsChecker _osChecker = null;
 
         [Import]
         private IFactory<Logic.IOsConfiguration, Win32.Model.IOsConfigurationParameters> _osConfigFactory = null;
-
-
-        private class ModelDependencies : IModelDependencies
-        {
-            public IOsChecker OsChecker { get; set; }
-
-            public IFactory<Logic.IOsConfiguration, Win32.Model.IOsConfigurationParameters> OsConfigurationFactory
-            {
-                get;
-                set;
-            }
-        }
     }
 #endregion
 }

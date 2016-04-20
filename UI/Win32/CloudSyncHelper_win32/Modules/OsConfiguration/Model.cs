@@ -1,8 +1,9 @@
 ﻿using Microsoft.Practices.Prism.Commands;
+using System.Collections.Generic;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Logic;
-using XElement.CloudSyncHelper.UI.Win32.Model;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 {
@@ -10,18 +11,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
     public class Model
     {
         public Model( IModelParameters @params, 
-                      IModelDependencies dependencies )
+                      ModelDependenciesDTO dependencies )
         {
             this.Initialize( @params, dependencies );
 
             this.UpdateCachedProperties();
         }
 
-        private void Initialize( IModelParameters @params, IModelDependencies dependencies )
+        private void Initialize( IModelParameters @params, ModelDependenciesDTO dependencies )
         {
             this.InitializeCommands();
-            this.InitializePublicProperties( @params );
             this.InitializePrivateProperties( @params, dependencies );
+            this.InitializePublicProperties( @params );
         }
 
         private void InitializeCommands()
@@ -30,8 +31,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
         }
 
-        private void InitializePrivateProperties( IModelParameters @params, IModelDependencies dependencies )
+        private void InitializePrivateProperties( IModelParameters @params, ModelDependenciesDTO dependencies )
         {
+            this._linkFactory = dependencies.LinkFactory;
+            this._osChecker = dependencies.OsChecker;
+
             var factoryParam = new OsConfigurationParameters
             {
                 ApplicationInfo = @params.ApplicationInfo,
@@ -39,13 +43,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             };
             this._osConfiguration = dependencies.OsConfigurationFactory.Get( factoryParam );
 
-            this._osChecker = dependencies.OsChecker;
             this._osConfigurationInfo = @params.OsConfigurationInfo;
         }
 
         private void InitializePublicProperties( IModelParameters @params )
         {
             this.IsInstalled = @params.IsInstalled;
+
+            var links = new List<ILink>();
+            foreach ( var linkInfo in this._osConfigurationInfo.Links )
+            {
+                var paramsDTO = new Win32.Model.LinkParametersDTO
+                {
+                    ApplicationInfo = @params.ApplicationInfo, 
+                    LinkInfo = linkInfo
+                };
+                var link = this._linkFactory.Get( paramsDTO );
+            }
+            this.Links = links;
         }
 
         private bool IsInCloud { get; set; }
@@ -70,6 +85,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this.UpdateCachedProperties();
             this.RaisePropertiesChanged();
         }
+
+        public IEnumerable<ILink> Links { get; private set; }
 
         //  TODO: Copy cloud files to local
         public ICommand UnlinkCommand { get; private set; }
@@ -97,6 +114,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
         }
 
+        private IFactory<ILink, Win32.Model.LinkParametersDTO> _linkFactory;
         private IOsChecker _osChecker;
         private IOsConfiguration _osConfiguration;
         private IOsConfigurationInfo _osConfigurationInfo;

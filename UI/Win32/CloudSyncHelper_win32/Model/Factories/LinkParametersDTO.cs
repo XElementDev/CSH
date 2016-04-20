@@ -1,6 +1,6 @@
 ﻿using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper.Logic
+namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
     public class LinkParametersDTO
@@ -8,8 +8,6 @@ namespace XElement.CloudSyncHelper.Logic
         public IApplicationInfo ApplicationInfo { get; set; }
 
         public ILinkInfo LinkInfo { get; set; }
-
-        public IPathVariables PathVariables { get; set; }
     }
 #endregion
 }
