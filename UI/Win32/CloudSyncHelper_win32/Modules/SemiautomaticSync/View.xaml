@@ -117,7 +117,7 @@
                         </StackPanel>
 
                         <modules:OsConfigurationUC 
-                            DataContext="{Binding Path=Model.SelectedOsConfigurationModel, Mode=OneWay}" 
+                            DataContext="{Binding Path=SelectedOsConfigurationVM, Mode=OneWay}" 
                         />
                     </StackPanel>
                 </GroupBox.Content>

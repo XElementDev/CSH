@@ -32,7 +32,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         private void Initialize()
         {
             this.InitializePublicProperties();
-            this.InitializeOsConfigurationModels();
             this.InitializeCommands();
         }
 
@@ -44,7 +43,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         private void InitializeOsConfigurationModels()
         {
-            this._osConfigInfoToOsConfigModelMap = new Dictionary<IOsConfigurationInfo, OsConfiguration.Model>();
+            this.OsConfigInfoToOsConfigModelMap = new Dictionary<IOsConfigurationInfo, OsConfiguration.Model>();
             foreach ( var osConfigInfo in this.OsConfigs )
             {
                 var modelParameters = new OsConfiguration.ModelParameters
@@ -54,7 +53,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
                     OsConfigurationInfo = osConfigInfo
                 };
                 var model = this._osConfigModelFactory.Get( modelParameters );
-                this._osConfigInfoToOsConfigModelMap.Add( osConfigInfo, model );
+                this.OsConfigInfoToOsConfigModelMap.Add( osConfigInfo, model );
             }
         }
 
@@ -65,8 +64,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
             if ( this.OsConfigs.Count() != 0 )
             {
-                this.SelectedConfiguration = this.OsConfigs.First();
+                this.SelectedOsConfigurationInfo = this.OsConfigs.First();
             }
+
+            this.InitializeOsConfigurationModels();
         }
 
         public bool IsInCloud { get { return this._programInfoVM.IsInCloud; } }
@@ -87,6 +88,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.RaisePropertiesChanged();
         }
 
+        public IDictionary<IOsConfigurationInfo, OsConfiguration.Model> OsConfigInfoToOsConfigModelMap
+        {
+            get;
+            private set;
+        }
+
         public IEnumerable<IOsConfigurationInfo> OsConfigs { get; private set; }
 
         private void RaisePropertiesChanged()
@@ -98,35 +105,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         }
 
         //  TODO: find best fitting config (done in ExecutionLogic?!)
-        private IOsConfigurationInfo _selectedConfiguration;
-        public IOsConfigurationInfo SelectedConfiguration
+        private IOsConfigurationInfo _selectedOsConfigurationInfo;
+        public IOsConfigurationInfo SelectedOsConfigurationInfo
         {
-            get { return this._selectedConfiguration; }
+            get { return this._selectedOsConfigurationInfo; }
             set
             {
-                this._selectedConfiguration = value;
-                var selectedOsConfigModel = this._osConfigInfoToOsConfigModelMap != null ?
-                                            this._osConfigInfoToOsConfigModelMap[value] :
-                                            null;
-                this.SelectedOsConfigurationModel = selectedOsConfigModel;
-            }
-        }
-
-        private OsConfiguration.Model _selectedOsConfigurationModel;
-        public OsConfiguration.Model SelectedOsConfigurationModel
-        {
-            get { return this._selectedOsConfigurationModel; }
-            set
-            {
-                this._selectedOsConfigurationModel = value;
-                this.RaisePropertyChanged( nameof( this.SelectedOsConfigurationModel ) );
+                this._selectedOsConfigurationInfo = value;
+                this.RaisePropertyChanged( nameof( this.SelectedOsConfigurationInfo ) );
             }
         }
 
         public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 
         private bool _isInstalled;
-        private IDictionary<IOsConfigurationInfo, OsConfiguration.Model> _osConfigInfoToOsConfigModelMap;
         private IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> _osConfigModelFactory;
         private ProgramInfoViewModel _programInfoVM;
     }

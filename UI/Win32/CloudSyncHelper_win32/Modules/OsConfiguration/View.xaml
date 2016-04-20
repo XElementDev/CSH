@@ -17,7 +17,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel>
+    <StackPanel 
+        Orientation="Vertical">
         <StackPanel Style="{StaticResource ButtonsContainer}">
             <Button 
                     Command="{Binding Path=Model.LinkCommand}" 

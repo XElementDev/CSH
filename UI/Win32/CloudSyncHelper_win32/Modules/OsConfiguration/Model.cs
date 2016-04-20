@@ -59,6 +59,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
                     LinkInfo = linkInfo
                 };
                 var link = this._linkFactory.Get( paramsDTO );
+                links.Add( link );
             }
             this.Links = links;
         }

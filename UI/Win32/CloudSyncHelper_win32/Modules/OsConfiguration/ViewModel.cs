@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using XElement.CloudSyncHelper.Logic;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 {
@@ -9,14 +8,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
     {
         public ViewModel( OsConfiguration.Model model )
         {
-            this.InitializePathMap( model.Links );
+            this.Model = model;
+            this.InitializePathMap();
         }
 
-        private void InitializePathMap( IEnumerable<ILink> links )
+        private void InitializePathMap()
         {
             var pathMap = new List<Tuple<string, string>>();
 
-            foreach ( var link in links )
+            foreach ( var link in this.Model.Links )
             {
                 var twoTuple = new Tuple<string, string>( link.LinkPath, link.TargetPath );
                 pathMap.Add( twoTuple );
@@ -24,6 +24,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 
             this.PathMap = pathMap;
         }
+
+        public Model Model { get; private set; }
 
         // TODO: Update on configuration changed
         public IEnumerable<Tuple<string, string>> PathMap { get; private set; }
