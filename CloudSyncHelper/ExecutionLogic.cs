@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Execution;
@@ -6,6 +7,7 @@ using XElement.CloudSyncHelper.Execution;
 namespace XElement.CloudSyncHelper
 {
 #region not unit-tested
+    [Obsolete( "Use [...].Logic.IOsConfiguration instead.", error: false )]
     public class ExecutionLogic
     {
         public ExecutionLogic( IApplicationInfo appInfo, 
