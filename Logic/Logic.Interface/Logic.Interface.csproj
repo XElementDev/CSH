@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution\Link\ILinkParameters.cs" />
     <Compile Include="Execution\Link\ILink.cs" />
+    <Compile Include="Execution\Link\ILinkFactory.cs" />
     <Compile Include="IOsChecker.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfiguration.cs" />
     <Compile Include="IOsFilter.cs" />
@@ -56,7 +58,12 @@
       <Project>{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}</Project>
       <Name>Command.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
+      <Name>FactoryMethod.Interface</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

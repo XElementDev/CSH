@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution\Link\LinkFactory.cs" />
     <Compile Include="Execution\ToolLogic.cs" />
     <Compile Include="Execution\FileLink.cs" />
     <Compile Include="Execution\FolderLink.cs" />
@@ -65,6 +66,10 @@
     <ProjectReference Include="..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
       <Project>{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}</Project>
       <Name>Command.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
+      <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
