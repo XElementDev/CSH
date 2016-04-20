@@ -5,7 +5,7 @@ using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 namespace XElement.CloudSyncHelper.UI.Win32.Model
 {
 #region not unit-tested
-    [Export]
+    [Export( typeof( IFactory<OsConfiguration, IOsConfigurationParameters> ) )]
     internal class OsConfigurationFactory : IFactory<OsConfiguration, IOsConfigurationParameters>
     {
 
