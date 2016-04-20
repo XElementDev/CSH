@@ -20,14 +20,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         private void Initialize( IModelParameters @params, IModelDependencies dependencies )
         {
             this.InitializeCommands();
-            this.InitializeComponents( @params, dependencies );
-
-            var factoryParam = new OsConfigurationParameters
-            {
-                ApplicationInfo = @params.ApplicationInfo, 
-                OsConfigurationInfo = @params.OsConfigurationInfo
-            };
-            this._osConfiguration = dependencies.OsConfigurationFactory.Get( factoryParam );
+            this.InitializePublicProperties( @params );
+            this.InitializePrivateProperties( @params, dependencies );
         }
 
         private void InitializeCommands()
@@ -36,11 +30,22 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
         }
 
-        private void InitializeComponents( IModelParameters @params, IModelDependencies dependencies )
+        private void InitializePrivateProperties( IModelParameters @params, IModelDependencies dependencies )
         {
-            this.IsInstalled = @params.IsInstalled;
+            var factoryParam = new OsConfigurationParameters
+            {
+                ApplicationInfo = @params.ApplicationInfo,
+                OsConfigurationInfo = @params.OsConfigurationInfo
+            };
+            this._osConfiguration = dependencies.OsConfigurationFactory.Get( factoryParam );
+
             this._osChecker = dependencies.OsChecker;
             this._osConfigurationInfo = @params.OsConfigurationInfo;
+        }
+
+        private void InitializePublicProperties( IModelParameters @params )
+        {
+            this.IsInstalled = @params.IsInstalled;
         }
 
         private bool IsInCloud { get; set; }
