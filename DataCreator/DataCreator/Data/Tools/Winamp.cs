@@ -74,7 +74,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
                 this._osConfigFactory.Get( this.GetLinksForWindows81_10(), OsId.Win81 ), // TODO: Check config for Win8.1
                 this._osConfigFactory.Get( this.GetLinksForWindows81_10(), OsId.Win10 )
             };
-            this.Definition = this._definitionFactory.Get( osConfigs );
+            this.DefinitionInfo = this._definitionFactory.Get( osConfigs );
         }
     }
 }

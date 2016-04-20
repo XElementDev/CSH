@@ -10,15 +10,15 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
     {
         public AbstractApplicationInfo()
         {
-            this.Definition = new Definition();
+            this.DefinitionInfo = new DefinitionInfo();
         }
 
         [XmlAttribute( "ApplicationName" )]
         public string ApplicationName { get; set; }
 
         [XmlIgnore]
-        public Definition Definition { get; set; }
-        IDefinition IApplicationInfo.Definition { get { return this.Definition; } }
+        public DefinitionInfo DefinitionInfo { get; set; }
+        IDefinitionInfo IApplicationInfo.DefinitionInfo { get { return this.DefinitionInfo; } }
 
         [XmlAttribute( "FolderName" )]
         public string FolderName { get; set; }
@@ -30,15 +30,15 @@ namespace XElement.CloudSyncHelper.Serialization.DataTypes
         [XmlElement( "OsConfig" )]
         public List<OsConfigurationInfo> OsConfigs
         {
-            get { return this.Definition.OsConfigs; }
-            set { this.Definition.OsConfigs = value; }
+            get { return this.DefinitionInfo.OsConfigs; }
+            set { this.DefinitionInfo.OsConfigs = value; }
         }
 
         [XmlElement( "IsSteamCloudSupported" )]
         public IsSteamCloudSupported SupportsSteamCloud
         {
-            get { return new IsSteamCloudSupported { Value = this.Definition.SupportsSteamCloud }; }
-            set { this.Definition.SupportsSteamCloud = value.Value; }
+            get { return new IsSteamCloudSupported { Value = this.DefinitionInfo.SupportsSteamCloud }; }
+            set { this.DefinitionInfo.SupportsSteamCloud = value.Value; }
         }
 
         [XmlAttribute( "TechNameMatcher" )]

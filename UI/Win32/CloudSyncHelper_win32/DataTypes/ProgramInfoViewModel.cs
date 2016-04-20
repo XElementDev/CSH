@@ -76,8 +76,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             {
                 IEnumerable<IOsConfigurationInfo> result = new List<IOsConfigurationInfo>();
 
-                var definition = this.ApplicationInfo.Definition;
-                if ( definition != default( IDefinition ) )
+                var definition = this.ApplicationInfo.DefinitionInfo;
+                if ( definition != default( IDefinitionInfo ) )
                 {
                     result = definition.OsConfigs;
                 }
@@ -88,7 +88,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public bool SupportsSteamCloud
         {
-            get { return this.ApplicationInfo.Definition.SupportsSteamCloud; }
+            get { return this.ApplicationInfo.DefinitionInfo.SupportsSteamCloud; }
         }
 
         public string TechnicalNameMatcher { get { return this.ApplicationInfo.TechnicalNameMatcher; } }

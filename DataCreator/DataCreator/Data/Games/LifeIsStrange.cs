@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 
         protected override void OnImportsSatisfied()
         {
-            this.Definition = this._definitionFactory.GetSteamCloud();
+            this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
         }
     }
 }

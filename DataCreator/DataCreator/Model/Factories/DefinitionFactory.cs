@@ -9,18 +9,18 @@ namespace XElement.CloudSyncHelper.DataCreator.Model
     [Export]
     internal class DefinitionFactory
     {
-        public Definition Get( IEnumerable<OsConfigurationInfo> osConfigs )
+        public DefinitionInfo Get( IEnumerable<OsConfigurationInfo> osConfigs )
         {
-            return new Definition
+            return new DefinitionInfo
             {
                 OsConfigs = osConfigs.ToList(), 
                 SupportsSteamCloud = false
             };
         }
 
-        public Definition GetSteamCloud()
+        public DefinitionInfo GetSteamCloud()
         {
-            return new Definition
+            return new DefinitionInfo
             {
                 SupportsSteamCloud = true
             };

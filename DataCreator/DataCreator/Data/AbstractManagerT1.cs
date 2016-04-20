@@ -16,7 +16,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data
             {
                 var baseAppInfo = new T
                 {
-                    Definition = derivedAppInfo.Definition,
+                    DefinitionInfo = derivedAppInfo.DefinitionInfo,
                     ApplicationName = derivedAppInfo.ApplicationName,
                     Id = derivedAppInfo.Id,
                     FolderName = derivedAppInfo.FolderName,

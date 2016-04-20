@@ -80,7 +80,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
             {
                 this._osConfigFactory.Get( this.GetLinksForWindows10(), OsId.Win10 )
             };
-            this.Definition = this._definitionFactory.Get( osConfigs );
+            this.DefinitionInfo = this._definitionFactory.Get( osConfigs );
         }
     }
 }

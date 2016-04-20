@@ -35,8 +35,8 @@ namespace XElement.CloudSyncHelper
 
         private void Initialize_Config()
         {
-            var definition = this._appInfo.Definition;
-            var osConfigs = (definition != default( IDefinition ) ?
+            var definition = this._appInfo.DefinitionInfo;
+            var osConfigs = (definition != default( IDefinitionInfo ) ?
                                 definition.OsConfigs :
                                 new List<IOsConfigurationInfo>());
             var suitableConfig = this._configForOsHelper.GetSuitableConfig( osConfigs );

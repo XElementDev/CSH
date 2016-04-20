@@ -6,15 +6,15 @@ using XElement.DotNet.System.Environment;
 namespace XElement.CloudSyncHelper.Serialization.DataTypes
 {
 #region not unit-tested
-    public class Definition : IDefinition
+    public class DefinitionInfo : IDefinitionInfo
     {
         [XmlIgnore]
         public List<OsConfigurationInfo> OsConfigs { get; set; }
-        IEnumerable<IOsConfigurationInfo> IDefinition.OsConfigs { get { return this.OsConfigs; } }
+        IEnumerable<IOsConfigurationInfo> IDefinitionInfo.OsConfigs { get { return this.OsConfigs; } }
 
         [XmlIgnore]
         public bool SupportsSteamCloud { get; set; }
-        bool IDefinition.SupportsSteamCloud { get { return this.SupportsSteamCloud; } }
+        bool IDefinitionInfo.SupportsSteamCloud { get { return this.SupportsSteamCloud; } }
     }
 
     public class FileLinkInfo : AbstractLinkInfo, IFileLinkInfo { }

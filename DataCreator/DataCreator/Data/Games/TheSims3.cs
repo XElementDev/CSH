@@ -57,7 +57,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                 this._osConfigFactory.Get( this.GetLinksForWin10_deDE(), OsId.Win10, "[de-DE]" ), 
                 this._osConfigFactory.Get( this.GetLinksForWin10_deDE_InclMods(), OsId.Win10, "[de-DE] mit Mods" )
             };
-            this.Definition = this._definitionFactory.Get( osConfigs );
+            this.DefinitionInfo = this._definitionFactory.Get( osConfigs );
         }
     }
 }

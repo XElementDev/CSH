@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.DataTypes
     {
         string ApplicationName { get; }
 
-        IDefinition Definition { get; }
+        IDefinitionInfo DefinitionInfo { get; }
 
         string FolderName { get; }
 

@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IToolInfo.cs" />
-    <Compile Include="IDefinition.cs" />
+    <Compile Include="IDefinitionInfo.cs" />
     <Compile Include="IFileLinkInfo.cs" />
     <Compile Include="IFolderLinkInfo.cs" />
     <Compile Include="IGameInfo.cs" />
