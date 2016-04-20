@@ -116,7 +116,7 @@
                             </Button>
                         </StackPanel>
 
-                        <modules:OsConfigurationUC
+                        <modules:OsConfigurationUC 
                             DataContext="{Binding Path=Model.SelectedOsConfigurationModel, Mode=OneWay}" 
                         />
                     </StackPanel>

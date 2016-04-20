@@ -21,7 +21,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this._programInfoVM = @params.ProgramInfoVM;
 
             this.Initialize();
-            this.InitializeCommands();
         }
 
         public bool CanConfigBeChanged
@@ -33,15 +32,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         private void Initialize()
         {
-            this.OsConfigs = this._programInfoVM.OsConfigs;
-            this.SupportedOSsVM = new SupportedOperatingSystems.ViewModel( this._programInfoVM.OsConfigs );
-
-            if ( this.OsConfigs.Count() != 0 )
-            {
-                this.SelectedConfiguration = this.OsConfigs.First();
-            }
-
+            this.InitializePublicProperties();
             this.InitializeOsConfigurationModels();
+            this.InitializeCommands();
         }
 
         private void InitializeCommands()
@@ -64,6 +57,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
                 };
                 var model = this._osConfigModelFactory.Get( modelParameters );
                 this._osConfigInfoToOsConfigModelMap.Add( osConfigInfo, model );
+            }
+        }
+
+        private void InitializePublicProperties()
+        {
+            this.OsConfigs = this._programInfoVM.OsConfigs;
+            this.SupportedOSsVM = new SupportedOperatingSystems.ViewModel( this._programInfoVM.OsConfigs );
+
+            if ( this.OsConfigs.Count() != 0 )
+            {
+                this.SelectedConfiguration = this.OsConfigs.First();
             }
         }
 
