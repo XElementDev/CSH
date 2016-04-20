@@ -19,7 +19,7 @@ namespace XElement.CloudSyncHelper
             this.Initialize();
         }
 
-        public IEnumerable<ILink> Config { get; private set; }
+        public IEnumerable<ILinkCSH> Config { get; private set; }
 
         public bool HasSuitableConfig { get; private set; }
 
@@ -38,10 +38,10 @@ namespace XElement.CloudSyncHelper
                                 definition.OsConfigs :
                                 new List<IOsConfigurationInfo>());
             var suitableConfig = this._configForOsHelper.GetSuitableConfig( osConfigs );
-            var config = new List<ILink>();
+            var config = new List<ILinkCSH>();
             foreach ( ILinkInfo linkInfo in suitableConfig )
             {
-                ILink link = null;
+                ILinkCSH link = null;
                 if ( linkInfo is IFolderLinkInfo )
                     link = new FolderLink( this._appInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
                 else
@@ -63,7 +63,7 @@ namespace XElement.CloudSyncHelper
 
         public void Link()
         {
-            foreach ( ILink link in this.Config )
+            foreach ( ILinkCSH link in this.Config )
             {
                 link.Do();
             }
@@ -71,7 +71,7 @@ namespace XElement.CloudSyncHelper
 
         public void MoveToCloud()
         {
-            foreach ( ILink link in this.Config )
+            foreach ( ILinkCSH link in this.Config )
             {
                 link.MoveToCloud();
             }
@@ -79,7 +79,7 @@ namespace XElement.CloudSyncHelper
 
         public void Unlink()
         {
-            foreach ( ILink link in this.Config )
+            foreach ( ILinkCSH link in this.Config )
             {
                 link.Undo();
             }

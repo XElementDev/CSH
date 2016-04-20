@@ -1,8 +1,10 @@
-﻿using XElement.DesignPatterns.BehavioralPatterns.Command;
+﻿using System;
+using XElement.DesignPatterns.BehavioralPatterns.Command;
 
 namespace XElement.CloudSyncHelper
 {
-    public interface ILink : IDoUndoCommand
+    [Obsolete( "Use [...].Logic.ILink interface instead.", error: false )]
+    public interface ILinkCSH : IDoUndoCommand
     {
         bool IsInCloud { get; }
 
