@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
@@ -12,10 +13,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 #region not unit-tested
     public class Model : NotifyPropertyChanged
     {
-        public Model( IModelConstructorParameters ctorParams )
+        public Model( IModelParameters @params, 
+                      IModelDependencies dependencies )
         {
-            this._isInstalled = ctorParams.IsInstalled;
-            this._programInfoVM = ctorParams.ProgramInfoVM;
+            this._isInstalled = @params.IsInstalled;
+            this._osConfigModelFactory = dependencies.OsConfigurationModelFactory;
+            this._programInfoVM = @params.ProgramInfoVM;
 
             this.Initialize();
             this.InitializeCommands();
@@ -37,6 +40,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             {
                 this.SelectedConfiguration = this.OsConfigs.First();
             }
+
+            this.InitializeOsConfigurationModels();
         }
 
         private void InitializeCommands()
@@ -44,7 +49,22 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
             this.MoveToCloudCommand = new DelegateCommand( this.MoveToCloudCommand_Execute,
                                                            this.MoveToCloudCommand_CanExecute );
-            this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
+        }
+
+        private void InitializeOsConfigurationModels()
+        {
+            this._osConfigInfoToOsConfigModelMap = new Dictionary<IOsConfigurationInfo, OsConfiguration.Model>();
+            foreach ( var osConfigInfo in this.OsConfigs )
+            {
+                var modelParameters = new OsConfiguration.ModelParameters
+                {
+                    ApplicationInfo = this._programInfoVM.ApplicationInfo,
+                    IsInstalled = this._isInstalled,
+                    OsConfigurationInfo = osConfigInfo
+                };
+                var model = this._osConfigModelFactory.Get( modelParameters );
+                this._osConfigInfoToOsConfigModelMap.Add( osConfigInfo, model );
+            }
         }
 
         public bool IsInCloud { get { return this._programInfoVM.IsInCloud; } }
@@ -101,28 +121,40 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.RaisePropertyChanged( "IsLinked" );
             (this.LinkCommand as DelegateCommand).RaiseCanExecuteChanged();
             (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
-            (this.UnlinkCommand as DelegateCommand).RaiseCanExecuteChanged();
             this.RaisePropertyChanged( nameof( this.CanConfigBeChanged ) );
         }
 
         //  TODO: find best fitting config (done in ExecutionLogic?!)
-        public IOsConfigurationInfo SelectedConfiguration { get; set; }
+        private IOsConfigurationInfo _selectedConfiguration;
+        public IOsConfigurationInfo SelectedConfiguration
+        {
+            get { return this._selectedConfiguration; }
+            set
+            {
+                this._selectedConfiguration = value;
+                var selectedOsConfigModel = this._osConfigInfoToOsConfigModelMap != null ?
+                                            this._osConfigInfoToOsConfigModelMap[value] :
+                                            null;
+                this.SelectedOsConfigurationModel = selectedOsConfigModel;
+            }
+        }
+
+        private OsConfiguration.Model _selectedOsConfigurationModel;
+        public OsConfiguration.Model SelectedOsConfigurationModel
+        {
+            get { return this._selectedOsConfigurationModel; }
+            set
+            {
+                this._selectedOsConfigurationModel = value;
+                this.RaisePropertyChanged( nameof( this.SelectedOsConfigurationModel ) );
+            }
+        }
 
         public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 
-        //  TODO: Copy cloud files to local
-        public ICommand UnlinkCommand { get; private set; }
-        private bool UnlinkCommand_CanExecute()
-        {
-            return this.IsLinked;
-        }
-        private void UnlinkCommand_Execute()
-        {
-            this._programInfoVM.ExecutionLogic.Unlink();
-            this.RaisePropertiesChanged();
-        }
-
         private bool _isInstalled;
+        private IDictionary<IOsConfigurationInfo, OsConfiguration.Model> _osConfigInfoToOsConfigModelMap;
+        private IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> _osConfigModelFactory;
         private ProgramInfoViewModel _programInfoVM;
     }
 #endregion

@@ -83,12 +83,15 @@
     <Compile Include="Modules\OsConfiguration\IModelDependencies.cs" />
     <Compile Include="Modules\OsConfiguration\IModelParameters.cs" />
     <Compile Include="Modules\OsConfiguration\Model.cs" />
+    <Compile Include="Modules\OsConfiguration\ModelParameters.cs" />
     <Compile Include="Modules\OsConfiguration\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\OsConfiguration\ViewModel.cs" />
     <Compile Include="Modules\OsConfigurationAtGlance\ViewModel.cs" />
     <Compile Include="Modules\OsConfiguration\ModelFactory.cs" />
+    <Compile Include="Modules\SemiautomaticSync\IModelDependencies.cs" />
+    <Compile Include="Modules\SemiautomaticSync\ModelFactory.cs" />
     <Compile Include="Shortcuts\IApplicationMenuContainer.cs" />
     <Compile Include="Shortcuts\IFilterContainer.cs" />
     <Compile Include="Shortcuts\ShortcutCommandsViewModel.cs" />
@@ -290,7 +293,7 @@
     <Compile Include="Modules\Filter\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\SemiautomaticSync\IModelConstructorParameters.cs" />
+    <Compile Include="Modules\SemiautomaticSync\IModelParameters.cs" />
     <Compile Include="Modules\SemiautomaticSync\Model.cs" />
     <Compile Include="Modules\SemiautomaticSync\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
@@ -368,6 +371,10 @@
     <ProjectReference Include="..\..\..\Logic\Logic.Interface\Logic.Interface.csproj">
       <Project>{f5e56bf7-6a32-4765-8538-812531cd679e}</Project>
       <Name>Logic.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logic\Logic.MefExtensions\Logic.MefExtensions.csproj">
+      <Project>{0f5ba595-1293-4429-ad68-47a5e1413778}</Project>
+      <Name>Logic.MefExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
       <Project>{197c5b66-cd95-4cec-a2b9-178d553ecb3f}</Project>

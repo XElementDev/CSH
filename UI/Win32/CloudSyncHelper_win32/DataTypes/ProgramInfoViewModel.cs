@@ -15,12 +15,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
                                      IConfig config, 
                                      ConfigForOsHelper cfg4OsHelper )
         {
-            this._applicationInfo = applicationInfo;
+            this.ApplicationInfo = applicationInfo;
             this._config = config;
             this._configForOsHelper = cfg4OsHelper;
 
             InitializeExecutionLogic( applicationInfo );
         }
+
+        internal IApplicationInfo ApplicationInfo { get; private set; }
 
         string BannerCrawler.ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
 
@@ -29,9 +31,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             get
             {
                 var displayName = String.Empty;
-                if ( this._applicationInfo != null )
+                if ( this.ApplicationInfo != null )
                 {
-                    displayName = this._applicationInfo.ApplicationName;
+                    displayName = this.ApplicationInfo.ApplicationName;
                 }
                 return displayName;
             }
@@ -50,7 +52,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
         {
-            get { return this._applicationInfo.Id; }
+            get { return this.ApplicationInfo.Id; }
         }
 
         private void InitializeExecutionLogic( IApplicationInfo appInfo )
@@ -74,7 +76,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             {
                 IEnumerable<IOsConfigurationInfo> result = new List<IOsConfigurationInfo>();
 
-                var definition = this._applicationInfo.Definition;
+                var definition = this.ApplicationInfo.Definition;
                 if ( definition != default( IDefinition ) )
                 {
                     result = definition.OsConfigs;
@@ -86,12 +88,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public bool SupportsSteamCloud
         {
-            get { return this._applicationInfo.Definition.SupportsSteamCloud; }
+            get { return this.ApplicationInfo.Definition.SupportsSteamCloud; }
         }
 
-        public string TechnicalNameMatcher { get { return this._applicationInfo.TechnicalNameMatcher; } }
+        public string TechnicalNameMatcher { get { return this.ApplicationInfo.TechnicalNameMatcher; } }
 
-        private IApplicationInfo _applicationInfo;
         private IConfig _config;
         private ConfigForOsHelper _configForOsHelper;
     }

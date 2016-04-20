@@ -30,11 +30,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             var installedProgramVM = this.GetBestMatchingInstalledProgramVM( programInfoVM );
             if ( installedProgramVM == default( InstalledProgramViewModel ) )
             {
-                result = new SyncObjectModel( programInfoVM );
+                result = new SyncObjectModel( programInfoVM,
+                                              this._semiautoSyncModelFactory );
             }
             else
             {
-                result = new SyncObjectModel( programInfoVM, installedProgramVM );
+                result = new SyncObjectModel( programInfoVM, 
+                                              installedProgramVM, 
+                                              this._semiautoSyncModelFactory );
             }
 
             return result;
@@ -42,6 +45,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         [Import]
         private InstalledProgramsModel _installedProgramsModel = null;
+
+        [Import]
+        private IFactory<SemiautomaticSync.Model, SemiautomaticSync.IModelParameters> _semiautoSyncModelFactory = null;
     }
 #endregion
 }
