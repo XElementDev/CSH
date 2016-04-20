@@ -8,21 +8,33 @@ namespace XElement.CloudSyncHelper.Logic
     {
         public LinkFactory() { }
 
-        public ILink Get( ILinkParameters @params )
+        public ILink Get( IApplicationInfo appInfo, 
+                          ILinkInfo linkInfo, 
+                          IPathVariables pathVariables )
+        {
+            var linkParamsDTO = new LinkParametersDTO
+            {
+                ApplicationInfo = appInfo, 
+                LinkInfo = linkInfo, 
+                PathVariables = pathVariables
+            };
+            return this.Get( linkParamsDTO );
+        }
+        public ILink Get( LinkParametersDTO linkParametersDTO )
         {
             ILink link = null;
 
-            if ( @params.LinkInfo is IFolderLinkInfo )
+            if ( linkParametersDTO.LinkInfo is IFolderLinkInfo )
             {
-                link = new FolderLink( @params.ApplicationInfo,
-                                       @params.LinkInfo as IFolderLinkInfo,
-                                       @params.PathVariables );
+                link = new FolderLink( linkParametersDTO.ApplicationInfo,
+                                       linkParametersDTO.LinkInfo as IFolderLinkInfo,
+                                       linkParametersDTO.PathVariables );
             }
             else
             {
-                link = new FileLink( @params.ApplicationInfo, 
-                                       @params.LinkInfo as IFileLinkInfo, 
-                                       @params.PathVariables );
+                link = new FileLink( linkParametersDTO.ApplicationInfo, 
+                                       linkParametersDTO.LinkInfo as IFileLinkInfo, 
+                                       linkParametersDTO.PathVariables );
             }
 
             return link;

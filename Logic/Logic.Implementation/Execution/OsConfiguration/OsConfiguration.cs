@@ -9,9 +9,10 @@ namespace XElement.CloudSyncHelper.Logic
     public class OsConfiguration : IOsConfiguration
     {
         public OsConfiguration( IOsConfigurationParameters @params, 
-                                IOsConfigurationDependencies dependencies )
+                                OsConfigurationDependenciesDTO dependencies )
         {
             this._appInfo = @params.ApplicationInfo;
+            this._linkFactory = dependencies.LinkFactory;
             this._osConfigInfo = @params.OsConfigurationInfo;
             this._pathVariables = @params.PathVariables;
 
@@ -32,12 +33,9 @@ namespace XElement.CloudSyncHelper.Logic
             this._links = new List<ILinkInt>( capacity );
             foreach ( var linkInfo in this._osConfigInfo.Links )
             {
-                ILinkInt link = null;
-                if ( linkInfo is IFolderLinkInfo )
-                    link = new FolderLink( this._appInfo, linkInfo as IFolderLinkInfo, this._pathVariables );
-                else
-                    link = new FileLink( this._appInfo, linkInfo as IFileLinkInfo, this._pathVariables );
-                this._links.Add( link );
+                var link = this._linkFactory.Get( this._appInfo, linkInfo, this._pathVariables );
+                var linkInt = link as ILinkInt;
+                this._links.Add( linkInt );
             }
         }
 
@@ -54,6 +52,7 @@ namespace XElement.CloudSyncHelper.Logic
         }
 
         private IApplicationInfo _appInfo;
+        private ILinkFactory _linkFactory;
         private IList<ILinkInt> _links;
         private IOsConfigurationInfo _osConfigInfo;
         private IPathVariables _pathVariables;
