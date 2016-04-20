@@ -114,21 +114,10 @@
                                     <Image Source="{StaticResource MoveToCloud-Black-16}" />
                                 </Button.Content>
                             </Button>
-
-                            <Button 
-                                    Command="{Binding Path=Model.LinkCommand}" 
-                                    Content="{Binding Path=Localization.SemiautomaticSync_Link, 
-                                                     Source={StaticResource XamlLocalization}}" 
-                            />
-                            <Button 
-                                    Command="{Binding Path=Model.UnlinkCommand}" 
-                                    Content="{Binding Path=Localization.SemiautomaticSync_Unlink, 
-                                                     Source={StaticResource XamlLocalization}}" 
-                            />
                         </StackPanel>
 
-                        <modules:PathMap 
-                                         DataContext="{Binding Path=Model.PathMap, Mode=OneWay}" 
+                        <modules:OsConfigurationUC
+                            DataContext="{Binding Path=Model.SelectedOsConfigurationModel, Mode=OneWay}" 
                         />
                     </StackPanel>
                 </GroupBox.Content>

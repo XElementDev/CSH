@@ -21,12 +21,12 @@
         <StackPanel Style="{StaticResource ButtonsContainer}">
             <Button 
                     Command="{Binding Path=Model.LinkCommand}" 
-                    Content="{Binding Path=Localization.SemiautomaticSync_Link, 
+                    Content="{Binding Path=Localization.OsConfiguration_Link, 
                                       Source={StaticResource XamlLocalization}}" 
             />
             <Button 
                     Command="{Binding Path=Model.UnlinkCommand}" 
-                    Content="{Binding Path=Localization.SemiautomaticSync_Unlink, 
+                    Content="{Binding Path=Localization.OsConfiguration_Unlink, 
                                       Source={StaticResource XamlLocalization}}" 
             />
         </StackPanel>

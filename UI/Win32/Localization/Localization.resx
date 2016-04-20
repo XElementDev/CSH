@@ -169,7 +169,7 @@
     <value>Not linked</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_Link" xml:space="preserve">
+  <data name="OsConfiguration_Link" xml:space="preserve">
     <value>Create link</value>
     <comment>// 2015-12-31</comment>
   </data>
@@ -181,7 +181,7 @@
     <value>No configuration available</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_Unlink" xml:space="preserve">
+  <data name="OsConfiguration_Unlink" xml:space="preserve">
     <value>Remove link</value>
     <comment>// 2015-12-31</comment>
   </data>

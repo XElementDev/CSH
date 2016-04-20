@@ -106,6 +106,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create link.
+        /// </summary>
+        public static string OsConfiguration_Link {
+            get {
+                return ResourceManager.GetString("OsConfiguration_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove link.
+        /// </summary>
+        public static string OsConfiguration_Unlink {
+            get {
+                return ResourceManager.GetString("OsConfiguration_Unlink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to by.
         /// </summary>
         public static string OsConfigurationAtGlance_AuthorNameLink {
@@ -138,15 +156,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string SemiautomaticSync_IsNotInCloud {
             get {
                 return ResourceManager.GetString("SemiautomaticSync_IsNotInCloud", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create link.
-        /// </summary>
-        public static string SemiautomaticSync_Link {
-            get {
-                return ResourceManager.GetString("SemiautomaticSync_Link", resourceCulture);
             }
         }
         
@@ -192,15 +201,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string SemiautomaticSync_SelectedConfiguration {
             get {
                 return ResourceManager.GetString("SemiautomaticSync_SelectedConfiguration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remove link.
-        /// </summary>
-        public static string SemiautomaticSync_Unlink {
-            get {
-                return ResourceManager.GetString("SemiautomaticSync_Unlink", resourceCulture);
             }
         }
         

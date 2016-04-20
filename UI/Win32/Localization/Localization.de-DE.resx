@@ -169,7 +169,7 @@
     <value>Nicht verknüpft</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_Link" xml:space="preserve">
+  <data name="OsConfiguration_Link" xml:space="preserve">
     <value>Link erstellen</value>
     <comment>// 2015-12-31</comment>
   </data>
@@ -181,7 +181,7 @@
     <value>Konfiguration nicht verfügbar</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_Unlink" xml:space="preserve">
+  <data name="OsConfiguration_Unlink" xml:space="preserve">
     <value>Link löschen</value>
     <comment>// 2015-12-31</comment>
   </data>
