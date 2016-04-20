@@ -7,7 +7,7 @@ namespace XElement.CloudSyncHelper.Logic
     //  --> Based on:   https://stackoverflow.com/questions/1485155/check-if-a-file-is-real-or-a-symbolic-link
     //                  https://stackoverflow.com/questions/1395205/better-way-to-check-if-path-is-a-file-or-a-directory
     //      Last visited: 2015-08-06
-    public /*static*/ class SymbolicLinkHelper
+    internal /*static*/ class SymbolicLinkHelper
     {
         public SymbolicLinkHelper() { }
 
