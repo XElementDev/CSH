@@ -47,6 +47,7 @@
     <Compile Include="Execution\ILink.cs" />
     <Compile Include="Execution\IApplicationLogic.cs" />
     <Compile Include="Execution\LinkBase.cs" />
+    <Compile Include="OsChecker.cs" />
     <Compile Include="OsConfiguration.cs" />
     <Compile Include="OsFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
