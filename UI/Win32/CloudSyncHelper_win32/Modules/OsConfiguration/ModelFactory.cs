@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Logic;
-using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
@@ -24,14 +23,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         private IOsChecker _osChecker = null;
 
         [Import]
-        private IFactory<Logic.OsConfiguration, IOsConfigurationParameters> _osConfigFactory = null;
+        private IFactory<Logic.IOsConfiguration, Win32.Model.IOsConfigurationParameters> _osConfigFactory = null;
 
 
         private class ModelDependencies : IModelDependencies
         {
             public IOsChecker OsChecker { get; set; }
 
-            public IFactory<Logic.OsConfiguration, IOsConfigurationParameters> OsConfigurationFactory
+            public IFactory<Logic.IOsConfiguration, Win32.Model.IOsConfigurationParameters> OsConfigurationFactory
             {
                 get;
                 set;

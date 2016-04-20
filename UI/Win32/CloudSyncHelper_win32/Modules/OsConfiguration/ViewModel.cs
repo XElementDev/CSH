@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using XElement.CloudSyncHelper.Logic;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 {

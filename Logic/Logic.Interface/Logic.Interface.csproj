@@ -43,6 +43,9 @@
     <Compile Include="Execution\Link\ILinkParameters.cs" />
     <Compile Include="Execution\Link\ILink.cs" />
     <Compile Include="Execution\Link\ILinkFactory.cs" />
+    <Compile Include="Execution\OsConfiguration\IOsConfigurationDependencies.cs" />
+    <Compile Include="Execution\OsConfiguration\IOsConfigurationParameters.cs" />
+    <Compile Include="Execution\OsConfiguration\IOsConfigurationFactory.cs" />
     <Compile Include="IOsChecker.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfiguration.cs" />
     <Compile Include="IOsFilter.cs" />

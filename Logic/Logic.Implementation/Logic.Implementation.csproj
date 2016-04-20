@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Execution\Link\LinkFactory.cs" />
+    <Compile Include="Execution\OsConfiguration\OsConfigurationFactory.cs" />
     <Compile Include="Execution\ToolLogic.cs" />
     <Compile Include="Execution\FileLink.cs" />
     <Compile Include="Execution\FolderLink.cs" />

@@ -8,13 +8,13 @@ namespace XElement.CloudSyncHelper.Logic
 #region not unit-tested
     public class OsConfiguration : IOsConfiguration
     {
-        public OsConfiguration( IApplicationInfo appInfo, 
-                                IOsConfigurationInfo osConfigInfo, 
-                                IPathVariables pathVariables )
+        public OsConfiguration( IOsConfigurationParameters @params, 
+                                IOsConfigurationDependencies dependencies )
         {
-            this._appInfo = appInfo;
-            this._osConfigInfo = osConfigInfo;
-            this._pathVariables = pathVariables;
+            this._appInfo = @params.ApplicationInfo;
+            this._osConfigInfo = @params.OsConfigurationInfo;
+            this._pathVariables = @params.PathVariables;
+
             this.InitializeLinks();
         }
 

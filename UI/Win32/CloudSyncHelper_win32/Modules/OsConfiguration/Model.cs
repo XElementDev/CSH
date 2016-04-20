@@ -102,7 +102,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         private IOsConfigurationInfo _osConfigurationInfo;
 
 
-        private class OsConfigurationParameters : IOsConfigurationParameters
+        private class OsConfigurationParameters : Win32.Model.IOsConfigurationParameters
         {
             public IApplicationInfo ApplicationInfo { get; set; }
 
