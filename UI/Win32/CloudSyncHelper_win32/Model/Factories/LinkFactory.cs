@@ -10,32 +10,16 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
     {
         public ILink Get( LinkParametersDTO linkParametersDTO )
         {
-            var pathVariables = new PathVariables
-            {
-                PathToSyncFolder = this._config.PathToSyncFolder,
-                UplayUserName = this._config.UplayAccountName,
-                UserName = this._config.UserName
-            };
             return this._linkFactory.Get( linkParametersDTO.ApplicationInfo, 
                                           linkParametersDTO.LinkInfo, 
-                                          pathVariables );
+                                          this._pathVariables );
         }
-
-        [Import]
-        IConfig _config = null;
 
         [Import]
         private ILinkFactory _linkFactory = null;
 
-
-        private class PathVariables : IPathVariables
-        {
-            public string PathToSyncFolder { get; set; }
-
-            public string UplayUserName { get; set; }
-
-            public string UserName { get; set; }
-        }
+        [Import]
+        IPathVariables _pathVariables = null;
     }
 #endregion
 }

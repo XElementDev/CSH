@@ -12,26 +12,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         public IOsConfiguration Get( IOsConfigurationParameters osConfigParams )
         {
-            var pathVariables = new PathVariables
-            {
-                PathToSyncFolder = this._config.PathToSyncFolder, 
-                UplayUserName = this._config.UplayAccountName, 
-                UserName = this._config.UserName
-            };
             var parameters = new OsConfigurationParams
             {
                 ApplicationInfo = osConfigParams.ApplicationInfo, 
                 OsConfigurationInfo = osConfigParams.OsConfigurationInfo, 
-                PathVariables = pathVariables
+                PathVariables = this._pathVariables
             };
             return this._osConfigurationFactory.Get( parameters );
         }
 
         [Import]
-        IConfig _config = null;
+        private IOsConfigurationFactory _osConfigurationFactory = null;
 
         [Import]
-        IOsConfigurationFactory _osConfigurationFactory = null;
+        private IPathVariables _pathVariables = null;
 
 
         private class OsConfigurationParams : Logic.IOsConfigurationParameters
@@ -42,16 +36,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
             public IPathVariables PathVariables { get; set; }
         }
-
-        private class PathVariables : IPathVariables
-        {
-            public string PathToSyncFolder { get; set; }
-
-            public string UplayUserName { get; set; }
-
-            public string UserName { get; set; }
-        }
-
     }
 #endregion
 }

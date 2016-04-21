@@ -72,6 +72,7 @@
     <Compile Include="Model\Factories\LinkFactory.cs" />
     <Compile Include="Model\Factories\LinkParametersDTO.cs" />
     <Compile Include="Model\Factories\OsConfigurationFactory.cs" />
+    <Compile Include="Model\Factories\PathVariables.cs" />
     <Compile Include="Modules\OperatingSystem\IModelConstructorParameters.cs" />
     <Compile Include="Modules\OperatingSystem\Model.cs" />
     <Compile Include="Modules\OperatingSystem\View.xaml.cs">
