@@ -14,7 +14,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model.Factories
             {
                 ApplicationInfo = parametersDTO.ApplicationInfo, 
                 OsConfigurationInfos = parametersDTO.OsConfigurationInfos, 
-                PathVariables = this._pathVariables
+                PathVariablesDTO = this._pathVariablesDTO
             };
             return this._definitionFactory.Get( @params );
         }
@@ -23,7 +23,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model.Factories
         private IDefinitionFactory _definitionFactory = null;
 
         [Import]
-        private IPathVariables _pathVariables = null;
+        private Logic.PathVariablesDTO _pathVariablesDTO = null;
     }
 #endregion
 }

@@ -10,13 +10,13 @@ namespace XElement.CloudSyncHelper.Logic
 
         public ILink Get( IApplicationInfo appInfo, 
                           ILinkInfo linkInfo, 
-                          IPathVariables pathVariables )
+                          PathVariablesDTO pathVariablesDTO )
         {
             var linkParamsDTO = new LinkParametersDTO
             {
                 ApplicationInfo = appInfo, 
                 LinkInfo = linkInfo, 
-                PathVariables = pathVariables
+                PathVariablesDTO = pathVariablesDTO
             };
             return this.Get( linkParamsDTO );
         }
@@ -28,13 +28,13 @@ namespace XElement.CloudSyncHelper.Logic
             {
                 link = new FolderLink( linkParametersDTO.ApplicationInfo,
                                        linkParametersDTO.LinkInfo as IFolderLinkInfo,
-                                       linkParametersDTO.PathVariables );
+                                       linkParametersDTO.PathVariablesDTO );
             }
             else
             {
                 link = new FileLink( linkParametersDTO.ApplicationInfo, 
                                        linkParametersDTO.LinkInfo as IFileLinkInfo, 
-                                       linkParametersDTO.PathVariables );
+                                       linkParametersDTO.PathVariablesDTO );
             }
 
             return link;

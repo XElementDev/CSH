@@ -12,14 +12,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         {
             return this._linkFactory.Get( linkParametersDTO.ApplicationInfo, 
                                           linkParametersDTO.LinkInfo, 
-                                          this._pathVariables );
+                                          this._pathVariablesDTO );
         }
 
         [Import]
         private ILinkFactory _linkFactory = null;
 
         [Import]
-        IPathVariables _pathVariables = null;
+        Logic.PathVariablesDTO _pathVariablesDTO = null;
     }
 #endregion
 }

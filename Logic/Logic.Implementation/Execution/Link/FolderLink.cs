@@ -9,8 +9,8 @@ namespace XElement.CloudSyncHelper.Logic.Execution
     {
         public FolderLink( IApplicationInfo appInfo, 
                            IFolderLinkInfo folderLinkInfo, 
-                           IPathVariables pathVariables )
-            : base( appInfo, folderLinkInfo, pathVariables ) { }
+                           PathVariablesDTO pathVariablesDTO )
+            : base( appInfo, folderLinkInfo, pathVariablesDTO ) { }
 
         private void AbstractSourceDestLinker( Func<string, string[]> sourcePathsGetter, 
                                                string source, 

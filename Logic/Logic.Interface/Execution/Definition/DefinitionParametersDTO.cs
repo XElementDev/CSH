@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.Logic
 
         public IEnumerable<IOsConfigurationInfo> OsConfigurationInfos { get; set; }
 
-        public IPathVariables PathVariables { get; set; }
+        public PathVariablesDTO PathVariablesDTO { get; set; }
     }
 #endregion
 }

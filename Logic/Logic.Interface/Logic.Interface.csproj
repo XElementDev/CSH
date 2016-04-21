@@ -47,13 +47,13 @@
     <Compile Include="Execution\Link\ILink.cs" />
     <Compile Include="Execution\Link\ILinkFactory.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfigurationDependenciesDTO.cs" />
-    <Compile Include="Execution\OsConfiguration\IOsConfigurationParameters.cs" />
+    <Compile Include="Execution\OsConfiguration\OsConfigurationParametersDTO.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfigurationFactory.cs" />
     <Compile Include="Execution\Definition\IDefinition.cs" />
     <Compile Include="IOsChecker.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfiguration.cs" />
     <Compile Include="IOsFilter.cs" />
-    <Compile Include="IPathVariables.cs" />
+    <Compile Include="PathVariablesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

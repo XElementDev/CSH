@@ -15,7 +15,7 @@ namespace XElement.CloudSyncHelper.Logic
             this._linkFactory = dependenciesDTO.LinkFactory;
             this._osConfigurationInfos = parametersDTO.OsConfigurationInfos;
             this._osFilter = dependenciesDTO.OsFilter;
-            this._pathVariables = parametersDTO.PathVariables;
+            this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
         }
 
         public IOsConfigurationInfo BestFittingOsConfiguration
@@ -47,7 +47,7 @@ namespace XElement.CloudSyncHelper.Logic
             {
                 var link = this._linkFactory.Get( this._applicationInfo, 
                                                   linkInfo, 
-                                                  this._pathVariables );
+                                                  this._pathVariablesDTO );
                 links.Add( link );
             }
             int realizedLinks = links.Count( l => l.IsLinked );
@@ -60,7 +60,7 @@ namespace XElement.CloudSyncHelper.Logic
         private ILinkFactory _linkFactory;
         private IEnumerable<IOsConfigurationInfo> _osConfigurationInfos;
         private IOsFilter _osFilter;
-        private IPathVariables _pathVariables;
+        private PathVariablesDTO _pathVariablesDTO;
     }
 #endregion
 }

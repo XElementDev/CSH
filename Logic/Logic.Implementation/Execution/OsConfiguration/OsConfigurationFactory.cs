@@ -8,7 +8,7 @@
             this._linkFactory = linkFactory;
         }
 
-        public IOsConfiguration Get( IOsConfigurationParameters parameters )
+        public IOsConfiguration Get( OsConfigurationParametersDTO parameters )
         {
             var dependencies = new OsConfigurationDependenciesDTO
             {

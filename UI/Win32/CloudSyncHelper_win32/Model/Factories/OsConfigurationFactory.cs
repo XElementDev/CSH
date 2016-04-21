@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Logic;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 
@@ -12,11 +11,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         public IOsConfiguration Get( IOsConfigurationParameters osConfigParams )
         {
-            var parameters = new OsConfigurationParams
+            var parameters = new OsConfigurationParametersDTO
             {
                 ApplicationInfo = osConfigParams.ApplicationInfo, 
                 OsConfigurationInfo = osConfigParams.OsConfigurationInfo, 
-                PathVariables = this._pathVariables
+                PathVariablesDTO = this._pathVariablesDTO
             };
             return this._osConfigurationFactory.Get( parameters );
         }
@@ -25,17 +24,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         private IOsConfigurationFactory _osConfigurationFactory = null;
 
         [Import]
-        private IPathVariables _pathVariables = null;
-
-
-        private class OsConfigurationParams : Logic.IOsConfigurationParameters
-        {
-            public IApplicationInfo ApplicationInfo { get; set; }
-
-            public IOsConfigurationInfo OsConfigurationInfo { get; set; }
-
-            public IPathVariables PathVariables { get; set; }
-        }
+        private Logic.PathVariablesDTO _pathVariablesDTO = null;
     }
 #endregion
 }

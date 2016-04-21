@@ -3,7 +3,7 @@
 namespace XElement.CloudSyncHelper.Logic
 {
     public interface IOsConfigurationFactory : IFactory<IOsConfiguration, 
-                                                        IOsConfigurationParameters>
+                                                        OsConfigurationParametersDTO>
     {
     }
 }

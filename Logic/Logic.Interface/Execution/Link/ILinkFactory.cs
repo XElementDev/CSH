@@ -5,6 +5,6 @@ namespace XElement.CloudSyncHelper.Logic
 {
     public interface ILinkFactory : IFactory<ILink, LinkParametersDTO>
     {
-        ILink Get( IApplicationInfo appInfo, ILinkInfo linkInfo, IPathVariables pathVariables );
+        ILink Get( IApplicationInfo appInfo, ILinkInfo linkInfo, PathVariablesDTO pathVariables );
     }
 }

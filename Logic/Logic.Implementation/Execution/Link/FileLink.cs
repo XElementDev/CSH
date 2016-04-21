@@ -9,8 +9,8 @@ namespace XElement.CloudSyncHelper.Logic.Execution
     {
         public FileLink( IApplicationInfo appInfo, 
                          IFileLinkInfo fileLinkInfo, 
-                         IPathVariables pathVariables )
-            : base( appInfo, fileLinkInfo, pathVariables ) { }
+                         PathVariablesDTO pathVariablesDTO )
+            : base( appInfo, fileLinkInfo, pathVariablesDTO ) { }
 
         protected override FileSystemInfo /*LinkBase.*/FileSystemInfo
         {

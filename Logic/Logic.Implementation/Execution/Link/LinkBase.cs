@@ -10,10 +10,10 @@ namespace XElement.CloudSyncHelper.Logic.Execution
     {
         public LinkBase( IApplicationInfo appInfo, 
                          ILinkInfo linkInfo, 
-                         IPathVariables pathVariables )
+                         PathVariablesDTO pathVariablesDTO )
         {
             this._linkInfo = linkInfo;
-            this._pathVariables = pathVariables;
+            this._pathVariablesDTO = pathVariablesDTO;
             this._symLinkHelper = new SymbolicLinkHelper();
 
             Initialize( appInfo );
@@ -121,8 +121,8 @@ namespace XElement.CloudSyncHelper.Logic.Execution
         {
             get
             {
-                var userFolderName = "-" + this._pathVariables.UserName;
-                var target = Path.Combine( this._pathVariables.PathToSyncFolder,
+                var userFolderName = "-" + this._pathVariablesDTO.UserName;
+                var target = Path.Combine( this._pathVariablesDTO.PathToSyncFolder,
                                            this._programLogic.PathToUserFolderContainer, 
                                            userFolderName, this._linkInfo.SourceId );
                 return target;
@@ -132,7 +132,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
         public abstract void /*ILink.*/Undo(); // TODO: Delete folders if they are empty
 
         private ILinkInfo _linkInfo;
-        private IPathVariables _pathVariables;
+        private PathVariablesDTO _pathVariablesDTO;
         private IApplicationLogic _programLogic;
         private SymbolicLinkHelper _symLinkHelper;
     }

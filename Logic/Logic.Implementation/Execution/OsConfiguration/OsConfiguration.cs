@@ -8,13 +8,13 @@ namespace XElement.CloudSyncHelper.Logic
 #region not unit-tested
     public class OsConfiguration : IOsConfiguration
     {
-        public OsConfiguration( IOsConfigurationParameters @params, 
+        public OsConfiguration( OsConfigurationParametersDTO @params, 
                                 OsConfigurationDependenciesDTO dependencies )
         {
             this._appInfo = @params.ApplicationInfo;
             this._linkFactory = dependencies.LinkFactory;
             this._osConfigInfo = @params.OsConfigurationInfo;
-            this._pathVariables = @params.PathVariables;
+            this._pathVariablesDTO = @params.PathVariablesDTO;
 
             this.InitializeLinks();
         }
@@ -33,7 +33,7 @@ namespace XElement.CloudSyncHelper.Logic
             this._links = new List<ILinkInt>( capacity );
             foreach ( var linkInfo in this._osConfigInfo.Links )
             {
-                var link = this._linkFactory.Get( this._appInfo, linkInfo, this._pathVariables );
+                var link = this._linkFactory.Get( this._appInfo, linkInfo, this._pathVariablesDTO );
                 var linkInt = link as ILinkInt;
                 this._links.Add( linkInt );
             }
@@ -55,7 +55,7 @@ namespace XElement.CloudSyncHelper.Logic
         private ILinkFactory _linkFactory;
         private IList<ILinkInt> _links;
         private IOsConfigurationInfo _osConfigInfo;
-        private IPathVariables _pathVariables;
+        private PathVariablesDTO _pathVariablesDTO;
     }
 #endregion
 }
