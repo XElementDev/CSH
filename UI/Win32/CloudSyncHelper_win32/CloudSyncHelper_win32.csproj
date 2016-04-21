@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Factories\DefinitionFactory.cs" />
+    <Compile Include="Model\Factories\DefinitionParametersDTO.cs" />
     <Compile Include="Model\Factories\IOsConfigurationParameters.cs" />
     <Compile Include="Model\Factories\LinkFactory.cs" />
     <Compile Include="Model\Factories\LinkParametersDTO.cs" />

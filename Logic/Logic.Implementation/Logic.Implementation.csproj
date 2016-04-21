@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution\Definition\Definition.cs" />
+    <Compile Include="Execution\Definition\DefinitionFactory.cs" />
     <Compile Include="Execution\Link\LinkFactory.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfigurationFactory.cs" />
     <Compile Include="Execution\Link\ToolLogic.cs" />

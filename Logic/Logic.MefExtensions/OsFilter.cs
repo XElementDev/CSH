@@ -4,7 +4,7 @@ using XElement.DotNet.System.Environment;
 namespace XElement.CloudSyncHelper.Logic.MefExtensions
 {
 #region not unit-tested
-    [Export]
+    [Export( typeof( IOsFilter ) )]
     internal class OsFilter : global::XElement.CloudSyncHelper.Logic.OsFilter, 
                               IPartImportsSatisfiedNotification
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.CloudSyncHelper.Logic;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
@@ -15,6 +16,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         public Model( IModelParameters @params, 
                       IModelDependencies dependencies )
         {
+            this._definitionFactory = dependencies.DefinitionFactory;
             this._isInstalled = @params.IsInstalled;
             this._osConfigModelFactory = dependencies.OsConfigurationModelFactory;
             this._programInfoVM = @params.ProgramInfoVM;
@@ -68,6 +70,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             }
 
             this.InitializeOsConfigurationModels();
+            this.InitializeSelectedOsConfigurationInfo();
+        }
+
+        private void InitializeSelectedOsConfigurationInfo()
+        {
+            var @params = new Win32.Model.DefinitionParametersDTO
+            {
+                ApplicationInfo = this._programInfoVM.ApplicationInfo, 
+                OsConfigurationInfos = this._programInfoVM.OsConfigs
+            };
+            var definition = this._definitionFactory.Get( @params );
+            this.SelectedOsConfigurationInfo = definition.BestFittingOsConfiguration;
         }
 
         public bool IsInCloud { get { return this._programInfoVM.IsInCloud; } }
@@ -104,7 +118,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.RaisePropertyChanged( nameof( this.CanConfigBeChanged ) );
         }
 
-        //  TODO: find best fitting config (done in ExecutionLogic?!)
         private IOsConfigurationInfo _selectedOsConfigurationInfo;
         public IOsConfigurationInfo SelectedOsConfigurationInfo
         {
@@ -118,6 +131,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 
+        private IFactory<IDefinition, Win32.Model.DefinitionParametersDTO> _definitionFactory;
         private bool _isInstalled;
         private IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> _osConfigModelFactory;
         private ProgramInfoViewModel _programInfoVM;

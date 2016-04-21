@@ -40,12 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution\Definition\DefinitionDependenciesDTO.cs" />
+    <Compile Include="Execution\Definition\DefinitionParametersDTO.cs" />
+    <Compile Include="Execution\Definition\IDefinitionFactory.cs" />
     <Compile Include="Execution\Link\LinkParametersDTO.cs" />
     <Compile Include="Execution\Link\ILink.cs" />
     <Compile Include="Execution\Link\ILinkFactory.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfigurationDependenciesDTO.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfigurationParameters.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfigurationFactory.cs" />
+    <Compile Include="Execution\Definition\IDefinition.cs" />
     <Compile Include="IOsChecker.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfiguration.cs" />
     <Compile Include="IOsFilter.cs" />
