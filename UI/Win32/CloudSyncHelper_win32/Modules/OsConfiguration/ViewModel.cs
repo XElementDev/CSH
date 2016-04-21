@@ -27,7 +27,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 
         public Model Model { get; private set; }
 
-        // TODO: Update on configuration changed
         public IEnumerable<Tuple<string, string>> PathMap { get; private set; }
     }
 #endregion

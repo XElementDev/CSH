@@ -14,7 +14,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
             this.Initialize();
             this.RegisterPropertyChangedEvents();
-            //this.UpdateSelectedOsConfigurationVM();   // TODO when initial configuration is set correctly
+            this.UpdateSelectedOsConfigurationVM();
         }
 
         private void Initialize()
@@ -117,8 +117,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         private void UpdateSelectedOsConfigurationVM()
         {
             var osConfigInfo = this.Model.SelectedOsConfigurationInfo;
-            var osConfigVM = this._osConfigInfoToOsConfigVmMap[osConfigInfo];
-            this.SelectedOsConfigurationVM = osConfigVM;
+            if ( osConfigInfo != null )
+            {
+                var osConfigVM = this._osConfigInfoToOsConfigVmMap[osConfigInfo];
+                this.SelectedOsConfigurationVM = osConfigVM;
+            }
         }
 
         private IDictionary<OsConfigurationAtGlance.ViewModel, IOsConfigurationInfo> _osConfigAtGlanceVmToOsConfigMap;
