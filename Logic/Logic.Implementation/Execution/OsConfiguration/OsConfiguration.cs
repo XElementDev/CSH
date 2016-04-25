@@ -41,7 +41,7 @@ namespace XElement.CloudSyncHelper.Logic
 
         public bool IsInCloud { get { return this._links.All( l => l.IsInCloud ); } }
 
-        public bool IsLinked { get { return this._links.All( l => l.IsInCloud ); } }
+        public bool IsLinked { get { return this._links.All( l => l.IsLinked ); } }
 
         public void Undo()
         {
