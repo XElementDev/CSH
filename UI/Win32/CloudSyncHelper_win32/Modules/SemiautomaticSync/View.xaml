@@ -106,7 +106,7 @@
                     <StackPanel 
                                 Orientation="Vertical">
                         <StackPanel Style="{StaticResource ButtonsContainer}">
-                            <Button Visibility="Collapsed" 
+                            <Button IsEnabled="False" 
                                     Command="{Binding Path=Model.MoveToCloudCommand}" 
                                     ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
                                                       Source={StaticResource XamlLocalization}}">
