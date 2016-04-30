@@ -17,25 +17,18 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel 
-        Orientation="Vertical">
-        <StackPanel Style="{StaticResource ButtonsContainer}">
-            <Button 
-                    Command="{Binding Path=Model.LinkCommand}" 
-                    ToolTip="{Binding Path=Localization.OsConfiguration_Link, 
-                                      Source={StaticResource XamlLocalization}}" 
-                    Style="{StaticResource LinkButton}" 
-            />
-            <Button 
-                    Command="{Binding Path=Model.UnlinkCommand}" 
-                    ToolTip="{Binding Path=Localization.OsConfiguration_Unlink, 
-                                      Source={StaticResource XamlLocalization}}" 
-                    Style="{StaticResource UnlinkButton}" 
-            />
-        </StackPanel>
-
-        <modules:PathMap 
-                         DataContext="{Binding Path=PathMap, Mode=OneWay}" 
+    <StackPanel Style="{StaticResource ButtonsContainer}">
+        <Button 
+                Command="{Binding Path=Model.LinkCommand}" 
+                ToolTip="{Binding Path=Localization.OsConfiguration_Link, 
+                                  Source={StaticResource XamlLocalization}}" 
+                Style="{StaticResource LinkButton}" 
+        />
+        <Button 
+                Command="{Binding Path=Model.UnlinkCommand}" 
+                ToolTip="{Binding Path=Localization.OsConfiguration_Unlink, 
+                                  Source={StaticResource XamlLocalization}}" 
+                Style="{StaticResource UnlinkButton}" 
         />
     </StackPanel>
 

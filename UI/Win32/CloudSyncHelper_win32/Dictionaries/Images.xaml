@@ -20,6 +20,11 @@
     <BitmapImage x:Key="Settings-02-16"             UriSource="../Resources/Settings-02-000000-16.png" />
     <BitmapImage x:Key="Steam-Black-16"             UriSource="../Resources/Steam-000000-16.png" />                 <!-- http://www.flaticon.com/free-icon/steam-logo_33578#term=steam&page=1&position=17 -->
 
+    <!-- http://flaticons.net/customize.php?dir=Application&icon=View-Details.png -->
+    <BitmapImage x:Key="TogglePathMap" 
+                 UriSource="../Resources/View-Details_d16-p0_000000.png" 
+    />
+
     <!-- http://www.flaticon.com/free-icon/unlink_128023#term=link&page=1&position=7 -->
     <BitmapImage x:Key="Unlink" 
                  UriSource="../Resources/chain_d16-p0_000000.png" 

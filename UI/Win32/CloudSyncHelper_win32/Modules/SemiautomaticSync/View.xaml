@@ -28,7 +28,7 @@
 
         <TextBlock Style="{StaticResource NoConfig}" 
                    Text="{Binding Path=Localization.SemiautomaticSync_NoConfig, 
-                                     Source={StaticResource XamlLocalization}}" 
+                                  Source={StaticResource XamlLocalization}}" 
                    Visibility="{Binding Path=IsAConfigurationAvailable, 
                                         Converter={StaticResource InversedBoolToVisibilityConverter}}" 
         />
@@ -36,63 +36,89 @@
         <StackPanel 
                     Orientation="Vertical" 
                     Visibility="{Binding Path=IsAConfigurationAvailable, 
-                                         Converter={StaticResource BoolToVisibilityConverter}}">
-            <StackPanel 
-                        Orientation="Horizontal">
-                <Image 
-                       Source="{StaticResource Settings-02-16}" 
-                       VerticalAlignment="Top" 
-                />
-                <TextBlock 
-                           Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
-                                          Source={StaticResource XamlLocalization}}" 
-                />
-            </StackPanel>
-
-            <Border Style="{StaticResource SupportedOSs}">
-                <modules:SupportedOSs 
-                                      DataContext="{Binding Path=Model.SupportedOSsVM, Mode=OneWay}" 
-                />
-            </Border>
-
-            <GroupBox>
-                <GroupBox.Header>
-                    <DockPanel Style="{StaticResource ConfigurationsContainer}">
-                        <TextBlock Text="{Binding Path=Localization.SemiautomaticSync_SelectedConfiguration, 
-                                                  Source={StaticResource XamlLocalization}}" />
-                        <ComboBox 
-                                  ItemsSource="{Binding Path=OsConfigAtGlanceVMs}" 
-                                  SelectedItem="{Binding Path=SelectedConfigAtGlance, Mode=TwoWay}" 
-                                  IsEnabled="{Binding Path=Model.CanConfigBeChanged}">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <modules:OsConfigurationAtGlanceUC DataContext="{Binding}" />
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                    </DockPanel>
-                </GroupBox.Header>
-                <GroupBox.Content>
+                                        Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid x:Name="_contentGrid" 
+                    Loaded="ContentGrid_Loaded">
+                <StackPanel 
+                            Orientation="Vertical">
                     <StackPanel 
-                                Orientation="Vertical">
-                        <StackPanel Style="{StaticResource ButtonsContainer}">
-                            <Button IsEnabled="False" 
-                                    Command="{Binding Path=Model.MoveToCloudCommand}" 
-                                    ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
-                                                      Source={StaticResource XamlLocalization}}">
-                                <Button.Content>
-                                    <Image Source="{StaticResource MoveToCloud-Black-16}" />
-                                </Button.Content>
-                            </Button>
-                        </StackPanel>
-
-                        <modules:OsConfigurationUC 
-                            DataContext="{Binding Path=SelectedOsConfigurationVM, Mode=OneWay}" 
+                                Orientation="Horizontal">
+                        <Image 
+                               Source="{StaticResource Settings-02-16}" 
+                               VerticalAlignment="Top" 
+                        />
+                        <TextBlock 
+                                   Text="{Binding Path=Localization.SemiautomaticSync_OsConfigs, 
+                                                  Source={StaticResource XamlLocalization}}" 
                         />
                     </StackPanel>
-                </GroupBox.Content>
-            </GroupBox>
+
+                    <Border Style="{StaticResource SupportedOSs}">
+                        <modules:SupportedOSs 
+                                              DataContext="{Binding Path=Model.SupportedOSsVM, Mode=OneWay}" 
+                        />
+                    </Border>
+
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <DockPanel Style="{StaticResource ConfigurationsContainer}">
+                                <TextBlock Text="{Binding Path=Localization.SemiautomaticSync_SelectedConfiguration, 
+                                                          Source={StaticResource XamlLocalization}}" />
+                                <ComboBox 
+                                          ItemsSource="{Binding Path=OsConfigAtGlanceVMs}" 
+                                          SelectedItem="{Binding Path=SelectedConfigAtGlance, Mode=TwoWay}" 
+                                          IsEnabled="{Binding Path=Model.CanConfigBeChanged}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <modules:OsConfigurationAtGlanceUC DataContext="{Binding}" />
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                            </DockPanel>
+                        </GroupBox.Header>
+                        <GroupBox.Content>
+                            <StackPanel 
+                                        Orientation="Vertical">
+                                <StackPanel Style="{StaticResource ButtonsContainer}">
+                                    <Button IsEnabled="False" 
+                                            Command="{Binding Path=Model.MoveToCloudCommand}" 
+                                            ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
+                                                              Source={StaticResource XamlLocalization}}">
+                                        <Button.Content>
+                                            <Image Source="{StaticResource MoveToCloud-Black-16}" />
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+
+                                <modules:OsConfigurationUC 
+                                                           DataContext="{Binding Path=SelectedOsConfigurationVM, 
+                                                                                 Mode=OneWay}" 
+                                />
+                            </StackPanel>
+                        </GroupBox.Content>
+                    </GroupBox>
+                </StackPanel>
+
+                <ScrollViewer x:Name="_pathMapContainer" 
+                              Visibility="{Binding ElementName=_togglePathMapButton, 
+                                                   Path=IsChecked, 
+                                                   Converter={StaticResource BoolToVisibilityConverter}}"
+                              Style="{StaticResource PathMapContainer}">
+                    <modules:PathMap 
+                                     DataContext="{Binding Path=SelectedOsConfigurationVM.PathMap, 
+                                                           Mode=OneWay}" 
+                    />
+                </ScrollViewer>
+            </Grid>
+
+            <ToggleButton x:Name="_togglePathMapButton" 
+                          IsChecked="False" 
+                          ToolTip="{Binding Path=Localization.SemiautomaticSync_TogglePathMap_ToolTip, 
+                                            Source={StaticResource XamlLocalization}}" 
+                          Style="{StaticResource TogglePathMapButton}" 
+            />
         </StackPanel>
+
     </StackPanel>
 
 </UserControl>

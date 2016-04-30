@@ -205,6 +205,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show/hide details.
+        /// </summary>
+        public static string SemiautomaticSync_TogglePathMap_ToolTip {
+            get {
+                return ResourceManager.GetString("SemiautomaticSync_TogglePathMap_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings_Header {

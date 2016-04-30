@@ -229,4 +229,8 @@
     <value>No semiautomatic sync configuration available.</value>
     <comment>// 2016-03-07</comment>
   </data>
+  <data name="SemiautomaticSync_TogglePathMap_ToolTip" xml:space="preserve">
+    <value>Show/hide details</value>
+    <comment>// 2016-04-30</comment>
+  </data>
 </root>

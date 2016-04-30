@@ -229,4 +229,8 @@
     <value>Keine semi-automatische Konfiguration verfügbar.</value>
     <comment>// 2016-03-07</comment>
   </data>
+  <data name="SemiautomaticSync_TogglePathMap_ToolTip" xml:space="preserve">
+    <value>Details ein-/ausblenden</value>
+    <comment>// 2016-04-30</comment>
+  </data>
 </root>
