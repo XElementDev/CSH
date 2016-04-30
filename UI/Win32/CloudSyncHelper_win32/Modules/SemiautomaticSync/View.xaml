@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" 
 
+             xmlns:local="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync" 
              xmlns:modules="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules">
 
     <UserControl.Resources>
@@ -20,41 +21,10 @@
 
     <StackPanel 
                 Orientation="Vertical">
-        <StackPanel Style="{StaticResource FullySemiSyncIndicatorsContainer}">
-            <Image 
-                   Source="{StaticResource Settings-02-16}" 
-                   Visibility="{Binding Path=Model.HasSuitableConfig, 
-                                        Converter={StaticResource BoolToVisibilityConverter}, 
-                                        Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_ConfigAvailable, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-            <Image 
-                   Source="{StaticResource Settings-02-16}" 
-                   Visibility="{Binding Path=Model.HasSuitableConfig, 
-                                        Converter={StaticResource InversedBoolToVisibilityConverter}, 
-                                        Mode=OneWay}" 
-                   Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_NoConfigAvailable, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-
-            <Image 
-                   Source="{StaticResource CloudUpload-d16p0-black}" 
-                   Visibility="{Binding Path=Model.IsInCloud, 
-                                Converter={StaticResource BoolToVisibilityConverter}, 
-                                Mode=OneWay}" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInCloud, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-            <Image 
-                   Source="{StaticResource CloudUpload-d16p0-black}" 
-                   Visibility="{Binding Path=Model.IsInCloud, Converter={StaticResource InversedBoolToVisibilityConverter}, Mode=OneWay}" 
-                   Opacity=".25" 
-                   ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInCloud, 
-                                     Source={StaticResource XamlLocalization}}" 
-            />
-        </StackPanel>
+        <local:IndicatorsStackPanel 
+                                    DataContext="{Binding}" 
+                                    Style="{StaticResource FullySemiSyncIndicatorsContainer}" 
+        />
 
         <TextBlock Style="{StaticResource NoConfig}" 
                    Text="{Binding Path=Localization.SemiautomaticSync_NoConfig, 

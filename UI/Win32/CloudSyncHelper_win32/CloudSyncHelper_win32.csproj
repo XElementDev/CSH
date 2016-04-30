@@ -99,6 +99,9 @@
     <Compile Include="Modules\OsConfigurationAtGlance\ViewModel.cs" />
     <Compile Include="Modules\OsConfiguration\ModelFactory.cs" />
     <Compile Include="Modules\SemiautomaticSync\IModelDependencies.cs" />
+    <Compile Include="Modules\SemiautomaticSync\IndicatorsStackPanel.xaml.cs">
+      <DependentUpon>IndicatorsStackPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modules\SemiautomaticSync\ModelFactory.cs" />
     <Compile Include="Shortcuts\IApplicationMenuContainer.cs" />
     <Compile Include="Shortcuts\IFilterContainer.cs" />
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Modules\PathMap\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\SemiautomaticSync\IndicatorsStackPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
