@@ -2,9 +2,9 @@
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules
 {
-    public partial class PathMap : UserControl
+    public partial class PathMapUC : UserControl
     {
-        public PathMap()
+        public PathMapUC()
         {
             InitializeComponent();
         }

@@ -104,9 +104,9 @@
                                                    Path=IsChecked, 
                                                    Converter={StaticResource BoolToVisibilityConverter}}"
                               Style="{StaticResource PathMapContainer}">
-                    <modules:PathMap 
-                                     DataContext="{Binding Path=SelectedOsConfigurationVM.PathMap, 
-                                                           Mode=OneWay}" 
+                    <modules:PathMapUC 
+                                       DataContext="{Binding Path=SelectedPathMapVM, 
+                                                             Mode=OneWay}" 
                     />
                 </ScrollViewer>
             </Grid>

@@ -59,6 +59,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             }
         }
 
+        private void InitializePathMapModels()
+        {
+            var map = new Dictionary<IOsConfigurationInfo, PathMap.Model>();
+
+            foreach ( var osConfigInfo in this.OsConfigs )
+            {
+                var osConfigModel = this.OsConfigInfoToOsConfigModelMap[osConfigInfo];
+                var @params = new PathMap.ModelParametersDTO
+                {
+                    Links = osConfigModel.Links
+                };
+                var pathMapModel = new PathMap.Model( @params );
+                map.Add( osConfigInfo, pathMapModel );
+            }
+
+            this.OsConfigInfoToPathMapModelMap = map;
+        }
+
         private void InitializePublicProperties()
         {
             this.OsConfigs = this._programInfoVM.OsConfigs;
@@ -70,6 +88,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             }
 
             this.InitializeOsConfigurationModels();
+            this.InitializePathMapModels();
             this.InitializeSelectedOsConfigurationInfo();
         }
 
@@ -103,6 +122,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         }
 
         public IDictionary<IOsConfigurationInfo, OsConfiguration.Model> OsConfigInfoToOsConfigModelMap
+        {
+            get;
+            private set;
+        }
+
+        public IDictionary<IOsConfigurationInfo, PathMap.Model> OsConfigInfoToPathMapModelMap
         {
             get;
             private set;

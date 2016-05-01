@@ -98,6 +98,9 @@
     <Compile Include="Modules\OsConfiguration\ViewModel.cs" />
     <Compile Include="Modules\OsConfigurationAtGlance\ViewModel.cs" />
     <Compile Include="Modules\OsConfiguration\ModelFactory.cs" />
+    <Compile Include="Modules\PathMap\Model.cs" />
+    <Compile Include="Modules\PathMap\ModelParametersDTO.cs" />
+    <Compile Include="Modules\PathMap\ViewModel.cs" />
     <Compile Include="Modules\SemiautomaticSync\IModelDependencies.cs" />
     <Compile Include="Modules\SemiautomaticSync\IndicatorsStackPanel.xaml.cs">
       <DependentUpon>IndicatorsStackPanel.xaml</DependentUpon>

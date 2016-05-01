@@ -15,6 +15,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.Initialize();
             this.RegisterPropertyChangedEvents();
             this.UpdateSelectedOsConfigurationVM();
+            this.UpdateSelectedPathMapVM();
         }
 
         private void Initialize()
@@ -26,6 +27,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.InitializeOsConfigVMs();
             this.InitializeOsConfigAtGlanceVMs();
             this.InitializeSelectedConfiguration();
+            this.InitializeSelectedPathMapVm();
         }
 
         private void InitializeOsConfigAtGlanceVMs()
@@ -73,6 +75,19 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             }
         }
 
+        private void InitializeSelectedPathMapVm()
+        {
+            var capacity = this.Model.OsConfigs.Count();
+            var map = new Dictionary<IOsConfigurationInfo, PathMap.ViewModel>( capacity );
+            foreach ( var osConfigInfo in this.Model.OsConfigs )
+            {
+                var pathMapModel = this.Model.OsConfigInfoToPathMapModelMap[osConfigInfo];
+                var pathMapVM = new PathMap.ViewModel( pathMapModel );
+                map.Add( osConfigInfo, pathMapVM );
+            }
+            this._osConfigInfoToPathMapVmMap = map;
+        }
+
         public bool IsAConfigurationAvailable { get; private set; }
 
         public /*SemiautomaticSync.*/Model Model { get; private set; }
@@ -86,6 +101,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
                 if ( e.PropertyName == nameof( this.Model.SelectedOsConfigurationInfo ) )
                 {
                     this.UpdateSelectedOsConfigurationVM();
+                    this.UpdateSelectedPathMapVM();
                 }
             };
         }
@@ -114,6 +130,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             }
         }
 
+        private PathMap.ViewModel _selectedPathMapVM;
+        public PathMap.ViewModel SelectedPathMapVM
+        {
+            get { return this._selectedPathMapVM; }
+            set
+            {
+                this._selectedPathMapVM = value;
+                this.RaisePropertyChanged( nameof( this.SelectedPathMapVM ) );
+            }
+        }
+
         private void UpdateSelectedOsConfigurationVM()
         {
             var osConfigInfo = this.Model.SelectedOsConfigurationInfo;
@@ -124,8 +151,19 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             }
         }
 
+        private void UpdateSelectedPathMapVM()
+        {
+            var osConfigInfo = this.Model.SelectedOsConfigurationInfo;
+            if ( osConfigInfo != null )
+            {
+                var pathMapVM = this._osConfigInfoToPathMapVmMap[osConfigInfo];
+                this.SelectedPathMapVM = pathMapVM;
+            }
+        }
+
         private IDictionary<OsConfigurationAtGlance.ViewModel, IOsConfigurationInfo> _osConfigAtGlanceVmToOsConfigMap;
         private IDictionary<IOsConfigurationInfo, OsConfiguration.ViewModel> _osConfigInfoToOsConfigVmMap;
+        private IDictionary<IOsConfigurationInfo, PathMap.ViewModel> _osConfigInfoToPathMapVmMap;
         private IDictionary<IOsConfigurationInfo, OsConfigurationAtGlance.ViewModel> _osConfigToOsConfigAtGlanceVmMap;
     }
 #endregion
