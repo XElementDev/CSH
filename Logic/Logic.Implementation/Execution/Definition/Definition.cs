@@ -18,7 +18,7 @@ namespace XElement.CloudSyncHelper.Logic
             this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
         }
 
-        public IOsConfigurationInfo BestFittingOsConfiguration
+        public IOsConfigurationInfo BestFittingOsConfigurationInfo
         {
             get
             {

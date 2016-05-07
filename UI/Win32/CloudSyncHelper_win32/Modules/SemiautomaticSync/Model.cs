@@ -100,7 +100,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
                 OsConfigurationInfos = this._programInfoVM.OsConfigs
             };
             var definition = this._definitionFactory.Get( @params );
-            this.SelectedOsConfigurationInfo = definition.BestFittingOsConfiguration;
+            this.SelectedOsConfigurationInfo = definition.BestFittingOsConfigurationInfo;
         }
 
         public bool IsInCloud { get { return this._programInfoVM.IsInCloud; } }

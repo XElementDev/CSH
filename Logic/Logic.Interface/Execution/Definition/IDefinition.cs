@@ -4,6 +4,7 @@ namespace XElement.CloudSyncHelper.Logic
 {
     public interface IDefinition
     {
-        IOsConfigurationInfo BestFittingOsConfiguration { get; }
+        IOsConfigurationInfo BestFittingOsConfigurationInfo { get; }
+
     }
 }
