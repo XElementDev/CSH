@@ -27,14 +27,12 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
+        // Copy all levels
         private void CopyFilesRecursively( string source, string destination )
         {
             Directory.CreateDirectory( destination );
 
-            this.AbstractSourceDestLinker( s => Directory.GetFiles( s ), 
-                                           source, 
-                                           destination, 
-                                           ( s, d ) => File.Copy( s, d ) );
+            this.ShallowCopyFiles( source, destination );
             this.AbstractSourceDestLinker( s => Directory.GetDirectories( s ), 
                                            source, 
                                            destination, 
@@ -56,6 +54,15 @@ namespace XElement.CloudSyncHelper.Logic.Execution
         public override void /*LinkBase.*/MoveToCloud()
         {
             this.CopyFilesRecursively( this.LinkPath, this.TargetPath );
+        }
+
+        // Copy only one level
+        private void ShallowCopyFiles( string source, string destination )
+        {
+            this.AbstractSourceDestLinker( s => Directory.GetFiles( s ),
+                                           source,
+                                           destination,
+                                           ( s, d ) => File.Copy( s, d ) );
         }
 
         public override void /*LinkBase.*/Undo()
