@@ -103,7 +103,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         public ICommand UnlinkCommand { get; private set; }
         private bool UnlinkCommand_CanExecute()
         {
-            return this.IsLinked;
+            return this.IsSuitableForOs && 
+                this.IsLinked;
         }
         private void UnlinkCommand_Execute()
         {
