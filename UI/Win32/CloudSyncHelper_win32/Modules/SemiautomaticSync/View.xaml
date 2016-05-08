@@ -77,24 +77,10 @@
                             </DockPanel>
                         </GroupBox.Header>
                         <GroupBox.Content>
-                            <StackPanel 
-                                        Orientation="Vertical">
-                                <!--<StackPanel Style="{StaticResource ButtonsContainer}">
-                                    <Button IsEnabled="False" 
-                                            Command="{Binding Path=Model.MoveToCloudCommand}" 
-                                            ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
-                                                              Source={StaticResource XamlLocalization}}">
-                                        <Button.Content>
-                                            <Image Source="{StaticResource MoveToCloud-Black-16}" />
-                                        </Button.Content>
-                                    </Button>
-                                </StackPanel>-->
-
-                                <modules:OsConfigurationUC 
-                                                           DataContext="{Binding Path=SelectedOsConfigurationVM, 
-                                                                                 Mode=OneWay}" 
-                                />
-                            </StackPanel>
+                            <modules:OsConfigurationUC 
+                                                       DataContext="{Binding Path=SelectedOsConfigurationVM, 
+                                                                             Mode=OneWay}" 
+                            />
                         </GroupBox.Content>
                     </GroupBox>
                 </StackPanel>

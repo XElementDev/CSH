@@ -1,7 +1,5 @@
-﻿using Microsoft.Practices.Prism.Commands;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Logic;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
@@ -18,7 +16,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         {
             this.InitializePrivateProperties( parameters, dependencies );
             this.InitializePublicProperties();
-            this.InitializeCommands();
             this.RegisterToPropertyChangedEvents();
         }
 
@@ -28,12 +25,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         }
 
         public bool HasSuitableConfig { get { return this._programInfoVM.HasSuitableConfig; } }
-
-        private void InitializeCommands()
-        {
-            this.MoveToCloudCommand = new DelegateCommand( this.MoveToCloudCommand_Execute,
-                                                           this.MoveToCloudCommand_CanExecute );
-        }
 
         private void InitializeOsConfigurationModels()
         {
@@ -100,23 +91,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.SelectedOsConfigurationInfo = this._definition.BestFittingOsConfigurationInfo;
         }
 
-        public bool IsInCloud { get { return this._programInfoVM.IsInCloud; } }
+        public bool IsInCloud { get { return this._definition.IsInCloud; } }
 
         public bool IsLinked { get { return this._definition.IsLinked; } }
-
-        // TODO: Finish move to cloud feature
-        public ICommand MoveToCloudCommand { get; private set; }
-        private bool MoveToCloudCommand_CanExecute()
-        {
-            return this._isInstalled &&
-                this.HasSuitableConfig &&
-                !this.IsInCloud;
-        }
-        private void MoveToCloudCommand_Execute()
-        {
-            this._programInfoVM.ExecutionLogic.MoveToCloud();
-            this.RaisePropertiesChanged();
-        }
 
         public IDictionary<IOsConfigurationInfo, OsConfiguration.Model> OsConfigInfoToOsConfigModelMap
         {
@@ -131,14 +108,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         }
 
         public IEnumerable<IOsConfigurationInfo> OsConfigs { get; private set; }
-
-        private void RaisePropertiesChanged()
-        {
-            this.RaisePropertyChanged( "IsInCloud" );
-            this.RaisePropertyChanged( "IsLinked" );
-            (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
-            this.RaisePropertyChanged( nameof( this.CanConfigBeChanged ) );
-        }
 
         private void RegisterToPropertyChangedEvent( OsConfiguration.Model osConfigModel )
         {
