@@ -183,7 +183,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         private IDefinition _definition;
         private bool _isInstalled;
-        private IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> _osConfigModelFactory;
+        private IFactory<OsConfiguration.Model, OsConfiguration.ModelParametersDTO> _osConfigModelFactory;
         private ProgramInfoViewModel _programInfoVM;
     }
 #endregion

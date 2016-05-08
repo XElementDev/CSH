@@ -7,6 +7,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
     {
         IFactory<IDefinition, Win32.Model.DefinitionParametersDTO> DefinitionFactory { get; }
 
-        IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> OsConfigurationModelFactory { get; }
+        IFactory<OsConfiguration.Model, OsConfiguration.ModelParametersDTO> OsConfigurationModelFactory { get; }
     }
 }

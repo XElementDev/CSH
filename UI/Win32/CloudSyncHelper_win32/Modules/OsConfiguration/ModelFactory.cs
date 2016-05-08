@@ -5,10 +5,10 @@ using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 {
 #region not unit-tested
-    [Export( typeof( IFactory<Model, IModelParameters> ) )]
-    internal class ModelFactory : IFactory<Model, IModelParameters>
+    [Export( typeof( IFactory<Model, ModelParametersDTO> ) )]
+    internal class ModelFactory : IFactory<Model, ModelParametersDTO>
     {
-        public Model Get( IModelParameters @params )
+        public Model Get( ModelParametersDTO @params )
         {
             var dependencies = new ModelDependenciesDTO
             {

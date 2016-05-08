@@ -89,9 +89,8 @@
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\OsConfiguration\ModelDependenciesDTO.cs" />
-    <Compile Include="Modules\OsConfiguration\IModelParameters.cs" />
+    <Compile Include="Modules\OsConfiguration\ModelParametersDTO.cs" />
     <Compile Include="Modules\OsConfiguration\Model.cs" />
-    <Compile Include="Modules\OsConfiguration\ModelParameters.cs" />
     <Compile Include="Modules\OsConfiguration\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>

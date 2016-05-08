@@ -11,15 +11,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 #region not unit-tested
     public class Model : NotifyPropertyChanged
     {
-        public Model( IModelParameters @params, 
+        public Model( ModelParametersDTO parameters, 
                       ModelDependenciesDTO dependencies )
         {
-            this.Initialize( @params, dependencies );
+            this.Initialize( parameters, dependencies );
 
             this.UpdateCachedProperties();
         }
 
-        private void Initialize( IModelParameters @params, ModelDependenciesDTO dependencies )
+        private void Initialize( ModelParametersDTO @params, ModelDependenciesDTO dependencies )
         {
             this.InitializeCommands();
             this.InitializePrivateProperties( @params, dependencies );
@@ -32,7 +32,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
         }
 
-        private void InitializePrivateProperties( IModelParameters @params, ModelDependenciesDTO dependencies )
+        private void InitializePrivateProperties( ModelParametersDTO @params, ModelDependenciesDTO dependencies )
         {
             this._linkFactory = dependencies.LinkFactory;
             this._osChecker = dependencies.OsChecker;
@@ -47,7 +47,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this._osConfigurationInfo = @params.OsConfigurationInfo;
         }
 
-        private void InitializePublicProperties( IModelParameters @params )
+        private void InitializePublicProperties( ModelParametersDTO @params )
         {
             this.IsInstalled = @params.IsInstalled;
 

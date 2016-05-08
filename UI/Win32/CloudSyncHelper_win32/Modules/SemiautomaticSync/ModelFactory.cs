@@ -22,7 +22,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         private IFactory<IDefinition, Win32.Model.DefinitionParametersDTO> _definitionFactory = null;
 
         [Import]
-        private IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> _osConfigModelFactory = null;
+        private IFactory<OsConfiguration.Model, OsConfiguration.ModelParametersDTO> _osConfigModelFactory = null;
 
 
         private class ModelDependencies : IModelDependencies
@@ -33,7 +33,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
                 set;
             }
 
-            public IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> OsConfigurationModelFactory
+            public IFactory<OsConfiguration.Model, OsConfiguration.ModelParametersDTO> OsConfigurationModelFactory
             {
                 get;
                 set;
