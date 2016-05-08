@@ -13,15 +13,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 #region not unit-tested
     public class Model : NotifyPropertyChanged
     {
-        public Model( IModelParameters @params, 
+        public Model( IModelParameters parameters, 
                       IModelDependencies dependencies )
         {
-            this._definitionFactory = dependencies.DefinitionFactory;
-            this._isInstalled = @params.IsInstalled;
-            this._osConfigModelFactory = dependencies.OsConfigurationModelFactory;
-            this._programInfoVM = @params.ProgramInfoVM;
-
-            this.Initialize();
+            this.InitializePrivateProperties( parameters, dependencies );
+            this.InitializePublicProperties();
+            this.InitializeCommands();
+            this.RegisterToPropertyChangedEvents();
         }
 
         public bool CanConfigBeChanged
@@ -30,12 +28,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         }
 
         public bool HasSuitableConfig { get { return this._programInfoVM.HasSuitableConfig; } }
-
-        private void Initialize()
-        {
-            this.InitializePublicProperties();
-            this.InitializeCommands();
-        }
 
         private void InitializeCommands()
         {
@@ -77,6 +69,21 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.OsConfigInfoToPathMapModelMap = map;
         }
 
+        private void InitializePrivateProperties( IModelParameters parameters, 
+                                                  IModelDependencies dependencies )
+        {
+            this._isInstalled = parameters.IsInstalled;
+            this._osConfigModelFactory = dependencies.OsConfigurationModelFactory;
+            this._programInfoVM = parameters.ProgramInfoVM;
+
+            var definitionParams = new Win32.Model.DefinitionParametersDTO
+            {
+                ApplicationInfo = this._programInfoVM.ApplicationInfo,
+                OsConfigurationInfos = this._programInfoVM.OsConfigs
+            };
+            this._definition = dependencies.DefinitionFactory.Get( definitionParams );
+        }
+
         private void InitializePublicProperties()
         {
             this.OsConfigs = this._programInfoVM.OsConfigs;
@@ -89,23 +96,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
             this.InitializeOsConfigurationModels();
             this.InitializePathMapModels();
-            this.InitializeSelectedOsConfigurationInfo();
-        }
 
-        private void InitializeSelectedOsConfigurationInfo()
-        {
-            var @params = new Win32.Model.DefinitionParametersDTO
-            {
-                ApplicationInfo = this._programInfoVM.ApplicationInfo, 
-                OsConfigurationInfos = this._programInfoVM.OsConfigs
-            };
-            var definition = this._definitionFactory.Get( @params );
-            this.SelectedOsConfigurationInfo = definition.BestFittingOsConfigurationInfo;
+            this.SelectedOsConfigurationInfo = this._definition.BestFittingOsConfigurationInfo;
         }
 
         public bool IsInCloud { get { return this._programInfoVM.IsInCloud; } }
 
-        public bool IsLinked { get { return this._programInfoVM.IsLinked; } }
+        public bool IsLinked { get { return this._definition.IsLinked; } }
 
         // TODO: Finish move to cloud feature
         public ICommand MoveToCloudCommand { get; private set; }
@@ -143,6 +140,34 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.RaisePropertyChanged( nameof( this.CanConfigBeChanged ) );
         }
 
+        private void RegisterToPropertyChangedEvent( OsConfiguration.Model osConfigModel )
+        {
+            osConfigModel.PropertyChanged += ( s, e ) =>
+            {
+                if ( e.PropertyName == nameof( osConfigModel.IsLinked ) )
+                {
+                    this.RaisePropertyChanged( nameof( this.IsLinked ) );
+                }
+            };
+        }
+
+        private void RegisterToPropertyChangedEvents()
+        {
+            var osConfigModels = this.OsConfigInfoToOsConfigModelMap.Values;
+            foreach ( var osConfigModel in osConfigModels )
+            {
+                this.RegisterToPropertyChangedEvent( osConfigModel );
+            }
+
+            this.PropertyChanged += ( s, e ) =>
+            {
+                if ( e.PropertyName == nameof( this.IsLinked ) )
+                {
+                    this.RaisePropertyChanged( nameof( this.CanConfigBeChanged ) );
+                }
+            };
+        }
+
         private IOsConfigurationInfo _selectedOsConfigurationInfo;
         public IOsConfigurationInfo SelectedOsConfigurationInfo
         {
@@ -156,7 +181,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
 
         public SupportedOperatingSystems.ViewModel SupportedOSsVM { get; private set; }
 
-        private IFactory<IDefinition, Win32.Model.DefinitionParametersDTO> _definitionFactory;
+        private IDefinition _definition;
         private bool _isInstalled;
         private IFactory<OsConfiguration.Model, OsConfiguration.IModelParameters> _osConfigModelFactory;
         private ProgramInfoViewModel _programInfoVM;

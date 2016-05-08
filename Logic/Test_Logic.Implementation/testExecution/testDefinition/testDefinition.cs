@@ -34,8 +34,8 @@ namespace XElement.CloudSyncHelper.Logic
             var appInfo = this.CreateRandomApplicationInfo( new List<int> { 3, 2 } );
             var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, new List<int> { 2, 1 } );
             var expectedOsConfigInfo = appInfo.DefinitionInfo.OsConfigs.First();
-            var osFilterMock = testDefinition.CreateOsFilterMock();
-            IDefinition target = this.CreateInstance( appInfo, linkFactoryMock, osFilterMock );
+            IDefinition target = testDefinition.CreateInstance( appInfo, 
+                                                                linkFactoryMock );
 
             var actualOsConfigInfo = target.BestFittingOsConfigurationInfo;
 
@@ -48,8 +48,8 @@ namespace XElement.CloudSyncHelper.Logic
             var appInfo = this.CreateRandomApplicationInfo( new List<int> { 1, 3 } );
             var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, new List<int> { 1, 2 } );
             var expectedOsConfigInfo = appInfo.DefinitionInfo.OsConfigs.First();
-            var osFilterMock = testDefinition.CreateOsFilterMock();
-            IDefinition target = this.CreateInstance( appInfo, linkFactoryMock, osFilterMock );
+            IDefinition target = testDefinition.CreateInstance( appInfo, 
+                                                                linkFactoryMock );
 
             var actualOsConfigInfo = target.BestFittingOsConfigurationInfo;
 
@@ -66,7 +66,9 @@ namespace XElement.CloudSyncHelper.Logic
             Mock.Arrange( () => osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
                 .Returns( new List<IOsConfigurationInfo>() { expectedOsCfgInfo } ).MustBeCalled();
             var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, new List<int> { 2, 2 } );
-            var target = this.CreateInstance( appInfo, linkFactoryMock, osFilterMock );
+            IDefinition target = testDefinition.CreateInstance( appInfo, 
+                                                                linkFactoryMock, 
+                                                                osFilterMock );
 
             var actualOsCfgInfo = target.BestFittingOsConfigurationInfo;
 
@@ -75,8 +77,97 @@ namespace XElement.CloudSyncHelper.Logic
         }
 
 
+        [TestMethod]
+        public void testDefinition_IsLinked_NoConfig()
+        {
+            var appInfo = Mock.Create<IApplicationInfo>();
+            Mock.Arrange( () => appInfo.DefinitionInfo.OsConfigs )
+                .Returns( new List<IOsConfigurationInfo>() );
+            IDefinition target = testDefinition.CreateInstance( appInfo );
 
-        private IDefinition CreateInstance( IApplicationInfo appInfo, 
+            var isLinked = target.IsLinked;
+
+            Assert.IsFalse( isLinked );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsLinked_OneLinkedConfig__RandomValues()
+        {
+            var randomCount = XeRandom.RandomInt( 2, 11 );
+            var appInfo = this.CreateRandomApplicationInfo( new List<int> { randomCount } );
+            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, 
+                                                              new List<int> { randomCount } );
+            IDefinition target = testDefinition.CreateInstance( appInfo,
+                                                                linkFactoryMock );
+
+            var isLinked = target.IsLinked;
+
+            Assert.IsTrue( isLinked );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsLinked_2Configs0Linked__RandomValues()
+        {
+            var count1 = XeRandom.RandomInt( 2, 11 );
+            var count2 = XeRandom.RandomInt( 2, 11 );
+            var appInfo = this.CreateRandomApplicationInfo( new List<int> { count1, count2 } );
+            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo,
+                                                              new List<int> { 0, 0 } );
+            IDefinition target = testDefinition.CreateInstance( appInfo,
+                                                                linkFactoryMock );
+
+            var isLinked = target.IsLinked;
+
+            Assert.IsFalse( isLinked );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsLinked_2Configs2Linked__RandomValues()
+        {
+            var count1 = XeRandom.RandomInt( 2, 11 );
+            var count2 = XeRandom.RandomInt( 2, 11 );
+            var appInfo = this.CreateRandomApplicationInfo( new List<int> { count1, count2 } );
+            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo,
+                                                              new List<int> { count1, count2 } );
+            IDefinition target = testDefinition.CreateInstance( appInfo,
+                                                                linkFactoryMock );
+
+            var isLinked = target.IsLinked;
+
+            Assert.IsTrue( isLinked );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsLinked_2Configs1Linked__RandomValues()
+        {
+            var count1 = XeRandom.RandomInt( 2, 11 );
+            var count2 = XeRandom.RandomInt( 2, 11 );
+            var appInfo = this.CreateRandomApplicationInfo( new List<int> { count1, count2 } );
+            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo,
+                                                              new List<int> { count1, 0 } );
+            IDefinition target = testDefinition.CreateInstance( appInfo,
+                                                                linkFactoryMock );
+
+            var isLinked = target.IsLinked;
+
+            Assert.IsTrue( isLinked );
+        }
+
+
+
+        private static IDefinition CreateInstance( IApplicationInfo appInfo )
+        {
+            return testDefinition.CreateInstance( appInfo, null, null );
+        }
+
+        private static IDefinition CreateInstance( IApplicationInfo appInfo,
+                                                   ILinkFactory linkFactoryMock )
+        {
+            var osFilterMock = testDefinition.CreateOsFilterMock();
+            return testDefinition.CreateInstance( appInfo, linkFactoryMock, osFilterMock );
+        }
+
+        private static IDefinition CreateInstance( IApplicationInfo appInfo, 
                                             ILinkFactory linkFactoryMock, 
                                             IOsFilter osFilterMock )
         {

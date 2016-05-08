@@ -4,11 +4,12 @@ using System.Windows.Input;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Logic;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
+using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 {
 #region not unit-tested
-    public class Model
+    public class Model : NotifyPropertyChanged
     {
         public Model( IModelParameters @params, 
                       ModelDependenciesDTO dependencies )
@@ -68,7 +69,16 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 
         private bool IsInstalled { get; set; }
 
-        private bool IsLinked { get; set; }
+        private bool _isLinked;
+        public bool IsLinked
+        {
+            get { return this._isLinked; }
+            set
+            {
+                this._isLinked = value;
+                this.RaisePropertyChanged( nameof( this.IsLinked ) );
+            }
+        }
 
         private bool IsSuitableForOs { get; set; }
 

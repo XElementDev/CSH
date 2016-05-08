@@ -6,5 +6,6 @@ namespace XElement.CloudSyncHelper.Logic
     {
         IOsConfigurationInfo BestFittingOsConfigurationInfo { get; }
 
+        bool IsLinked { get; }
     }
 }
