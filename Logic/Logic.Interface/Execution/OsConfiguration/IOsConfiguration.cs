@@ -6,6 +6,10 @@ namespace XElement.CloudSyncHelper.Logic
     {
         bool IsInCloud { get; }
 
+
         bool IsLinked { get; }
+
+
+        void MoveToCloud();
     }
 }

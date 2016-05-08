@@ -19,6 +19,7 @@ namespace XElement.CloudSyncHelper.Logic
             this.InitializeLinks();
         }
 
+
         public void Do()
         {
             foreach ( ILinkInt link in this._links )
@@ -26,6 +27,7 @@ namespace XElement.CloudSyncHelper.Logic
                 link.Do();
             }
         }
+
 
         private void InitializeLinks()
         {
@@ -39,9 +41,21 @@ namespace XElement.CloudSyncHelper.Logic
             }
         }
 
+
         public bool IsInCloud { get { return this._links.All( l => l.IsInCloud ); } }
 
+
         public bool IsLinked { get { return this._links.All( l => l.IsLinked ); } }
+
+
+        public void MoveToCloud()
+        {
+            foreach ( ILinkInt link in this._links )
+            {
+                link.MoveToCloud();
+            }
+        }
+
 
         public void Undo()
         {
@@ -50,6 +64,7 @@ namespace XElement.CloudSyncHelper.Logic
                 link.Undo();
             }
         }
+
 
         private IApplicationInfo _appInfo;
         private ILinkFactory _linkFactory;
