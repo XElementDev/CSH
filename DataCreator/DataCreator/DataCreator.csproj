@@ -45,6 +45,7 @@
     <Compile Include="Data\AbstractManagerT1.cs" />
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
+    <Compile Include="Data\Games\TalesFromTheBorderlands.cs" />
     <Compile Include="Data\Games\TheWalkingDeadS1.cs" />
     <Compile Include="Data\Games\FarCry4.cs" />
     <Compile Include="Data\Games\FinalFantasy13.cs" />

@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Tales from the Borderlands" FolderName="Borderlands 2014-2015 [Tales from the Borderlands]" Id="95da055d-201b-4089-958a-51536052eff8" TechNameMatcher="Tales from the Borderlands">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Telltale Games" DestTargetName="Tales from the Borderlands" SourceId="Tales from the Borderlands" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="The Walking Dead" FolderName="The Walking Dead 2012-2013 [The Walking Dead]" Id="28bd5524-ac8d-4f07-8987-524a4384722c" TechNameMatcher="The Walking Dead">
     <IsSteamCloudSupported value="true" />
   </Game>
