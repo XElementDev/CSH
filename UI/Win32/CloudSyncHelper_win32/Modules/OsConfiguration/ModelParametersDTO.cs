@@ -5,13 +5,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 #region not unit-tested
     public class ModelParametersDTO
     {
-        IApplicationInfo ApplicationInfo { get; set; }
+        public IApplicationInfo ApplicationInfo { get; set; }
 
 
-        bool IsInstalled { get; set; }
+        public bool IsInstalled { get; set; }
 
 
-        IOsConfigurationInfo OsConfigurationInfo { get; set; }
+        public IOsConfigurationInfo OsConfigurationInfo { get; set; }
     }
 #endregion
 }

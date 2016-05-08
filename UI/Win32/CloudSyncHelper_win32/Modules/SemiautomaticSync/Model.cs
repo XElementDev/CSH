@@ -40,7 +40,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             this.OsConfigInfoToOsConfigModelMap = new Dictionary<IOsConfigurationInfo, OsConfiguration.Model>();
             foreach ( var osConfigInfo in this.OsConfigs )
             {
-                var modelParameters = new OsConfiguration.ModelParameters
+                var modelParameters = new OsConfiguration.ModelParametersDTO
                 {
                     ApplicationInfo = this._programInfoVM.ApplicationInfo,
                     IsInstalled = this._isInstalled,
