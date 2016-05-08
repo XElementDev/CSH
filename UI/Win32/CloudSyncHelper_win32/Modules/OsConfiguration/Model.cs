@@ -28,8 +28,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 
         private void InitializeCommands()
         {
-            this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, this.LinkCommand_CanExecute );
-            this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, this.UnlinkCommand_CanExecute );
+            this.LinkCommand = new DelegateCommand( this.LinkCommand_Execute, 
+                                                    this.LinkCommand_CanExecute );
+            this.MoveToCloudCommand = new DelegateCommand( this.MoveToCloudCommand_Execute, 
+                                                           this.MoveToCloudCommand_CanExecute );
+            this.UnlinkCommand = new DelegateCommand( this.UnlinkCommand_Execute, 
+                                                      this.UnlinkCommand_CanExecute );
         }
 
         private void InitializePrivateProperties( ModelParametersDTO @params, ModelDependenciesDTO dependencies )
@@ -138,6 +142,23 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
 
             public IOsConfigurationInfo OsConfigurationInfo { get; set; }
         }
-    }
 #endregion
+
+
+        public ICommand MoveToCloudCommand { get; private set; }
+
+        private bool MoveToCloudCommand_CanExecute()
+        {
+            return this.IsInstalled &&
+                this.IsSuitableForOs &&
+                !this.IsInCloud;
+        }
+
+        private void MoveToCloudCommand_Execute()
+        {
+            this._osConfiguration.MoveToCloud();
+            (this.LinkCommand as DelegateCommand).RaiseCanExecuteChanged();
+            (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
+        }
+    }
 }
