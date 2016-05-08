@@ -1,5 +1,5 @@
 # Cloud Sync Helper
-A Windows client that enables synchronization of save games and settings for a bunch of applications, resp. games.
+A Windows client that enables synchronization of save games and settings for a bunch of applications, i.e. tools and games.
 
 ## Usage
 For using the Cloud Sync Helper application no installation is required. Simply download the latest binaries from the GitHub releases site [1].
