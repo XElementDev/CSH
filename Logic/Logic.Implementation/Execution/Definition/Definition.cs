@@ -5,18 +5,8 @@ using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Logic
 {
-#region not unit-tested
     public class Definition : IDefinition
     {
-        public Definition( DefinitionParametersDTO parametersDTO, 
-                           DefinitionDependenciesDTO dependenciesDTO )
-        {
-            this._applicationInfo = parametersDTO.ApplicationInfo;
-            this._linkFactory = dependenciesDTO.LinkFactory;
-            this._osConfigurationInfos = parametersDTO.OsConfigurationInfos;
-            this._osFilter = dependenciesDTO.OsFilter;
-            this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
-        }
 
         public IOsConfigurationInfo BestFittingOsConfigurationInfo
         {
@@ -54,6 +44,17 @@ namespace XElement.CloudSyncHelper.Logic
 
             float rating = realizedLinks / potentialLinks;
             return rating;
+        }
+
+#region not unit-tested
+        public Definition( DefinitionParametersDTO parametersDTO, 
+                           DefinitionDependenciesDTO dependenciesDTO )
+        {
+            this._applicationInfo = parametersDTO.ApplicationInfo;
+            this._linkFactory = dependenciesDTO.LinkFactory;
+            this._osConfigurationInfos = parametersDTO.OsConfigurationInfos;
+            this._osFilter = dependenciesDTO.OsFilter;
+            this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
         }
 
         private IApplicationInfo _applicationInfo;
