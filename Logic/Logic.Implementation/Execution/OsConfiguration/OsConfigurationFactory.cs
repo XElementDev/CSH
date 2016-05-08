@@ -1,4 +1,6 @@
-﻿namespace XElement.CloudSyncHelper.Logic
+﻿using XElement.CloudSyncHelper.DataTypes;
+
+namespace XElement.CloudSyncHelper.Logic
 {
 #region not unit-tested
     public class OsConfigurationFactory : IOsConfigurationFactory
@@ -6,6 +8,20 @@
         public OsConfigurationFactory( ILinkFactory linkFactory )
         {
             this._linkFactory = linkFactory;
+        }
+
+
+        public IOsConfiguration Get( IApplicationInfo appInfo, 
+                                     IOsConfigurationInfo osConfigInfo, 
+                                     PathVariablesDTO pathVariables )
+        {
+            var parameters = new OsConfigurationParametersDTO
+            {
+                ApplicationInfo = appInfo, 
+                OsConfigurationInfo = osConfigInfo, 
+                PathVariablesDTO = pathVariables
+            };
+            return this.Get( parameters );
         }
 
         public IOsConfiguration Get( OsConfigurationParametersDTO parameters )
@@ -16,6 +32,7 @@
             };
             return new OsConfiguration( parameters, dependencies );
         }
+
 
         protected ILinkFactory _linkFactory;
     }
