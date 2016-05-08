@@ -5,6 +5,10 @@
     {
         public ILinkFactory LinkFactory { get; set; }
 
+
+        public IOsConfigurationFactory OsConfigurationFactory { get; set; }
+
+
         public IOsFilter OsFilter { get; set; }
     }
 #endregion

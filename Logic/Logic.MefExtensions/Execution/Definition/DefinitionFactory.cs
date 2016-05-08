@@ -13,11 +13,15 @@ namespace XElement.CloudSyncHelper.Logic.MefExtensions
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
             this._linkFactory = this._linkFactoryMef;
+            this._osConfigurationFactory = this._osConfigurationFactoryMef;
             this._osFilter = this._osFilterMef;
         }
 
         [Import]
         private ILinkFactory _linkFactoryMef = null;
+
+        [Import]
+        private IOsConfigurationFactory _osConfigurationFactoryMef = null;
 
         [Import]
         private IOsFilter _osFilterMef = null;

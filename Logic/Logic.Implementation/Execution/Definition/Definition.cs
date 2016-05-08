@@ -10,14 +10,11 @@ namespace XElement.CloudSyncHelper.Logic
         public Definition( DefinitionParametersDTO parametersDTO, 
                            DefinitionDependenciesDTO dependenciesDTO )
         {
-            this._applicationInfo = parametersDTO.ApplicationInfo;
-            this._linkFactory = dependenciesDTO.LinkFactory;
-            this._osConfigurationInfos = parametersDTO.OsConfigurationInfos;
-            this._osFilter = dependenciesDTO.OsFilter;
-            this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
-
+            this.InitializeUsingParameters( parametersDTO );
+            this.InitializeUsingDependencies( dependenciesDTO );
             this.InitializeLinks();
         }
+
 
         public IOsConfigurationInfo BestFittingOsConfigurationInfo
         {
@@ -39,6 +36,7 @@ namespace XElement.CloudSyncHelper.Logic
             }
         }
 
+
         private float GetRatingFor( IOsConfigurationInfo osConfigurationInfo )
         {
             int potentialLinks = osConfigurationInfo.Links.Count;
@@ -57,6 +55,7 @@ namespace XElement.CloudSyncHelper.Logic
             return rating;
         }
 
+
         private void InitializeLinks()
         {
             this._links = new Dictionary<IOsConfigurationInfo, IEnumerable<ILink>>();
@@ -74,6 +73,23 @@ namespace XElement.CloudSyncHelper.Logic
             }
         }
 
+
+        private void InitializeUsingDependencies( DefinitionDependenciesDTO dependenciesDTO )
+        {
+            this._linkFactory = dependenciesDTO.LinkFactory;
+            this._osConfigurationFactory = dependenciesDTO.OsConfigurationFactory;
+            this._osFilter = dependenciesDTO.OsFilter;
+        }
+
+
+        private void InitializeUsingParameters( DefinitionParametersDTO parametersDTO )
+        {
+            this._applicationInfo = parametersDTO.ApplicationInfo;
+            this._osConfigurationInfos = parametersDTO.OsConfigurationInfos;
+            this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
+        }
+
+
         public bool IsLinked
         {
             get
@@ -83,11 +99,33 @@ namespace XElement.CloudSyncHelper.Logic
             }
         }
 
+
         private IApplicationInfo _applicationInfo;
         private ILinkFactory _linkFactory;
         private IDictionary<IOsConfigurationInfo, IEnumerable<ILink>> _links;
         private IEnumerable<IOsConfigurationInfo> _osConfigurationInfos;
         private IOsFilter _osFilter;
         private PathVariablesDTO _pathVariablesDTO;
+
+#region not unit-tested
+        public bool IsInCloud
+        {
+            get
+            {
+                var osConfigs = new List<IOsConfiguration>();
+                foreach ( IOsConfigurationInfo osConfigInfo in this._osConfigurationInfos )
+                {
+                    var osConfig = this._osConfigurationFactory.Get( this._applicationInfo, 
+                                                                     osConfigInfo, 
+                                                                     this._pathVariablesDTO );
+                    osConfigs.Add( osConfig );
+                }
+                return osConfigs.Any( osCfg => osCfg.IsInCloud );
+            }
+        }
+
+
+        private IOsConfigurationFactory _osConfigurationFactory;
+#endregion
     }
 }

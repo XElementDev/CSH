@@ -14,12 +14,14 @@
             var dependenciesDTO = new DefinitionDependenciesDTO
             {
                 LinkFactory = this._linkFactory, 
-                OsFilter = this._osFilter
+                OsConfigurationFactory = this._osConfigurationFactory, 
+                OsFilter = this._osFilter,
             };
             return new Definition( parametersDTO, dependenciesDTO );
         }
 
         protected ILinkFactory _linkFactory;
+        protected IOsConfigurationFactory _osConfigurationFactory;
         protected IOsFilter _osFilter;
     }
 #endregion
