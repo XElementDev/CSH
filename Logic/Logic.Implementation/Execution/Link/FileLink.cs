@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Logic.Execution
@@ -26,8 +25,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
 
         public override void /*LinkBase.*/MoveToCloud()
         {
-            // TODO: MoveToCloud for files
-            throw new NotImplementedException();
+            File.Copy( this.LinkPath, this.TargetPath );
         }
 
         public override void /*LinkBase.*/Undo()
