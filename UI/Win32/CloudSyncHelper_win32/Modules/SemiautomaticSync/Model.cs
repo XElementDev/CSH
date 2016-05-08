@@ -144,7 +144,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
         {
             osConfigModel.PropertyChanged += ( s, e ) =>
             {
-                if ( e.PropertyName == nameof( osConfigModel.IsLinked ) )
+                if ( e.PropertyName == nameof( osConfigModel.IsInCloud ) )
+                {
+                    this.RaisePropertyChanged( nameof( this.IsInCloud ) );
+                }
+                else if ( e.PropertyName == nameof( osConfigModel.IsLinked ) )
                 {
                     this.RaisePropertyChanged( nameof( this.IsLinked ) );
                 }

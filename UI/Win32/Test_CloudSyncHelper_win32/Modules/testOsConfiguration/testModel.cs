@@ -129,11 +129,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
                 ( s, e ) => expectedEventsRaised[nameof( this._target.LinkCommand )] = true;
             this._target.MoveToCloudCommand.CanExecuteChanged += 
                 ( s, e ) => expectedEventsRaised[nameof( this._target.MoveToCloudCommand )] = true;
+            this._target.PropertyChanged += ( s, e ) =>
+            {
+                var isInCloudProp = nameof( this._target.IsInCloud );
+                if ( e.PropertyName == isInCloudProp )
+                    expectedEventsRaised[isInCloudProp] = true;
+            };
             Assert.IsTrue( expectedEventsRaised.All( kvp => kvp.Value == false ) );
 
             this._target.MoveToCloudCommand.Execute( "irrelevant" );
 
-            Assert.AreEqual( 2, expectedEventsRaised.Count );
+            Assert.AreEqual( 3, expectedEventsRaised.Count );
             Assert.IsTrue( expectedEventsRaised.All( kvp => kvp.Value == true ) );
         }
 
@@ -141,19 +147,22 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         public void testOsConfigurationModel_MoveToCloudCommand_Execute_RaisesPropertyChangedEventsInCorrectOrder()
         {
             var logic = "logic";
-            var @event = "event";
+            var buttonEvent = "buttonEvent";
+            var propertyEvent = "propertyEvent";
             var executionOrder = new List<string>();
             Mock.Arrange( () => this._osConfigurationMock.MoveToCloud() )
                 .DoInstead( () => executionOrder.Add( logic ) );
             this.InitializeTarget();
             this._target.LinkCommand.CanExecuteChanged += 
-                ( s, e ) => executionOrder.Add( @event );
+                ( s, e ) => executionOrder.Add( buttonEvent );
             this._target.MoveToCloudCommand.CanExecuteChanged += 
-                ( s, e ) => executionOrder.Add( @event );
+                ( s, e ) => executionOrder.Add( buttonEvent );
+            this._target.PropertyChanged += ( s, e ) => executionOrder.Add( propertyEvent );
 
             this._target.MoveToCloudCommand.Execute( "irrelevant" );
 
             Assert.AreEqual( logic, executionOrder.First() );
+            Assert.AreEqual( propertyEvent, executionOrder.ElementAt( 1 ) );
         }
 
 

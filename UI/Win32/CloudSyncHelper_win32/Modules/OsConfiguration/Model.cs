@@ -69,7 +69,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
             this.Links = links;
         }
 
-        private bool IsInCloud { get; set; }
+
+        private bool _isInCloud;
+        public bool IsInCloud
+        {
+            get { return this._isInCloud; }
+            private set
+            {
+                this._isInCloud = value;
+                this.RaisePropertyChanged( nameof( this.IsInCloud ) );
+            }
+        }
+
 
         private bool IsInstalled { get; set; }
 
@@ -77,7 +88,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         public bool IsLinked
         {
             get { return this._isLinked; }
-            set
+            private set
             {
                 this._isLinked = value;
                 this.RaisePropertyChanged( nameof( this.IsLinked ) );
@@ -157,6 +168,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         private void MoveToCloudCommand_Execute()
         {
             this._osConfiguration.MoveToCloud();
+            this.UpdateCachedProperties();
             (this.LinkCommand as DelegateCommand).RaiseCanExecuteChanged();
             (this.MoveToCloudCommand as DelegateCommand).RaiseCanExecuteChanged();
         }
