@@ -23,7 +23,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
 
         protected override string /*LinkBase.*/MkLinkParams { get { return string.Empty; } }
 
-        public override void /*LinkBase.*/MoveToCloud()
+        protected override void /*LinkBase.*/MoveToCloud_CopyStuff()
         {
             File.Copy( this.LinkPath, this.TargetPath );
         }

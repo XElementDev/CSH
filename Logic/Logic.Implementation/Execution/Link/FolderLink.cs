@@ -51,7 +51,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
 
         protected override string /*LinkBase.*/MkLinkParams { get { return "/D"; } }
 
-        public override void /*LinkBase.*/MoveToCloud()
+        protected override void /*LinkBase.*/MoveToCloud_CopyStuff()
         {
             this.CopyFilesRecursively( this.LinkPath, this.TargetPath );
         }

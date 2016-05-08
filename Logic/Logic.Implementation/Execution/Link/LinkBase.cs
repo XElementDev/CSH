@@ -106,7 +106,13 @@ namespace XElement.CloudSyncHelper.Logic.Execution
 
         protected abstract string MkLinkParams { get; }
 
-        public abstract void /*ILink.*/MoveToCloud();
+        public void /*ILink.*/MoveToCloud()
+        {
+            Directory.CreateDirectory( this.PathToCloudUserFolder );
+            this.MoveToCloud_CopyStuff();
+        }
+
+        protected abstract void MoveToCloud_CopyStuff();
 
         private string PathToDestinationTarget
         {
@@ -117,14 +123,23 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
-        public string /*ILink.*/TargetPath
+        private string PathToCloudUserFolder
         {
             get
             {
                 var userFolderName = "-" + this._pathVariablesDTO.UserName;
-                var target = Path.Combine( this._pathVariablesDTO.PathToSyncFolder,
-                                           this._programLogic.PathToUserFolderContainer, 
-                                           userFolderName, this._linkInfo.SourceId );
+                var cloudUserFolder = Path.Combine( this._pathVariablesDTO.PathToSyncFolder, 
+                                                    this._programLogic.PathToUserFolderContainer, 
+                                                    userFolderName );
+                return cloudUserFolder;
+            }
+        }
+
+        public string /*ILink.*/TargetPath
+        {
+            get
+            {
+                var target = Path.Combine( this.PathToCloudUserFolder, this._linkInfo.SourceId );
                 return target;
             }
         }
