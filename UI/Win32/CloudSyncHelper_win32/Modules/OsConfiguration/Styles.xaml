@@ -38,6 +38,14 @@
         </Setter>
     </Style>
 
+    <Style x:Key="MoveToCloudButton" TargetType="{x:Type Button}" BasedOn="{StaticResource _buttonBase}">
+        <Setter Property="Content">
+            <Setter.Value>
+                <Image Source="{StaticResource MoveToCloud}" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="UnlinkButton" TargetType="{x:Type Button}" BasedOn="{StaticResource _buttonBase}">
         <Setter Property="Content">
             <Setter.Value>

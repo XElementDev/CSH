@@ -79,7 +79,7 @@
                         <GroupBox.Content>
                             <StackPanel 
                                         Orientation="Vertical">
-                                <StackPanel Style="{StaticResource ButtonsContainer}">
+                                <!--<StackPanel Style="{StaticResource ButtonsContainer}">
                                     <Button IsEnabled="False" 
                                             Command="{Binding Path=Model.MoveToCloudCommand}" 
                                             ToolTip="{Binding Path=Localization.SemiautomaticSync_MoveToCloud, 
@@ -88,7 +88,7 @@
                                             <Image Source="{StaticResource MoveToCloud-Black-16}" />
                                         </Button.Content>
                                     </Button>
-                                </StackPanel>
+                                </StackPanel>-->
 
                                 <modules:OsConfigurationUC 
                                                            DataContext="{Binding Path=SelectedOsConfigurationVM, 

@@ -169,11 +169,11 @@
     <value>Not linked</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="OsConfiguration_Link" xml:space="preserve">
+  <data name="OsConfiguration_Link_ToolTip" xml:space="preserve">
     <value>Create link</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_MoveToCloud" xml:space="preserve">
+  <data name="OsConfiguration_MoveToCloud_ToolTip" xml:space="preserve">
     <value>Move data to cloud</value>
     <comment>// 2015-12-31</comment>
   </data>
@@ -181,7 +181,7 @@
     <value>No configuration available</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="OsConfiguration_Unlink" xml:space="preserve">
+  <data name="OsConfiguration_Unlink_ToolTip" xml:space="preserve">
     <value>Remove link</value>
     <comment>// 2015-12-31</comment>
   </data>

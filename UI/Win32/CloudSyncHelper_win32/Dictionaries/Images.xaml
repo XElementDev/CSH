@@ -16,7 +16,11 @@
     />
 
     <BitmapImage x:Key="Link-16"                    UriSource="../Resources/Link-000000-16.png" />
-    <BitmapImage x:Key="MoveToCloud-Black-16"       UriSource="../Resources/Cloud-Upload-000000-16.png" />
+
+    <BitmapImage x:Key="MoveToCloud" 
+                 UriSource="../Resources/Cloud-Upload-000000-16.png" 
+    />
+
     <BitmapImage x:Key="Settings-02-16"             UriSource="../Resources/Settings-02-000000-16.png" />
     <BitmapImage x:Key="Steam-Black-16"             UriSource="../Resources/Steam-000000-16.png" />                 <!-- http://www.flaticon.com/free-icon/steam-logo_33578#term=steam&page=1&position=17 -->
 

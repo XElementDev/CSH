@@ -7,10 +7,10 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style x:Key="ButtonsContainer" TargetType="{x:Type StackPanel}">
+    <!--<Style x:Key="ButtonsContainer" TargetType="{x:Type StackPanel}">
         <Setter Property="Margin" Value="0 4 0 8" />
         <Setter Property="Orientation" Value="Horizontal" />
-    </Style>
+    </Style>-->
 
     <Style x:Key="ConfigurationsContainer" TargetType="{x:Type DockPanel}">
         <Style.Resources>

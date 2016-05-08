@@ -108,18 +108,27 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Create link.
         /// </summary>
-        public static string OsConfiguration_Link {
+        public static string OsConfiguration_Link_ToolTip {
             get {
-                return ResourceManager.GetString("OsConfiguration_Link", resourceCulture);
+                return ResourceManager.GetString("OsConfiguration_Link_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move data to cloud.
+        /// </summary>
+        public static string OsConfiguration_MoveToCloud_ToolTip {
+            get {
+                return ResourceManager.GetString("OsConfiguration_MoveToCloud_ToolTip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Remove link.
         /// </summary>
-        public static string OsConfiguration_Unlink {
+        public static string OsConfiguration_Unlink_ToolTip {
             get {
-                return ResourceManager.GetString("OsConfiguration_Unlink", resourceCulture);
+                return ResourceManager.GetString("OsConfiguration_Unlink_ToolTip", resourceCulture);
             }
         }
         
@@ -156,15 +165,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
         public static string SemiautomaticSync_IsNotInCloud {
             get {
                 return ResourceManager.GetString("SemiautomaticSync_IsNotInCloud", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Move data to cloud.
-        /// </summary>
-        public static string SemiautomaticSync_MoveToCloud {
-            get {
-                return ResourceManager.GetString("SemiautomaticSync_MoveToCloud", resourceCulture);
             }
         }
         

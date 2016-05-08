@@ -19,14 +19,20 @@
 
     <StackPanel Style="{StaticResource ButtonsContainer}">
         <Button 
+                Command="{Binding Path=Model.MoveToCloudCommand}" 
+                ToolTip="{Binding Path=Localization.OsConfiguration_MoveToCloud_ToolTip, 
+                                  Source={StaticResource XamlLocalization}}" 
+                Style="{StaticResource MoveToCloudButton}" 
+        />
+        <Button 
                 Command="{Binding Path=Model.LinkCommand}" 
-                ToolTip="{Binding Path=Localization.OsConfiguration_Link, 
+                ToolTip="{Binding Path=Localization.OsConfiguration_Link_ToolTip, 
                                   Source={StaticResource XamlLocalization}}" 
                 Style="{StaticResource LinkButton}" 
         />
         <Button 
                 Command="{Binding Path=Model.UnlinkCommand}" 
-                ToolTip="{Binding Path=Localization.OsConfiguration_Unlink, 
+                ToolTip="{Binding Path=Localization.OsConfiguration_Unlink_ToolTip, 
                                   Source={StaticResource XamlLocalization}}" 
                 Style="{StaticResource UnlinkButton}" 
         />
