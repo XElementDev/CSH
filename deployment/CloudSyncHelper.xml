@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Tomb Raider" FolderName="Tomb Raider 2013 [Tomb Raider]" Id="5c3d9ced-75f1-48e9-a299-a3cde663d9f6" TechNameMatcher="Tomb Raider">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Tales from the Borderlands" FolderName="Borderlands 2014-2015 [Tales from the Borderlands]" Id="95da055d-201b-4089-958a-51536052eff8" TechNameMatcher="Tales from the Borderlands">
     <OsConfig author="XElement" name="default" os="Win10">
       <Links>
