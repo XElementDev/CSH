@@ -1,9 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Telerik.JustMock;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.Serialization.DataTypes;
+using XElement.CloudSyncHelper.Logic.Execution;
+using XElement.DotNet.System.Environment;
 using XeRandom = XElement.TestUtils.Random;
 
 namespace XElement.CloudSyncHelper.Logic
@@ -11,69 +13,155 @@ namespace XElement.CloudSyncHelper.Logic
     [TestClass]
     public class testDefinition
     {
+        [TestInitialize()]
+        public void TestInitialize()
+        {
+            this.ResetParameters();
+        }
+
+
+        [TestCleanup()]
+        public void TestCleanup()
+        {
+            this.ResetParameters();
+        }
+
+
+
         [TestMethod]
         public void testDefinition_ImplementsIDefinition()
         {
             var appInfo = Mock.Create<IApplicationInfo>();
             Mock.Arrange( () => appInfo.DefinitionInfo.OsConfigs )
                 .Returns( () => new List<IOsConfigurationInfo>() );
-            var parametersDTO = new DefinitionParametersDTO
-            {
-                ApplicationInfo = appInfo
-            };
+            this._appInfo = appInfo;
 
-            var target = new Definition( parametersDTO, new DefinitionDependenciesDTO() );
+            this.InitializeTarget();
 
-            Assert.IsInstanceOfType( target, typeof( IDefinition ) );
+            Assert.IsInstanceOfType( this._target, typeof( IDefinition ) );
         }
 
 
         [TestMethod]
-        public void testDefinition_BestFittingOsConfiguration_NoFulfilledConfig__RandomValues()
+        public void testDefinition_BestFittingOsConfigurationInfo_NoFullfilledConfig()
         {
-            var appInfo = this.CreateRandomApplicationInfo( new List<int> { 3, 2 } );
-            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, new List<int> { 2, 1 } );
-            var expectedOsConfigInfo = appInfo.DefinitionInfo.OsConfigs.First();
-            IDefinition target = testDefinition.CreateInstance( appInfo, 
-                                                                linkFactoryMock );
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( input => input );
+            this.AddOsConfigInfos( amount: 2 );
+            var isLinkedRatioSequence = new List<float> { .5F, .75F };
+            var osCfgFactoryMock = this.CreateOsCfgFactoryMockFollowing( isLinkedRatioSequence );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            var expected = this._osConfigInfos[1];
+            this.InitializeTarget();
 
-            var actualOsConfigInfo = target.BestFittingOsConfigurationInfo;
+            var actual = this._target.BestFittingOsConfigurationInfo;
 
-            Assert.AreEqual( expectedOsConfigInfo, actualOsConfigInfo );
+            Assert.AreEqual( expected, actual );
         }
 
         [TestMethod]
-        public void testDefinition_BestFittingOsConfiguration_PreferFulfilledConfig__RandomValues()
+        public void testDefinition_BestFittingOsConfigurationInfo_PrefersFulfilledConfig()
         {
-            var appInfo = this.CreateRandomApplicationInfo( new List<int> { 1, 3 } );
-            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, new List<int> { 1, 2 } );
-            var expectedOsConfigInfo = appInfo.DefinitionInfo.OsConfigs.First();
-            IDefinition target = testDefinition.CreateInstance( appInfo, 
-                                                                linkFactoryMock );
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( input => input );
+            this.AddOsConfigInfos( amount: 2 );
+            var isLinkedRatioSequence = new List<float> { .33F, 1F };
+            var osCfgFactoryMock = this.CreateOsCfgFactoryMockFollowing( isLinkedRatioSequence );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            var expected = this._osConfigInfos[1];
+            this.InitializeTarget();
 
-            var actualOsConfigInfo = target.BestFittingOsConfigurationInfo;
+            var actual = this._target.BestFittingOsConfigurationInfo;
 
-            Assert.AreEqual( expectedOsConfigInfo, actualOsConfigInfo );
+            Assert.AreEqual( expected, actual );
         }
 
         [TestMethod]
-        public void testDefinition_BestFittingOsConfiguration_PrefersSuitableConfig__RandomValues()
+        public void testDefinition_BestFittingOsConfigurationInfo_2Configs_PrefersSuitableConfig__RandomValues()
         {
-            var appInfo = this.CreateRandomApplicationInfo( new List<int> { 2, 2 } );
-            var osConfigs = appInfo.DefinitionInfo.OsConfigs.ToArray();
-            var expectedOsCfgInfo = XeRandom.RandomTFromArrayOf( osConfigs );
-            var osFilterMock = testDefinition.CreateOsFilterMock();
-            Mock.Arrange( () => osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
-                .Returns( new List<IOsConfigurationInfo>() { expectedOsCfgInfo } ).MustBeCalled();
-            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, new List<int> { 2, 2 } );
-            IDefinition target = testDefinition.CreateInstance( appInfo, 
-                                                                linkFactoryMock, 
-                                                                osFilterMock );
+            Add2OsConfigInfosWithDistinctOsIds();
+            var expected = XeRandom.RandomTFromArrayOf( this._osConfigInfos.ToArray() );
+            var isLinkedRatioSequence = new List<float> { 1F, 1F };
+            var osCfgFactoryMock = this.CreateOsCfgFactoryMockFollowing( isLinkedRatioSequence );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( new List<IOsConfigurationInfo> { expected } ).MustBeCalled();
+            this.InitializeTarget();
 
-            var actualOsCfgInfo = target.BestFittingOsConfigurationInfo;
+            var actual = this._target.BestFittingOsConfigurationInfo;
 
-            Mock.Assert( osFilterMock );
-            Assert.AreEqual( expectedOsCfgInfo, actualOsCfgInfo );
+            Mock.Assert( this._osFilterMock );
+            Assert.AreEqual( expected, actual );
+        }
+
+        [TestMethod]
+        public void testDefinition_BestFittingOsConfigurationInfo_0Configs()
+        {
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( input => input );
+            this._osConfigInfos.Clear();
+            this.InitializeTarget();
+
+            var actual = this._target.BestFittingOsConfigurationInfo;
+
+            Assert.IsNull( actual );
+        }
+
+
+        [TestMethod]
+        public void testDefinition_IsInCloud_NoConfig()
+        {
+            var appInfo = Mock.Create<IApplicationInfo>();
+            Mock.Arrange( () => appInfo.DefinitionInfo.OsConfigs )
+                .Returns( new List<IOsConfigurationInfo>() );
+            this._appInfo = appInfo;
+            this.InitializeTarget();
+
+            var isInCloud = this._target.IsInCloud;
+
+            Assert.IsFalse( isInCloud );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsInCloud_1Config1InCloud()
+        {
+            this.AddOsConfigInfos( amount: 1 );
+            var osConfigMock = CreateOsConfigMockWithIsInCloudSetTo( true );
+            var osCfgFactoryMock = CreateOsCfgFactoryMockAlwaysReturning( osConfigMock );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            this.InitializeTarget();
+
+            var isInCloud = this._target.IsInCloud;
+
+            Assert.IsTrue( isInCloud );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsInCloud_1Config0InCloud()
+        {
+            this.AddOsConfigInfos( amount: 1 );
+            var osConfigMock = CreateOsConfigMockWithIsInCloudSetTo( false );
+            var osCfgFactoryMock = CreateOsCfgFactoryMockAlwaysReturning( osConfigMock );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            this.InitializeTarget();
+
+            var isInCloud = this._target.IsInCloud;
+
+            Assert.IsFalse( isInCloud );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsInCloud_2Configs2nd1InCloud()
+        {
+            this.AddOsConfigInfos( amount: 2 );
+            var osConfigMock2 = CreateOsConfigMockWithIsInCloudSetTo( true );
+            var osCfgFactoryMock = CreateOsCfgFactoryMockWhere2ndInfoReturns( osConfigMock2 );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            this.InitializeTarget();
+
+            var isInCloud = this._target.IsInCloud;
+
+            Assert.IsTrue( isInCloud );
         }
 
 
@@ -83,190 +171,197 @@ namespace XElement.CloudSyncHelper.Logic
             var appInfo = Mock.Create<IApplicationInfo>();
             Mock.Arrange( () => appInfo.DefinitionInfo.OsConfigs )
                 .Returns( new List<IOsConfigurationInfo>() );
-            IDefinition target = testDefinition.CreateInstance( appInfo );
+            this._appInfo = appInfo;
+            this.InitializeTarget();
 
-            var isLinked = target.IsLinked;
-
-            Assert.IsFalse( isLinked );
-        }
-
-        [TestMethod]
-        public void testDefinition_IsLinked_OneLinkedConfig__RandomValues()
-        {
-            var randomCount = XeRandom.RandomInt( 2, 11 );
-            var appInfo = this.CreateRandomApplicationInfo( new List<int> { randomCount } );
-            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo, 
-                                                              new List<int> { randomCount } );
-            IDefinition target = testDefinition.CreateInstance( appInfo,
-                                                                linkFactoryMock );
-
-            var isLinked = target.IsLinked;
-
-            Assert.IsTrue( isLinked );
-        }
-
-        [TestMethod]
-        public void testDefinition_IsLinked_2Configs0Linked__RandomValues()
-        {
-            var count1 = XeRandom.RandomInt( 2, 11 );
-            var count2 = XeRandom.RandomInt( 2, 11 );
-            var appInfo = this.CreateRandomApplicationInfo( new List<int> { count1, count2 } );
-            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo,
-                                                              new List<int> { 0, 0 } );
-            IDefinition target = testDefinition.CreateInstance( appInfo,
-                                                                linkFactoryMock );
-
-            var isLinked = target.IsLinked;
+            var isLinked = this._target.IsLinked;
 
             Assert.IsFalse( isLinked );
         }
 
         [TestMethod]
-        public void testDefinition_IsLinked_2Configs2Linked__RandomValues()
+        public void testDefinition_IsLinked_1Config1Linked()
         {
-            var count1 = XeRandom.RandomInt( 2, 11 );
-            var count2 = XeRandom.RandomInt( 2, 11 );
-            var appInfo = this.CreateRandomApplicationInfo( new List<int> { count1, count2 } );
-            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo,
-                                                              new List<int> { count1, count2 } );
-            IDefinition target = testDefinition.CreateInstance( appInfo,
-                                                                linkFactoryMock );
+            this.AddOsConfigInfos( amount: 1 );
+            var osConfigMock = CreateOsConfigMockWithIsLinkedSetTo( true );
+            var osCfgFactoryMock = CreateOsCfgFactoryMockAlwaysReturning( osConfigMock );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            this.InitializeTarget();
 
-            var isLinked = target.IsLinked;
+            var isLinked = this._target.IsLinked;
 
             Assert.IsTrue( isLinked );
         }
 
         [TestMethod]
-        public void testDefinition_IsLinked_2Configs1Linked__RandomValues()
+        public void testDefinition_IsLinked_1Config0Linked()
         {
-            var count1 = XeRandom.RandomInt( 2, 11 );
-            var count2 = XeRandom.RandomInt( 2, 11 );
-            var appInfo = this.CreateRandomApplicationInfo( new List<int> { count1, count2 } );
-            var linkFactoryMock = this.CreateLinkFactoryMock( appInfo,
-                                                              new List<int> { count1, 0 } );
-            IDefinition target = testDefinition.CreateInstance( appInfo,
-                                                                linkFactoryMock );
+            this.AddOsConfigInfos( amount: 1 );
+            var osConfigMock = CreateOsConfigMockWithIsLinkedSetTo( false );
+            var osCfgFactoryMock = CreateOsCfgFactoryMockAlwaysReturning( osConfigMock );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            this.InitializeTarget();
 
-            var isLinked = target.IsLinked;
+            var isLinked = this._target.IsLinked;
+
+            Assert.IsFalse( isLinked );
+        }
+
+        [TestMethod]
+        public void testDefinition_IsLinked_2Configs2nd1Linked()
+        {
+            this.AddOsConfigInfos( amount: 2 );
+            var osConfigMock2 = CreateOsConfigMockWithIsLinkedSetTo( true );
+            var osCfgFactoryMock = Mock.Create<IOsConfigurationFactory>( Behavior.Strict );
+            Mock.Arrange( () => osCfgFactoryMock.Get( Arg.IsAny<IApplicationInfo>(),
+                this._osConfigInfos[0], Arg.IsAny<PathVariablesDTO>() ) )
+                .Returns( Mock.Create<IOsConfigurationInt>() );
+            Mock.Arrange( () => osCfgFactoryMock.Get( Arg.IsAny<IApplicationInfo>(),
+                this._osConfigInfos[1], Arg.IsAny<PathVariablesDTO>() ) ).Returns( osConfigMock2 );
+            this._osConfigFactoryMock = osCfgFactoryMock;
+            this.InitializeTarget();
+
+            var isLinked = this._target.IsLinked;
 
             Assert.IsTrue( isLinked );
         }
 
 
 
-        private static IDefinition CreateInstance( IApplicationInfo appInfo )
+        private void Add2OsConfigInfosWithDistinctOsIds()
         {
-            return testDefinition.CreateInstance( appInfo, null, null );
+            var osCfgInfo1 = Mock.Create<IOsConfigurationInfo>( Behavior.Strict );
+            var randomOsId1 = RandomOsId();
+            Mock.Arrange( () => osCfgInfo1.OsId ).Returns( randomOsId1 );
+            this._osConfigInfos.Add( osCfgInfo1 );
+            var osCfgInfo2 = Mock.Create<IOsConfigurationInfo>( Behavior.Strict );
+            var randomOsId2 = RandomOsId( randomOsId1 );
+            Mock.Arrange( () => osCfgInfo1.OsId ).Returns( randomOsId2 );
+            this._osConfigInfos.Add( osCfgInfo2 );
         }
 
-        private static IDefinition CreateInstance( IApplicationInfo appInfo,
-                                                   ILinkFactory linkFactoryMock )
+
+        private void AddOsConfigInfos( int amount )
         {
-            var osFilterMock = testDefinition.CreateOsFilterMock();
-            return testDefinition.CreateInstance( appInfo, linkFactoryMock, osFilterMock );
+            for ( int i = 0 ; i < amount ; ++i )
+            {
+                var mock = Mock.Create<IOsConfigurationInfo>();
+                this._osConfigInfos.Add( mock );
+            }
         }
 
-        private static IDefinition CreateInstance( IApplicationInfo appInfo, 
-                                            ILinkFactory linkFactoryMock, 
-                                            IOsFilter osFilterMock )
+
+        private static IOsConfigurationFactory CreateOsCfgFactoryMockAlwaysReturning
+            ( IOsConfiguration osConfigMock )
+        {
+            var osCfgFactoryMock = Mock.Create<IOsConfigurationFactory>( Behavior.Strict );
+            Mock.Arrange( () => osCfgFactoryMock.Get( null, null, null ) ).IgnoreArguments()
+                .Returns( osConfigMock );
+            return osCfgFactoryMock;
+        }
+
+
+        private IOsConfigurationFactory CreateOsCfgFactoryMockFollowing
+            ( IList<float> isLinkedRatioSequence )
+        {
+            var osCfgFactoryMock = Mock.Create<IOsConfigurationFactory>( Behavior.Strict );
+
+            for ( int i = 0 ; i < isLinkedRatioSequence.Count ; ++i )
+            {
+                var osConfigIntMockNoI = Mock.Create<IOsConfigurationInt>( Behavior.Strict );
+                var isLinkedRatio = isLinkedRatioSequence[i];
+                Mock.Arrange( () => osConfigIntMockNoI.IsLinkedRatio ).Returns( isLinkedRatio );
+
+                Mock.Arrange( () => osCfgFactoryMock.Get( Arg.IsAny<IApplicationInfo>(), 
+                    this._osConfigInfos[i], Arg.IsAny<PathVariablesDTO>() ) ) 
+                    .Returns( osConfigIntMockNoI );
+            }
+
+            return osCfgFactoryMock;
+        }
+
+
+        private IOsConfigurationFactory CreateOsCfgFactoryMockWhere2ndInfoReturns
+            ( IOsConfiguration osConfigMock2 )
+        {
+            var osCfgFactoryMock = Mock.Create<IOsConfigurationFactory>( Behavior.Strict );
+
+            Mock.Arrange( () => osCfgFactoryMock.Get( Arg.IsAny<IApplicationInfo>(),
+                this._osConfigInfos[0], Arg.IsAny<PathVariablesDTO>() ) )
+                .Returns( Mock.Create<IOsConfigurationInt>() );
+            Mock.Arrange( () => osCfgFactoryMock.Get( Arg.IsAny<IApplicationInfo>(),
+                this._osConfigInfos[1], Arg.IsAny<PathVariablesDTO>() ) ).Returns( osConfigMock2 );
+
+            return osCfgFactoryMock;
+        }
+
+
+        private static IOsConfiguration CreateOsConfigMockWithIsInCloudSetTo( bool isInCloud )
+        {
+            var osConfigMock = Mock.Create<IOsConfigurationInt>( Behavior.Strict );
+            Mock.Arrange( () => osConfigMock.IsInCloud ).Returns( isInCloud );
+            return osConfigMock;
+        }
+
+
+        private static IOsConfiguration CreateOsConfigMockWithIsLinkedSetTo( bool isLinked )
+        {
+            var osConfigMock = Mock.Create<IOsConfigurationInt>( Behavior.Strict );
+            Mock.Arrange( () => osConfigMock.IsLinked ).Returns( isLinked );
+            return osConfigMock;
+        }
+
+
+        private void InitializeTarget()
         {
             var parametersDTO = new DefinitionParametersDTO
             {
-                ApplicationInfo = appInfo,
-                OsConfigurationInfos = appInfo.DefinitionInfo.OsConfigs,
+                ApplicationInfo = this._appInfo, 
+                OsConfigurationInfos = this._osConfigInfos, 
                 PathVariablesDTO = null
             };
             var dependenciesDTO = new DefinitionDependenciesDTO
             {
-                LinkFactory = linkFactoryMock,
-                OsFilter = osFilterMock
+                OsConfigurationFactory = this._osConfigFactoryMock, 
+                OsFilter = this._osFilterMock
             };
-            return new Definition( parametersDTO, dependenciesDTO );
+            this._target = new Definition( parametersDTO, dependenciesDTO );
         }
 
 
-        private static ILink CreateLinkedLink()
+        private static OsId RandomOsId( OsId? except = null )
         {
-            var linkedLink = Mock.Create<ILink>();
-            Mock.Arrange( () => linkedLink.IsLinked ).Returns( true );
-            return linkedLink;
-        }
+            OsId? randomOsId = null;
 
-
-        private ILinkFactory CreateLinkFactoryMock( IApplicationInfo appInfo, 
-                                                    IList<int> isLinkedCountSequence )
-        {
-            var factoryMock = Mock.Create<ILinkFactory>();
-            for ( int i = 0 ; i < isLinkedCountSequence.Count ; ++i )
+            var enumValues = Enum.GetValues( typeof( OsId ) ).OfType<OsId>().ToArray();
+            randomOsId = XeRandom.RandomTFromArrayOf( enumValues );
+            if ( except != null )
             {
-                var osConfigInfo = appInfo.DefinitionInfo.OsConfigs.ElementAt(i);
-                var isLinkedCount = isLinkedCountSequence[i];
-                for ( int j = 0 ; j < isLinkedCount ; ++j )
+                while ( randomOsId.Value == except.Value )
                 {
-                    var linkInfo = osConfigInfo.Links[j];
-                    Mock.Arrange( () => factoryMock.Get( appInfo,
-                                                         linkInfo,
-                                                         Arg.IsAny<PathVariablesDTO>() ) )
-                        .Returns( testDefinition.CreateLinkedLink() );
+                    randomOsId = XeRandom.RandomTFromArrayOf( enumValues );
                 }
             }
-            return factoryMock;
+
+            return randomOsId.Value;
         }
 
 
-        private static IOsFilter CreateOsFilterMock()
+        private void ResetParameters()
         {
-            var osFilterMock = Mock.Create<IOsFilter>();
-            Mock.Arrange( () => osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
-                .Returns( input => input );
-            return osFilterMock;
+            this._target = null;
+            this._appInfo = Mock.Create<IApplicationInfo>();
+            this._osConfigFactoryMock = Mock.Create<IOsConfigurationFactory>( Behavior.Strict );
+            this._osConfigInfos = new List<IOsConfigurationInfo>();
+            this._osFilterMock = Mock.Create<IOsFilter>( Behavior.Strict );
         }
 
 
-        private IApplicationInfo CreateRandomApplicationInfo( IList<int> linkCountSequence )
-        {
-            AbstractApplicationInfo appInfo = CreateRandomEmptyApplicationInfo();
-            appInfo.OsConfigs = new List<OsConfigurationInfo>();
 
-            var osConfigCount = linkCountSequence.Count;
-            for ( int i = 0 ; i < osConfigCount ; ++i )
-            {
-                var osConfig = new OsConfigurationInfo() { Links = new List<AbstractLinkInfo>() };
-                var linkCount = linkCountSequence[i];
-                for ( int j = 0 ; j < linkCount ; ++j )
-                {
-                    AbstractLinkInfo linkInfo = CreateRandomLinkInfo();
-                    osConfig.Links.Add( linkInfo );
-                }
-                appInfo.OsConfigs.Add( osConfig );
-            }
-
-            return appInfo;
-        }
-
-
-        private static AbstractApplicationInfo CreateRandomEmptyApplicationInfo()
-        {
-            var shouldBeOfTypeToolInfo = XeRandom.RandomBool();
-            AbstractApplicationInfo appInfo = null;
-            if ( shouldBeOfTypeToolInfo )
-                appInfo = new ToolInfo();
-            else
-                appInfo = new GameInfo();
-            return appInfo;
-        }
-
-
-        private static AbstractLinkInfo CreateRandomLinkInfo()
-        {
-            AbstractLinkInfo linkInfo = null;
-            var shouldCreateFolderLink = XeRandom.RandomBool();
-            if ( shouldCreateFolderLink )
-                linkInfo = new FolderLinkInfo();
-            else
-                linkInfo = new FileLinkInfo();
-            return linkInfo;
-        }
+        private IApplicationInfo _appInfo;
+        private IOsConfigurationFactory _osConfigFactoryMock;
+        private IList<IOsConfigurationInfo> _osConfigInfos;
+        private IOsFilter _osFilterMock;
+        private IDefinition _target;
     }
 }

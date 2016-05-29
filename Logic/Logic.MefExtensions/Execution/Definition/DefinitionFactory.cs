@@ -8,17 +8,13 @@ namespace XElement.CloudSyncHelper.Logic.MefExtensions
                                        IPartImportsSatisfiedNotification
     {
         [ImportingConstructor]
-        private DefinitionFactory() : base( null, null ) { }
+        private DefinitionFactory() : base( null ) { }
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
-            this._linkFactory = this._linkFactoryMef;
             this._osConfigurationFactory = this._osConfigurationFactoryMef;
             this._osFilter = this._osFilterMef;
         }
-
-        [Import]
-        private ILinkFactory _linkFactoryMef = null;
 
         [Import]
         private IOsConfigurationFactory _osConfigurationFactoryMef = null;

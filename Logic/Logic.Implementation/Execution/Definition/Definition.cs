@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using XElement.CloudSyncHelper.DataTypes;
+using XElement.CloudSyncHelper.Logic.Execution;
 
 namespace XElement.CloudSyncHelper.Logic
 {
@@ -12,7 +12,7 @@ namespace XElement.CloudSyncHelper.Logic
         {
             this.InitializeUsingParameters( parametersDTO );
             this.InitializeUsingDependencies( dependenciesDTO );
-            this.InitializeLinks();
+            this.InitializeOsConfigs( parametersDTO.OsConfigurationInfos );
         }
 
 
@@ -20,63 +20,44 @@ namespace XElement.CloudSyncHelper.Logic
         {
             get
             {
-                var osConfigurationInfoToRatingList = 
-                    new List<Tuple<IOsConfigurationInfo, float>>();
-                var filteredOsConfigInfos = this._osFilter.GetFilteredOsConfigs( this._osConfigurationInfos );
-                foreach ( var osConfigInfo in filteredOsConfigInfos )
+                IOsConfigurationInfo bestFittingOsConfigInfo = null;
+
+                var osConfigInfos = this._osConfigurationsMap.Values;
+                if ( osConfigInfos.Count != 0 )
                 {
-                    var rating = this.GetRatingFor( osConfigInfo );
-                    var item = new Tuple<IOsConfigurationInfo, float>( osConfigInfo, rating );
-                    osConfigurationInfoToRatingList.Add( item );
+                    var filteredOsConfigInfos = this._osFilter
+                        .GetFilteredOsConfigs( osConfigInfos );
+                    var filteredOsConfigs = this._osConfigurationsMap
+                        .Where( kvp => filteredOsConfigInfos.Contains( kvp.Value ) )
+                        .Select( kvp => kvp.Key ).ToList();
+                    var orderedOsConfigs = filteredOsConfigs
+                        .OrderByDescending( o => o.IsLinkedRatio ).ToList();
+                    var bestFittingOsConfig = orderedOsConfigs.First();
+                    bestFittingOsConfigInfo = this._osConfigurationsMap[bestFittingOsConfig];
                 }
 
-                var orderedList = osConfigurationInfoToRatingList
-                    .OrderByDescending( t => t.Item2 ).ToList();
-                return orderedList.FirstOrDefault()?.Item1;
+                return bestFittingOsConfigInfo;
             }
         }
 
 
-        private float GetRatingFor( IOsConfigurationInfo osConfigurationInfo )
+        private void InitializeOsConfigs( IEnumerable<IOsConfigurationInfo> osConfigurationInfos )
         {
-            int potentialLinks = osConfigurationInfo.Links.Count;
-
-            var links = new List<ILink>();
-            foreach ( var linkInfo in osConfigurationInfo.Links )
+            var osConfigs = new Dictionary<IOsConfigurationInt, IOsConfigurationInfo>();
+            foreach ( IOsConfigurationInfo osConfigInfo in osConfigurationInfos )
             {
-                var link = this._linkFactory.Get( this._applicationInfo, 
-                                                  linkInfo, 
-                                                  this._pathVariablesDTO );
-                links.Add( link );
+                var osConfig = this._osConfigurationFactory.Get( this._applicationInfo,
+                                                                 osConfigInfo,
+                                                                 this._pathVariablesDTO );
+                var osConfigInt = osConfig as IOsConfigurationInt;
+                osConfigs.Add( osConfigInt, osConfigInfo );
             }
-            int realizedLinks = links.Count( l => l.IsLinked );
-
-            float rating = realizedLinks / potentialLinks;
-            return rating;
-        }
-
-
-        private void InitializeLinks()
-        {
-            this._links = new Dictionary<IOsConfigurationInfo, IEnumerable<ILink>>();
-            foreach ( var osConfigInfo in this._applicationInfo.DefinitionInfo.OsConfigs )
-            {
-                var links = new List<ILink>();
-                foreach ( var linkInfo in osConfigInfo.Links )
-                {
-                    var link = this._linkFactory.Get( this._applicationInfo, 
-                                                      linkInfo, 
-                                                      this._pathVariablesDTO );
-                    links.Add( link );
-                }
-                this._links.Add( osConfigInfo, links );
-            }
+            this._osConfigurationsMap = osConfigs;
         }
 
 
         private void InitializeUsingDependencies( DefinitionDependenciesDTO dependenciesDTO )
         {
-            this._linkFactory = dependenciesDTO.LinkFactory;
             this._osConfigurationFactory = dependenciesDTO.OsConfigurationFactory;
             this._osFilter = dependenciesDTO.OsFilter;
         }
@@ -85,47 +66,26 @@ namespace XElement.CloudSyncHelper.Logic
         private void InitializeUsingParameters( DefinitionParametersDTO parametersDTO )
         {
             this._applicationInfo = parametersDTO.ApplicationInfo;
-            this._osConfigurationInfos = parametersDTO.OsConfigurationInfos;
             this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
+        }
+
+
+        public bool IsInCloud
+        {
+            get { return this._osConfigurationsMap.Keys.Any( osCfg => osCfg.IsInCloud ); }
         }
 
 
         public bool IsLinked
         {
-            get
-            {
-                return this._links.Count != 0 && 
-                    this._links.Any( kvp => kvp.Value.All( l => l.IsLinked ) );
-            }
+            get { return this._osConfigurationsMap.Keys.Any( osCfg => osCfg.IsLinked ); }
         }
 
 
         private IApplicationInfo _applicationInfo;
-        private ILinkFactory _linkFactory;
-        private IDictionary<IOsConfigurationInfo, IEnumerable<ILink>> _links;
-        private IEnumerable<IOsConfigurationInfo> _osConfigurationInfos;
+        private IOsConfigurationFactory _osConfigurationFactory;
+        private IDictionary<IOsConfigurationInt, IOsConfigurationInfo> _osConfigurationsMap;
         private IOsFilter _osFilter;
         private PathVariablesDTO _pathVariablesDTO;
-
-#region not unit-tested
-        public bool IsInCloud
-        {
-            get
-            {
-                var osConfigs = new List<IOsConfiguration>();
-                foreach ( IOsConfigurationInfo osConfigInfo in this._osConfigurationInfos )
-                {
-                    var osConfig = this._osConfigurationFactory.Get( this._applicationInfo, 
-                                                                     osConfigInfo, 
-                                                                     this._pathVariablesDTO );
-                    osConfigs.Add( osConfig );
-                }
-                return osConfigs.Any( osCfg => osCfg.IsInCloud );
-            }
-        }
-
-
-        private IOsConfigurationFactory _osConfigurationFactory;
-#endregion
     }
 }
