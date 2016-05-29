@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Brothers - A Tale of Two Sons" FolderName="Brothers 2013 [Brothers - A Tale of Two Sons]" Id="1e531873-83d6-4bd6-9c54-60ad9301aca3" TechNameMatcher="Brothers - A Tale of Two Sons">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Tomb Raider" FolderName="Tomb Raider 2013 [Tomb Raider]" Id="5c3d9ced-75f1-48e9-a299-a3cde663d9f6" TechNameMatcher="Tomb Raider">
     <IsSteamCloudSupported value="true" />
   </Game>
