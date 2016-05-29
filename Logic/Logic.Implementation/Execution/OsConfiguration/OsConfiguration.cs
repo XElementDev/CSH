@@ -5,9 +5,25 @@ using XElement.CloudSyncHelper.Logic.Execution;
 
 namespace XElement.CloudSyncHelper.Logic
 {
-#region not unit-tested
-    public class OsConfiguration : IOsConfiguration
+    public class OsConfiguration : IOsConfigurationInt
     {
+        public float IsLinkedRatio
+        {
+            get
+            {
+                float ratio = 0F;
+                if ( this._links.Count != 0 )
+                {
+                    int potentialLinks = this._links.Count;
+                    int realizedLinks = this._links.Count( l => l.IsLinked );
+                    ratio = 1F * realizedLinks / potentialLinks;
+                }
+                return ratio;
+            }
+        }
+
+
+#region not unit-tested
         public OsConfiguration( OsConfigurationParametersDTO @params, 
                                 OsConfigurationDependenciesDTO dependencies )
         {

@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testExecution\testDefinition\testDefinition.cs" />
+    <Compile Include="testExecution\testOsConfiguration\testOsConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DataTypes\DataTypes.csproj">
@@ -70,6 +71,10 @@
     <ProjectReference Include="..\..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
       <Name>Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
+      <Project>{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}</Project>
+      <Name>Command.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
       <Project>{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}</Project>
@@ -91,6 +96,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
