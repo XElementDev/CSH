@@ -4,7 +4,7 @@ using Telerik.JustMock;
 using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Logic.Execution;
 
-namespace XElement.CloudSyncHelper.Logic.testExecution.testOsConfiguration
+namespace XElement.CloudSyncHelper.Logic
 {
     [TestClass]
     public class testOsConfiguration
