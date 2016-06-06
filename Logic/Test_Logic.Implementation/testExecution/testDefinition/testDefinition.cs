@@ -109,6 +109,66 @@ namespace XElement.CloudSyncHelper.Logic
 
 
         [TestMethod]
+        public void testDefinition_HasSuitableConfig_0Configs()
+        {
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( input => input );
+            this._osConfigInfos.Clear();
+            this.InitializeTarget();
+
+            var hasSuitableConfig = this._target.HasSuitableConfig;
+
+            Assert.IsFalse( hasSuitableConfig );
+        }
+
+        [TestMethod]
+        public void testDefinition_HasSuitableConfig_1Config_1Suitable()
+        {
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( input => input );
+            this.AddOsConfigInfos( amount: 1 );
+            Mock.Arrange( () => this._osConfigFactoryMock.Get( null, null, null ) )
+                .IgnoreArguments().Returns( Mock.Create<IOsConfigurationInt>( Behavior.Strict ) );
+            this.InitializeTarget();
+
+            var hasSuitableConfig = this._target.HasSuitableConfig;
+
+            Assert.IsTrue( hasSuitableConfig );
+        }
+
+        [TestMethod]
+        public void testDefinition_HasSuitableConfig_1Config_0Suitable()
+        {
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( new List<IOsConfigurationInfo>() );
+            this.AddOsConfigInfos( amount: 1 );
+            Mock.Arrange( () => this._osConfigFactoryMock.Get( null, null, null ) )
+                .IgnoreArguments().Returns( Mock.Create<IOsConfigurationInt>( Behavior.Strict ) );
+            this.InitializeTarget();
+
+            var hasSuitableConfig = this._target.HasSuitableConfig;
+
+            Assert.IsFalse( hasSuitableConfig );
+        }
+
+        [TestMethod]
+        public void testDefinition_HasSuitableConfig_2Configs_2Suitable()
+        {
+            Func<IOsConfiguration> mock = () => Mock.Create<IOsConfigurationInt>( Behavior.Strict );
+            Mock.Arrange( () => this._osFilterMock.GetFilteredOsConfigs( null ) ).IgnoreArguments()
+                .Returns( input => input );
+            this.AddOsConfigInfos( amount: 2 );
+            Mock.Arrange( () => this._osConfigFactoryMock.Get( null, null, null ) )
+                .IgnoreArguments().Returns( mock );
+            this.InitializeTarget();
+
+            var hasSuitableConfig = this._target.HasSuitableConfig;
+
+            Assert.IsTrue( hasSuitableConfig );
+        }
+
+
+        [TestMethod]
         public void testDefinition_IsInCloud_NoConfig()
         {
             var appInfo = Mock.Create<IApplicationInfo>();

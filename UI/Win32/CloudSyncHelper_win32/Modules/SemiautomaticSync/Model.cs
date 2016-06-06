@@ -24,7 +24,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync
             get { return !this.IsLinked; }
         }
 
-        public bool HasSuitableConfig { get { return this._programInfoVM.HasSuitableConfig; } }
+        public bool HasSuitableConfig { get { return this._definition.HasSuitableConfig; } }
 
         private void InitializeOsConfigurationModels()
         {

@@ -41,15 +41,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 
         public ExecutionLogic ExecutionLogic { get; private set; }
 
-        public bool HasSuitableConfig
-        {
-            get
-            {
-                return this.ExecutionLogic != null &&
-                    this.ExecutionLogic.HasSuitableConfig;
-            }
-        }
-
         Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
         {
             get { return this.ApplicationInfo.Id; }

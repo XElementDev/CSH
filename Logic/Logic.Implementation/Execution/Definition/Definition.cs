@@ -22,11 +22,9 @@ namespace XElement.CloudSyncHelper.Logic
             {
                 IOsConfigurationInfo bestFittingOsConfigInfo = null;
 
-                var osConfigInfos = this._osConfigurationsMap.Values;
-                if ( osConfigInfos.Count != 0 )
+                var filteredOsConfigInfos = this.GetFilteredOsConfigInfos();
+                if (filteredOsConfigInfos.Count() != 0 )
                 {
-                    var filteredOsConfigInfos = this._osFilter
-                        .GetFilteredOsConfigs( osConfigInfos );
                     var filteredOsConfigs = this._osConfigurationsMap
                         .Where( kvp => filteredOsConfigInfos.Contains( kvp.Value ) )
                         .Select( kvp => kvp.Key ).ToList();
@@ -38,6 +36,20 @@ namespace XElement.CloudSyncHelper.Logic
 
                 return bestFittingOsConfigInfo;
             }
+        }
+
+
+        private IEnumerable<IOsConfigurationInfo> GetFilteredOsConfigInfos()
+        {
+            var osConfigInfos = this._osConfigurationsMap.Values;
+            var filteredOsConfigInfos = this._osFilter.GetFilteredOsConfigs( osConfigInfos );
+            return filteredOsConfigInfos;
+        }
+
+
+        public bool HasSuitableConfig
+        {
+            get { return this.GetFilteredOsConfigInfos().Count() > 0; }
         }
 
 

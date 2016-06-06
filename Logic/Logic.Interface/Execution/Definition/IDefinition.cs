@@ -7,6 +7,9 @@ namespace XElement.CloudSyncHelper.Logic
         IOsConfigurationInfo BestFittingOsConfigurationInfo { get; }
 
 
+        bool HasSuitableConfig { get; }
+
+
         bool IsInCloud { get; }
 
 
