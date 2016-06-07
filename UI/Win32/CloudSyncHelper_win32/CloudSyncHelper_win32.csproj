@@ -291,7 +291,6 @@
     <Compile Include="Model\Enrichment\Banners\BannerRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
-    <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
