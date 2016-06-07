@@ -47,7 +47,9 @@
     <Reference Include="XElement.TestUtils">
       <HintPath>..\..\..\externals\XElement\XElement.TestUtils.dll</HintPath>
     </Reference>
-    <Reference Include="XElement.UiCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="XElement.UiCommon">
+      <HintPath>..\..\..\externals\XElement\XElement.UiCommon.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -68,16 +70,29 @@
     <Compile Include="Modules\FullyAutomaticSync\testViewModel.cs" />
     <Compile Include="Modules\MenuBar\testViewModel.cs" />
     <Compile Include="Modules\SyncObjects\testViewModel.cs" />
+    <Compile Include="Modules\testOsConfiguration\testModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CloudSyncHelper\CloudSyncHelper.csproj">
-      <Project>{dda34727-7bae-49f3-9474-8dc5a4cd93f9}</Project>
-      <Name>CloudSyncHelper</Name>
+    <ProjectReference Include="..\..\..\DataTypes\DataTypes.csproj">
+      <Project>{1D9F1E8B-DAE5-40FF-81A2-F3366AC32C35}</Project>
+      <Name>DataTypes</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\InstalledPrograms\InstalledPrograms.Interface\InstalledPrograms.Interface.csproj">
       <Project>{77d3002b-68fe-4a1d-b10f-8b15c3ae6a1d}</Project>
       <Name>InstalledPrograms.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logic\Logic.Interface\Logic.Interface.csproj">
+      <Project>{F5E56BF7-6A32-4765-8538-812531CD679E}</Project>
+      <Name>Logic.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
+      <Project>{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}</Project>
+      <Name>Command.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}</Project>
+      <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\CloudSyncHelper_win32\CloudSyncHelper_win32.csproj">
       <Project>{8f9f2d42-0bd7-4760-a64a-630c14014fc9}</Project>

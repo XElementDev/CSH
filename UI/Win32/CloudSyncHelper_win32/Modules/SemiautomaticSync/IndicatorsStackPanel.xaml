@@ -1,0 +1,50 @@
+﻿<StackPanel x:Class="XElement.CloudSyncHelper.UI.Win32.Modules.SemiautomaticSync.IndicatorsStackPanel"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+
+    <StackPanel.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Dictionaries/Images.xaml" />
+                <ResourceDictionary Source="../../Dictionaries/Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </StackPanel.Resources>
+
+    <Image 
+           Source="{StaticResource Settings-02-16}" 
+           Visibility="{Binding Path=Model.HasSuitableConfig, 
+                                Converter={StaticResource BoolToVisibilityConverter}, 
+                                Mode=OneWay}" 
+           ToolTip="{Binding Path=Localization.SemiautomaticSync_ConfigAvailable, 
+                             Source={StaticResource XamlLocalization}}" 
+    />
+    <Image 
+           Source="{StaticResource Settings-02-16}" 
+           Visibility="{Binding Path=Model.HasSuitableConfig, 
+                                Converter={StaticResource InversedBoolToVisibilityConverter}, 
+                                Mode=OneWay}" 
+           Opacity=".25" 
+           ToolTip="{Binding Path=Localization.SemiautomaticSync_NoConfigAvailable, 
+                             Source={StaticResource XamlLocalization}}" 
+    />
+
+    <Image 
+           Source="{StaticResource CloudUpload-d16p0-black}" 
+           Visibility="{Binding Path=Model.IsInCloud, 
+                                Converter={StaticResource BoolToVisibilityConverter}, 
+                                Mode=OneWay}" 
+           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsInCloud, 
+                             Source={StaticResource XamlLocalization}}" 
+    />
+    <Image 
+           Source="{StaticResource CloudUpload-d16p0-black}" 
+           Visibility="{Binding Path=Model.IsInCloud, 
+                                Converter={StaticResource InversedBoolToVisibilityConverter}, 
+                                Mode=OneWay}" 
+           Opacity=".25" 
+           ToolTip="{Binding Path=Localization.SemiautomaticSync_IsNotInCloud, 
+                             Source={StaticResource XamlLocalization}}" 
+    />
+</StackPanel>

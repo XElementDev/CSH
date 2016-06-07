@@ -169,11 +169,11 @@
     <value>Nicht verknüpft</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_Link" xml:space="preserve">
+  <data name="OsConfiguration_Link_ToolTip" xml:space="preserve">
     <value>Link erstellen</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_MoveToCloud" xml:space="preserve">
+  <data name="OsConfiguration_MoveToCloud_ToolTip" xml:space="preserve">
     <value>Daten in die Cloud verschieben</value>
     <comment>// 2015-12-31</comment>
   </data>
@@ -181,7 +181,7 @@
     <value>Konfiguration nicht verfügbar</value>
     <comment>// 2015-12-31</comment>
   </data>
-  <data name="SemiautomaticSync_Unlink" xml:space="preserve">
+  <data name="OsConfiguration_Unlink_ToolTip" xml:space="preserve">
     <value>Link löschen</value>
     <comment>// 2015-12-31</comment>
   </data>
@@ -216,5 +216,21 @@
   <data name="SyncObject_SemiautomaticGroupBox_Header" xml:space="preserve">
     <value>semi-automatisch</value>
     <comment>// 2016-02-12</comment>
+  </data>
+  <data name="SemiautomaticSync_SelectedConfiguration" xml:space="preserve">
+    <value>Konfiguration:</value>
+    <comment>// 2016-03-07</comment>
+  </data>
+  <data name="OsConfigurationAtGlance_AuthorNameLink" xml:space="preserve">
+    <value>von</value>
+    <comment>// 2016-03-07</comment>
+  </data>
+  <data name="SemiautomaticSync_NoConfig" xml:space="preserve">
+    <value>Keine semi-automatische Konfiguration verfügbar.</value>
+    <comment>// 2016-03-07</comment>
+  </data>
+  <data name="SemiautomaticSync_TogglePathMap_ToolTip" xml:space="preserve">
+    <value>Details ein-/ausblenden</value>
+    <comment>// 2016-04-30</comment>
   </data>
 </root>

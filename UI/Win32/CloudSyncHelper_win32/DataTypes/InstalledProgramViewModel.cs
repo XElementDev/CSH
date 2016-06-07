@@ -1,11 +1,10 @@
 ﻿using System;
 using XElement.CloudSyncHelper.InstalledPrograms;
-using XElement.Common.UI;
 
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
 #region not unit-tested
-    public class InstalledProgramViewModel : ViewModelBase
+    public class InstalledProgramViewModel
     {
         public InstalledProgramViewModel( IInstalledProgram installedProgram )
         {

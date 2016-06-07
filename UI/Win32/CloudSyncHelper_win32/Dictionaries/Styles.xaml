@@ -7,6 +7,34 @@
         <Setter Property="Orientation" Value="Horizontal" />
     </Style>
 
+    <Style x:Key="GroupBoxBase" TargetType="{x:Type GroupBox}">
+        <Setter Property="Margin" Value="4 4 0 4" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GroupBox}">
+                    <Border 
+                            Background="{TemplateBinding Background}" 
+                            Margin="{TemplateBinding Margin}" 
+                            Padding="{TemplateBinding Padding}">
+                        <StackPanel 
+                                    Orientation="Vertical">
+                            <ContentPresenter 
+                                              ContentSource="Header" 
+                                              TextBlock.FontStyle="Italic" 
+                            />
+                            <Separator />
+                            <Border 
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="Header" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="36" />
         <Setter Property="FontWeight" Value="Light" />

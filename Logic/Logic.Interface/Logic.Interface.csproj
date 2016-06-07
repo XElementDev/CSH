@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5E56BF7-6A32-4765-8538-812531CD679E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XElement.CloudSyncHelper.Logic</RootNamespace>
+    <AssemblyName>XElement.CloudSyncHelper.Logic.Interface</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Execution\Definition\DefinitionDependenciesDTO.cs" />
+    <Compile Include="Execution\Definition\DefinitionParametersDTO.cs" />
+    <Compile Include="Execution\Definition\IDefinitionFactory.cs" />
+    <Compile Include="Execution\Link\LinkParametersDTO.cs" />
+    <Compile Include="Execution\Link\ILink.cs" />
+    <Compile Include="Execution\Link\ILinkFactory.cs" />
+    <Compile Include="Execution\OsConfiguration\OsConfigurationDependenciesDTO.cs" />
+    <Compile Include="Execution\OsConfiguration\OsConfigurationParametersDTO.cs" />
+    <Compile Include="Execution\OsConfiguration\IOsConfigurationFactory.cs" />
+    <Compile Include="Execution\Definition\IDefinition.cs" />
+    <Compile Include="IOsChecker.cs" />
+    <Compile Include="Execution\OsConfiguration\IOsConfiguration.cs" />
+    <Compile Include="IOsFilter.cs" />
+    <Compile Include="PathVariablesDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataTypes\DataTypes.csproj">
+      <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
+      <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
+      <Project>{197C5B66-CD95-4CEC-A2B9-178D553ECB3F}</Project>
+      <Name>Command.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
+      <Name>FactoryMethod.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

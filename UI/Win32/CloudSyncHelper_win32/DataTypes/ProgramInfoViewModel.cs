@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
 using UiBannerCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
 using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
@@ -9,18 +8,15 @@ using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
 #region not unit-tested
+    // TODO: Remove this class.
     public class ProgramInfoViewModel : UiIconCrawler.IIconId, UiBannerCrawler.IObjectToCrawl
     {
-        public ProgramInfoViewModel( IProgramInfo programInfo, 
-                                     IConfig config, 
-                                     ConfigForOsHelper cfg4OsHelper )
+        public ProgramInfoViewModel( IApplicationInfo applicationInfo )
         {
-            this._config = config;
-            this._configForOsHelper = cfg4OsHelper;
-            this._programInfo = programInfo;
-
-            InitializeExecutionLogic( programInfo );
+            this.ApplicationInfo = applicationInfo;
         }
+
+        internal IApplicationInfo ApplicationInfo { get; private set; }
 
         string BannerCrawler.ICrawlInformation.ApplicationName { get { return this.DisplayName; } }
 
@@ -29,60 +25,41 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             get
             {
                 var displayName = String.Empty;
-                if ( this._programInfo != null )
+                if ( this.ApplicationInfo != null )
                 {
-                    displayName = this._programInfo.DisplayName;
+                    displayName = this.ApplicationInfo.ApplicationName;
                 }
                 return displayName;
             }
         }
 
-        public ExecutionLogic ExecutionLogic { get; private set; }
+        Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
+        {
+            get { return this.ApplicationInfo.Id; }
+        }
 
-        public bool HasSuitableConfig
+        public IEnumerable<IOsConfigurationInfo> OsConfigs
         {
             get
             {
-                return this.ExecutionLogic != null &&
-                    this.ExecutionLogic.HasSuitableConfig();
+                IEnumerable<IOsConfigurationInfo> result = new List<IOsConfigurationInfo>();
+
+                var definition = this.ApplicationInfo.DefinitionInfo;
+                if ( definition != default( IDefinitionInfo ) )
+                {
+                    result = definition.OsConfigs;
+                }
+
+                return result;
             }
-        }
-
-        Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
-        {
-            get { return this._programInfo.Id; }
-        }
-
-        private void InitializeExecutionLogic( IProgramInfo programInfo )
-        {
-            var pathVariables = new PathVariablesDTO
-            {
-                PathToSyncFolder = this._config.PathToSyncFolder,
-                UplayUserName = this._config.UplayAccountName,
-                UserName = this._config.UserName
-            };
-            this.ExecutionLogic = new ExecutionLogic( programInfo, pathVariables, this._configForOsHelper );
-        }
-
-        public bool IsInCloud { get { return this.ExecutionLogic.IsInCloud; } }
-
-        public bool IsLinked { get { return this.ExecutionLogic.IsLinked; } }
-
-        public IEnumerable<IOsConfiguration> OsConfigs
-        {
-            get { return this._programInfo.Configuration.OsConfigs; }
         }
 
         public bool SupportsSteamCloud
         {
-            get { return this._programInfo.Configuration.SupportsSteamCloud; }
+            get { return this.ApplicationInfo.DefinitionInfo.SupportsSteamCloud; }
         }
 
-        public string TechnicalNameMatcher { get { return this._programInfo.TechnicalNameMatcher; } }
-
-        private IConfig _config;
-        private ConfigForOsHelper _configForOsHelper;
-        private IProgramInfo _programInfo;
+        public string TechnicalNameMatcher { get { return this.ApplicationInfo.TechnicalNameMatcher; } }
     }
 #endregion
 }

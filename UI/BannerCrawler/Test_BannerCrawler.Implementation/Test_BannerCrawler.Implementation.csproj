@@ -54,9 +54,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="testTitleComparer.cs" />
+    <Compile Include="testTitleMatcher.cs" />
+    <Compile Include="testTitleSimilarity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\XElement\DotNet\System\Text\SpecialCharacters\SpecialCharacters.csproj">
+      <Project>{092ad2ad-ce22-4abb-9c87-e9a5083c25fa}</Project>
+      <Name>SpecialCharacters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BannerCrawler.Implementation\BannerCrawler.Implementation.csproj">
       <Project>{f8711829-1502-448f-98da-ece60f79922a}</Project>
       <Name>BannerCrawler.Implementation</Name>

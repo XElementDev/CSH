@@ -68,6 +68,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Factories\DefinitionFactory.cs" />
+    <Compile Include="Model\Factories\DefinitionParametersDTO.cs" />
+    <Compile Include="Model\Factories\IOsConfigurationParameters.cs" />
+    <Compile Include="Model\Factories\LinkFactory.cs" />
+    <Compile Include="Model\Factories\LinkParametersDTO.cs" />
+    <Compile Include="Model\Factories\OsConfigurationFactory.cs" />
+    <Compile Include="Model\Factories\PathVariables.cs" />
+    <Compile Include="Modules\FlaticonCredit\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\OperatingSystem\IModelConstructorParameters.cs" />
+    <Compile Include="Modules\OperatingSystem\Model.cs" />
+    <Compile Include="Modules\OperatingSystem\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\OperatingSystem\ViewModel.cs" />
+    <Compile Include="Modules\OsConfigurationAtGlance\Model.cs" />
+    <Compile Include="Modules\OsConfigurationAtGlance\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\OsConfiguration\ModelDependenciesDTO.cs" />
+    <Compile Include="Modules\OsConfiguration\ModelParametersDTO.cs" />
+    <Compile Include="Modules\OsConfiguration\Model.cs" />
+    <Compile Include="Modules\OsConfiguration\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\OsConfiguration\ViewModel.cs" />
+    <Compile Include="Modules\OsConfigurationAtGlance\ViewModel.cs" />
+    <Compile Include="Modules\OsConfiguration\ModelFactory.cs" />
+    <Compile Include="Modules\PathMap\Model.cs" />
+    <Compile Include="Modules\PathMap\ModelParametersDTO.cs" />
+    <Compile Include="Modules\PathMap\ViewModel.cs" />
+    <Compile Include="Modules\SemiautomaticSync\IModelDependencies.cs" />
+    <Compile Include="Modules\SemiautomaticSync\IndicatorsStackPanel.xaml.cs">
+      <DependentUpon>IndicatorsStackPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SemiautomaticSync\ModelFactory.cs" />
     <Compile Include="Shortcuts\IApplicationMenuContainer.cs" />
     <Compile Include="Shortcuts\IFilterContainer.cs" />
     <Compile Include="Shortcuts\ShortcutCommandsViewModel.cs" />
@@ -122,6 +159,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\FlaticonCredit\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\FlaticonCredit\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\FullyAutomaticSync\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,7 +183,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\OperatingSystem\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\OperatingSystem\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\OsConfigurationAtGlance\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\OsConfiguration\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\OsConfiguration\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\PathMap\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\SemiautomaticSync\IndicatorsStackPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,17 +283,14 @@
     <Compile Include="Model\Enrichment\Icons\IObjectToCrawl.cs" />
     <Compile Include="Model\Enrichment\IRetrievalIdContainer.cs" />
     <Compile Include="Model\Enrichment\RetrieverModelBaseT1.cs" />
-    <Compile Include="Model\Factories\IFactoryT2.cs" />
     <Compile Include="Model\FilterModel.cs" />
     <Compile Include="Model\Enrichment\Banners\BannerCrawlerModel.cs" />
     <Compile Include="Model\Enrichment\Banners\IBannerId.cs" />
     <Compile Include="Model\Enrichment\Banners\IObjectToCrawl.cs" />
     <Compile Include="Model\IConfig.cs" />
-    <Compile Include="Model\Factories\IFactoryT1.cs" />
     <Compile Include="Model\Enrichment\Banners\BannerRetrieverModel.cs" />
     <Compile Include="Model\InstalledProgramsModel.cs" />
     <Compile Include="Model\ProgramInfosModel.cs" />
-    <Compile Include="Model\Factories\ProgramInfoViewModelFactory.cs" />
     <Compile Include="Modules\About\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -251,7 +317,7 @@
     <Compile Include="Modules\Filter\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modules\SemiautomaticSync\IModelConstructorParameters.cs" />
+    <Compile Include="Modules\SemiautomaticSync\IModelParameters.cs" />
     <Compile Include="Modules\SemiautomaticSync\Model.cs" />
     <Compile Include="Modules\SemiautomaticSync\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
@@ -314,13 +380,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CloudSyncHelper\CloudSyncHelper.csproj">
-      <Project>{dda34727-7bae-49f3-9474-8dc5a4cd93f9}</Project>
-      <Name>CloudSyncHelper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\DataTypes\DataTypes.csproj">
       <Project>{1d9f1e8b-dae5-40ff-81a2-f3366ac32c35}</Project>
       <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logic\Logic.Implementation\Logic.Implementation.csproj">
+      <Project>{411fc166-4d90-4915-affd-6c4c1ecf1396}</Project>
+      <Name>Logic.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logic\Logic.Interface\Logic.Interface.csproj">
+      <Project>{f5e56bf7-6a32-4765-8538-812531cd679e}</Project>
+      <Name>Logic.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Logic\Logic.MefExtensions\Logic.MefExtensions.csproj">
+      <Project>{0f5ba595-1293-4429-ad68-47a5e1413778}</Project>
+      <Name>Logic.MefExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DesignPatterns\BehavioralPatterns\Command\Command.Interface\Command.Interface.csproj">
+      <Project>{197c5b66-cd95-4cec-a2b9-178d553ecb3f}</Project>
+      <Name>Command.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
+      <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\BannerCrawler\BannerCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
@@ -390,6 +472,9 @@
       <Link>CloudSyncHelper.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\View-Details_d16-p0_000000.png" />
+    <Resource Include="Resources\link_d16-p0_000000.png" />
+    <Resource Include="Resources\chain_d16-p0_000000.png" />
     <Resource Include="Resources\Cloud-Refresh_d16-p0_000000.png" />
     <Resource Include="Resources\Dialog-Box-About_d16-p3_000000.png" />
     <Resource Include="Resources\Filter-Standard_d48-p8_000000.png" />

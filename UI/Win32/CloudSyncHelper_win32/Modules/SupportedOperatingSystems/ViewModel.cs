@@ -8,7 +8,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems
 #region not unit-tested
     public class ViewModel
     {
-        public ViewModel( IEnumerable<IOsConfiguration> osConfigs )
+        public ViewModel( IEnumerable<IOsConfigurationInfo> osConfigs )
         {
             this._osConfigs = osConfigs;
         }
@@ -26,7 +26,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SupportedOperatingSystems
 
         public bool IsWindows10Supported { get { return this.IsSupported( OsId.Win10 ); } }
 
-        private IEnumerable<IOsConfiguration> _osConfigs;
+        private IEnumerable<IOsConfigurationInfo> _osConfigs;
     }
 #endregion
 }

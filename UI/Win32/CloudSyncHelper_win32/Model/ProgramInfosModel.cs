@@ -21,9 +21,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             var serializationMgr = new SerializationManager( uri );
             var syncData = serializationMgr.Deserialize();
             var programInfoVMs = new List<ProgramInfoViewModel>();
-            foreach ( var programInfo in syncData.ProgramInfos )
+            foreach ( var applicationInfo in syncData.ApplicationInfos )
             {
-                var programInfoVM = this._programInfoVmFactory.Get( programInfo );
+                var programInfoVM = new ProgramInfoViewModel( applicationInfo );
                 programInfoVMs.Add( programInfoVM );
             }
             this.ProgramInfoVMs = programInfoVMs;
@@ -35,9 +35,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         }
 
         public IEnumerable<ProgramInfoViewModel> ProgramInfoVMs { get; private set; }
-
-        [Import]
-        private ProgramInfoViewModelFactory _programInfoVmFactory = null;
     }
 #endregion
 }

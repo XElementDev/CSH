@@ -20,8 +20,7 @@
     <ScrollViewer>
         <Grid>
             <ItemsControl 
-                          ItemsSource="{Binding Path=SyncObjectViewModelsView, Mode=OneWay}" 
-                          Grid.IsSharedSizeScope="True">
+                          ItemsSource="{Binding Path=SyncObjectViewModelsView, Mode=OneWay}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <modules:SyncObjectUC DataContext="{Binding}" />

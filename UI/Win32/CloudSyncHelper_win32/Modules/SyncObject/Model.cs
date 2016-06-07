@@ -3,6 +3,7 @@ using XElement.CloudSyncHelper.UI.IconCrawler;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
 using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 
@@ -12,16 +13,35 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
     public class Model : NotifyPropertyChanged, 
                          /*BannerCrawler.*/IBannerId, 
                          UiIconCrawler.IIconId, 
-                         FullyAutomaticSync.IModelConstructorParameters, 
-                         SemiautomaticSync.IModelConstructorParameters,
                          UiIconCrawler.IObjectToCrawl
     {
-        public Model( ProgramInfoViewModel programInfoVM ) : this( programInfoVM, null ) { }
+        public Model( ProgramInfoViewModel programInfoVM,
+                      IFactory<SemiautomaticSync.Model, SemiautomaticSync.IModelParameters> semiautoSyncModelFactory )
+            : this( programInfoVM, null, semiautoSyncModelFactory ) { }
         public Model( ProgramInfoViewModel programInfoVM, 
-                      InstalledProgramViewModel installedProgramVM )
+                      InstalledProgramViewModel installedProgramVM,
+                      IFactory<SemiautomaticSync.Model, SemiautomaticSync.IModelParameters> semiautoSyncModelFactory )
         {
-            Initialize( programInfoVM, installedProgramVM );
+            Initialize( programInfoVM, installedProgramVM, semiautoSyncModelFactory );
             RegisterPropertyChangedEvents();
+        }
+
+        private FullyAutomaticSync.IModelConstructorParameters CreateFullyAutoSyncModelCtorParams()
+        {
+            return new Model.FullAutoSyncModelCtorParams
+            {
+                IsInstalled = this.IsInstalled, 
+                SupportsSteamCloud = this.SupportsSteamCloud
+            };
+        }
+
+        private SemiautomaticSync.IModelParameters CreateSemiautoSyncModelParams()
+        {
+            return new Model.SemiautoSyncModelParams
+            {
+                IsInstalled = this.IsInstalled, 
+                ProgramInfoVM = this._programInfoVM
+            };
         }
 
         public string DisplayName { get { return this._programInfoVM.DisplayName; } }
@@ -33,15 +53,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
             get { return ((IRetrievalIdContainer)this._programInfoVM).Id; }
         }
 
-        private void Initialize( ProgramInfoViewModel programInfoVM, InstalledProgramViewModel installedProgramVM )
+        private void Initialize( ProgramInfoViewModel programInfoVM, 
+                                 InstalledProgramViewModel installedProgramVM, 
+                                 IFactory<SemiautomaticSync.Model, SemiautomaticSync.IModelParameters> semiautoSyncModelFactory )
         {
             this._installedProgramVM = installedProgramVM;
             this._programInfoVM = programInfoVM;
 
-            var fully = (FullyAutomaticSync.IModelConstructorParameters)this;
+            var fully = this.CreateFullyAutoSyncModelCtorParams();
             this.FullyAutoSyncModel = new FullyAutomaticSync.Model( fully );
-            var semi = (SemiautomaticSync.IModelConstructorParameters)this;
-            this.SemiautomaticSyncModel = new SemiautomaticSync.Model( semi );
+            var semi = this.CreateSemiautoSyncModelParams();
+            this.SemiautomaticSyncModel = semiautoSyncModelFactory.Get( semi );
         }
 
         public string InstallLocation
@@ -56,12 +78,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         string ICrawlInformation.InstallFolderPath { get { return this.InstallLocation; } }
 
-        public bool /*FullyAutomaticSync.IModelConstructorParameters.*/
-
-                   /*SemiautomaticSync.IModelConstructorParameters.*/IsInstalled
-        {
-            get { return this._installedProgramVM != null; }
-        }
+        public bool IsInstalled { get { return this._installedProgramVM != null; } }
 
         public bool IsLinked
         {
@@ -70,11 +87,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
                 var linkingDoneByCloudProvider = this.IsInstalled && this.SupportsSteamCloud;
                 return this.SemiautomaticSyncModel.IsLinked || linkingDoneByCloudProvider;
             }
-        }
-
-        ProgramInfoViewModel SemiautomaticSync.IModelConstructorParameters.ProgramInfoVM
-        {
-            get { return this._programInfoVM; }
         }
 
         private void RegisterPropertyChangedEvents()
@@ -90,13 +102,26 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObject
 
         public SemiautomaticSync.Model SemiautomaticSyncModel { get; private set; }
 
-        public bool /*FullyAutomaticSync.IModelConstructorParameters.*/SupportsSteamCloud
+        public bool SupportsSteamCloud
         {
             get { return this._programInfoVM.SupportsSteamCloud; }
         }
 
         private InstalledProgramViewModel _installedProgramVM;
         private ProgramInfoViewModel _programInfoVM;
+
+
+        private class FullAutoSyncModelCtorParams : FullyAutomaticSync.IModelConstructorParameters
+        {
+            public bool IsInstalled { get; set; }
+            public bool SupportsSteamCloud { get; set; }
+        }
+
+        private class SemiautoSyncModelParams : SemiautomaticSync.IModelParameters
+        {
+            public bool IsInstalled { get; set; }
+            public ProgramInfoViewModel ProgramInfoVM { get; set; }
+        }
     }
 #endregion
 }
