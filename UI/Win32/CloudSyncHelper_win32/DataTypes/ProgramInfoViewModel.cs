@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.UI.Win32.Model;
 using XElement.CloudSyncHelper.UI.Win32.Model.Enrichment;
 using UiBannerCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Banners;
 using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
@@ -9,17 +8,12 @@ using UiIconCrawler = XElement.CloudSyncHelper.UI.Win32.Model.Enrichment.Icons;
 namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
 {
 #region not unit-tested
+    // TODO: Remove this class.
     public class ProgramInfoViewModel : UiIconCrawler.IIconId, UiBannerCrawler.IObjectToCrawl
     {
-        public ProgramInfoViewModel( IApplicationInfo applicationInfo, 
-                                     IConfig config, 
-                                     ConfigForOsHelper cfg4OsHelper )
+        public ProgramInfoViewModel( IApplicationInfo applicationInfo )
         {
             this.ApplicationInfo = applicationInfo;
-            this._config = config;
-            this._configForOsHelper = cfg4OsHelper;
-
-            InitializeExecutionLogic( applicationInfo );
         }
 
         internal IApplicationInfo ApplicationInfo { get; private set; }
@@ -39,27 +33,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
             }
         }
 
-        public ExecutionLogic ExecutionLogic { get; private set; }
-
         Guid IRetrievalIdContainer.Id /*IBannerId. / IIconId.*/
         {
             get { return this.ApplicationInfo.Id; }
         }
-
-        private void InitializeExecutionLogic( IApplicationInfo appInfo )
-        {
-            var pathVariables = new PathVariablesDTO
-            {
-                PathToSyncFolder = this._config.PathToSyncFolder,
-                UplayUserName = this._config.UplayAccountName,
-                UserName = this._config.UserName
-            };
-            this.ExecutionLogic = new ExecutionLogic( appInfo, pathVariables, this._configForOsHelper );
-        }
-
-        public bool IsInCloud { get { return this.ExecutionLogic.IsInCloud; } }
-
-        public bool IsLinked { get { return this.ExecutionLogic.IsLinked; } }
 
         public IEnumerable<IOsConfigurationInfo> OsConfigs
         {
@@ -83,9 +60,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.DataTypes
         }
 
         public string TechnicalNameMatcher { get { return this.ApplicationInfo.TechnicalNameMatcher; } }
-
-        private IConfig _config;
-        private ConfigForOsHelper _configForOsHelper;
     }
 #endregion
 }

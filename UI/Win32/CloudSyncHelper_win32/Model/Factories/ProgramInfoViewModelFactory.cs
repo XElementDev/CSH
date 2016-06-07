@@ -19,14 +19,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         }
         public ProgramInfoViewModel /*IFactory<T>.*/Get( IApplicationInfo programInfo )
         {
-            return new ProgramInfoViewModel( programInfo, this._config, this._configForOsHelper );
+            return new ProgramInfoViewModel( programInfo );
         }
-
-        [Import]
-        private IConfig _config = null;
-
-        [Import]
-        private ConfigForOsHelper _configForOsHelper = null;
     }
 #endregion
 }
