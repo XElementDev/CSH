@@ -5,7 +5,6 @@ using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.Linq;
 using Telerik.JustMock;
-using XElement.CloudSyncHelper.InstalledPrograms;
 using XElement.CloudSyncHelper.UI.Win32.Model;
 using SyncObjectsViewModel = XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects.ViewModel;
 using XeRandom = XElement.TestUtils.Random;
@@ -15,10 +14,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
     [TestClass]
     public class testViewModel
     {
-        [TestCleanup]
-        private void TestCleanup()
+        [TestInitialize]
+        public void TestInitialize()
         {
-            this._target = null;
+            this.ResetParameters();
+        }
+
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            this.ResetParameters();
         }
 
 
@@ -59,9 +65,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         }
 
         [TestMethod]
-        public void testSyncObjectsViewModel_HasEntries_True()
+        public void testSyncObjectsViewModel_HasEntries_True__RandomValues()
         {
             this.InitializeTargetViaMef();
+            for ( int i = 0 ; i < XeRandom.RandomInt( 1, 12 ) ; ++i )
+            {
+                var syncObjectVmMock = Mock.Create<SyncObject.ViewModel>();
+                this._target.SyncObjectViewModelsView.AddNewItem( syncObjectVmMock );
+            }
 
             Assert.AreNotEqual( 0, this._target.SyncObjectViewModelsView.Count );
             Assert.IsTrue( this._target.HasEntries );
@@ -88,7 +99,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
             filterModel.Filter = XeRandom.RandomString();
             this.InitializeTargetViaMef( filterModel );
             string eventName = null;
-            ((INotifyPropertyChanged)this._target).PropertyChanged += ( s, e ) => eventName = e.PropertyName;
+            ((INotifyPropertyChanged)this._target).PropertyChanged += 
+                ( s, e ) => eventName = e.PropertyName;
 
             filterModel.Filter = XeRandom.RandomString();
 
@@ -103,16 +115,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
             return new AssemblyCatalog( assembly );
         }
 
+
         private CompositionContainer CreateMefContainer()
         {
             var catalog = this.CreateMefCatalog();
             var container = new CompositionContainer( catalog );
 
-            container.ComposeExportedValue( Mock.Create<ConfigForOsHelper>() );
-            container.ComposeExportedValue( Mock.Create<IScanner>() );
+            container.ComposeExportedValue( this._syncObjectsModel );
 
             return container;
         }
+
 
         private void InitializeTargetViaMef()
         {
@@ -126,6 +139,16 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
 
             container.ComposeParts( this );
         }
+
+
+        private void ResetParameters()
+        {
+            this._syncObjectsModel = Mock.Create<SyncObjects.Model>( Behavior.Strict );
+            this._target = null;
+        }
+
+
+        private SyncObjects.Model _syncObjectsModel;
 
 
         [Import]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
@@ -52,7 +53,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
 
         private void LoadSyncObjectVMs()
         {
-            foreach ( var syncObjectModel in this._syncObjectsModel.SyncObjectModels )
+            var syncObjectModels = this._syncObjectsModel?.SyncObjectModels ?? 
+                                   new List<SyncObject.Model>();
+            foreach ( var syncObjectModel in syncObjectModels )
             {
                 var syncObjectVM = this._syncObjectVmFactory.Get( syncObjectModel );
                 this._syncObjectVMs.Add( syncObjectVM );
@@ -72,8 +75,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.SyncObjects
         private bool SyncObjectViewModelsView_Filter( object obj )
         {
             var syncObjectVM = obj as SyncObjectViewModel;
-            return syncObjectVM != null &&
-                   syncObjectVM.Model.DisplayName != String.Empty &&
+            return syncObjectVM != null && 
+                   syncObjectVM.Model != null && 
+                   syncObjectVM.Model.DisplayName != String.Empty && 
                    !this.UserFilteredForThis( syncObjectVM );
         }
 
