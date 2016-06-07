@@ -74,10 +74,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CloudSyncHelper\CloudSyncHelper.csproj">
-      <Project>{dda34727-7bae-49f3-9474-8dc5a4cd93f9}</Project>
-      <Name>CloudSyncHelper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\DataTypes\DataTypes.csproj">
       <Project>{1D9F1E8B-DAE5-40FF-81A2-F3366AC32C35}</Project>
       <Name>DataTypes</Name>
