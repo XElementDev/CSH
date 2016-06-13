@@ -98,6 +98,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserInformation", "UserInfo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInformation.Interface", "..\XElement\DotNet\System\Environment\UserInformation.Interface\UserInformation.Interface.csproj", "{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInformation.Implementation", "..\XElement\DotNet\System\Environment\UserInformation.Implementation\UserInformation.Implementation.csproj", "{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -222,6 +224,10 @@ Global
 		{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -261,5 +267,6 @@ Global
 		{062DAB41-F255-44B7-91A8-B987781FF17A} = {79ED10F5-B256-47E0-8C11-2AF152A6CDCD}
 		{E8981F23-1883-4E05-BF46-0A5AF7C882E2} = {A58CEB5D-3ADA-4F02-8446-A2F6147E822B}
 		{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B} = {E8981F23-1883-4E05-BF46-0A5AF7C882E2}
+		{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB} = {E8981F23-1883-4E05-BF46-0A5AF7C882E2}
 	EndGlobalSection
 EndGlobal
