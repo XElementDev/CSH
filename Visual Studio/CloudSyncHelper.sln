@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSyncHelper_win32", "..\UI\Win32\CloudSyncHelper_win32\CloudSyncHelper_win32.csproj", "{8F9F2D42-0BD7-4760-A64A-630C14014FC9}"
 EndProject
@@ -103,6 +103,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInformation.MefExtensions", "..\XElement\DotNet\System\Environment\UserInformation.MefExtensions\UserInformation.MefExtensions.csproj", "{ACBFE0B5-E9C3-4DDC-B454-D12AE691802B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\UI\Win32\Common\Common.csproj", "{3A491EAF-A2E8-4C51-BED7-BF3FD890731F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkCreatorProxy", "..\UI\Win32\LinkCreatorProxy\LinkCreatorProxy.csproj", "{2DB5ABC1-4966-4616-BC51-FD088CF3B720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -240,6 +242,10 @@ Global
 		{3A491EAF-A2E8-4C51-BED7-BF3FD890731F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A491EAF-A2E8-4C51-BED7-BF3FD890731F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A491EAF-A2E8-4C51-BED7-BF3FD890731F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB5ABC1-4966-4616-BC51-FD088CF3B720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB5ABC1-4966-4616-BC51-FD088CF3B720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB5ABC1-4966-4616-BC51-FD088CF3B720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB5ABC1-4966-4616-BC51-FD088CF3B720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -283,5 +289,6 @@ Global
 		{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB} = {E8981F23-1883-4E05-BF46-0A5AF7C882E2}
 		{ACBFE0B5-E9C3-4DDC-B454-D12AE691802B} = {E8981F23-1883-4E05-BF46-0A5AF7C882E2}
 		{3A491EAF-A2E8-4C51-BED7-BF3FD890731F} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
+		{2DB5ABC1-4966-4616-BC51-FD088CF3B720} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
 	EndGlobalSection
 EndGlobal
