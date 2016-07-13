@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- IanStorm, 2016-07-07: This is the color used by MS for the default profile pic in Win10. -->
+    <!--<SolidColorBrush x:Key="DefaultUserProfileBgColor" 
+                     Color="#666666" 
+    />-->
+    <SolidColorBrush x:Key="DefaultUserProfileBgColor" 
+                     Color="#d1d1d1" 
+    />
+
+</ResourceDictionary>
