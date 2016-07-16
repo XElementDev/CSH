@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <!--<ResourceDictionary Source="../../Dictionaries/Colors.xaml" />-->
         <ResourceDictionary Source="./Colors.xaml" />
         <ResourceDictionary Source="./Images.xaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -10,29 +9,32 @@
 
     <Style x:Key="UserProfileToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent" />
-        <!--<Setter Property="BorderBrush" Value="{StaticResource FilterEnabled}" />-->
+        <Setter Property="BorderBrush" Value="{StaticResource ToggleButtonCheckedBg}" />
         <Setter Property="BorderThickness" Value="1 0 0 0" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Padding" Value="4" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Border 
+                            Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" 
                             Background="{TemplateBinding Background}" 
                             BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Padding="{TemplateBinding Padding}">
                         <Border 
                                 Background="{StaticResource DefaultUserProfileBgColor}" 
-                                Height="40" Width="40" 
                                 CornerRadius="20">
                             <Image 
                                     Source="{StaticResource DefaultProfilePicture}" 
-                                    Height="40" Width="40" 
                             />
                         </Border>
                     </Border>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <!--<Setter Property="Background" Value="{StaticResource FilterEnabled}" />-->
+                            <Setter Property="Background" Value="{StaticResource ToggleButtonCheckedBg}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" Value=".6" />
@@ -41,6 +43,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="Width" Value="41" />
     </Style>
 
 </ResourceDictionary>

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Markup;
 
 #region not unit-tested
@@ -14,6 +15,36 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
         {
             InitializeComponent();
         }
+
+
+        public Thickness ButtonOffset
+        {
+            get
+            {
+                var left = 0D;
+                var top = 0D;
+                var right = this.ButtonOffsetFromRight;
+                var bottom = 0D;
+                return new Thickness( left, top, right, bottom );
+            }
+        }
+
+
+        public double ButtonOffsetFromRight
+        {
+            get { return (double)GetValue( ButtonOffsetFromRightProperty ); }
+            set
+            {
+                SetValue( ButtonOffsetFromRightProperty, value );
+            }
+        }
+
+        public static readonly DependencyProperty ButtonOffsetFromRightProperty = 
+            DependencyProperty.Register( "ButtonOffsetFromRight", typeof( double ), 
+                                         typeof( UserProfileUC ), 
+                                         new FrameworkPropertyMetadata( BUTTON_OFFSET_FROM_RIGHT_DEFAULT_VALUE ) );
+
+        private const double BUTTON_OFFSET_FROM_RIGHT_DEFAULT_VALUE = 0D;
     }
 }
 #endregion

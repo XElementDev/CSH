@@ -16,10 +16,13 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel>
-        <ToggleButton x:Name="_toggleButton" Background="Cyan" 
-                      Style="{StaticResource UserProfileToggleButton}">
-        </ToggleButton>
+    <StackPanel Background="{x:Null}">
+        <ToggleButton x:Name="_toggleButton" 
+                      Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                                      AncestorType={x:Type UserControl}}, 
+                                       Path=ButtonOffset}"
+                      Style="{StaticResource UserProfileToggleButton}" 
+        />
 
         <Border Background="Magenta" 
                 Visibility="{Binding ElementName=_toggleButton, 
