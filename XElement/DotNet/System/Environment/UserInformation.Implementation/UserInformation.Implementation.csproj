@@ -7,7 +7,7 @@
     <ProjectGuid>{9E94C2D1-BE62-45E6-8A12-0B04D3A991DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.DotNet.System.Environment.UserInformation.Interface</RootNamespace>
+    <RootNamespace>XElement.DotNet.System.Environment.UserInformation</RootNamespace>
     <AssemblyName>XElement.DotNet.System.Environment.UserInformation.Implementation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
