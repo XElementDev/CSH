@@ -3,5 +3,8 @@
     public interface IUserInformation
     {
         string FullName { get; }
+
+
+        Role? Role { get; }
     }
 }
