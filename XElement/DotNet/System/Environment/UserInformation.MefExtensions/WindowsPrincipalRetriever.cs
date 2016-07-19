@@ -4,7 +4,7 @@ namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
 {
 #region not unit-tested
     [Export( typeof( IUserInformationServiceInt ) )]
-    internal class DirectoryEntryRetriever : 
-        global::XElement.DotNet.System.Environment.UserInformation.DirectoryEntryRetriever { }
+    internal class WindowsPrincipalRetriever : 
+        global::XElement.DotNet.System.Environment.UserInformation.WindowsPrincipalRetriever { }
 #endregion
 }
