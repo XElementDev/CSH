@@ -74,7 +74,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{cc6ad910-f9f2-40b0-90ac-f347c73b5ef7}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Dictionaries\Colors.xaml">
       <SubType>Designer</SubType>

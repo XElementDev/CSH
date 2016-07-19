@@ -320,5 +320,41 @@ namespace XElement.CloudSyncHelper.UI.Win32.Localization {
                 return ResourceManager.GetString("SyncObjects_NoEntries_Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to name:.
+        /// </summary>
+        public static string UserProfile_NameDescriptor {
+            get {
+                return ResourceManager.GetString("UserProfile_NameDescriptor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to role:.
+        /// </summary>
+        public static string UserProfile_RoleDescriptor {
+            get {
+                return ResourceManager.GetString("UserProfile_RoleDescriptor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to administrator.
+        /// </summary>
+        public static string UserProfile_Roles_Admin {
+            get {
+                return ResourceManager.GetString("UserProfile_Roles_Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to user.
+        /// </summary>
+        public static string UserProfile_Roles_User {
+            get {
+                return ResourceManager.GetString("UserProfile_Roles_User", resourceCulture);
+            }
+        }
     }
 }

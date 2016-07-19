@@ -233,4 +233,20 @@
     <value>Details ein-/ausblenden</value>
     <comment>// 2016-04-30</comment>
   </data>
+  <data name="UserProfile_NameDescriptor" xml:space="preserve">
+    <value>Name:</value>
+    <comment>// 2016-07-19</comment>
+  </data>
+  <data name="UserProfile_RoleDescriptor" xml:space="preserve">
+    <value>Kontotyp:</value>
+    <comment>// 2016-07-19</comment>
+  </data>
+  <data name="UserProfile_Roles_Admin" xml:space="preserve">
+    <value>Administrator</value>
+    <comment>// 2016-07-19</comment>
+  </data>
+  <data name="UserProfile_Roles_User" xml:space="preserve">
+    <value>Standard</value>
+    <comment>// 2016-07-19</comment>
+  </data>
 </root>

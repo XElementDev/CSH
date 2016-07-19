@@ -10,7 +10,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/XElement.CloudSyncHelper.UI.Win32.Common;component/Dictionaries/Resources.xaml" />
+                <ResourceDictionary Source="./Resources.xaml" />
                 <ResourceDictionary Source="./Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -32,7 +32,8 @@
                 Style="{StaticResource UserInformationContainer}">
             <StackPanel Style="{StaticResource UserInformationPanel}">
                 <TextBlock 
-                           Text="&lt;name:&gt;" 
+                           Text="{Binding Path=Localization.UserProfile_NameDescriptor, 
+                                          Source={StaticResource XamlLocalization}}" 
                            Style="{StaticResource Descriptor}" 
                 />
                 <TextBlock 
@@ -41,17 +42,20 @@
                 />
 
                 <TextBlock 
-                           Text="&lt;role:&gt;" 
+                           Text="{Binding Path=Localization.UserProfile_RoleDescriptor, 
+                                          Source={StaticResource XamlLocalization}}" 
                            Style="{StaticResource Descriptor}" 
                 />
                 <TextBlock 
-                           Text="&lt;admin&gt;" 
+                           Text="{Binding Path=Localization.UserProfile_Roles_Admin, 
+                                          Source={StaticResource XamlLocalization}}" 
                            Visibility="{Binding Path=IsAdmin, 
                                                 Converter={StaticResource BoolToVisibilityConverter}}" 
                            Style="{StaticResource Information}" 
                 />
                 <TextBlock 
-                           Text="&lt;standard user&gt;" 
+                           Text="{Binding Path=Localization.UserProfile_Roles_User, 
+                                          Source={StaticResource XamlLocalization}}" 
                            Visibility="{Binding Path=IsAdmin, 
                                                 Converter={StaticResource InversedBoolToVisibilityConverter}}" 
                            Style="{StaticResource Information}" 
