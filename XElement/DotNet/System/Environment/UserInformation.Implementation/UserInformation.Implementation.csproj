@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="DirectoryEntryRetriever.cs" />
     <Compile Include="IUserInformationInt.cs" />
-    <Compile Include="PrincipalContextRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysEnvironmentRetriever.cs" />
     <Compile Include="UserInformation.cs" />
