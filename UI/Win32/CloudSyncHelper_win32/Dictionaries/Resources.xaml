@@ -1,14 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
 
-                    xmlns:uiCommon="clr-namespace:XElement.Common.UI.Converter;assembly=XElement.UiCommon" 
                     xmlns:localization="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Localization;assembly=XElement.CloudSyncHelper.UI.Win32.Localization">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/XElement.CloudSyncHelper.UI.Win32.Common;component/Dictionaries/Resources.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <uiCommon:InversedBoolToVisibilityConverter x:Key="InversedBoolToVisibilityConverter" />
 
     <localization:LocalizationForXaml x:Key="XamlLocalization" />
 
