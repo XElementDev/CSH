@@ -16,6 +16,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
+
     <StackPanel Background="{x:Null}">
         <ToggleButton x:Name="_toggleButton" 
                       Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
@@ -24,13 +25,38 @@
                       Style="{StaticResource UserProfileToggleButton}" 
         />
 
-        <Border Background="Magenta" 
+        <Border 
                 Visibility="{Binding ElementName=_toggleButton, 
                                      Path=IsChecked, 
-                                     Converter={StaticResource BoolToVisibilityConverter}}">
-            <TextBlock 
-                       Text="{Binding Path=Model.FullName}" 
-            />
+                                     Converter={StaticResource BoolToVisibilityConverter}}" 
+                Style="{StaticResource UserInformationContainer}">
+            <StackPanel Style="{StaticResource UserInformationPanel}">
+                <TextBlock 
+                           Text="&lt;name:&gt;" 
+                           Style="{StaticResource Descriptor}" 
+                />
+                <TextBlock 
+                           Text="{Binding Path=Model.FullName}" 
+                           Style="{StaticResource Information}" 
+                />
+
+                <TextBlock 
+                           Text="&lt;role:&gt;" 
+                           Style="{StaticResource Descriptor}" 
+                />
+                <TextBlock 
+                           Text="&lt;admin&gt;" 
+                           Visibility="{Binding Path=IsAdmin, 
+                                                Converter={StaticResource BoolToVisibilityConverter}}" 
+                           Style="{StaticResource Information}" 
+                />
+                <TextBlock 
+                           Text="&lt;standard user&gt;" 
+                           Visibility="{Binding Path=IsAdmin, 
+                                                Converter={StaticResource InversedBoolToVisibilityConverter}}" 
+                           Style="{StaticResource Information}" 
+                />
+            </StackPanel>
         </Border>
     </StackPanel>
 

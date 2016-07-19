@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using XElement.DotNet.System.Environment.UserInformation;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
 {
@@ -12,6 +13,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
 
 
         public Image ProfilePicture { get; set; }
+
+
+        public Role? Role { get; set; }
 
 
         public string Surname { get; set; }

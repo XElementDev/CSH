@@ -1,4 +1,6 @@
-﻿namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
+﻿using XElement.DotNet.System.Environment.UserInformation;
+
+namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
 {
 #region not unit-tested
     public class ViewModel
@@ -12,14 +14,14 @@
 
         private void Initialize( Model model )
         {
-            this.ShowDefaultProfilePicture = model.ProfilePicture == null;
+            this.IsAdmin = model.Role == Role.Administrator;
         }
 
 
+        public bool IsAdmin { get; private set; }
+
+
         public Model Model { get; private set; }
-
-
-        public bool ShowDefaultProfilePicture { get; private set; }
     }
 #endregion
 }

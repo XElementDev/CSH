@@ -7,6 +7,27 @@
     </ResourceDictionary.MergedDictionaries>
 
 
+    <Style x:Key="Descriptor" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="Margin" Value="0 0 4 0" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+    </Style>
+
+    <Style x:Key="Information" TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin" Value="0 0 16 0" />
+    </Style>
+
+    <Style x:Key="UserInformationContainer" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{StaticResource ToggleButtonCheckedBg}" />
+        <Setter Property="Padding" Value="16 4" />
+    </Style>
+
+    <Style x:Key="UserInformationPanel" TargetType="{x:Type StackPanel}">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+
     <Style x:Key="UserProfileToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{StaticResource ToggleButtonCheckedBg}" />
