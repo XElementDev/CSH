@@ -66,9 +66,9 @@ namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
         }
 
 
-        //
-        // Summary:
-        //     In order of ascending reliability, i.e. most reliable comes last. (Such that information of less reliable retrievers can simply be overwritten.)
+        /// <summary>
+        /// In order of ascending reliability, i.e. most reliable comes last. (Such that information of less reliable retrievers can simply be overwritten.)
+        /// </summary>
         private static IList<Type> _reliabilityOrder = new List<Type>
         {
             typeof( SysEnvironmentRetriever ), 
