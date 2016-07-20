@@ -19,10 +19,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             this.ShowApplicationMenu = new DelegateCommand( this.ShowApplicationMenu_Execute );
         }
 
+
         [Import]
         public FilterViewModel FilterVM { get; private set; }
 
+
         private bool _isFilterVisible;
+
         public bool IsFilterVisible
         {
             get { return this._isFilterVisible; }
@@ -37,6 +40,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             }
         }
 
+
         public ICommand ShowApplicationMenu { get; private set; }
 
         private void ShowApplicationMenu_Execute()
@@ -44,8 +48,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             this._appMenuContainer.ShowApplicationMenu();
         }
 
+
+        [Import]
+        public UserProfileContainer UserProfileContainer { get; private set; }
+
+
         [Import]
         private IApplicationMenuContainer _appMenuContainer = null;
+
 
         [Import]
         private FilterModel _filterModel = null;
