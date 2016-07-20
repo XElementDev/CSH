@@ -15,7 +15,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
         {
             this.ApplicationName = "TeamSpeak 3";
             this.FolderName = "TeamSpeak 3";
-            this.TechnicalNameMatcher = "TeamSpeak 3 Client";   // TODO: check matcher
+            this.TechnicalNameMatcher = "TeamSpeak 3 Client";
         }
 
         private List<AbstractLinkInfo> GetLinksForWin81_10()
@@ -37,7 +37,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Tools
             var osConfigs = new List<OsConfigurationInfo>
             {
                 this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win81 ),    // TODO: Check config for Win8.1
-                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win10 ),    // TODO: Check config for Win10
+                this._osConfigFactory.Get( this.GetLinksForWin81_10(), OsId.Win10 ), 
             };
             this.DefinitionInfo = this._definitionFactory.Get( osConfigs );
         }
