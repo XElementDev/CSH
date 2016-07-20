@@ -86,10 +86,6 @@
     <Resource Include="User-Profile_d48-p8_000000.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\XElement\DotNet\System\Environment\UserInformation.Interface\UserInformation.Interface.csproj">
-      <Project>{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}</Project>
-      <Name>UserInformation.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.csproj">
       <Project>{3a491eaf-a2e8-4c51-bed7-bf3fd890731f}</Project>
       <Name>Common</Name>

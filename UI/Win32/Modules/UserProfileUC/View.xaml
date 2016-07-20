@@ -49,14 +49,14 @@
                 <TextBlock 
                            Text="{Binding Path=Localization.UserProfile_Roles_Admin, 
                                           Source={StaticResource XamlLocalization}}" 
-                           Visibility="{Binding Path=IsAdmin, 
+                           Visibility="{Binding Path=Model.IsAdministrator, 
                                                 Converter={StaticResource BoolToVisibilityConverter}}" 
                            Style="{StaticResource Information}" 
                 />
                 <TextBlock 
                            Text="{Binding Path=Localization.UserProfile_Roles_User, 
                                           Source={StaticResource XamlLocalization}}" 
-                           Visibility="{Binding Path=IsAdmin, 
+                           Visibility="{Binding Path=Model.IsAdministrator, 
                                                 Converter={StaticResource InversedBoolToVisibilityConverter}}" 
                            Style="{StaticResource Information}" 
                 />

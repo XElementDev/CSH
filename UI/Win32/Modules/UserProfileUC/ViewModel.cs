@@ -1,4 +1,3 @@
-﻿using XElement.DotNet.System.Environment.UserInformation;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
 {
@@ -8,17 +7,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
         public ViewModel( Model model )
         {
             this.Model = model;
-            this.Initialize( model );
+            this.Initialize();
         }
 
 
-        private void Initialize( Model model )
+
+
+        private void Initialize()
         {
-            this.IsAdmin = model.Role == Role.Administrator;
         }
-
-
-        public bool IsAdmin { get; private set; }
 
 
         public Model Model { get; private set; }
