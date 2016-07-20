@@ -105,6 +105,7 @@
       <DependentUpon>IndicatorsStackPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\SemiautomaticSync\ModelFactory.cs" />
+    <Compile Include="Modules\UserProfileContainer\UserProfileContainer.cs" />
     <Compile Include="Shortcuts\IApplicationMenuContainer.cs" />
     <Compile Include="Shortcuts\IFilterContainer.cs" />
     <Compile Include="Shortcuts\ShortcutCommandsViewModel.cs" />
@@ -404,6 +405,14 @@
       <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
       <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\UserInformation.Interface\UserInformation.Interface.csproj">
+      <Project>{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}</Project>
+      <Name>UserInformation.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\UserInformation.MefExtensions\UserInformation.MefExtensions.csproj">
+      <Project>{acbfe0b5-e9c3-4ddc-b454-d12ae691802b}</Project>
+      <Name>UserInformation.MefExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BannerCrawler\BannerCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
       <Name>BannerCrawler.Interface</Name>
@@ -447,6 +456,10 @@
     <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj">
       <Project>{6229fd37-00b3-4f8e-8299-e0e0d8ad2be6}</Project>
       <Name>OsRecognition.MefExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\UserProfileUC\UserProfileUC.csproj">
+      <Project>{7DDBF51A-80F3-4870-8C04-5884761118E2}</Project>
+      <Name>UserProfileUC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
