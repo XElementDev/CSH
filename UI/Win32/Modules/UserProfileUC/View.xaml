@@ -37,7 +37,7 @@
                            Style="{StaticResource Descriptor}" 
                 />
                 <TextBlock 
-                           Text="{Binding Path=Model.FullName}" 
+                           Text="{Binding Path=DisplayName}" 
                            Style="{StaticResource Information}" 
                 />
 

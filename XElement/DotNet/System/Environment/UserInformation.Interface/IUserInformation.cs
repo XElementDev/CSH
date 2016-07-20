@@ -6,5 +6,8 @@
 
 
         Role? Role { get; }
+
+
+        string TechnicalName { get; }
     }
 }

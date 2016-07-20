@@ -1,3 +1,4 @@
+﻿using System;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
 {
@@ -11,10 +12,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
         }
 
 
+        public string DisplayName { get; private set; }
 
 
         private void Initialize()
         {
+            var fullName = (this.Model.FullName == String.Empty ? null : this.Model.FullName);
+            this.DisplayName = fullName ?? this.Model.TechnicalName;
         }
 
 

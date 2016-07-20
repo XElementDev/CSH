@@ -20,6 +20,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.UserProfile
 
 
         public string Surname { get; set; }
+        public string TechnicalName { get; set; }
     }
 #endregion
 }

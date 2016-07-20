@@ -3,8 +3,5 @@
     internal interface IUserInformationInt : IUserInformation
     {
         string Domain { get; }
-
-
-        string TechnicalName { get; }
     }
 }

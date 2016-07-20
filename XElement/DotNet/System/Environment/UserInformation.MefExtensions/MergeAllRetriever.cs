@@ -22,6 +22,8 @@ namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
                         merged.FullName = userInfo.FullName;
                     if ( merged.Role == null )
                         merged.Role = userInfo.Role;
+                    if ( merged.TechnicalName == null | merged.TechnicalName == String.Empty )
+                        merged.TechnicalName = userInfo.TechnicalName;
                 }
 
                 return merged;

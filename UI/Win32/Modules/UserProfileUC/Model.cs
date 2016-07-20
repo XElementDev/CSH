@@ -7,6 +7,7 @@
         {
             this.FullName = parameters.FullName;
             this.IsAdministrator = parameters.IsAdministrator;
+            this.TechnicalName = parameters.TechnicalName;
         }
 
 
@@ -14,6 +15,9 @@
 
 
         public bool? IsAdministrator { get; private set; }
+
+
+        public string TechnicalName { get; private set; }
     }
 #endregion
 }
