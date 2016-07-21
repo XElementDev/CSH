@@ -55,10 +55,9 @@
                                DataContext="{Binding Path=UserProfileContainer.UserProfileVM}" 
                                ButtonOffsetFromRight="{Binding ElementName=_toggleFilter, 
                                                                Path=ActualWidth}" 
-                               Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
-                                                                                   AncestorType=UserControl}, 
-                                                    Path=DataContext.UserProfileContainer.IsLoaded, 
-                                                    Converter={StaticResource BoolToVisibilityConverter}}">
+                               IsEnabled="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                                                  AncestorType=UserControl}, 
+                                                   Path=DataContext.UserProfileContainer.IsLoaded}">
             <modules:UserProfileUC.Margin>
                 <Thickness Left="0" Top="-40" Right="0" Bottom="0" />
             </modules:UserProfileUC.Margin>

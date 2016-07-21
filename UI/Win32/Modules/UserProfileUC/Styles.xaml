@@ -1,5 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+
+                    xmlns:fa="http://schemas.fontawesome.io/icons/">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="./Colors.xaml" />
@@ -44,19 +46,31 @@
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             Padding="{TemplateBinding Padding}">
-                        <Border 
-                                Background="{StaticResource DefaultUserProfileBgColor}" 
-                                CornerRadius="20">
-                            <Image 
-                                    Source="{StaticResource DefaultProfilePicture}" 
-                                    Margin="0 -2 0 0" 
+                        <Grid>
+                            <Border x:Name="_rounded" 
+                                    Background="{StaticResource DefaultUserProfileBgColor}" 
+                                    CornerRadius="20">
+                                <Image 
+                                        Source="{StaticResource DefaultProfilePicture}" 
+                                        Margin="0 -2 0 0" 
+                                />
+                            </Border>
+
+                            <fa:ImageAwesome x:Name="_loader" 
+                                             Visibility="Collapsed" 
+                                             Icon="Spinner" Spin="True" SpinDuration="4" 
+                                             Margin="2" 
                             />
-                        </Border>
+                        </Grid>
                     </Border>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Background" Value="{StaticResource ToggleButtonCheckedBg}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="_loader" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="_rounded" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" Value=".6" />
