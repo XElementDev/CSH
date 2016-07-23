@@ -82,6 +82,7 @@
     <Compile Include="Modules\FlaticonCredit\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\MenuBar\NumberToThicknessConverter.cs" />
     <Compile Include="Modules\OperatingSystem\IModelConstructorParameters.cs" />
     <Compile Include="Modules\OperatingSystem\Model.cs" />
     <Compile Include="Modules\OperatingSystem\View.xaml.cs">
@@ -177,6 +178,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Modules\FullyAutomaticSync\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\MenuBar\Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
