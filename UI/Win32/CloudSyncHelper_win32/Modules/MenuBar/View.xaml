@@ -18,6 +18,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
+
     <StackPanel 
                 Orientation="Vertical">
         <StatusBar>
@@ -41,16 +42,6 @@
             </StatusBarItem>
         </StatusBar>
 
-        <local:FilterUC 
-                        DataContext="{Binding Path=FilterVM}" 
-                        Visibility="{Binding ElementName=_toggleFilter, 
-                                             Path=IsChecked, 
-                                             Converter={StaticResource BoolToVisibilityConverter}}" 
-        />
-
-                               <!--Margin="{Binding ElementName=TODO, 
-                                                Path=TODO, 
-                                                Converter={StaticResource ThicknessToInversedThicknessConverter}}"-->
         <modules:UserProfileUC 
                                DataContext="{Binding Path=UserProfileContainer.UserProfileVM}" 
                                ButtonOffsetFromRight="{Binding ElementName=_toggleFilter, 
@@ -62,6 +53,13 @@
                 <Thickness Left="0" Top="-40" Right="0" Bottom="0" />
             </modules:UserProfileUC.Margin>
         </modules:UserProfileUC>
+
+        <local:FilterUC 
+                        DataContext="{Binding Path=FilterVM}" 
+                        Visibility="{Binding ElementName=_toggleFilter, 
+                                             Path=IsChecked, 
+                                             Converter={StaticResource BoolToVisibilityConverter}}" 
+        />
     </StackPanel>
 
 </UserControl>
