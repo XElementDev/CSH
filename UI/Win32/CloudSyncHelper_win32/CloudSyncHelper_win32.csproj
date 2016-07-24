@@ -503,6 +503,10 @@
       <Link>CloudSyncHelper.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\..\Visual Studio\packages\ThirdPartyLicenses.xml">
+      <Link>ThirdPartyLicenses.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\View-Details_d16-p0_000000.png" />
     <Resource Include="Resources\link_d16-p0_000000.png" />
     <Resource Include="Resources\chain_d16-p0_000000.png" />
@@ -515,6 +519,9 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)TOOLs\LegSec1.0\Debug\LegSecCli.exe" -r "$(SolutionDir)packages" -o "$(SolutionDir)packages"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
