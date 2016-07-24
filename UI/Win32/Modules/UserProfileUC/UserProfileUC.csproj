@@ -36,6 +36,10 @@
       <HintPath>..\..\..\..\Visual Studio\packages\FontAwesome.WPF.4.5.0.8\lib\net40\FontAwesome.WPF.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Gu.Wpf.Adorners, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Visual Studio\packages\Gu.Wpf.Adorners.1.1.1.2\lib\net45\Gu.Wpf.Adorners.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

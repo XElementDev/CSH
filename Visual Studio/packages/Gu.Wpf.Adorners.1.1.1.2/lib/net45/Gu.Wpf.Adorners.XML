@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gu.Wpf.Adorners</name>
+    </assembly>
+    <members>
+        <member name="T:Gu.Wpf.Adorners.ContentAdorner">
+            <summary>
+            http://tech.pro/tutorial/856/wpf-tutorial-using-a-visual-collection
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.Adorners.DependencyObjectHelper">
+            <summary>
+            https://social.msdn.microsoft.com/Forums/vstudio/en-US/580234cb-e870-4af1-9a91-3e3ba118c89c/getting-list-of-all-dependencyattached-properties-of-an-object?forum=wpf
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.Adorners.EmptyEnumerator">
+            <summary>
+            Returns an Enumerator that enumerates over nothing.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.Adorners.EmptyEnumerator.Instance">
+            <summary>
+            Read-Only instance of an Empty Enumerator.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.Adorners.EmptyEnumerator.System#Collections#IEnumerator#Current">
+            <summary>
+            Throws <see cref="T:System.InvalidOperationException"/>
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.EmptyEnumerator.Reset">
+            <summary>
+            Does nothing.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.EmptyEnumerator.MoveNext">
+            <summary>
+            Returns false.
+            </summary>
+            <returns>false</returns>
+        </member>
+        <member name="F:Gu.Wpf.Adorners.Loaded.IsTrackingProperty">
+            <summary>
+            This is a hack to use dp inheritance to trickle down so that we can add empty loaded handlers.
+            Inspired by: https://gist.github.com/mwisnicki/3104963
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.Adorners.DoubleUtil">
+            <summary>
+            ~Inspired~ by: http://referencesource.microsoft.com/#WindowsBase/Shared/MS/Internal/DoubleUtil.cs,ef2a956bcf846761
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.AreClose(System.Double,System.Double)">
+            <summary>
+            AreClose - Returns whether or not two doubles are "close".  That is, whether or 
+            not they are within epsilon of each other.  Note that this epsilon is proportional
+            to the numbers themselves to that AreClose survives scalar multiplication.
+            There are plenty of ways for this to return false even for numbers which
+            are theoretically identical, so no code calling this should fail to work if this 
+            returns false.  This is important enough to repeat:
+            NB: NO CODE CALLING THIS FUNCTION SHOULD DEPEND ON ACCURATE RESULTS - this should be
+            used for optimizations *only*.
+            </summary>
+            <returns>
+            bool - the result of the AreClose comparison.
+            </returns>
+            <param name="value1"> The first double to compare. </param>
+            <param name="value2"> The second double to compare. </param>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.LessThan(System.Double,System.Double)">
+            <summary>
+            LessThan - Returns whether or not the first double is less than the second double.
+            That is, whether or not the first is strictly less than *and* not within epsilon of
+            the other number.  Note that this epsilon is proportional to the numbers themselves
+            to that AreClose survives scalar multiplication.  Note,
+            There are plenty of ways for this to return false even for numbers which
+            are theoretically identical, so no code calling this should fail to work if this 
+            returns false.  This is important enough to repeat:
+            NB: NO CODE CALLING THIS FUNCTION SHOULD DEPEND ON ACCURATE RESULTS - this should be
+            used for optimizations *only*.
+            </summary>
+            <returns>
+            bool - the result of the LessThan comparison.
+            </returns>
+            <param name="value1"> The first double to compare. </param>
+            <param name="value2"> The second double to compare. </param>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.GreaterThan(System.Double,System.Double)">
+            <summary>
+            GreaterThan - Returns whether or not the first double is greater than the second double.
+            That is, whether or not the first is strictly greater than *and* not within epsilon of
+            the other number.  Note that this epsilon is proportional to the numbers themselves
+            to that AreClose survives scalar multiplication.  Note,
+            There are plenty of ways for this to return false even for numbers which
+            are theoretically identical, so no code calling this should fail to work if this 
+            returns false.  This is important enough to repeat:
+            NB: NO CODE CALLING THIS FUNCTION SHOULD DEPEND ON ACCURATE RESULTS - this should be
+            used for optimizations *only*.
+            </summary>
+            <returns>
+            bool - the result of the GreaterThan comparison.
+            </returns>
+            <param name="value1"> The first double to compare. </param>
+            <param name="value2"> The second double to compare. </param>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.LessThanOrClose(System.Double,System.Double)">
+            <summary>
+            LessThanOrClose - Returns whether or not the first double is less than or close to
+            the second double.  That is, whether or not the first is strictly less than or within
+            epsilon of the other number.  Note that this epsilon is proportional to the numbers 
+            themselves to that AreClose survives scalar multiplication.  Note,
+            There are plenty of ways for this to return false even for numbers which
+            are theoretically identical, so no code calling this should fail to work if this 
+            returns false.  This is important enough to repeat:
+            NB: NO CODE CALLING THIS FUNCTION SHOULD DEPEND ON ACCURATE RESULTS - this should be
+            used for optimizations *only*.
+            </summary>
+            <returns>
+            bool - the result of the LessThanOrClose comparison.
+            </returns>
+            <param name="value1"> The first double to compare. </param>
+            <param name="value2"> The second double to compare. </param>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.GreaterThanOrClose(System.Double,System.Double)">
+            <summary>
+            GreaterThanOrClose - Returns whether or not the first double is greater than or close to
+            the second double.  That is, whether or not the first is strictly greater than or within
+            epsilon of the other number.  Note that this epsilon is proportional to the numbers 
+            themselves to that AreClose survives scalar multiplication.  Note,
+            There are plenty of ways for this to return false even for numbers which
+            are theoretically identical, so no code calling this should fail to work if this 
+            returns false.  This is important enough to repeat:
+            NB: NO CODE CALLING THIS FUNCTION SHOULD DEPEND ON ACCURATE RESULTS - this should be
+            used for optimizations *only*.
+            </summary>
+            <returns>
+            bool - the result of the GreaterThanOrClose comparison.
+            </returns>
+            <param name="value1"> The first double to compare. </param>
+            <param name="value2"> The second double to compare. </param>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.IsOne(System.Double)">
+            <summary>
+            IsOne - Returns whether or not the double is "close" to 1.  Same as AreClose(double, 1),
+            but this is faster.
+            </summary>
+            <returns>
+            bool - the result of the AreClose comparison.
+            </returns>
+            <param name="value"> The double to compare to 1. </param>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.IsZero(System.Double)">
+            <summary>
+            IsZero - Returns whether or not the double is "close" to 0.  Same as AreClose(double, 0),
+            but this is faster.
+            </summary>
+            <returns>
+            bool - the result of the AreClose comparison.
+            </returns>
+            <param name="value"> The double to compare to 0. </param>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.AreClose(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Compares two points for fuzzy equality.  This function
+            helps compensate for the fact that double values can 
+            acquire error when operated upon
+            </summary>
+            <param name='point1'>The first point to compare</param>
+            <param name='point2'>The second point to compare</param>
+            <returns>Whether or not the two points are equal</returns>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.AreClose(System.Windows.Size,System.Windows.Size)">
+            <summary>
+            Compares two Size instances for fuzzy equality.  This function
+            helps compensate for the fact that double values can 
+            acquire error when operated upon
+            </summary>
+            <param name='size1'>The first size to compare</param>
+            <param name='size2'>The second size to compare</param>
+            <returns>Whether or not the two Size instances are equal</returns>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.AreClose(System.Windows.Vector,System.Windows.Vector)">
+            <summary>
+            Compares two Vector instances for fuzzy equality.  This function
+            helps compensate for the fact that double values can 
+            acquire error when operated upon
+            </summary>
+            <param name='vector1'>The first Vector to compare</param>
+            <param name='vector2'>The second Vector to compare</param>
+            <returns>Whether or not the two Vector instances are equal</returns>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.AreClose(System.Windows.Rect,System.Windows.Rect)">
+            <summary>
+            Compares two rectangles for fuzzy equality.  This function
+            helps compensate for the fact that double values can 
+            acquire error when operated upon
+            </summary>
+            <param name='rect1'>The first rectangle to compare</param>
+            <param name='rect2'>The second rectangle to compare</param>
+            <returns>Whether or not the two rectangles are equal</returns>
+        </member>
+        <member name="M:Gu.Wpf.Adorners.DoubleUtil.RectHasNaN(System.Windows.Rect)">
+            <summary>
+            rectHasNaN - this returns true if this rect has X, Y , Height or Width as NaN.
+            </summary>
+            <param name='r'>The rectangle to test</param>
+            <returns>returns whether the Rect has NaN</returns>        
+        </member>
+        <member name="T:Gu.Wpf.Adorners.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.Adorners.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.Adorners.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

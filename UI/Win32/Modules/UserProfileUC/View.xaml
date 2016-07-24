@@ -5,7 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:XElement.CloudSyncHelper.UI.Win32.Modules" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" 
+
+             xmlns:adorners="http://gu.se/Adorners" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -17,51 +20,77 @@
     </UserControl.Resources>
 
 
-    <StackPanel Background="{x:Null}">
+    <StackPanel 
+                Background="{x:Null}" 
+                adorners:Info.IsVisible="{Binding ElementName=_toggleButton, 
+                                                  Path=IsChecked}">
+        <adorners:Info.Template>
+            <ControlTemplate>
+                <!-- 2016-07-24: 
+                     DataContext of Grid element contains workaround for corrupted DataContext, 
+                     i.e. empty readonly list of validation errors, of Control element that seems 
+                     to be inserted because of adorner library.
+                -->
+                <Grid 
+                      DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                                           AncestorLevel=2, 
+                                                                           AncestorType={x:Type sys:Object}}, 
+                                            Path=DataContext}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <AdornedElementPlaceholder DataContext="AdornedElementPlaceholder" 
+                                               Grid.Row="0" 
+                    />
+
+                    <Border 
+                            Grid.Row="1" 
+                            Style="{StaticResource UserInformationContainer}">
+                        <StackPanel 
+                                    Style="{StaticResource UserInformationPanel}">
+                            <TextBlock 
+                                       Text="{Binding Path=Localization.UserProfile_NameDescriptor, 
+                                                      Source={StaticResource XamlLocalization}}" 
+                                       Style="{StaticResource Descriptor}" 
+                            />
+                            <TextBlock 
+                                       Text="{Binding Path=DisplayName}" 
+                                       Style="{StaticResource Information}" 
+                            />
+
+                            <TextBlock 
+                                       Text="{Binding Path=Localization.UserProfile_RoleDescriptor, 
+                                                      Source={StaticResource XamlLocalization}}" 
+                                       Style="{StaticResource Descriptor}" 
+                            />
+                            <TextBlock 
+                                       Text="{Binding Path=Localization.UserProfile_Roles_Admin, 
+                                                      Source={StaticResource XamlLocalization}}" 
+                                       Visibility="{Binding Path=Model.IsAdministrator, 
+                                                            Converter={StaticResource BoolToVisibilityConverter}}" 
+                                       Style="{StaticResource Information}" 
+                            />
+                            <TextBlock 
+                                       Text="{Binding Path=Localization.UserProfile_Roles_User, 
+                                                      Source={StaticResource XamlLocalization}}" 
+                                       Visibility="{Binding Path=Model.IsAdministrator, 
+                                                            Converter={StaticResource InversedBoolToVisibilityConverter}}" 
+                                       Style="{StaticResource Information}" 
+                            />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </adorners:Info.Template>
+
         <ToggleButton x:Name="_toggleButton" 
                       Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
                                                                       AncestorType={x:Type UserControl}}, 
-                                       Path=ButtonOffset}"
+                                       Path=ButtonOffset}" 
                       Style="{StaticResource UserProfileToggleButton}" 
         />
-
-        <Border 
-                Visibility="{Binding ElementName=_toggleButton, 
-                                     Path=IsChecked, 
-                                     Converter={StaticResource BoolToVisibilityConverter}}" 
-                Style="{StaticResource UserInformationContainer}">
-            <StackPanel Style="{StaticResource UserInformationPanel}">
-                <TextBlock 
-                           Text="{Binding Path=Localization.UserProfile_NameDescriptor, 
-                                          Source={StaticResource XamlLocalization}}" 
-                           Style="{StaticResource Descriptor}" 
-                />
-                <TextBlock 
-                           Text="{Binding Path=DisplayName}" 
-                           Style="{StaticResource Information}" 
-                />
-
-                <TextBlock 
-                           Text="{Binding Path=Localization.UserProfile_RoleDescriptor, 
-                                          Source={StaticResource XamlLocalization}}" 
-                           Style="{StaticResource Descriptor}" 
-                />
-                <TextBlock 
-                           Text="{Binding Path=Localization.UserProfile_Roles_Admin, 
-                                          Source={StaticResource XamlLocalization}}" 
-                           Visibility="{Binding Path=Model.IsAdministrator, 
-                                                Converter={StaticResource BoolToVisibilityConverter}}" 
-                           Style="{StaticResource Information}" 
-                />
-                <TextBlock 
-                           Text="{Binding Path=Localization.UserProfile_Roles_User, 
-                                          Source={StaticResource XamlLocalization}}" 
-                           Visibility="{Binding Path=Model.IsAdministrator, 
-                                                Converter={StaticResource InversedBoolToVisibilityConverter}}" 
-                           Style="{StaticResource Information}" 
-                />
-            </StackPanel>
-        </Border>
     </StackPanel>
 
 </UserControl>
