@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XElement.CloudSyncHelper.UI.Win32</RootNamespace>
-    <AssemblyName>LinkCreatorProxy</AssemblyName>
+    <AssemblyName>CSH_LinkCreatorProxy_win32</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
