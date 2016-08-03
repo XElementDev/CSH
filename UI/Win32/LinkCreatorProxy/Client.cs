@@ -5,6 +5,8 @@ using System.IO.Pipes;
 namespace XElement.CloudSyncHelper.UI.Win32
 {
 #region not unit-tested
+    //  --> https://stackoverflow.com/questions/13806153/example-of-named-pipes
+    //      Last visited: 2016-08-03
     internal class Client
     {
         public Client( /*string message*/ )
