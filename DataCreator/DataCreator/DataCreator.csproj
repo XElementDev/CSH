@@ -45,6 +45,7 @@
     <Compile Include="Data\AbstractManagerT1.cs" />
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
+    <Compile Include="Data\Games\FalloutNewVegas.cs" />
     <Compile Include="Data\Games\KingdomRushFrontiers.cs" />
     <Compile Include="Data\Games\Tes5Skyrim.cs" />
     <Compile Include="Data\Games\Brothers.cs" />
