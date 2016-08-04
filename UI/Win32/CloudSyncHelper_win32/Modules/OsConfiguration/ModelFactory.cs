@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using XElement.CloudSyncHelper.Logic;
+using XElement.CloudSyncHelper.Logic.Execution.Link;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
@@ -21,7 +22,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.OsConfiguration
         }
 
         [Import]
-        private IFactory<Logic.ILink, Win32.Model.LinkParametersDTO> _linkFactory = null;
+        private IFactory<ILink, Win32.Model.LinkParametersDTO> _linkFactory = null;
 
         [Import]
         private IOsChecker _osChecker = null;

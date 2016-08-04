@@ -1,6 +1,6 @@
 ﻿using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper.Logic
+namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
 #region not unit-tested
     public class LinkParametersDTO

@@ -1,7 +1,7 @@
 ﻿using XElement.CloudSyncHelper.DataTypes;
 using XElement.CloudSyncHelper.Logic.Execution;
 
-namespace XElement.CloudSyncHelper.Logic
+namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
 #region not unit-tested
     public class LinkFactory : ILinkFactory

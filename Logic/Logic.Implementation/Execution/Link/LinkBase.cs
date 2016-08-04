@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper.Logic.Execution
+namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
 #region not unit-tested
     internal abstract class LinkBase : ILinkInt

@@ -1,4 +1,4 @@
-﻿namespace XElement.CloudSyncHelper.Logic
+﻿namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
     public interface ILink
     {

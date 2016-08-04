@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using XElement.CloudSyncHelper.Logic;
+using XElement.CloudSyncHelper.Logic.Execution.Link;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules.PathMap
 {
