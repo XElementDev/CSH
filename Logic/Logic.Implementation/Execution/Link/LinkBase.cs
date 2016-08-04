@@ -8,15 +8,13 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
 #region not unit-tested
     internal abstract class LinkBase : ILinkInt
     {
-        public LinkBase( IApplicationInfo appInfo, 
-                         ILinkInfo linkInfo, 
-                         PathVariablesDTO pathVariablesDTO )
+        public LinkBase( LinkParametersDTO parametersDTO )
         {
-            this._linkInfo = linkInfo;
-            this._pathVariablesDTO = pathVariablesDTO;
+            this._linkInfo = parametersDTO.LinkInfo;
+            this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
             this._symLinkHelper = new SymbolicLinkHelper();
 
-            Initialize( appInfo );
+            Initialize( parametersDTO.ApplicationInfo );
         }
 
         private void CreatePathToDestinationTarget()

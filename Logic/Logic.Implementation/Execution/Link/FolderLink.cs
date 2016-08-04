@@ -1,16 +1,13 @@
 ﻿using System;
 using System.IO;
-using XElement.CloudSyncHelper.DataTypes;
 
 namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
 #region not unit-tested
     internal class FolderLink : LinkBase, ILinkInt
     {
-        public FolderLink( IApplicationInfo appInfo, 
-                           IFolderLinkInfo folderLinkInfo, 
-                           PathVariablesDTO pathVariablesDTO )
-            : base( appInfo, folderLinkInfo, pathVariablesDTO ) { }
+        public FolderLink( LinkParametersDTO parametersDTO )
+            : base( parametersDTO ) { }
 
         private void AbstractSourceDestLinker( Func<string, string[]> sourcePathsGetter, 
                                                string source, 

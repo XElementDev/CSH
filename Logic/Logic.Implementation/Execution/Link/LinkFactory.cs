@@ -1,5 +1,4 @@
 ﻿using XElement.CloudSyncHelper.DataTypes;
-using XElement.CloudSyncHelper.Logic.Execution;
 
 namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
@@ -26,15 +25,11 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
 
             if ( linkParametersDTO.LinkInfo is IFolderLinkInfo )
             {
-                link = new FolderLink( linkParametersDTO.ApplicationInfo,
-                                       linkParametersDTO.LinkInfo as IFolderLinkInfo,
-                                       linkParametersDTO.PathVariablesDTO );
+                link = new FolderLink( linkParametersDTO );
             }
             else
             {
-                link = new FileLink( linkParametersDTO.ApplicationInfo, 
-                                       linkParametersDTO.LinkInfo as IFileLinkInfo, 
-                                       linkParametersDTO.PathVariablesDTO );
+                link = new FileLink( linkParametersDTO );
             }
 
             return link;
