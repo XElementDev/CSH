@@ -43,9 +43,14 @@
     <Compile Include="Execution\Definition\DefinitionDependenciesDTO.cs" />
     <Compile Include="Execution\Definition\DefinitionParametersDTO.cs" />
     <Compile Include="Execution\Definition\IDefinitionFactory.cs" />
+    <Compile Include="Execution\Link\DependenciesDTO.cs" />
+    <Compile Include="Execution\MkLink\IExecutor.cs" />
     <Compile Include="Execution\Link\LinkParametersDTO.cs" />
     <Compile Include="Execution\Link\ILink.cs" />
     <Compile Include="Execution\Link\ILinkFactory.cs" />
+    <Compile Include="Execution\MkLink\IFactory.cs" />
+    <Compile Include="Execution\MkLink\ParametersDTO.cs" />
+    <Compile Include="Execution\MkLink\TypeEnum.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfigurationDependenciesDTO.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfigurationParametersDTO.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfigurationFactory.cs" />

@@ -5,7 +5,11 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
 #region not unit-tested
     public class LinkFactory : ILinkFactory
     {
-        public LinkFactory() { }
+        public LinkFactory( MkLink.IFactory mkLinkExecutorFactory )
+        {
+            this._mkLinkExecutorFactory = mkLinkExecutorFactory;
+        }
+
 
         public ILink Get( IApplicationInfo appInfo, 
                           ILinkInfo linkInfo, 
@@ -19,21 +23,29 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
             };
             return this.Get( linkParamsDTO );
         }
+
         public ILink Get( LinkParametersDTO linkParametersDTO )
         {
             ILink link = null;
 
+            var dependenciesDTO = new Link.DependenciesDTO
+            {
+                MkLinkExecutorFactory = this._mkLinkExecutorFactory
+            };
             if ( linkParametersDTO.LinkInfo is IFolderLinkInfo )
             {
-                link = new FolderLink( linkParametersDTO );
+                link = new FolderLink( linkParametersDTO, dependenciesDTO );
             }
             else
             {
-                link = new FileLink( linkParametersDTO );
+                link = new FileLink( linkParametersDTO, dependenciesDTO );
             }
 
             return link;
         }
+
+
+        protected MkLink.IFactory _mkLinkExecutorFactory;
     }
 #endregion
 }

@@ -6,8 +6,10 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
 #region not unit-tested
     internal class FolderLink : LinkBase, ILinkInt
     {
-        public FolderLink( LinkParametersDTO parametersDTO )
-            : base( parametersDTO ) { }
+        public FolderLink( LinkParametersDTO parametersDTO, 
+                           DependenciesDTO dependenciesDTO )
+            : base( parametersDTO, dependenciesDTO ) { }
+
 
         private void AbstractSourceDestLinker( Func<string, string[]> sourcePathsGetter, 
                                                string source, 
@@ -24,6 +26,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
             }
         }
 
+
         // Copy all levels
         private void CopyFilesRecursively( string source, string destination )
         {
@@ -36,22 +39,30 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
                                            ( s, d ) => this.CopyFilesRecursively( s, d ) );
         }
 
+
         protected override FileSystemInfo /*LinkBase.*/FileSystemInfo
         {
             get { return new DirectoryInfo( this.LinkPath ); }
         }
+
 
         public override bool /*LinkBase.*/IsInCloud
         {
             get { return Directory.Exists( this.TargetPath ); }
         }
 
-        protected override string /*LinkBase.*/MkLinkParams { get { return "/D"; } }
+
+        protected override MkLink.Type /*LinkBase.*/MkLinkType
+        {
+            get { return MkLink.Type.DIRECTORY_LINK; }
+        }
+
 
         protected override void /*LinkBase.*/MoveToCloud_CopyStuff()
         {
             this.CopyFilesRecursively( this.LinkPath, this.TargetPath );
         }
+
 
         // Copy only one level
         private void ShallowCopyFiles( string source, string destination )
@@ -61,6 +72,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution.Link
                                            destination,
                                            ( s, d ) => File.Copy( s, d ) );
         }
+
 
         public override void /*LinkBase.*/Undo()
         {
