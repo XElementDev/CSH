@@ -4,7 +4,7 @@ using System.IO;
 using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Serialization;
 
-namespace XElement.CloudSyncHelper.UI.Win32.LinkCreatorServiceAdapter
+namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
 {
 #region not unit-tested
     internal class ExecutorProxy : IExecutor

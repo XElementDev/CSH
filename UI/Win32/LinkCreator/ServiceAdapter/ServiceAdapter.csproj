@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A28D9DC8-EB63-49AC-AA99-C81CD6EC71C5}</ProjectGuid>
+    <ProjectGuid>{75E73BC2-E2F3-4986-8193-8B2FEBF32CC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XElement.CloudSyncHelper.UI.Win32.LinkCreatorServiceAdapter</RootNamespace>
-    <AssemblyName>XElement.CloudSyncHelper.UI.Win32.LinkCreatorServiceAdapter</AssemblyName>
+    <RootNamespace>XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter</RootNamespace>
+    <AssemblyName>XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,15 +46,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Logic\Logic.Interface\Logic.Interface.csproj">
-      <Project>{f5e56bf7-6a32-4765-8538-812531cd679e}</Project>
+    <ProjectReference Include="..\..\..\..\Logic\Logic.Interface\Logic.Interface.csproj">
+      <Project>{F5E56BF7-6A32-4765-8538-812531CD679E}</Project>
       <Name>Logic.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+    <ProjectReference Include="..\..\..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
       <Project>{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}</Project>
       <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LinkCreator\Serialization\Serialization.csproj">
+    <ProjectReference Include="..\Serialization\Serialization.csproj">
       <Project>{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26}</Project>
       <Name>Serialization</Name>
     </ProjectReference>

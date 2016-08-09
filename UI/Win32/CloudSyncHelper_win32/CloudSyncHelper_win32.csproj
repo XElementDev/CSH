@@ -459,9 +459,9 @@
       <Project>{3a491eaf-a2e8-4c51-bed7-bf3fd890731f}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LinkCreatorServiceAdapter\LinkCreatorServiceAdapter.csproj">
-      <Project>{a28d9dc8-eb63-49ac-aa99-c81cd6ec71c5}</Project>
-      <Name>LinkCreatorServiceAdapter</Name>
+    <ProjectReference Include="..\LinkCreator\ServiceAdapter\ServiceAdapter.csproj">
+      <Project>{75e73bc2-e2f3-4986-8193-8b2febf32cc4}</Project>
+      <Name>ServiceAdapter</Name>
     </ProjectReference>
     <ProjectReference Include="..\Localization\Localization.csproj">
       <Project>{cc6ad910-f9f2-40b0-90ac-f347c73b5ef7}</Project>
