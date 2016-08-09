@@ -114,6 +114,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LinkCreator", "LinkCreator"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "..\UI\Win32\LinkCreator\Serialization\Serialization.csproj", "{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Serialization", "..\UI\Win32\LinkCreator\Test_Serialization\Test_Serialization.csproj", "{5724C30B-BFF1-42C6-AE8A-62B31FB4DBEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -262,6 +264,10 @@ Global
 		{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5724C30B-BFF1-42C6-AE8A-62B31FB4DBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5724C30B-BFF1-42C6-AE8A-62B31FB4DBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5724C30B-BFF1-42C6-AE8A-62B31FB4DBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5724C30B-BFF1-42C6-AE8A-62B31FB4DBEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -310,5 +316,6 @@ Global
 		{2DB5ABC1-4966-4616-BC51-FD088CF3B720} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
 		{51BAE75D-52AF-4124-902D-B04B4AE21E9C} = {98CCC88A-8E07-4471-9ED1-44FA11C0833D}
 		{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26} = {51BAE75D-52AF-4124-902D-B04B4AE21E9C}
+		{5724C30B-BFF1-42C6-AE8A-62B31FB4DBEC} = {51BAE75D-52AF-4124-902D-B04B4AE21E9C}
 	EndGlobalSection
 EndGlobal
