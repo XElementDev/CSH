@@ -6,7 +6,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 #region not unit-tested
     internal class Client : ClientServerBase
     {
-        public Client( string pipeName )
+        public Client( string pipeName ) : base()
         {
             this._client = new NamedPipeClient<string>( pipeName );
             this._client.AutoReconnect = false;
@@ -32,7 +32,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         {
             this._client.PushMessage( message );
             var logMessage = $"Pushing the following message to the server: {message}";
-            Logger.Log( this.Id.ToString(), logMessage );
+            this.Log( logMessage );
         }
 
 
@@ -40,7 +40,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         {
             this._client.Start();
             this._client.WaitForConnection();
-            Logger.Log( this.Id.ToString(), "Client connected." );
+            this.Log( "Client connected." );
         }
 
 
@@ -48,7 +48,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         {
             this._client.Stop();
             this._client.WaitForDisconnection();
-            Logger.Log( this.Id.ToString(), "Client disconnected." );
+            this.Log( "Client disconnected." );
         }
 
 

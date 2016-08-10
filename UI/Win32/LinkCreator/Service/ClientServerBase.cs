@@ -5,9 +5,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 #region not unit-tested
     internal abstract class ClientServerBase
     {
-        public ClientServerBase()
+        protected ClientServerBase()
         {
             this.Id = Guid.NewGuid();
+        }
+
+
+        protected void Log( string logMessage )
+        {
+            Logger.Log( this.Id.ToString(), logMessage );
         }
 
 

@@ -7,31 +7,20 @@
         {
             var message = new ArgsParser().Parse( args );
 
-            //var server = new Server();
-            //if ( server.AnotherInstanceAlreadyRunning )
-            //{
-            //    var client = new Client();
-            //    client.DoWork( message );
-            //}
-            //else
-            //{
-            //    server.DoWork( message );
-            //}
-
             var server = new Server( Program.PIPE_NAME );
-            var serverCreated = server.TryStart();
+            bool serverCreated = server.TryStart();
 
             var client = new Client( Program.PIPE_NAME );
             client.PlayBack( message );
 
             if ( serverCreated )
             {
-                server.Loop();
+                server.StayAlive();
             }
         }
 
 
-        public const string PIPE_NAME = "8304D038-A445-4742-81A6-6855E54ADD64";
+        private const string PIPE_NAME = "8304D038-A445-4742-81A6-6855E54ADD64";
     }
 #endregion
 }

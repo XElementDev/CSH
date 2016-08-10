@@ -7,11 +7,10 @@ using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 {
 #region not unit-tested
-    internal class Server
+    internal class Server : ClientServerBase
     {
-        public Server( string pipeName )
+        public Server( string pipeName ) : base()
         {
-            this.Id = Guid.NewGuid();
             this._executorFactory = new MkLinkExecutorFactory();
             this._pipeName = pipeName;
 
@@ -21,20 +20,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 
         private void ClientConnected( NamedPipeConnection<string, string> connection )
         {
-            Logger.Log( connection.Id.ToString(), "Connected." );
+            this.Log( "Connected to server." );
         }
 
 
         private void ClientDisconnected( NamedPipeConnection<string, string> connection )
         {
-            Logger.Log( connection.Id.ToString(), "Disconnected." );
+            this.Log( "Disconnected from server." );
         }
 
 
         private void ClientMessage( NamedPipeConnection<string, string> connection, string message )
         {
             var logMessage = $"Received the following message from client: {message}";
-            Logger.Log( connection.Id.ToString(), logMessage );
+            this.Log( logMessage );
             this.DoWork( message );
         }
 
@@ -57,9 +56,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         }
 
 
-        public Guid Id { get; private set; }
-
-
         private void InitializeServerPipe()
         {
             this._serverPipe = new NamedPipeServer<string>( this._pipeName );
@@ -67,14 +63,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
             this._serverPipe.ClientDisconnected += this.ClientDisconnected;
             this._serverPipe.ClientMessage += this.ClientMessage;
             this._serverPipe.Error += this.OnError;
-        }
-
-
-        public void Loop()
-        {
-            while ( true )
-            {
-            }
         }
 
 
@@ -87,7 +75,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         private void Start()
         {
             this._serverPipe.Start();
-            Logger.Log( this.Id.ToString(), "Server started." );
+            this.Log( "Server started." );
+        }
+
+
+        public void StayAlive()
+        {
+            while ( true )
+            {
+            }
         }
 
 
