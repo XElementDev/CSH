@@ -1,7 +1,7 @@
 ﻿using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Serialization;
 
-namespace XElement.CloudSyncHelper.UI.Win32
+namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 {
 #region not unit-tested
     internal class MessageParser

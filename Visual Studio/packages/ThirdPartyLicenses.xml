@@ -25,4 +25,10 @@
     <authors>Telerik AD</authors>
     <licenseUrl>http://www.telerik.com/purchase/license-agreement/justmock-free-edition</licenseUrl>
   </NugetPackage>
+  <NugetPackage>
+    <title>Named Pipe Wrapper</title>
+    <version>1.5.0</version>
+    <authors>Matt Watson</authors>
+    <licenseUrl />
+  </NugetPackage>
 </NugetPackages>

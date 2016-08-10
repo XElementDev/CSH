@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace XElement.CloudSyncHelper.UI.Win32
+namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 {
 #region not unit-tested
     internal class ArgsParser
