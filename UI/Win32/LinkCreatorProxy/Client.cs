@@ -7,25 +7,18 @@ namespace XElement.CloudSyncHelper.UI.Win32
 #region not unit-tested
     //  --> https://stackoverflow.com/questions/13806153/example-of-named-pipes
     //      Last visited: 2016-08-03
-    internal class Client
+    internal class Client : ClientServerBase
     {
-        public Client( /*string message*/ )
+        public Client() : base()
         {
             this.StartClient();
         }
 
 
-        public void Loop()
+        public override void DoWork( string message )
         {
-            StreamWriter writer = new StreamWriter( this._clientPipe );
-
-            while ( true )
-            {
-                string input = Console.ReadLine();
-                if ( String.IsNullOrEmpty( input ) ) break;
-                writer.WriteLine( input );
-                writer.Flush();
-            }
+            var writer = new StreamWriter( this._clientPipe );
+            writer.WriteLine( message );
         }
 
 

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
-using System.Linq;
+using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 
 namespace XElement.CloudSyncHelper.UI.Win32
 {
 #region not unit-tested
     //  --> https://stackoverflow.com/questions/13806153/example-of-named-pipes
     //      Last visited: 2016-08-03
-    internal class Server
+    internal class Server : ClientServerBase
     {
-        public Server( /*string message*/ )
+        public Server() : base()
         {
             this.AnotherInstanceAlreadyRunning = false;
             this.TryStartServer();
@@ -20,17 +20,40 @@ namespace XElement.CloudSyncHelper.UI.Win32
         public bool AnotherInstanceAlreadyRunning { get; private set; }
 
 
-        public void Loop()
+        public override void DoWork( string message )
+        {
+            var parameters = new MessageParser().Parse( message );
+
+            if ( parameters == null )
+            {
+                var error = String.Format( "Parsed message (of type {0}) must not be null.", 
+                                           typeof( ParametersDTO ).ToString() );
+                throw new InvalidOperationException( error );
+            }
+            else
+            {
+                this.Execute( parameters );
+            }
+        }
+
+
+        private void Execute( ParametersDTO parameters )
+        {
+            var executor = this._executorFactory.Get( parameters );
+            executor.Execute();
+            this.Loop();
+        }
+
+
+        private void Loop()
         {
             this._server.WaitForConnection();
             StreamReader reader = new StreamReader( this._server );
             while ( true )
             {
                 var line = reader.ReadLine();
-                if ( line != null )
-                {
-                    Console.WriteLine( String.Join( "", line.Reverse() ) );
-                }
+                this.DoWork( line );
+                // TODO fix cascading endless loop
             }
         }
 

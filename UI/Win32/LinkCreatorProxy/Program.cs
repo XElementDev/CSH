@@ -5,15 +5,17 @@
     {
         static void Main( string[] args )
         {
+            var message = new ArgsParser().Parse( args );
+
             var server = new Server();
             if ( server.AnotherInstanceAlreadyRunning )
             {
                 var client = new Client();
-                client.Loop();
+                client.DoWork( message );
             }
             else
             {
-                server.Loop();
+                server.DoWork( message );
             }
         }
 
