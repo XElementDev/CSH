@@ -36,13 +36,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
         {
             get
             {
+                var serviceFileName = new Service.AssemblyInfoAccessor().AssemblyName + ".exe";
                 return Path.Combine( Environment.CurrentDirectory, 
-                                     SERVICE_FILE_NAME );
+                                     serviceFileName );
             }
         }
-
-
-        private const string SERVICE_FILE_NAME = "CSH_LinkCreatorProxy_win32.exe";
 
 
         private ParametersDTO _parameters;

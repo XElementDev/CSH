@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgsParser.cs" />
+    <Compile Include="AssemblyInfoAccessor.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientServerBase.cs" />
     <Compile Include="Logger.cs" />

@@ -58,6 +58,10 @@
       <Project>{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26}</Project>
       <Name>Serialization</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{ccd1c48e-2ab7-4730-bac7-b3b5aefd132b}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
