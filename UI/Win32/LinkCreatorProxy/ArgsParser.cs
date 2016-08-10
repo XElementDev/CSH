@@ -1,5 +1,4 @@
-﻿using XElement.CloudSyncHelper.Logic.Execution.MkLink;
-using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Serialization;
+﻿using System.Linq;
 
 namespace XElement.CloudSyncHelper.UI.Win32
 {
@@ -15,7 +14,7 @@ namespace XElement.CloudSyncHelper.UI.Win32
 
             if ( args.Length >= 1 )
             {
-                serialized = args[1];
+                serialized = args.First();
             }
 
             return serialized;
