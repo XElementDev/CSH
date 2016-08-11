@@ -56,6 +56,10 @@
       <Project>{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}</Project>
       <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{FCDFE076-DC1B-400E-AB6E-CBF1C8879662}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Serialization\Serialization.csproj">
       <Project>{E7824D45-B4B3-46FC-BAF4-7BC7C67A6D26}</Project>
       <Name>Serialization</Name>
@@ -63,10 +67,6 @@
     <ProjectReference Include="..\Server\Server.csproj">
       <Project>{6bd48255-8b4b-4845-a048-de0adca5950d}</Project>
       <Name>Server</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Service\Service.csproj">
-      <Project>{ccd1c48e-2ab7-4730-bac7-b3b5aefd132b}</Project>
-      <Name>Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

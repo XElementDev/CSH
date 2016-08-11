@@ -1,6 +1,6 @@
 ﻿using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 
-namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
+namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 {
 #region not unit-tested
     internal class MkLinkExecutorFactory : IFactory

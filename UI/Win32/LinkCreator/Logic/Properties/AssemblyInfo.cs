@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "CSH_LinkCreatorSvc_win32" )]
-[assembly: AssemblyDescription( "A proxy for Cloud Sync Helper for doing operations that require elevated trust." )]
+[assembly: AssemblyTitle( "XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic" )]
+[assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "Cloud Sync Helper" )]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible( false )]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid( "44161cbe-3b16-4595-b415-ab396942c27b" )]
+[assembly: Guid( "fcdfe076-dc1b-400e-ab6e-cbf1c8879662" )]
 
 // Version information for an assembly consists of the following four values:
 //

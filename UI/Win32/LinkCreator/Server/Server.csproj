@@ -55,9 +55,9 @@
     <None Include="exe.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Service\Service.csproj">
-      <Project>{ccd1c48e-2ab7-4730-bac7-b3b5aefd132b}</Project>
-      <Name>Service</Name>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{fcdfe076-dc1b-400e-ab6e-cbf1c8879662}</Project>
+      <Name>Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

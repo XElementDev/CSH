@@ -1,6 +1,6 @@
 ﻿using XElement.CloudSyncHelper.Logic.Execution.MkLink;
+using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic;
 using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Serialization;
-using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service;
 
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
 {

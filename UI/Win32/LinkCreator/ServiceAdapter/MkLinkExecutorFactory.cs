@@ -4,8 +4,8 @@ using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
 {
 #region not unit-tested
-    [Export( typeof( Logic.Execution.MkLink.IFactory ) )]
-    internal class MkLinkExecutorFactory : Logic.Execution.MkLink.IFactory
+    [Export( typeof( /*MkLink.*/IFactory ) )]
+    internal class MkLinkExecutorFactory : /*MkLink.*/IFactory
     {
         private MkLinkExecutorFactory() { }
 
