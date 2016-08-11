@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "CSH_LinkCreatorSvc_win32" )] // TODO
+[assembly: AssemblyTitle( "CSH_LinkCreatorSvc_win32" )]
 [assembly: AssemblyDescription( "A proxy for Cloud Sync Helper for doing operations that require elevated trust." )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
-//      Minor Version 
+//      Minor Version
 //      Build Number
 //      Revision
 //

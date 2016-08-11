@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XElement.CloudSyncHelper.UI.Win32.LinkCreator.Server</RootNamespace>
-    <AssemblyName>TODO_Server</AssemblyName>
+    <AssemblyName>CSH_LinkCreatorSvc_win32</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
