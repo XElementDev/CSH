@@ -1,10 +1,11 @@
 ﻿using NamedPipeWrapper;
 using System;
+using System.Threading;
 
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 {
 #region not unit-tested
-    internal class Client : ClientServerBase
+    public class Client : ClientServerBase
     {
         public Client( string pipeName ) : base()
         {
@@ -30,9 +31,10 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 
         private void PushMessage( string message )
         {
-            this._client.PushMessage( message );
             var logMessage = $"Pushing the following message to the server: {message}";
             this.Log( logMessage );
+            this._client.PushMessage( message );
+            this.WaitForEndOfTransmission();
         }
 
 
@@ -49,6 +51,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
             this._client.Stop();
             this._client.WaitForDisconnection();
             this.Log( "Client disconnected." );
+        }
+
+
+        private void WaitForEndOfTransmission()
+        {
+            Thread.Sleep( 100 );
         }
 
 

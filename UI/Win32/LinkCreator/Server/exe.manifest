@@ -7,7 +7,7 @@
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
     <security>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!-- 2016-07-12: Administrator privileges are needed in order to run MKLINK -->
+        <!-- 2016-08-10: Administrator privileges are needed in order to run MKLINK -->
         <requestedExecutionLevel
                                  level="requireAdministrator"
                                  uiAccess="false"

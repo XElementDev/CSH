@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using XElement.CloudSyncHelper.Logic.Execution.MkLink;
+﻿using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Serialization;
+using XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service;
 
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
 {
@@ -16,30 +14,22 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
         }
 
 
-        private string Arguments
-        {
-            get { return this._serializationManager.Serialize( this._parameters ); }
-        }
-
-
         public void Execute()
         {
-            var process = new Process();
-            process.StartInfo.FileName = this.PathToLinkCreatorSvcExe;
-            process.StartInfo.Arguments = this.Arguments;
-            process.StartInfo.CreateNoWindow = true;
-            process.Start();
+            var server = new ServerAdapter();
+            if ( server.CanStart() )
+            {
+                server.Launch();
+            }
+
+            var client = new Client( ClientServer.PIPE_NAME );
+            client.PlayBack( this.Message );
         }
 
 
-        private string PathToLinkCreatorSvcExe
+        private string Message
         {
-            get
-            {
-                var serviceFileName = new Service.AssemblyInfoAccessor().AssemblyName + ".exe";
-                return Path.Combine( Environment.CurrentDirectory, 
-                                     serviceFileName );
-            }
+            get { return this._serializationManager.Serialize( this._parameters ); }
         }
 
 

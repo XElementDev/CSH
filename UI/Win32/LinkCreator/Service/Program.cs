@@ -5,22 +5,22 @@
     {
         static void Main( string[] args )
         {
-            var message = new ArgsParser().Parse( args );
+            //var message = new ArgsParser().Parse( args );
 
-            var server = new Server( Program.PIPE_NAME );
-            bool serverCreated = server.TryStart();
+            //var server = new Server( Program.PIPE_NAME );
+            //bool serverCreated = server.TryStart();
 
-            var client = new Client( Program.PIPE_NAME );
-            client.PlayBack( message );
+            //var client = new Client( Program.PIPE_NAME );
+            //client.PlayBack( message );
 
-            if ( serverCreated )
-            {
-                server.StayAlive();
-            }
+            //if ( serverCreated )
+            //{
+            //    server.StayAlive();
+            //}
         }
 
 
-        private const string PIPE_NAME = "8304D038-A445-4742-81A6-6855E54ADD64";
+        
     }
 #endregion
 }

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
+namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Server
 {
 #region not unit-tested
     public class AssemblyInfoAccessor

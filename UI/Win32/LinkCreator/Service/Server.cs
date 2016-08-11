@@ -1,13 +1,14 @@
 ﻿using NamedPipeWrapper;
 using System;
-using System.IO;
 using System.IO.Pipes;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 {
 #region not unit-tested
-    internal class Server : ClientServerBase
+    public class Server : ClientServerBase
     {
         public Server( string pipeName ) : base()
         {
@@ -20,13 +21,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 
         private void ClientConnected( NamedPipeConnection<string, string> connection )
         {
-            this.Log( "Connected to server." );
+            this.Log( "A client connected to the server." );
         }
 
 
         private void ClientDisconnected( NamedPipeConnection<string, string> connection )
         {
-            this.Log( "Disconnected from server." );
+            this.Log( "A client disconnected from the server." );
         }
 
 
@@ -38,31 +39,43 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         }
 
 
+        private static PipeSecurity CreatePipeSecurity()
+        {
+            //  --> 2016-08-11, Ian: 
+            //      based on: https://stackoverflow.com/questions/13174660/namedpipeclientstream-can-not-access-to-namedpipeserverstream-under-session-0
+            var pipeSecurity = new PipeSecurity();
+            var sid = new SecurityIdentifier( WellKnownSidType.WorldSid, null );
+            var accessRule = new PipeAccessRule( sid, 
+                                                 PipeAccessRights.ReadWrite, 
+                                                 AccessControlType.Allow );
+            pipeSecurity.AddAccessRule( accessRule );
+            return pipeSecurity;
+        }
+
+
         private void DoWork( string message )
         {
-            //var parameters = new MessageParser().Parse( message );
+            var parameters = new MessageParser().Parse( message );
 
-            //if ( parameters == null )
-            //{
-            //    var error = String.Format( "Parsed message (of type {0}) must not be null.", 
-            //                               typeof( ParametersDTO ).ToString() );
-            //    throw new InvalidOperationException( error );
-            //}
-            //else
-            //{
-            //    Server.Log( parameters );
-            //    this.Execute( parameters );
-            //}
+            if ( parameters == null )
+            {
+                var error = String.Format( "Parsed message (of type {0}) must not be null.",
+                                           typeof( ParametersDTO ).ToString() );
+                throw new InvalidOperationException( error );
+            }
+            else
+            {
+                var executor = this._executorFactory.Get( parameters );
+                executor.Execute();
+            }
         }
 
 
         private void InitializeServerPipe()
         {
-            this._serverPipe = new NamedPipeServer<string>( this._pipeName );
-            this._serverPipe.ClientConnected += this.ClientConnected;
-            this._serverPipe.ClientDisconnected += this.ClientDisconnected;
-            this._serverPipe.ClientMessage += this.ClientMessage;
-            this._serverPipe.Error += this.OnError;
+            PipeSecurity pipeSecurity = Server.CreatePipeSecurity();
+            this._serverPipe = new NamedPipeServer<string>( this._pipeName, pipeSecurity );
+            this.SubscribeEvents();
         }
 
 
@@ -72,7 +85,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         }
 
 
-        private void Start()
+        public void Start()
         {
             this._serverPipe.Start();
             this.Log( "Server started." );
@@ -87,28 +100,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
         }
 
 
-        public bool TryStart()
+        private void SubscribeEvents()
         {
-            var isAnotherInstanceAlreadyRunning = false;
-
-            try
-            {
-                this.TryStart_Workaround();
-                this.Start();
-            }
-            catch ( IOException )
-            {
-                isAnotherInstanceAlreadyRunning = true;
-            }
-
-            return !isAnotherInstanceAlreadyRunning;
-        }
-
-
-        //  --> 2016-08-10, Ian: Workaround because of 'https://github.com/acdvorak/named-pipe-wrapper/issues/7'.
-        private void TryStart_Workaround()
-        {
-            new NamedPipeServerStream( this._pipeName ).Dispose();
+            this._serverPipe.ClientConnected += this.ClientConnected;
+            this._serverPipe.ClientDisconnected += this.ClientDisconnected;
+            this._serverPipe.ClientMessage += this.ClientMessage;
+            this._serverPipe.Error += this.OnError;
         }
 
 

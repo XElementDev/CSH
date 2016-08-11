@@ -3,7 +3,7 @@
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Service
 {
 #region not unit-tested
-    internal abstract class ClientServerBase
+    public abstract class ClientServerBase
     {
         protected ClientServerBase()
         {
