@@ -4,18 +4,16 @@
                 xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" 
                 xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" 
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
   <assemblyIdentity 
-                    version="1.0.0.0" 
-                    name="MyApplication.app" 
+                    version="0.0.0.0" 
+                    name="CloudSyncHelper_win32" 
   />
+
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
     <security>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!-- Administrator privileges are needed in order to run MKLINK -->
-        <requestedExecutionLevel 
-                                 level="requireAdministrator" 
-                                 uiAccess="false" 
-        />
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
     </security>
   </trustInfo>
