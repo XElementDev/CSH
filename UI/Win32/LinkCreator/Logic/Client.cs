@@ -1,6 +1,5 @@
 ﻿using NamedPipeWrapper;
 using System;
-using System.Threading;
 
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 {
@@ -9,15 +8,29 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
     {
         public Client( string pipeName )
         {
+            this._waitForServerMessage = false;
+            this.InitializeClientPipe( pipeName );
+        }
+
+
+        private void InitializeClientPipe( string pipeName )
+        {
             this._client = new NamedPipeClient<string>( pipeName );
             this._client.AutoReconnect = false;
-            this._client.Error += OnError;
+            this._client.Error += this.OnError;
+            this._client.ServerMessage += this.OnServerMessage;
         }
 
 
         private void OnError( Exception exception )
         {
             throw exception;
+        }
+
+
+        private void OnServerMessage( NamedPipeConnection<string, string> connection, string message )
+        {
+            this._waitForServerMessage = false;
         }
 
 
@@ -52,11 +65,15 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 
         private void WaitForEndOfTransmission()
         {
-            Thread.Sleep( 100 );
+            this._waitForServerMessage = true;
+            while ( this._waitForServerMessage )
+            {
+            }
         }
 
 
         private NamedPipeClient<string> _client;
+        private bool _waitForServerMessage;
     }
 #endregion
 }

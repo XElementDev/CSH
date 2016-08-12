@@ -36,6 +36,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             var logMessage = $"Received the following message from client: {message}";
             Logger.Get().Log( logMessage );
             this.DoWork( message );
+            this._serverPipe.PushMessage( String.Empty );
         }
 
 
