@@ -8,9 +8,9 @@ using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 {
 #region not unit-tested
-    public class Server : ClientServerBase
+    public class Server
     {
-        public Server( string pipeName ) : base()
+        public Server( string pipeName )
         {
             this._executorFactory = new MkLinkExecutorFactory();
             this._pipeName = pipeName;
@@ -21,20 +21,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 
         private void ClientConnected( NamedPipeConnection<string, string> connection )
         {
-            this.Log( "A client connected to the server." );
+            Logger.Log( "A client connected to the server." );
         }
 
 
         private void ClientDisconnected( NamedPipeConnection<string, string> connection )
         {
-            this.Log( "A client disconnected from the server." );
+            Logger.Log( "A client disconnected from the server." );
         }
 
 
         private void ClientMessage( NamedPipeConnection<string, string> connection, string message )
         {
             var logMessage = $"Received the following message from client: {message}";
-            this.Log( logMessage );
+            Logger.Log( logMessage );
             this.DoWork( message );
         }
 
@@ -65,6 +65,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             }
             else
             {
+                var parametersAsString = Logger.LogRepresentationOf( parameters );
+                Logger.Log( $"Parsed message looks like this: {parametersAsString}" );
+
                 var executor = this._executorFactory.Get( parameters );
                 executor.Execute();
             }
@@ -88,7 +91,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         public void Start()
         {
             this._serverPipe.Start();
-            this.Log( "Server started." );
+            Logger.Log( "Server started." );
         }
 
 

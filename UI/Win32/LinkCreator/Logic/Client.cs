@@ -5,9 +5,9 @@ using System.Threading;
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 {
 #region not unit-tested
-    public class Client : ClientServerBase
+    public class Client
     {
-        public Client( string pipeName ) : base()
+        public Client( string pipeName )
         {
             this._client = new NamedPipeClient<string>( pipeName );
             this._client.AutoReconnect = false;
@@ -31,8 +31,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 
         private void PushMessage( string message )
         {
-            var logMessage = $"Pushing the following message to the server: {message}";
-            this.Log( logMessage );
             this._client.PushMessage( message );
             this.WaitForEndOfTransmission();
         }
@@ -42,7 +40,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         {
             this._client.Start();
             this._client.WaitForConnection();
-            this.Log( "Client connected." );
         }
 
 
@@ -50,7 +47,6 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         {
             this._client.Stop();
             this._client.WaitForDisconnection();
-            this.Log( "Client disconnected." );
         }
 
 
