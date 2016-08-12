@@ -6,47 +6,57 @@ using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 {
 #region not unit-tested
-    internal static class Logger
+    internal class Logger
     {
-        static Logger()
+        private Logger()
         {
-            Logger.InitializeEventLogger();
-            Logger._serializer = new JavaScriptSerializer();
+            this.InitializeEventLogger();
+            this._serializer = new JavaScriptSerializer();
         }
 
 
-        private static void InitializeEventLogger()
+        public static Logger Get()
+        {
+            if ( Logger._singleton == null )
+            {
+                Logger._singleton = new Logger();
+            }
+            return Logger._singleton;
+        }
+
+
+        public string GetLogRepresentationOf( ParametersDTO parameters )
+        {
+            var stringRepresentation = this._serializer.Serialize( parameters );
+            return stringRepresentation;
+        }
+
+
+        private void InitializeEventLogger()
         {
             if ( !EventLog.SourceExists( Logger.EVENT_SOURCE ) )
             {
                 EventLog.CreateEventSource( Logger.EVENT_SOURCE, Logger.LOG_NAME );
             }
 
-            Logger._eventLog = new EventLog();
-            Logger._eventLog.Source = Logger.EVENT_SOURCE;
-            Logger._eventLog.Log = Logger.LOG_NAME;
+            this._eventLog = new EventLog();
+            this._eventLog.Source = Logger.EVENT_SOURCE;
+            this._eventLog.Log = Logger.LOG_NAME;
         }
 
 
-        public static void Log( string logMessage )
+        public void Log( string logMessage )
         {
-            Logger.LogWithTimestamp( logMessage );
+            this.LogWithTimestamp( logMessage );
         }
 
 
-        public static string LogRepresentationOf( ParametersDTO parameters )
-        {
-            var stringRepresentation = Logger._serializer.Serialize( parameters );
-            return stringRepresentation;
-        }
-
-
-        private static void LogWithTimestamp( string logMessage )
+        private void LogWithTimestamp( string logMessage )
         {
             var dateTime = DateTime.Now.ToString( "yyyy-MM-dd HH:mm:ss.ffff" );
             var eventLogMessage = $"{dateTime}  Server  {logMessage}";
 
-            Logger._eventLog.WriteEntry( eventLogMessage, EventLogEntryType.Information );
+            this._eventLog.WriteEntry( eventLogMessage, EventLogEntryType.Information );
             Console.WriteLine( eventLogMessage );
         }
 
@@ -55,8 +65,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         private const string LOG_NAME = "Cloud Sync Helper";
 
 
-        private static EventLog _eventLog;
-        private static JavaScriptSerializer _serializer;
+        private EventLog _eventLog;
+        private JavaScriptSerializer _serializer;
+        private static Logger _singleton;
     }
 #endregion
 }

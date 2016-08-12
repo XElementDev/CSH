@@ -21,20 +21,20 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 
         private void ClientConnected( NamedPipeConnection<string, string> connection )
         {
-            Logger.Log( "A client connected to the server." );
+            Logger.Get().Log( "A client connected to the server." );
         }
 
 
         private void ClientDisconnected( NamedPipeConnection<string, string> connection )
         {
-            Logger.Log( "A client disconnected from the server." );
+            Logger.Get().Log( "A client disconnected from the server." );
         }
 
 
         private void ClientMessage( NamedPipeConnection<string, string> connection, string message )
         {
             var logMessage = $"Received the following message from client: {message}";
-            Logger.Log( logMessage );
+            Logger.Get().Log( logMessage );
             this.DoWork( message );
         }
 
@@ -65,8 +65,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             }
             else
             {
-                var parametersAsString = Logger.LogRepresentationOf( parameters );
-                Logger.Log( $"Parsed message looks like this: {parametersAsString}" );
+                var parametersAsString = Logger.Get().GetLogRepresentationOf( parameters );
+                Logger.Get().Log( $"Parsed message looks like this: {parametersAsString}" );
 
                 var executor = this._executorFactory.Get( parameters );
                 executor.Execute();
@@ -91,7 +91,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         public void Start()
         {
             this._serverPipe.Start();
-            Logger.Log( "Server started." );
+            Logger.Get().Log( "Server started." );
         }
 
 
