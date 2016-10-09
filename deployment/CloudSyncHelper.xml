@@ -6,6 +6,9 @@
   <Game ApplicationName="Kingdom Rush Frontiers" FolderName="Kingdom Rush 2016 [Kingdom Rush Frontiers]" Id="998b35cd-1c88-41ae-8205-3d7d634e5e82" TechNameMatcher="Kingdom Rush Frontiers">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Braid" FolderName="Braid 2009 [Braid]" Id="fdc6616e-d674-4148-a716-fe0da3584f67" TechNameMatcher="Braid">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="The Elder Scrolls V: Skyrim" FolderName="TES 2011 [The Elder Scrolls V_ Skyrim]" Id="6e5b3b3f-a4e3-4f67-989a-e1e313ef9d24" TechNameMatcher="The Elder Scrolls V: Skyrim">
     <IsSteamCloudSupported value="true" />
   </Game>
