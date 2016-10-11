@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="LIMBO" FolderName="Limbo 2011 [LIMBO]" Id="803f2c35-45c2-4a36-a3c4-9406ef99b89d" TechNameMatcher="LIMBO">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Fallout: New Vegas" FolderName="Fallout 2010-2011 [Fallout_ New Vegas]" Id="82423a58-05e4-4a40-9086-a49add4d7620" TechNameMatcher="Fallout: New Vegas">
     <IsSteamCloudSupported value="true" />
   </Game>
