@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Batman: Arkham Knight" FolderName="Batman Arkham 2015 [Batman_ Arkham Knight]" Id="8aa28e96-c9a2-4f9a-8499-d07304e0585a" TechNameMatcher="Batman™: Arkham Knight">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="LIMBO" FolderName="Limbo 2011 [LIMBO]" Id="803f2c35-45c2-4a36-a3c4-9406ef99b89d" TechNameMatcher="LIMBO">
     <IsSteamCloudSupported value="true" />
   </Game>
