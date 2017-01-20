@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Draw a Stickman: EPIC" FolderName="Draw a Stickman 2013 [Draw a Stickman_ EPIC]" Id="2ba555a1-99ae-4543-9713-c97f83149c8a" TechNameMatcher="Draw a Stickman: EPIC">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Oceanhorn: Monster of Uncharted Seas" FolderName="Oceanhorn 2015 [Oceanhorn_ Monster of Uncharted Seas]" Id="d2f74ff9-9f06-4ebf-893e-ad6e526ddf50" TechNameMatcher="Oceanhorn: Monster of Uncharted Seas">
     <IsSteamCloudSupported value="true" />
   </Game>
