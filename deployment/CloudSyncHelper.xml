@@ -3,6 +3,18 @@
   <Game ApplicationName="Draw a Stickman: EPIC" FolderName="Draw a Stickman 2013 [Draw a Stickman_ EPIC]" Id="2ba555a1-99ae-4543-9713-c97f83149c8a" TechNameMatcher="Draw a Stickman: EPIC">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Don't Starve Together" FolderName="Don't Starve 2016 [Don't Starve Together]" Id="8e0426f4-847d-4e32-8cd3-39b0d1d2bce6" TechNameMatcher="Don't Starve Together">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_1" SourceId="Cluster_1" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_2" SourceId="Cluster_2" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_3" SourceId="Cluster_3" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_4" SourceId="Cluster_4" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_5" SourceId="Cluster_5" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Oceanhorn: Monster of Uncharted Seas" FolderName="Oceanhorn 2015 [Oceanhorn_ Monster of Uncharted Seas]" Id="d2f74ff9-9f06-4ebf-893e-ad6e526ddf50" TechNameMatcher="Oceanhorn: Monster of Uncharted Seas">
     <IsSteamCloudSupported value="true" />
   </Game>
