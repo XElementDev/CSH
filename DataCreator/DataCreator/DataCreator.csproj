@@ -53,6 +53,7 @@
     <Compile Include="Data\Games\FalloutNewVegas.cs" />
     <Compile Include="Data\Games\KingdomRushFrontiers.cs" />
     <Compile Include="Data\Games\Braid.cs" />
+    <Compile Include="Data\Games\Pes2017.cs" />
     <Compile Include="Data\Games\Tes5Skyrim.cs" />
     <Compile Include="Data\Games\Brothers.cs" />
     <Compile Include="Data\Games\TombRaider.cs" />

@@ -33,6 +33,14 @@
   <Game ApplicationName="Braid" FolderName="Braid 2009 [Braid]" Id="fdc6616e-d674-4148-a716-fe0da3584f67" TechNameMatcher="Braid">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Pro Evolution Soccer 2017" FolderName="PES 2016 [Pro Evolution Soccer 2017]" Id="36fb54cc-18dd-4250-907f-b2372ba9ae56" TechNameMatcher="Pro Evolution Soccer 2017">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2017" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="The Elder Scrolls V: Skyrim" FolderName="TES 2011 [The Elder Scrolls V_ Skyrim]" Id="6e5b3b3f-a4e3-4f67-989a-e1e313ef9d24" TechNameMatcher="The Elder Scrolls V: Skyrim">
     <IsSteamCloudSupported value="true" />
   </Game>
