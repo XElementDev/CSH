@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Batman: Arkham City" FolderName="Batman Arkham 2011 [Batman_ Arkham City]" Id="62cc3cfd-3adc-4b9d-85fd-5d2774823c89" TechNameMatcher="Batman: Arkham City GOTY">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Saints Row: The Third" FolderName="Saints Row 2011 [Saints Row_ The Third]" Id="5d92770f-da68-4ada-bcdd-b0d42b8b5833" TechNameMatcher="Saints Row: The Third">
     <IsSteamCloudSupported value="true" />
   </Game>
