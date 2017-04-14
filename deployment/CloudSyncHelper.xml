@@ -6,6 +6,9 @@
   <Game ApplicationName="Borderlands: The Pre-Sequel" FolderName="Borderlands 2014 [Borderlands_ The Pre-Sequel]" Id="abebd728-dec6-4ccb-8130-ac281b61a49c" TechNameMatcher="Borderlands: The Pre-Sequel">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Dishonored" FolderName="Dishonored 2012 [Dishonored]" Id="934b0e8f-0962-4609-a6c4-7ddae9e0848e" TechNameMatcher="Dishonored">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Counter-Strike: Global Offensive" FolderName="Counter-Strike 2012 [Counter-Strike_ Global Offensive]" Id="cd027c0c-9ed5-4b81-b0ab-4ea5c0269d66" TechNameMatcher="Counter-Strike: Global Offensive">
     <IsSteamCloudSupported value="true" />
   </Game>
