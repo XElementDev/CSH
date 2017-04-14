@@ -48,6 +48,7 @@
     <Compile Include="Data\Games\BatmanArkhamCity.cs" />
     <Compile Include="Data\Games\BorderlandsTPS.cs" />
     <Compile Include="Data\Games\SaintsRow3.cs" />
+    <Compile Include="Data\Games\RiseOfTheTombRaider.cs" />
     <Compile Include="Data\Games\Tropico4.cs" />
     <Compile Include="Data\Games\DrawAStickmanEpic.cs" />
     <Compile Include="Data\Games\DoNotStarveTogether.cs" />

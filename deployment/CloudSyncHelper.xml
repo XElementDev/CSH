@@ -9,6 +9,9 @@
   <Game ApplicationName="Saints Row: The Third" FolderName="Saints Row 2011 [Saints Row_ The Third]" Id="5d92770f-da68-4ada-bcdd-b0d42b8b5833" TechNameMatcher="Saints Row: The Third">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Rise of the Tomb Raider" FolderName="Tomb Raider 2016 [Rise of the Tomb Raider]" Id="fa3807b1-c3a4-4162-9314-79fda4120bd5" TechNameMatcher="Rise of the Tomb Raider">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Tropico 4" FolderName="Tropico 2011 [Tropico 4]" Id="ef9744aa-f854-466f-879d-03073d2c601b" TechNameMatcher="Tropico 4">
     <IsSteamCloudSupported value="true" />
   </Game>
