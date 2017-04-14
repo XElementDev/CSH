@@ -6,6 +6,9 @@
   <Game ApplicationName="Borderlands: The Pre-Sequel" FolderName="Borderlands 2014 [Borderlands_ The Pre-Sequel]" Id="abebd728-dec6-4ccb-8130-ac281b61a49c" TechNameMatcher="Borderlands: The Pre-Sequel">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Counter-Strike: Global Offensive" FolderName="Counter-Strike 2012 [Counter-Strike_ Global Offensive]" Id="cd027c0c-9ed5-4b81-b0ab-4ea5c0269d66" TechNameMatcher="Counter-Strike: Global Offensive">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Saints Row: The Third" FolderName="Saints Row 2011 [Saints Row_ The Third]" Id="5d92770f-da68-4ada-bcdd-b0d42b8b5833" TechNameMatcher="Saints Row: The Third">
     <IsSteamCloudSupported value="true" />
   </Game>
