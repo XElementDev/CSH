@@ -6,6 +6,9 @@
   <Game ApplicationName="Borderlands: The Pre-Sequel" FolderName="Borderlands 2014 [Borderlands_ The Pre-Sequel]" Id="abebd728-dec6-4ccb-8130-ac281b61a49c" TechNameMatcher="Borderlands: The Pre-Sequel">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Joe Danger 2: The Movie" FolderName="Joe Danger 2013 [Joe Danger 2_ The Movie]" Id="cd27dca3-d440-4b2e-aa72-78f47ab9d07e" TechNameMatcher="Joe Danger 2: The Movie">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Sonic &amp; All-Stars Racing Transformed" FolderName="Sega All-Stars 2013 [Sonic _ All-Stars Racing Transformed]" Id="0074bfe1-1954-4a3b-9ace-a313f9c868fe" TechNameMatcher="Sonic &amp; All-Stars Racing Transformed">
     <IsSteamCloudSupported value="true" />
   </Game>
