@@ -6,6 +6,9 @@
   <Game ApplicationName="Borderlands: The Pre-Sequel" FolderName="Borderlands 2014 [Borderlands_ The Pre-Sequel]" Id="abebd728-dec6-4ccb-8130-ac281b61a49c" TechNameMatcher="Borderlands: The Pre-Sequel">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Owlboy" FolderName="Owlboy 2016 [Owlboy]" Id="3b69007d-6eb1-423d-9a56-8fe7c5bac404" TechNameMatcher="Owlboy">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Joe Danger 2: The Movie" FolderName="Joe Danger 2013 [Joe Danger 2_ The Movie]" Id="cd27dca3-d440-4b2e-aa72-78f47ab9d07e" TechNameMatcher="Joe Danger 2: The Movie">
     <IsSteamCloudSupported value="true" />
   </Game>
