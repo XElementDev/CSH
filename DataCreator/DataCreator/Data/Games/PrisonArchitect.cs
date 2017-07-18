@@ -48,11 +48,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 
         protected override void OnImportsSatisfied()
         {
+            var configName = "< v2.0";
+            var definition = this._definitionFactory.GetSteamCloud();
             var osConfigs = new List<OsConfigurationInfo>
             {
-                this._osConfigFactory.Get( this.GetLinksForWin10(), OsId.Win10 )
+                this._osConfigFactory.Get( this.GetLinksForWin10(), OsId.Win10, configName )
             };
-            this.DefinitionInfo = this._definitionFactory.Get( osConfigs );
+            definition.OsConfigs = osConfigs;
+            this.DefinitionInfo = definition;
         }
     }
 }

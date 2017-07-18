@@ -112,14 +112,14 @@
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Prison Architect" FolderName="Prison Architect 2015 [Prison Architect]" Id="d1350109-09fe-4458-8323-a2a087924ddf" TechNameMatcher="Prison Architect">
-    <OsConfig author="XElement" name="default" os="Win10">
+    <OsConfig author="XElement" name="&lt; v2.0" os="Win10">
       <Links>
         <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="Campaign" SourceId="Campaign" />
         <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="saves" SourceId="saves" />
         <FileLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="unlocked.txt" SourceId="unlocked.txt" />
       </Links>
     </OsConfig>
-    <IsSteamCloudSupported value="false" />
+    <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Saints Row: Gat out of Hell" FolderName="Saints Row 2015 [Saints Row_ Gat out of Hell]" Id="4c2dedd5-697f-4f2d-a31e-23b1c12e0bc4" TechNameMatcher="Saints Row: Gat out of Hell">
     <IsSteamCloudSupported value="true" />
