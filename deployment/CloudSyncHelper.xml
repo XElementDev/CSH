@@ -24,6 +24,9 @@
   <Game ApplicationName="PAYDAY 2" FolderName="Payday 2013 [PAYDAY 2]" Id="a48b8d74-6d6e-4e97-b32f-61bd596f6149" TechNameMatcher="PAYDAY 2">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Starbound" FolderName="Starbound 2013 [Starbound]" Id="e33d0478-9abc-49dc-9fa0-c9312bc5cf91" TechNameMatcher="Starbound">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Owlboy" FolderName="Owlboy 2016 [Owlboy]" Id="3b69007d-6eb1-423d-9a56-8fe7c5bac404" TechNameMatcher="Owlboy">
     <IsSteamCloudSupported value="true" />
   </Game>
