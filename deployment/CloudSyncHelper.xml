@@ -12,6 +12,9 @@
   <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Risk of Rain" FolderName="Risk of Rain 2013 [Risk of Rain]" Id="f0c7e626-408d-4c70-9b41-83c6c7c6bbec" TechNameMatcher="Risk of Rain">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="LEGO Batman 3: Beyond Gotham" FolderName="LEGO Batman 2014 [LEGO Batman 3_ Beyond Gotham]" Id="a1f8ed7c-b93f-4f32-aeff-e63ef632618d" TechNameMatcher="LEGO® Batman™ 3: Beyond Gotham">
     <IsSteamCloudSupported value="true" />
   </Game>
