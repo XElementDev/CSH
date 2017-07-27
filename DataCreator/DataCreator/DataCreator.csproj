@@ -49,6 +49,7 @@
     <Compile Include="Data\Games\BorderlandsTPS.cs" />
     <Compile Include="Data\Games\Broforce.cs" />
     <Compile Include="Data\Games\CodMw3.cs" />
+    <Compile Include="Data\Games\LegoBatman3.cs" />
     <Compile Include="Data\Games\ForgeQuest.cs" />
     <Compile Include="Data\Games\Owlboy.cs" />
     <Compile Include="Data\Games\JoeDanger2.cs" />

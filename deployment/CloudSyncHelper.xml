@@ -12,6 +12,9 @@
   <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="LEGO Batman 3: Beyond Gotham" FolderName="LEGO Batman 2014 [LEGO Batman 3_ Beyond Gotham]" Id="a1f8ed7c-b93f-4f32-aeff-e63ef632618d" TechNameMatcher="LEGO® Batman™ 3: Beyond Gotham">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Forge Quest" FolderName="Forge Quest 2015 [Forge Quest]" Id="e1d567de-eb0d-429d-b9ae-634a6d5952f7" TechNameMatcher="Forge Quest">
     <IsSteamCloudSupported value="true" />
   </Game>
