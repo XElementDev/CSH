@@ -53,6 +53,7 @@
     <Compile Include="Data\Games\LegoBatman3.cs" />
     <Compile Include="Data\Games\ForgeQuest.cs" />
     <Compile Include="Data\Games\Payday2.cs" />
+    <Compile Include="Data\Games\JustCause3.cs" />
     <Compile Include="Data\Games\Starbound.cs" />
     <Compile Include="Data\Games\Owlboy.cs" />
     <Compile Include="Data\Games\JoeDanger2.cs" />

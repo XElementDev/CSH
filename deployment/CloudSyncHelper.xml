@@ -24,6 +24,14 @@
   <Game ApplicationName="PAYDAY 2" FolderName="Payday 2013 [PAYDAY 2]" Id="a48b8d74-6d6e-4e97-b32f-61bd596f6149" TechNameMatcher="PAYDAY 2">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Just Cause 3" FolderName="Just Cause 2015 [Just Cause 3]" Id="d829c019-30c1-454c-b0d7-654ed434f274" TechNameMatcher="Just Cause 3">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Square Enix\Just Cause 3" DestTargetName="Saves" SourceId="Saves" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Starbound" FolderName="Starbound 2013 [Starbound]" Id="e33d0478-9abc-49dc-9fa0-c9312bc5cf91" TechNameMatcher="Starbound">
     <IsSteamCloudSupported value="true" />
   </Game>
