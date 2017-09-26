@@ -38,6 +38,12 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Sacred 2: Fallen Angel" FolderName="Sacred 2008 [Sacred 2_ Fallen Angel]" Id="924637e9-dfb9-4a71-8a51-687dd56177d7" TechNameMatcher="Sacred 2 Gold">
+    <OsConfig author="XElement" name="Sacred 2 Gold" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Starbound" FolderName="Starbound 2013 [Starbound]" Id="e33d0478-9abc-49dc-9fa0-c9312bc5cf91" TechNameMatcher="Starbound">
     <IsSteamCloudSupported value="true" />
   </Game>
