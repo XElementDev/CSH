@@ -12,6 +12,12 @@
   <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Risen 2 - Dark Waters" FolderName="Risen 2012 [Risen 2 - Dark Waters]" Id="a9b69ac8-4a31-4856-9830-4957e6a4c9ad" TechNameMatcher="Risen 2 - Dark Waters">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Risk of Rain" FolderName="Risk of Rain 2013 [Risk of Rain]" Id="f0c7e626-408d-4c70-9b41-83c6c7c6bbec" TechNameMatcher="Risk of Rain">
     <IsSteamCloudSupported value="true" />
   </Game>
