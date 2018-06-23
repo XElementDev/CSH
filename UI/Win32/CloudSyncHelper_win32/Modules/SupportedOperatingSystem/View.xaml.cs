@@ -5,12 +5,14 @@ using System.Windows.Media;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Modules
 {
+    #region not unit-tested
     public partial class SupportedOperatingSystemView : UserControl
     {
         public SupportedOperatingSystemView()
         {
             InitializeComponent();
         }
+
 
         public bool IsOsSupported
         {
@@ -22,6 +24,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
                                          typeof( SupportedOperatingSystemView ),
                                          new FrameworkPropertyMetadata( false ) );
 
+
         public ImageSource OsImageSource
         {
             get { return (ImageSource)GetValue( OsImageSourceProperty ); }
@@ -31,6 +34,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
             DependencyProperty.Register( "OsImageSource", typeof( ImageSource ),
                                          typeof( SupportedOperatingSystemView ),
                                          new FrameworkPropertyMetadata( null ) );
+
 
         public string OsName
         {
@@ -42,4 +46,5 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
                                          typeof( SupportedOperatingSystemView ),
                                          new FrameworkPropertyMetadata( String.Empty ) );
     }
+#endregion
 }
