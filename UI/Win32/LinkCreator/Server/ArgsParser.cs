@@ -11,6 +11,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Server
         }
 
 
+        // TODO: Does this need to be public?
         public void Parse( string[] args )
         {
             if ( args.Length >= 1 )
