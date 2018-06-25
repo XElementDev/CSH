@@ -15,9 +15,9 @@
   </NugetPackage>
   <NugetPackage>
     <title>HtmlAgilityPack</title>
-    <version>1.4.9</version>
-    <authors>Simon Mourrier,  Jeff Klawiter</authors>
-    <licenseUrl>http://htmlagilitypack.codeplex.com/license</licenseUrl>
+    <version>1.8.4</version>
+    <authors>ZZZ Projects,Simon Mourrier,Jeff Klawiter,Stephan Grell</authors>
+    <licenseUrl>https://github.com/zzzprojects/html-agility-pack/blob/master/LICENSE</licenseUrl>
   </NugetPackage>
   <NugetPackage>
     <title>Telerik JustMock Lite</title>
