@@ -4,21 +4,20 @@ using System.DirectoryServices;
 namespace XElement.DotNet.System.Environment.UserInformation
 {
 #region not unit-tested
-    public class DirectoryEntryRetriever : IUserInformationService
+    public class DirectoryEntryRetriever : IUserInformation
     {
-        public IUserInformation CurrentUser
+        public DirectoryEntryRetriever()
         {
-            get
-            {
-                var directoryEntry = this.GetFromDirectoryEntry();
-                var fullName = (string)directoryEntry.Properties["fullname"].Value;
-                var userInfo = new UserInformation
-                {
-                    FullName = fullName
-                };
-                return userInfo;
-            }
+            var directoryEntry = this.GetFromDirectoryEntry();
+            var fullName = (string)directoryEntry.Properties["fullname"].Value;
+
+            this.FullName = fullName;
+            this.Role = null;
+            this.TechnicalName = null;
         }
+
+
+        public string /*IUserInformation.*/FullName { get; private set; }
 
 
         private DirectoryEntry GetFromDirectoryEntry()
@@ -30,6 +29,12 @@ namespace XElement.DotNet.System.Environment.UserInformation
             DirectoryEntry userEntry = new DirectoryEntry( path );
             return userEntry;
         }
+
+
+        public Role? /*IUserInformation.*/Role { get; private set; }
+
+
+        public string /*IUserInformation.*/TechnicalName { get; private set; }
     }
 #endregion
 }

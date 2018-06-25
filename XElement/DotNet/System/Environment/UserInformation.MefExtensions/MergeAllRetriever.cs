@@ -6,61 +6,79 @@ using System.Linq;
 namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
 {
 #region not unit-tested
-    [Export( typeof( IUserInformationService ) )]
-    internal class MergeAllRetriever : IUserInformationService, IPartImportsSatisfiedNotification
+    [Export( typeof( IUserInformation ) )]
+    internal class MergeAllRetriever : IUserInformation, IPartImportsSatisfiedNotification
     {
-        public IUserInformation CurrentUser
+        public MergeAllRetriever()
         {
-            get
+            this.FullName = null;
+            this.Role = null;
+            this.TechnicalName = null;
+        }
+
+
+        public string /*IUserInformation.*/FullName { get; private set; }
+
+
+        public IUserInformation GetCurrentUser()
+        {
+            var merged = new UserInformation();
+
+            foreach ( var userInfo in this._orderedUserInfos )
             {
-                var merged = new UserInformation();
-
-                var userInfos = this.UserInformations;
-                foreach ( var userInfo in userInfos )
-                {
-                    if ( merged.FullName == null | merged.FullName == String.Empty )
-                        merged.FullName = userInfo.FullName;
-                    if ( merged.Role == null )
-                        merged.Role = userInfo.Role;
-                    if ( merged.TechnicalName == null | merged.TechnicalName == String.Empty )
-                        merged.TechnicalName = userInfo.TechnicalName;
-                }
-
-                return merged;
+                if ( merged.FullName == null | merged.FullName == String.Empty )
+                    merged.FullName = userInfo.FullName;
+                if ( merged.Role == null )
+                    merged.Role = userInfo.Role;
+                if ( merged.TechnicalName == null | merged.TechnicalName == String.Empty )
+                    merged.TechnicalName = userInfo.TechnicalName;
             }
+
+            return merged;
         }
 
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
-            var comparer = new ReliabilityComparer();
-            var orderedSvcs = this._userInfoServices.OrderBy( svc => svc, comparer ).ToList();
-            this._orderedUserInfoServices = orderedSvcs;
+            this.OrderUserInfos();
+            this.SetProperties();
         }
 
 
-        private IEnumerable<IUserInformation> UserInformations
+        private void OrderUserInfos()
         {
-            get
-            {
-                var userInfos = this._orderedUserInfoServices.Select( svc => svc.CurrentUser )
-                    .ToList();
-                return userInfos;
-            }
+            var comparer = new ReliabilityComparer();
+            var orderedInfos = this._userInfos.OrderBy( svc => svc, comparer ).ToList();
+            this._orderedUserInfos = orderedInfos;
         }
 
 
-        private IEnumerable<IUserInformationService> _orderedUserInfoServices;
+        public Role? /*IUserInformation.*/Role { get; private set; }
 
 
-        [ImportMany( typeof( IUserInformationServiceInt ) )]
-        private IEnumerable<IUserInformationService> _userInfoServices = null;
+        private void SetProperties()
+        {
+            var userInfo = this.GetCurrentUser();
+            this.FullName = userInfo.FullName;
+            this.Role = userInfo.Role;
+            this.TechnicalName = userInfo.TechnicalName;
+        }
+
+
+        public string /*IUserInformation.*/TechnicalName { get; private set; }
+
+
+        private IEnumerable<IUserInformation> _orderedUserInfos;
+
+
+        [ImportMany( typeof( IUserInformationInt ) )]
+        private IEnumerable<IUserInformation> _userInfos = null;
     }
 
 
-    internal class ReliabilityComparer : IComparer<IUserInformationService>
+    internal class ReliabilityComparer : IComparer<IUserInformation>
     {
-        public int Compare( IUserInformationService x, IUserInformationService y )
+        public int Compare( IUserInformation x, IUserInformation y )
         {
             var indexOfX = _reliabilityOrder.IndexOf( x.GetType() );
             var indexOfY = _reliabilityOrder.IndexOf( y.GetType() );
@@ -69,7 +87,8 @@ namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
 
 
         /// <summary>
-        /// In order of ascending reliability, i.e. most reliable comes last. (Such that information of less reliable retrievers can simply be overwritten.)
+        /// In order of ascending reliability, i.e. most reliable comes last.
+        /// (Such that information of less reliable retrievers can simply be overwritten.)
         /// </summary>
         private static IList<Type> _reliabilityOrder = new List<Type>
         {

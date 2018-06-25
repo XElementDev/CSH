@@ -1,39 +1,29 @@
 ﻿namespace XElement.DotNet.System.Environment.UserInformation
 {
 #region not unit-tested
-    public class SysEnvironmentRetriever : IUserInformationService
+    public class SysEnvironmentRetriever : IUserInformationInt
     {
-        public IUserInformation CurrentUser
+        public SysEnvironmentRetriever()
         {
-            get
-            {
-                var userInfo = new UserInformation
-                {
-                    Domain = global::System.Environment.UserDomainName, 
-                    TechnicalName = global::System.Environment.UserName
-                };
-                return userInfo;
+            this.Domain = global::System.Environment.UserDomainName;
+            this.FullName = null;
+            this.Role = null;
+            this.TechnicalName = global::System.Environment.UserName;
 
-                //System.Security.Principal.WindowsIdentity.GetCurrent()
-
-                //Environment.
-
-                ////  --> https://stackoverflow.com/questions/3471635/get-first-name-last-name-of-logedin-windows-user
-                //UserPrincipal userPrincipal = UserPrincipal.Current;
-                //var name = userPrincipal.DisplayName;
-                //var surname = userPrincipal.Surname;
-
-                ////  --> http://www.codeproject.com/Questions/354321/Get-User-Image-for-Windows-Login-user
-                //var imageFile = new FileInfo( Environment.GetFolderPath( Environment.SpecialFolder.CommonApplicationData ) +
-                //    @"\Microsoft\User Account Pictures\" + Environment.UserDomainName + "+" + Environment.UserName + ".dat" );
-
-                //var bla = WindowsIdentity.GetCurrent( TokenAccessLevels.Read );
-                //bla.
-
-                ////  --> https://stackoverflow.com/questions/12113706/filenotfoundexception-at-system-directoryservices-interop-unsafenativemethods-ia
-                //new PrincipalContext(ContextType.Machine, Environment.MachineName).
-            }
+            return;
         }
+
+
+        public string /*IUserInformationInt.*/Domain { get; private set; }
+
+
+        public string /*IUserInformationInt.*/FullName { get; private set; }
+
+
+        public Role? /*IUserInformationInt.*/Role { get; private set; }
+
+
+        public string /*IUserInformationInt.*/TechnicalName { get; private set; }
     }
 #endregion
 }

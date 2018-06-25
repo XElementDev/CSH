@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRoleInformation.cs" />
     <Compile Include="IUserInformation.cs" />
-    <Compile Include="IUserInformationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleEnum.cs" />
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using XElement.DotNet.System.Environment.UserInformation;
 using NotifyPropertyChanged = XElement.Common.UI.ViewModelBase;
@@ -34,7 +35,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
 
         private void InitializeUserProfileModel()
         {
-            var currentUser = this._userInfoSvc.CurrentUser;
+            var currentUser = this._lazyUserInfo.Value;
             var parameters = new UserProfile.ModelParametersDTO
             {
                 FullName = currentUser.FullName, 
@@ -73,8 +74,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
         public UserProfile.ViewModel UserProfileVM { get; private set; }
 
 
-        [Import]
-        private IUserInformationService _userInfoSvc = null;
+        //  --> https://stackoverflow.com/questions/3108820/lazy-load-with-mef
+        [Import( typeof( IUserInformation ), AllowDefault = true, AllowRecomposition = true )]
+        private Lazy<IUserInformation> _lazyUserInfo = null;
 
 
         private UserProfile.Model _userProfileModel;

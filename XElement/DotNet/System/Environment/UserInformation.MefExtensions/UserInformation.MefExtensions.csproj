@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUserInformationServiceInt.cs" />
+    <Compile Include="IUserInformationInt.cs" />
     <Compile Include="MergeAllRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DirectoryEntryRetriever.cs" />

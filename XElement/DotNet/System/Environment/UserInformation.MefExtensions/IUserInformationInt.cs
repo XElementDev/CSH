@@ -1,4 +1,4 @@
 ﻿namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
 {
-    internal interface IUserInformationServiceInt : IUserInformationService { }
+    internal interface IUserInformationInt : IUserInformation { }
 }
