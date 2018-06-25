@@ -120,6 +120,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "..\UI\Win32\LinkC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "..\UI\Win32\LinkCreator\Logic\Logic.csproj", "{FCDFE076-DC1B-400E-AB6E-CBF1C8879662}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_UserInformation.MefExtensions", "..\XElement\DotNet\System\Environment\Test_UserInformation.MefExtensions\Test_UserInformation.MefExtensions.csproj", "{F1F64358-4A50-4CE6-BBFB-055F5C94A27D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -280,6 +282,10 @@ Global
 		{FCDFE076-DC1B-400E-AB6E-CBF1C8879662}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCDFE076-DC1B-400E-AB6E-CBF1C8879662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCDFE076-DC1B-400E-AB6E-CBF1C8879662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F64358-4A50-4CE6-BBFB-055F5C94A27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F64358-4A50-4CE6-BBFB-055F5C94A27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F64358-4A50-4CE6-BBFB-055F5C94A27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F64358-4A50-4CE6-BBFB-055F5C94A27D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -331,5 +337,6 @@ Global
 		{75E73BC2-E2F3-4986-8193-8B2FEBF32CC4} = {51BAE75D-52AF-4124-902D-B04B4AE21E9C}
 		{6BD48255-8B4B-4845-A048-DE0ADCA5950D} = {51BAE75D-52AF-4124-902D-B04B4AE21E9C}
 		{FCDFE076-DC1B-400E-AB6E-CBF1C8879662} = {51BAE75D-52AF-4124-902D-B04B4AE21E9C}
+		{F1F64358-4A50-4CE6-BBFB-055F5C94A27D} = {E8981F23-1883-4E05-BF46-0A5AF7C882E2}
 	EndGlobalSection
 EndGlobal
