@@ -13,6 +13,12 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
 #region not unit-tested
     public class SteamBannerCrawler : IPriotizableBannerCrawler
     {
+        public SteamBannerCrawler()
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            return;
+        }
+
         private Image Crawl()
         {
             Image image = null;
