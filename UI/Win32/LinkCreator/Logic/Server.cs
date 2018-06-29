@@ -4,6 +4,7 @@ using System.IO.Pipes;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using XElement.CloudSyncHelper.Logic.Execution.MkLink;
+using XElement.DotNet.System.Environment.UserInformation;
 
 namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 {
@@ -12,7 +13,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
     {
         public Server( string pipeName )
         {
-            this._executorFactory = new MkLinkExecutorFactory();
+            var mkLinkExecutorDependencies = new DependenciesDTO
+            {
+                RoleInfoRetriever = new WindowsPrincipalRetriever() // TODO: Use MEF
+            };
+            var mkLinkExecutorFactory = new Factory( mkLinkExecutorDependencies );
+            this._executorFactory = mkLinkExecutorFactory;
             this._pipeName = pipeName;
 
             InitializeServerPipe();

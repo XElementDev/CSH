@@ -1,23 +1,39 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Security.AccessControl;
+using XElement.DotNet.System.Environment.UserInformation;
 
 namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
 {
 #region not unit-tested
     public class Executor : IExecutor
     {
-        public Executor( ParametersDTO parameters )
+        public Executor( ParametersDTO parameters, DependenciesDTO dependencies )
         {
             this._link = parameters.Link;
             this._target = parameters.Target;
             this._type = parameters.Type;
+
+            this._roleInformation = dependencies.RoleInfoRetriever.Get();
+
+            return;
         }
 
 
         public void /*IExecutor.*/Execute()
         {
-            // TODO: Throw exception if not in admin mode
-            this.ExecuteCmd();
+#endregion
+            if ( this._roleInformation.Role != Role.Administrator )
+            {
+                throw new PrivilegeNotHeldException( "Admin rights" ); // TODO: Is that the right exception type?
+            }
+#region not unit-tested
+            else
+            {
+                this.ExecuteCmd();
+            }
+
+            return;
         }
 
 
@@ -33,15 +49,20 @@ namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
             process.Start();
 
             process.WaitForExit();
+
+            return;
         }
 
 
         private string GetCmdCommand()
         {
-            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", 
-                                  this.TypeAsString, 
-                                  this._link, 
-                                  this._link );
+            return String.Format
+            (
+                "MKLINK {0} \"{1}\" \"{2}\"", 
+                this.TypeAsString, 
+                this._link, 
+                this._link
+            );
         }
 
 
@@ -58,8 +79,12 @@ namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
 
 
         private string _link;
+
         private string _target;
+
         private Type _type;
+
+        private IRoleInformation _roleInformation;
     }
 #endregion
 }

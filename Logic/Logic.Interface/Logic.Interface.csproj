@@ -44,6 +44,7 @@
     <Compile Include="Execution\Definition\DefinitionParametersDTO.cs" />
     <Compile Include="Execution\Definition\IDefinitionFactory.cs" />
     <Compile Include="Execution\Link\DependenciesDTO.cs" />
+    <Compile Include="Execution\MkLink\DependenciesDTO.cs" />
     <Compile Include="Execution\MkLink\IExecutor.cs" />
     <Compile Include="Execution\Link\LinkParametersDTO.cs" />
     <Compile Include="Execution\Link\ILink.cs" />
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\..\XElement\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
       <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
       <Name>FactoryMethod.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DotNet\System\Environment\UserInformation.Interface\UserInformation.Interface.csproj">
+      <Project>{59cb5b77-dd0d-4665-beb9-22e999bc2e2b}</Project>
+      <Name>UserInformation.Interface</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

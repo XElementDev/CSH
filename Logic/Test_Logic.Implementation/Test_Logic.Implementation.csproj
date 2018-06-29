@@ -61,12 +61,19 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testExecution\testDefinition\testDefinition.cs" />
+    <Compile Include="testExecution\testMkLink\testExecutor_Admin.cs" />
+    <Compile Include="testExecution\testMkLink\testExecutor_NonAdmin.cs" />
+    <Compile Include="testExecution\testMkLink\TestUtils.cs" />
     <Compile Include="testExecution\testOsConfiguration\testOsConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DataTypes\DataTypes.csproj">
       <Project>{1D9F1E8B-DAE5-40FF-81A2-F3366AC32C35}</Project>
       <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ReparsePointAdapter\ReparsePointAdapter.csproj">
+      <Project>{2c2b6037-1025-4fd5-83f1-17837c36a9d6}</Project>
+      <Name>ReparsePointAdapter</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Serialization\Serialization.csproj">
       <Project>{9f1c5ea3-4d25-439f-a293-97a26b7c930d}</Project>
@@ -83,6 +90,14 @@
     <ProjectReference Include="..\..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7CF544AE-B30D-46F0-8FE6-11EE842FF035}</Project>
       <Name>OsRecognition.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DotNet\System\Environment\UserInformation.Implementation\UserInformation.Implementation.csproj">
+      <Project>{9e94c2d1-be62-45e6-8a12-0b04d3a991db}</Project>
+      <Name>UserInformation.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DotNet\System\Environment\UserInformation.Interface\UserInformation.Interface.csproj">
+      <Project>{59cb5b77-dd0d-4665-beb9-22e999bc2e2b}</Project>
+      <Name>UserInformation.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logic.Implementation\Logic.Implementation.csproj">
       <Project>{411fc166-4d90-4915-affd-6c4c1ecf1396}</Project>
