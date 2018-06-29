@@ -5,7 +5,6 @@ using XElement.DotNet.System.Environment.UserInformation;
 
 namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
 {
-#region not unit-tested
     public class Executor : IExecutor
     {
         public Executor( ParametersDTO parameters, DependenciesDTO dependencies )
@@ -22,12 +21,10 @@ namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
 
         public void /*IExecutor.*/Execute()
         {
-#endregion
             if ( this._roleInformation.Role != Role.Administrator )
             {
                 throw new PrivilegeNotHeldException( "Admin rights" ); // TODO: Is that the right exception type?
             }
-#region not unit-tested
             else
             {
                 this.ExecuteCmd();
@@ -61,7 +58,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
                 "MKLINK {0} \"{1}\" \"{2}\"", 
                 this.TypeAsString, 
                 this._link, 
-                this._link
+                this._target
             );
         }
 
@@ -71,8 +68,8 @@ namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
             get
             {
                 if      ( this._type == Type.DIRECTORY_LINK )       return "/d";
-                else if ( this._type == Type.HARD_LINK )            return "/h";
-                else if ( this._type == Type.DIRECTORY_JUNCTION )   return "/j";
+                //else if ( this._type == Type.HARD_LINK )            return "/h";
+                //else if ( this._type == Type.DIRECTORY_JUNCTION )   return "/j";
                 else /*if ( this._type == Type.DEFAULT ) */         return String.Empty;
             }
         }
@@ -86,5 +83,4 @@ namespace XElement.CloudSyncHelper.Logic.Execution.MkLink
 
         private IRoleInformation _roleInformation;
     }
-#endregion
 }
