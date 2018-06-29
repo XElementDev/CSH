@@ -1,4 +1,4 @@
-﻿namespace XElement.DotNet.System.Environment.UserInformation
+﻿namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
 {
 #region not unit-tested
     internal class UserInformation : IUserInformation

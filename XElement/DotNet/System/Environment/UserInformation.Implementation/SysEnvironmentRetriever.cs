@@ -1,29 +1,34 @@
-﻿namespace XElement.DotNet.System.Environment.UserInformation
+﻿using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
+
+namespace XElement.DotNet.System.Environment.UserInformation
 {
 #region not unit-tested
-    public class SysEnvironmentRetriever : IUserInformationInt
+    public class SysEnvironmentRetriever : IUserInfoRetriever, IRoleInfoRetriever
     {
         public SysEnvironmentRetriever()
         {
-            this.Domain = global::System.Environment.UserDomainName;
-            this.FullName = null;
-            this.Role = null;
-            this.TechnicalName = global::System.Environment.UserName;
+
+
+
+
 
             return;
         }
 
 
-        public string /*IUserInformationInt.*/Domain { get; private set; }
+        public IUserInformation /*IUserInfoRetriever.*/Get()
+        {
+            var userInformationInt = new UserInformationInt
+            {
+                Domain = global::System.Environment.UserDomainName,
+                FullName = null,
+                Role = null,
+                TechnicalName = global::System.Environment.UserName
+            };
+            return userInformationInt;
+        }
 
-
-        public string /*IUserInformationInt.*/FullName { get; private set; }
-
-
-        public Role? /*IUserInformationInt.*/Role { get; private set; }
-
-
-        public string /*IUserInformationInt.*/TechnicalName { get; private set; }
+        IRoleInformation IFactory<IRoleInformation>.Get() { return this.Get(); }
     }
 #endregion
 }

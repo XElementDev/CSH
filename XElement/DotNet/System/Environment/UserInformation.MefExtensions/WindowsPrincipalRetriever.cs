@@ -3,7 +3,7 @@
 namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
 {
 #region not unit-tested
-    [Export( typeof( IUserInformationInt ) )]
+    [Export( typeof( IUserInfoRetrieverInt ) )]
     internal class WindowsPrincipalRetriever : 
         global::XElement.DotNet.System.Environment.UserInformation.WindowsPrincipalRetriever { }
 #endregion

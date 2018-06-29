@@ -35,7 +35,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
 
         private void InitializeUserProfileModel()
         {
-            var currentUser = this._lazyUserInfo.Value;
+            var retriever = this._lazyUserInfoRetriever.Value;
+            var currentUser = retriever.Get();
             var parameters = new UserProfile.ModelParametersDTO
             {
                 FullName = currentUser.FullName, 
@@ -75,8 +76,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules
 
 
         //  --> https://stackoverflow.com/questions/3108820/lazy-load-with-mef
-        [Import( typeof( IUserInformation ), AllowDefault = true, AllowRecomposition = true )]
-        private Lazy<IUserInformation> _lazyUserInfo = null;
+        [Import( typeof( IUserInfoRetriever ), AllowDefault = true, AllowRecomposition = true )]
+        private Lazy<IUserInfoRetriever> _lazyUserInfoRetriever = null;
 
 
         private UserProfile.Model _userProfileModel;

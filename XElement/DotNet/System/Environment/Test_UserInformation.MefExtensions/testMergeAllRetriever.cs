@@ -16,7 +16,7 @@ namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
             var container = this.CreateMefContainer();
             container.ComposeParts( mefHelper );
 
-            Assert.IsNotNull( mefHelper.UserInformation );
+            Assert.IsNotNull( mefHelper.UserInfoRetriever );
         }
 
 
@@ -36,7 +36,7 @@ namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
         private class MefHelper
         {
             [Import]
-            public IUserInformation UserInformation { get; private set; }
+            public IUserInfoRetriever UserInfoRetriever { get; private set; }
         }
     }
 }

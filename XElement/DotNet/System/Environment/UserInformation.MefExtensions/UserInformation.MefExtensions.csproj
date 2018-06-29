@@ -41,14 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUserInformationInt.cs" />
+    <Compile Include="IUserInfoRetrieverInt.cs" />
     <Compile Include="MergeAllRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DirectoryEntryRetriever.cs" />
+    <Compile Include="UserInformation.cs" />
     <Compile Include="WindowsPrincipalRetriever.cs" />
     <Compile Include="SysEnvironmentRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DesignPatterns\CreationalPatterns\FactoryMethod\FactoryMethod.Interface\FactoryMethod.Interface.csproj">
+      <Project>{DAA6FA28-FA8B-461C-9948-4ADEB12B743C}</Project>
+      <Name>FactoryMethod.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserInformation.Implementation\UserInformation.Implementation.csproj">
       <Project>{9e94c2d1-be62-45e6-8a12-0b04d3a991db}</Project>
       <Name>UserInformation.Implementation</Name>

@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Security.Principal;
+using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 using RoleEnum = XElement.DotNet.System.Environment.UserInformation.Role;
 
 namespace XElement.DotNet.System.Environment.UserInformation
 {
 #region not unit-tested
-    public class WindowsPrincipalRetriever : IUserInformationInt
+    public class WindowsPrincipalRetriever : IUserInfoRetriever, IRoleInfoRetriever
     {
         public WindowsPrincipalRetriever()
         {
-            var identity = WindowsPrincipalRetriever.GetIdentity();
-
-            var windowsLogonName = WindowsPrincipalRetriever.GetWindowsLogonName( identity );
-            var splittedLogonInfo = windowsLogonName.Split( new[] { "\\" }, 
-                                                            StringSplitOptions.RemoveEmptyEntries );
-
-            this.Domain = splittedLogonInfo[0];
-            this.FullName = null;
-            this.Role = WindowsPrincipalRetriever.GetRole( identity );
-            this.TechnicalName = splittedLogonInfo[1];
-
             return;
         }
 
 
-        public string /*IUserInformationInt.*/Domain { get; private set; }
+        public IUserInformation /*IUserInfoRetriever.*/Get()
+        {
+            var identity = WindowsPrincipalRetriever.GetIdentity();
 
+            var windowsLogonName = WindowsPrincipalRetriever.GetWindowsLogonName( identity );
+            var splittedLogonInfo = windowsLogonName.Split
+            (
+                new[] { "\\" },
+                StringSplitOptions.RemoveEmptyEntries
+            );
 
-        public string /*IUserInformationInt.*/FullName { get; private set; }
+            var userInformationInt = new UserInformationInt
+            {
+                Domain = splittedLogonInfo[0],
+                FullName = null,
+                Role = WindowsPrincipalRetriever.GetRole( identity ),
+                TechnicalName = splittedLogonInfo[1]
+            };
+            return userInformationInt;
+        }
+
+        IRoleInformation IFactory<IRoleInformation>.Get() { return this.Get(); }
 
 
         private static WindowsIdentity GetIdentity()
@@ -57,12 +65,6 @@ namespace XElement.DotNet.System.Environment.UserInformation
             var windowsLogonName = identity.Name;
             return windowsLogonName;
         }
-
-
-        public RoleEnum? /*IUserInformationInt.*/Role { get; private set; }
-
-
-        public string /*IUserInformationInt.*/TechnicalName { get; private set; }
     }
 #endregion
 }

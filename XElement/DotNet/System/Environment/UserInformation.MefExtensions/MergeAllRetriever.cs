@@ -6,18 +6,16 @@ using System.Linq;
 namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
 {
 #region not unit-tested
-    [Export( typeof( IUserInformation ) )]
-    internal class MergeAllRetriever : IUserInformation, IPartImportsSatisfiedNotification
+    [Export( typeof( IUserInfoRetriever ) )]
+    internal class MergeAllRetriever : IUserInfoRetriever, IPartImportsSatisfiedNotification
     {
         public MergeAllRetriever()
         {
-            this.FullName = null;
-            this.Role = null;
-            this.TechnicalName = null;
+            return;
         }
 
 
-        public string /*IUserInformation.*/FullName { get; private set; }
+        public IUserInformation /*IUserInfoRetriever.*/Get() { return this._userInformation; }
 
 
         public IUserInformation GetCurrentUser()
@@ -41,38 +39,25 @@ namespace XElement.DotNet.System.Environment.UserInformation.MefExtensions
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
             this.OrderUserInfos();
-            this.SetProperties();
+            this._userInformation = this.GetCurrentUser();
         }
 
 
         private void OrderUserInfos()
         {
             var comparer = new ReliabilityComparer();
-            var orderedInfos = this._userInfos.OrderBy( svc => svc, comparer ).ToList();
-            this._orderedUserInfos = orderedInfos;
+            var userInfos = this._userInfoRetrievers.Select( r => r.Get() ).ToList();
+            var orderedUserInfos = userInfos.OrderBy( svc => svc, comparer ).ToList();
+            this._orderedUserInfos = orderedUserInfos;
         }
-
-
-        public Role? /*IUserInformation.*/Role { get; private set; }
-
-
-        private void SetProperties()
-        {
-            var userInfo = this.GetCurrentUser();
-            this.FullName = userInfo.FullName;
-            this.Role = userInfo.Role;
-            this.TechnicalName = userInfo.TechnicalName;
-        }
-
-
-        public string /*IUserInformation.*/TechnicalName { get; private set; }
 
 
         private IEnumerable<IUserInformation> _orderedUserInfos;
 
+        [ImportMany( typeof( IUserInfoRetrieverInt ) )]
+        private IEnumerable<IUserInfoRetriever> _userInfoRetrievers = null;
 
-        [ImportMany( typeof( IUserInformationInt ) )]
-        private IEnumerable<IUserInformation> _userInfos = null;
+        private IUserInformation _userInformation;
     }
 
 
