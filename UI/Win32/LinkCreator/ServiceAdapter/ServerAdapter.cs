@@ -41,7 +41,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
             var process = new Process();
             process.StartInfo.FileName = this.PathToLinkCreatorSvcExe;
             process.StartInfo.Arguments = ClientServer.PIPE_NAME;
-            process.StartInfo.CreateNoWindow = true;    // TODO check why a window is created
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
             process.Start();    // TODO handle if user does not allow admin rights
 
             return;
