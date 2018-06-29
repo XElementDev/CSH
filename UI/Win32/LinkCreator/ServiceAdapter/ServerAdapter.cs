@@ -43,7 +43,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.ServiceAdapter
             process.StartInfo.Arguments = ClientServer.PIPE_NAME;
             process.StartInfo.CreateNoWindow = true;    // TODO check why a window is created
             process.Start();    // TODO handle if user does not allow admin rights
-            // TODO: fix link creating, currently symlinks do not point to the correct file (and cannot be opened)
+
+            return;
         }
 
 
