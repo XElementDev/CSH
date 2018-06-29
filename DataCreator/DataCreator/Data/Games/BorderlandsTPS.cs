@@ -3,16 +3,15 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class BorderlandsTPS : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public BorderlandsTPS() : base( "ABEBD728-DEC6-4CCB-8130-AC281B61A49C" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Borderlands: The Pre-Sequel";
+            this.FolderName = "Borderlands 2014 [Borderlands_ The Pre-Sequel]";
+            this.TechnicalNameMatcher = this.ApplicationName;
         }
-
 
         protected override void OnImportsSatisfied()
         {

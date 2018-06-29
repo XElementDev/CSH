@@ -3,16 +3,15 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class Broforce : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public Broforce() : base( "0E472D3F-D542-437A-8E29-B86563F664B6" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Broforce";
+            this.FolderName = "Broforce 2014 [Broforce]";
+            this.TechnicalNameMatcher = this.ApplicationName;
         }
-
 
         protected override void OnImportsSatisfied()
         {

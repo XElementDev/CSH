@@ -3,16 +3,15 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class Starbound : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public Starbound() : base( "E33D0478-9ABC-49DC-9FA0-C9312BC5CF91" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Starbound";
+            this.FolderName = "Starbound 2013 [Starbound]";
+            this.TechnicalNameMatcher = this.ApplicationName;
         }
-
 
         protected override void OnImportsSatisfied()
         {

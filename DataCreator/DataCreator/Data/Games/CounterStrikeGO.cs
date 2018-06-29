@@ -3,16 +3,15 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class CounterStrikeGO : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public CounterStrikeGO() : base( "CD027C0C-9ED5-4B81-B0AB-4EA5C0269D66" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Counter-Strike: Global Offensive";
+            this.FolderName = "Counter-Strike 2012 [Counter-Strike_ Global Offensive]";
+            this.TechnicalNameMatcher = this.ApplicationName;
         }
-
 
         protected override void OnImportsSatisfied()
         {

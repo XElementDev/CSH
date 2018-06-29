@@ -3,14 +3,14 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class Tropico4 : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public Tropico4() : base( "EF9744AA-F854-466F-879D-03073D2C601B" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Tropico 4";
+            this.FolderName = "Tropico 2011 [Tropico 4]";
+            this.TechnicalNameMatcher = "Tropico 4";
         }
 
 

@@ -1,5 +1,126 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Batman: Arkham City" FolderName="Batman Arkham 2011 [Batman_ Arkham City]" Id="62cc3cfd-3adc-4b9d-85fd-5d2774823c89" TechNameMatcher="Batman: Arkham City GOTY">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Borderlands: The Pre-Sequel" FolderName="Borderlands 2014 [Borderlands_ The Pre-Sequel]" Id="abebd728-dec6-4ccb-8130-ac281b61a49c" TechNameMatcher="Borderlands: The Pre-Sequel">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Broforce" FolderName="Broforce 2014 [Broforce]" Id="0e472d3f-d542-437a-8e29-b86563f664b6" TechNameMatcher="Broforce">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Defend Your Life" FolderName="Defend Your Life 2015 [Defend Your Life]" Id="a0de5ce4-c59c-479c-9ff6-d0b5e9119561" TechNameMatcher="Defend Your Life">
+    <OsConfig author="XElement" name="Defend Your Life" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Risen 2 - Dark Waters" FolderName="Risen 2012 [Risen 2 - Dark Waters]" Id="a9b69ac8-4a31-4856-9830-4957e6a4c9ad" TechNameMatcher="Risen 2 - Dark Waters">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Risk of Rain" FolderName="Risk of Rain 2013 [Risk of Rain]" Id="f0c7e626-408d-4c70-9b41-83c6c7c6bbec" TechNameMatcher="Risk of Rain">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="LEGO Batman 3: Beyond Gotham" FolderName="LEGO Batman 2014 [LEGO Batman 3_ Beyond Gotham]" Id="a1f8ed7c-b93f-4f32-aeff-e63ef632618d" TechNameMatcher="LEGO® Batman™ 3: Beyond Gotham">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Forge Quest" FolderName="Forge Quest 2015 [Forge Quest]" Id="e1d567de-eb0d-429d-b9ae-634a6d5952f7" TechNameMatcher="Forge Quest">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="PAYDAY 2" FolderName="Payday 2013 [PAYDAY 2]" Id="a48b8d74-6d6e-4e97-b32f-61bd596f6149" TechNameMatcher="PAYDAY 2">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Just Cause 3" FolderName="Just Cause 2015 [Just Cause 3]" Id="d829c019-30c1-454c-b0d7-654ed434f274" TechNameMatcher="Just Cause 3">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Square Enix\Just Cause 3" DestTargetName="Saves" SourceId="Saves" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Sacred 2: Fallen Angel" FolderName="Sacred 2008 [Sacred 2_ Fallen Angel]" Id="924637e9-dfb9-4a71-8a51-687dd56177d7" TechNameMatcher="Sacred 2 Gold">
+    <OsConfig author="XElement" name="Sacred 2 Gold" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Starbound" FolderName="Starbound 2013 [Starbound]" Id="e33d0478-9abc-49dc-9fa0-c9312bc5cf91" TechNameMatcher="Starbound">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Owlboy" FolderName="Owlboy 2016 [Owlboy]" Id="3b69007d-6eb1-423d-9a56-8fe7c5bac404" TechNameMatcher="Owlboy">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Joe Danger 2: The Movie" FolderName="Joe Danger 2013 [Joe Danger 2_ The Movie]" Id="cd27dca3-d440-4b2e-aa72-78f47ab9d07e" TechNameMatcher="Joe Danger 2: The Movie">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Sonic &amp; All-Stars Racing Transformed" FolderName="Sega All-Stars 2013 [Sonic _ All-Stars Racing Transformed]" Id="0074bfe1-1954-4a3b-9ace-a313f9c868fe" TechNameMatcher="Sonic &amp; All-Stars Racing Transformed">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="SteamWorld Dig" FolderName="SteamWorld 2013 [SteamWorld Dig]" Id="464d0492-c5a6-49ae-b425-12ed3a46b082" TechNameMatcher="SteamWorld Dig">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Dishonored" FolderName="Dishonored 2012 [Dishonored]" Id="934b0e8f-0962-4609-a6c4-7ddae9e0848e" TechNameMatcher="Dishonored">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Counter-Strike: Global Offensive" FolderName="Counter-Strike 2012 [Counter-Strike_ Global Offensive]" Id="cd027c0c-9ed5-4b81-b0ab-4ea5c0269d66" TechNameMatcher="Counter-Strike: Global Offensive">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Saints Row: The Third" FolderName="Saints Row 2011 [Saints Row_ The Third]" Id="5d92770f-da68-4ada-bcdd-b0d42b8b5833" TechNameMatcher="Saints Row: The Third">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Rise of the Tomb Raider" FolderName="Tomb Raider 2016 [Rise of the Tomb Raider]" Id="fa3807b1-c3a4-4162-9314-79fda4120bd5" TechNameMatcher="Rise of the Tomb Raider">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Tropico 4" FolderName="Tropico 2011 [Tropico 4]" Id="ef9744aa-f854-466f-879d-03073d2c601b" TechNameMatcher="Tropico 4">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Draw a Stickman: EPIC" FolderName="Draw a Stickman 2013 [Draw a Stickman_ EPIC]" Id="2ba555a1-99ae-4543-9713-c97f83149c8a" TechNameMatcher="Draw a Stickman: EPIC">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Don't Starve Together" FolderName="Don't Starve 2016 [Don't Starve Together]" Id="8e0426f4-847d-4e32-8cd3-39b0d1d2bce6" TechNameMatcher="Don't Starve Together">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_1" SourceId="Cluster_1" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_2" SourceId="Cluster_2" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_3" SourceId="Cluster_3" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_4" SourceId="Cluster_4" />
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Klei\DoNotStarveTogether" DestTargetName="Cluster_5" SourceId="Cluster_5" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Oceanhorn: Monster of Uncharted Seas" FolderName="Oceanhorn 2015 [Oceanhorn_ Monster of Uncharted Seas]" Id="d2f74ff9-9f06-4ebf-893e-ad6e526ddf50" TechNameMatcher="Oceanhorn: Monster of Uncharted Seas">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Batman: Arkham Knight" FolderName="Batman Arkham 2015 [Batman_ Arkham Knight]" Id="8aa28e96-c9a2-4f9a-8499-d07304e0585a" TechNameMatcher="Batman™: Arkham Knight">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="LIMBO" FolderName="Limbo 2011 [LIMBO]" Id="803f2c35-45c2-4a36-a3c4-9406ef99b89d" TechNameMatcher="LIMBO">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Fallout: New Vegas" FolderName="Fallout 2010-2011 [Fallout_ New Vegas]" Id="82423a58-05e4-4a40-9086-a49add4d7620" TechNameMatcher="Fallout: New Vegas">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Kingdom Rush Frontiers" FolderName="Kingdom Rush 2016 [Kingdom Rush Frontiers]" Id="998b35cd-1c88-41ae-8205-3d7d634e5e82" TechNameMatcher="Kingdom Rush Frontiers">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Braid" FolderName="Braid 2009 [Braid]" Id="fdc6616e-d674-4148-a716-fe0da3584f67" TechNameMatcher="Braid">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Pro Evolution Soccer 2017" FolderName="PES 2016 [Pro Evolution Soccer 2017]" Id="36fb54cc-18dd-4250-907f-b2372ba9ae56" TechNameMatcher="Pro Evolution Soccer 2017">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\Pro Evolution Soccer 2017" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="The Elder Scrolls V: Skyrim" FolderName="TES 2011 [The Elder Scrolls V_ Skyrim]" Id="6e5b3b3f-a4e3-4f67-989a-e1e313ef9d24" TechNameMatcher="The Elder Scrolls V: Skyrim">
     <IsSteamCloudSupported value="true" />
   </Game>
@@ -38,14 +159,14 @@
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Prison Architect" FolderName="Prison Architect 2015 [Prison Architect]" Id="d1350109-09fe-4458-8323-a2a087924ddf" TechNameMatcher="Prison Architect">
-    <OsConfig author="XElement" name="default" os="Win10">
+    <OsConfig author="XElement" name="&lt; v2.0" os="Win10">
       <Links>
         <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="Campaign" SourceId="Campaign" />
         <FolderLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="saves" SourceId="saves" />
         <FileLink DestRoot="LocalApplicationData" DestSubFolderPath="Introversion\Prison Architect" DestTargetName="unlocked.txt" SourceId="unlocked.txt" />
       </Links>
     </OsConfig>
-    <IsSteamCloudSupported value="false" />
+    <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Saints Row: Gat out of Hell" FolderName="Saints Row 2015 [Saints Row_ Gat out of Hell]" Id="4c2dedd5-697f-4f2d-a31e-23b1c12e0bc4" TechNameMatcher="Saints Row: Gat out of Hell">
     <IsSteamCloudSupported value="true" />

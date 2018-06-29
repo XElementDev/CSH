@@ -3,14 +3,14 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class DrawAStickmanEpic : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public DrawAStickmanEpic() : base( "2BA555A1-99AE-4543-9713-C97F83149C8A" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Draw a Stickman: EPIC";
+            this.FolderName = "Draw a Stickman 2013 [Draw a Stickman_ EPIC]";
+            this.TechnicalNameMatcher = "Draw a Stickman: EPIC";
         }
 
 

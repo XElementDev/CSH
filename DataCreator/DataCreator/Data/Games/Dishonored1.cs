@@ -3,16 +3,15 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class Dishonored1 : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public Dishonored1() : base( "934B0E8F-0962-4609-A6C4-7DDAE9E0848E" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Dishonored";
+            this.FolderName = "Dishonored 2012 [Dishonored]";
+            this.TechnicalNameMatcher = this.ApplicationName;
         }
-
 
         protected override void OnImportsSatisfied()
         {

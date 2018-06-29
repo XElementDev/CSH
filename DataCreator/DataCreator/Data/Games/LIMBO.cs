@@ -3,16 +3,15 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class Limbo : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public Limbo() : base( "803F2C35-45C2-4A36-A3C4-9406EF99B89D" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "LIMBO";
+            this.FolderName = "Limbo 2011 [LIMBO]";
+            this.TechnicalNameMatcher = "LIMBO";
         }
-
 
         protected override void OnImportsSatisfied()
         {

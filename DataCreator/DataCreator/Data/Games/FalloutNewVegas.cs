@@ -3,14 +3,14 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class OrcsMustDie2 : AbstractGameInfo
+    internal class FalloutNewVegas : AbstractGameInfo
     {
         [ImportingConstructor]
-        public OrcsMustDie2() : base( "41128DF6-5E43-45A1-9DA3-70EE2760FCFE" )
+        public FalloutNewVegas() : base( "82423A58-05E4-4A40-9086-A49ADD4D7620" )
         {
-            this.ApplicationName = "Orcs Must Die! 2";
-            this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.ApplicationName = "Fallout: New Vegas";
+            this.FolderName = "Fallout 2010-2011 [Fallout_ New Vegas]";
+            this.TechnicalNameMatcher = "Fallout: New Vegas";
         }
 
 
