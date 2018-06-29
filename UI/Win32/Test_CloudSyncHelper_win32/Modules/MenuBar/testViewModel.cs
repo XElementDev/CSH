@@ -23,6 +23,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             this._mefParameters = new MefParameters();
             this._mefParameters.AppMenuContainer = Mock.Create<IApplicationMenuContainer>();
             this._mefParameters.FilterModel = Mock.Create<FilterModel>();
+            this._mefParameters.UserProfileContainer = 
+                Mock.Create<UserProfileContainer>( Behavior.Strict );
         }
 
         [TestCleanup]
@@ -63,6 +65,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             Assert.IsInstanceOfType( this._target.FilterVM, typeof( FilterViewModel ) );
             Assert.IsNotNull( this._target.ShowApplicationMenu );
             Assert.IsInstanceOfType( this._target.ShowApplicationMenu, typeof( ICommand ) );
+            Assert.IsNotNull( this._target.UserProfileContainer );
+            Assert.IsInstanceOfType( this._target.UserProfileContainer, typeof( UserProfileContainer ) );
         }
 
 
@@ -150,6 +154,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             return new AssemblyCatalog( assembly );
         }
 
+
         private CompositionContainer CreateMefContainer()
         {
             var catalog = this.CreateMefCatalog();
@@ -157,9 +162,11 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
 
             container.ComposeExportedValue<IApplicationMenuContainer>( this._mefParameters.AppMenuContainer );
             container.ComposeExportedValue<FilterModel>( this._mefParameters.FilterModel );
+            container.ComposeExportedValue<UserProfileContainer>( this._mefParameters.UserProfileContainer );
 
             return container;
         }
+
 
         private void InitializeTargetViaMef()
         {
@@ -167,10 +174,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             container.ComposeParts( this );
         }
 
+
         [Import]
         private MenuBarViewModel _target;
 
+
         private MefParameters _mefParameters;
+
 
         private class MefImportTestHelper
         {
@@ -178,10 +188,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.MenuBar
             public MenuBarViewModel MenuBarVM { get; private set; }
         }
 
+
         private class MefParameters
         {
             public IApplicationMenuContainer AppMenuContainer { get; set; }
             public FilterModel FilterModel { get; set; }
+            public UserProfileContainer UserProfileContainer { get; set; }
         }
     }
 }

@@ -1,16 +1,15 @@
 ﻿using System;
 using System.IO;
-using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper.Logic.Execution
+namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
 #region not unit-tested
     internal class FolderLink : LinkBase, ILinkInt
     {
-        public FolderLink( IApplicationInfo appInfo, 
-                           IFolderLinkInfo folderLinkInfo, 
-                           PathVariablesDTO pathVariablesDTO )
-            : base( appInfo, folderLinkInfo, pathVariablesDTO ) { }
+        public FolderLink( LinkParametersDTO parametersDTO, 
+                           DependenciesDTO dependenciesDTO )
+            : base( parametersDTO, dependenciesDTO ) { }
+
 
         private void AbstractSourceDestLinker( Func<string, string[]> sourcePathsGetter, 
                                                string source, 
@@ -27,6 +26,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
+
         // Copy all levels
         private void CopyFilesRecursively( string source, string destination )
         {
@@ -39,22 +39,30 @@ namespace XElement.CloudSyncHelper.Logic.Execution
                                            ( s, d ) => this.CopyFilesRecursively( s, d ) );
         }
 
+
         protected override FileSystemInfo /*LinkBase.*/FileSystemInfo
         {
             get { return new DirectoryInfo( this.LinkPath ); }
         }
+
 
         public override bool /*LinkBase.*/IsInCloud
         {
             get { return Directory.Exists( this.TargetPath ); }
         }
 
-        protected override string /*LinkBase.*/MkLinkParams { get { return "/D"; } }
+
+        protected override MkLink.Type /*LinkBase.*/MkLinkType
+        {
+            get { return MkLink.Type.DIRECTORY_LINK; }
+        }
+
 
         protected override void /*LinkBase.*/MoveToCloud_CopyStuff()
         {
             this.CopyFilesRecursively( this.LinkPath, this.TargetPath );
         }
+
 
         // Copy only one level
         private void ShallowCopyFiles( string source, string destination )
@@ -64,6 +72,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
                                            destination,
                                            ( s, d ) => File.Copy( s, d ) );
         }
+
 
         public override void /*LinkBase.*/Undo()
         {

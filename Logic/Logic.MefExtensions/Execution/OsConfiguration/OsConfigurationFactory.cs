@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.Composition;
+using XElement.CloudSyncHelper.Logic.Execution.Link;
 
 namespace XElement.CloudSyncHelper.Logic.MefExtensions
 {
 #region not unit-tested
     [Export( typeof( IOsConfigurationFactory ) )]
-    internal class OsConfigurationFactory :
+    internal class OsConfigurationFactory : 
         global::XElement.CloudSyncHelper.Logic.OsConfigurationFactory,
         IPartImportsSatisfiedNotification
     {

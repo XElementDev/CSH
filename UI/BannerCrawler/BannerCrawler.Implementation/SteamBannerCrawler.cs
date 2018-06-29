@@ -13,6 +13,13 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
 #region not unit-tested
     public class SteamBannerCrawler : IPriotizableBannerCrawler
     {
+        public SteamBannerCrawler()
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            return;
+        }
+
+
         private Image Crawl()
         {
             Image image = null;
@@ -33,6 +40,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             return image;
         }
 
+
         public ICrawlResult /*IPriotizableIconCrawler.*/CrawlSingle( ICrawlInformation crawlInfo )
         {
             this._crawlInfo = crawlInfo;
@@ -40,6 +48,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
 
             return new CrawlResult { Image = image, Input = crawlInfo };
         }
+
 
         private Image DownloadBanner( HtmlNode searchResultEntryTag )
         {
@@ -56,6 +65,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             return image;
         }
 
+
         private Image DownloadImage( string bannerUri )
         {
             Image image = null;
@@ -68,6 +78,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             return image;
         }
 
+
         private string ExtractSearchResultTitle( HtmlNode searchResultEntryTag )
         {
             var titleNode = searchResultEntryTag.SelectSingleNode( RELATIVE_XPATH_TO_TITLE );
@@ -76,10 +87,12 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             return title;
         }
 
+
         private IDictionary<string, HtmlNode> ExtractSearchResultTitles( IEnumerable<HtmlNode> searchResultEntryTags )
         {
             return searchResultEntryTags.ToDictionary( tag => this.ExtractSearchResultTitle( tag ) );
         }
+
 
         private IEnumerable<HtmlNode> GetAllSearchResultEntriesOnFirstPage()
         {
@@ -98,6 +111,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             }
         }
 
+
         private string GetBannerUri( HtmlNode searchResultEntryTag )
         {
             var imgTag = searchResultEntryTag.SelectSingleNode( RELATIVE_XPATH_TO_IMG );
@@ -111,6 +125,7 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
                 return imgTag.GetAttributeValue( "src", String.Empty );
             }
         }
+
 
         private string GetBestMatchingTitleOrDefault( IDictionary<string, HtmlNode> titlesToTagMap )
         {
@@ -127,12 +142,18 @@ namespace XElement.CloudSyncHelper.UI.BannerCrawler
             }
         }
 
+
         public Reliability Reliability { get { return Reliability.High; } }
 
+
         private const string ABSOLUTE_XPATH_TO_SEARCH_RESULTS = "//*[@id='search_result_container']/div[2]/a";
+
         private const string RELATIVE_XPATH_TO_IMG = "./div[1]/img";
+
         private const string RELATIVE_XPATH_TO_TITLE = "./div[2]/div[1]/span[@class='title']";
+
         private const string STORE_SEARCH_URI_FORMAT = @"http://store.steampowered.com/search/?snr=1_4_4__12&term={0}";
+
 
         private ICrawlInformation _crawlInfo;
     }

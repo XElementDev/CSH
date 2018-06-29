@@ -233,4 +233,20 @@
     <value>Show/hide details</value>
     <comment>// 2016-04-30</comment>
   </data>
+  <data name="UserProfile_NameDescriptor" xml:space="preserve">
+    <value>name:</value>
+    <comment>// 2016-07-19</comment>
+  </data>
+  <data name="UserProfile_RoleDescriptor" xml:space="preserve">
+    <value>role:</value>
+    <comment>// 2016-07-19</comment>
+  </data>
+  <data name="UserProfile_Roles_Admin" xml:space="preserve">
+    <value>administrator</value>
+    <comment>// 2016-07-19</comment>
+  </data>
+  <data name="UserProfile_Roles_User" xml:space="preserve">
+    <value>user</value>
+    <comment>// 2016-07-19</comment>
+  </data>
 </root>

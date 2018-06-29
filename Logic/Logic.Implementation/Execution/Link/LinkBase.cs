@@ -1,49 +1,45 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using XElement.CloudSyncHelper.DataTypes;
 
-namespace XElement.CloudSyncHelper.Logic.Execution
+namespace XElement.CloudSyncHelper.Logic.Execution.Link
 {
 #region not unit-tested
     internal abstract class LinkBase : ILinkInt
     {
-        public LinkBase( IApplicationInfo appInfo, 
-                         ILinkInfo linkInfo, 
-                         PathVariablesDTO pathVariablesDTO )
+        public LinkBase( LinkParametersDTO parametersDTO, 
+                         DependenciesDTO dependenciesDTO )
         {
-            this._linkInfo = linkInfo;
-            this._pathVariablesDTO = pathVariablesDTO;
+            this._mkLinkExecutorFactory = dependenciesDTO.MkLinkExecutorFactory;
+
+            this._linkInfo = parametersDTO.LinkInfo;
+            this._pathVariablesDTO = parametersDTO.PathVariablesDTO;
             this._symLinkHelper = new SymbolicLinkHelper();
 
-            Initialize( appInfo );
+            Initialize( parametersDTO.ApplicationInfo );
         }
+
 
         private void CreatePathToDestinationTarget()
         {
             Directory.CreateDirectory( this.PathToDestinationTarget );
         }
 
+
         public void /*ILink.*/Do()
         {
             this.CreatePathToDestinationTarget();
             this.Undo();
-            this.ExecuteCmd();
+
+            var mkLinkParams = new MkLink.ParametersDTO
+            {
+                Link = this.LinkPath, 
+                Target = this.TargetPath, 
+                Type = this.MkLinkType
+            };
+            this._mkLinkExecutorFactory.Get( mkLinkParams ).Execute();
         }
 
-        private void ExecuteCmd()
-        {
-            var mkLink = this.GetCmdCommand();
-            var process = new Process();
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.Arguments = "/c " + mkLink;
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.Verb = "runas";
-            process.Start();
-
-            process.WaitForExit();
-        }
 
         private bool DoesSymbolicLinkPointToExpectedPath
         {
@@ -54,13 +50,9 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
+
         protected abstract FileSystemInfo FileSystemInfo { get; }
 
-        private string GetCmdCommand()
-        {
-            return String.Format( "MKLINK {0} \"{1}\" \"{2}\"", this.MkLinkParams, 
-                this.LinkPath, this.TargetPath );
-        }
 
         private void Initialize( IApplicationInfo programInfo )
         {
@@ -74,7 +66,9 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
+
         public abstract bool /*ILink.*/IsInCloud { get; }
+
 
         public bool /*ILink.*/IsLinked
         {
@@ -85,6 +79,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
+
         private bool IsSymbolicLink
         {
             get
@@ -93,6 +88,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
                 return this._symLinkHelper.IsSymbolicLink( attr );
             }
         }
+
 
         public string /*ILink.*/LinkPath
         {
@@ -104,7 +100,9 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
-        protected abstract string MkLinkParams { get; }
+
+        protected abstract MkLink.Type MkLinkType { get; }
+
 
         public void /*ILink.*/MoveToCloud()
         {
@@ -112,7 +110,9 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             this.MoveToCloud_CopyStuff();
         }
 
+
         protected abstract void MoveToCloud_CopyStuff();
+
 
         private string PathToDestinationTarget
         {
@@ -122,6 +122,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
                 return Path.Combine( destinationRootPath, this._linkInfo.DestinationSubFolderPath );
             }
         }
+
 
         private string PathToCloudUserFolder
         {
@@ -135,6 +136,7 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
+
         public string /*ILink.*/TargetPath
         {
             get
@@ -144,9 +146,12 @@ namespace XElement.CloudSyncHelper.Logic.Execution
             }
         }
 
+
         public abstract void /*ILink.*/Undo(); // TODO: Delete folders if they are empty
 
+
         private ILinkInfo _linkInfo;
+        private MkLink.IFactory _mkLinkExecutorFactory;
         private PathVariablesDTO _pathVariablesDTO;
         private IApplicationLogic _programLogic;
         private SymbolicLinkHelper _symLinkHelper;

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.Composition;
-using XElement.CloudSyncHelper.Logic;
+using XElement.CloudSyncHelper.Logic.Execution.Link;
 using XElement.DesignPatterns.CreationalPatterns.FactoryMethod;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model

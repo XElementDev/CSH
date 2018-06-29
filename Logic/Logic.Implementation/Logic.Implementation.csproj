@@ -43,6 +43,8 @@
     <Compile Include="Execution\Definition\Definition.cs" />
     <Compile Include="Execution\Definition\DefinitionFactory.cs" />
     <Compile Include="Execution\Link\LinkFactory.cs" />
+    <Compile Include="Execution\MkLink\Executor.cs" />
+    <Compile Include="Execution\MkLink\Factory.cs" />
     <Compile Include="Execution\OsConfiguration\IOsConfigurationInt.cs" />
     <Compile Include="Execution\OsConfiguration\OsConfigurationFactory.cs" />
     <Compile Include="Execution\Link\ToolLogic.cs" />
@@ -78,6 +80,10 @@
     <ProjectReference Include="..\..\XElement\DotNet\System\Environment\OsRecognition.Interface\OsRecognition.Interface.csproj">
       <Project>{7cf544ae-b30d-46f0-8fe6-11ee842ff035}</Project>
       <Name>OsRecognition.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XElement\DotNet\System\Environment\UserInformation.Interface\UserInformation.Interface.csproj">
+      <Project>{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}</Project>
+      <Name>UserInformation.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logic.Interface\Logic.Interface.csproj">
       <Project>{f5e56bf7-6a32-4765-8538-812531cd679e}</Project>

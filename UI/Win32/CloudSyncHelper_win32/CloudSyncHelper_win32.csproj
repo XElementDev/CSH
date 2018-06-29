@@ -40,6 +40,14 @@
     <ApplicationIcon>CloudSyncHelper.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.WPF, Version=4.5.0.37524, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Visual Studio\packages\FontAwesome.WPF.4.5.0.8\lib\net40\FontAwesome.WPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Gu.Wpf.Adorners, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Visual Studio\packages\Gu.Wpf.Adorners.1.1.1.2\lib\net45\Gu.Wpf.Adorners.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\..\..\externals\Prism\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -78,6 +86,7 @@
     <Compile Include="Modules\FlaticonCredit\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\MenuBar\NumberToThicknessConverter.cs" />
     <Compile Include="Modules\OperatingSystem\IModelConstructorParameters.cs" />
     <Compile Include="Modules\OperatingSystem\Model.cs" />
     <Compile Include="Modules\OperatingSystem\View.xaml.cs">
@@ -105,6 +114,7 @@
       <DependentUpon>IndicatorsStackPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\SemiautomaticSync\ModelFactory.cs" />
+    <Compile Include="Modules\UserProfileContainer\UserProfileContainer.cs" />
     <Compile Include="Shortcuts\IApplicationMenuContainer.cs" />
     <Compile Include="Shortcuts\IFilterContainer.cs" />
     <Compile Include="Shortcuts\ShortcutCommandsViewModel.cs" />
@@ -172,6 +182,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Modules\FullyAutomaticSync\View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\MenuBar\Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,6 +384,7 @@
     <None Include="exe.manifest">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -404,6 +419,14 @@
       <Project>{daa6fa28-fa8b-461c-9948-4adeb12b743c}</Project>
       <Name>FactoryMethod.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\UserInformation.Interface\UserInformation.Interface.csproj">
+      <Project>{59CB5B77-DD0D-4665-BEB9-22E999BC2E2B}</Project>
+      <Name>UserInformation.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\UserInformation.MefExtensions\UserInformation.MefExtensions.csproj">
+      <Project>{acbfe0b5-e9c3-4ddc-b454-d12ae691802b}</Project>
+      <Name>UserInformation.MefExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BannerCrawler\BannerCrawler.Interface\BannerCrawler.Interface.csproj">
       <Project>{9c9543bd-380b-46ba-ae78-d34e05e49cf7}</Project>
       <Name>BannerCrawler.Interface</Name>
@@ -432,6 +455,14 @@
       <Project>{d80ca4dc-a78b-4d74-982b-037de065fe53}</Project>
       <Name>IconCrawler.MefExtensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{3a491eaf-a2e8-4c51-bed7-bf3fd890731f}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinkCreator\ServiceAdapter\ServiceAdapter.csproj">
+      <Project>{75e73bc2-e2f3-4986-8193-8b2febf32cc4}</Project>
+      <Name>ServiceAdapter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Localization\Localization.csproj">
       <Project>{cc6ad910-f9f2-40b0-90ac-f347c73b5ef7}</Project>
       <Name>Localization</Name>
@@ -443,6 +474,10 @@
     <ProjectReference Include="..\..\..\XElement\DotNet\System\Environment\OsRecognition.MefExtensions\OsRecognition.MefExtensions.csproj">
       <Project>{6229fd37-00b3-4f8e-8299-e0e0d8ad2be6}</Project>
       <Name>OsRecognition.MefExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\UserProfileUC\UserProfileUC.csproj">
+      <Project>{7DDBF51A-80F3-4870-8C04-5884761118E2}</Project>
+      <Name>UserProfileUC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -472,6 +507,10 @@
       <Link>CloudSyncHelper.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\..\Visual Studio\packages\ThirdPartyLicenses.xml">
+      <Link>ThirdPartyLicenses.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\View-Details_d16-p0_000000.png" />
     <Resource Include="Resources\link_d16-p0_000000.png" />
     <Resource Include="Resources\chain_d16-p0_000000.png" />
@@ -484,6 +523,9 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)TOOLs\LegSec1.0\Debug\LegSecCli.exe" -r "$(SolutionDir)packages" -o "$(SolutionDir)packages"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
