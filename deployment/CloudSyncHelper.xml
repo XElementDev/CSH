@@ -33,6 +33,9 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Lovers in a Dangerous Spacetime" FolderName="Lovers in a Dangerous Spacetime" Id="3526a2b7-715c-4d22-88ad-bcdb5e129d9b" TechNameMatcher="Lovers in a Dangerous Spacetime">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Goat Simulator" FolderName="Goat Simulator 2014 [Goat Simulator]" Id="c7307409-5748-456c-928a-29b6b1c4b630" TechNameMatcher="Goat Simulator">
     <IsSteamCloudSupported value="true" />
   </Game>
