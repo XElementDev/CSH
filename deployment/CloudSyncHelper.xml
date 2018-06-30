@@ -18,6 +18,12 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="AI War: Fleet Command" FolderName="AI War 2009 [AI War_ Fleet Command]" Id="68718be0-4c10-40d3-954e-3584545dfbd5" TechNameMatcher="AI War: Fleet Command">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Risen 2 - Dark Waters" FolderName="Risen 2012 [Risen 2 - Dark Waters]" Id="a9b69ac8-4a31-4856-9830-4957e6a4c9ad" TechNameMatcher="Risen 2 - Dark Waters">
     <OsConfig author="XElement" name="default" os="Win10">
       <Links />
