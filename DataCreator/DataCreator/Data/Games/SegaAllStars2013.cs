@@ -11,11 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "Sonic & All-Stars Racing Transformed";
             this.FolderName = "Sega All-Stars 2013 [Sonic _ All-Stars Racing Transformed]";
             this.TechnicalNameMatcher = this.ApplicationName;
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

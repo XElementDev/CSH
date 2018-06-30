@@ -11,11 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "The Walking Dead";
             this.FolderName = "The Walking Dead 2012-2013 [The Walking Dead]";
             this.TechnicalNameMatcher = "The Walking Dead";
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

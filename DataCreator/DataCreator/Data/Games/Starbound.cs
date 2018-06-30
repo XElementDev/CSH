@@ -11,11 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "Starbound";
             this.FolderName = "Starbound 2013 [Starbound]";
             this.TechnicalNameMatcher = this.ApplicationName;
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

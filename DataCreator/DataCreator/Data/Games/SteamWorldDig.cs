@@ -11,11 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "SteamWorld Dig";
             this.FolderName = "SteamWorld 2013 [SteamWorld Dig]";
             this.TechnicalNameMatcher = this.ApplicationName;
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

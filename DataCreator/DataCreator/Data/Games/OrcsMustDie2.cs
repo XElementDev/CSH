@@ -11,12 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "Orcs Must Die! 2";
             this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
             this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            return;
         }
 
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

@@ -11,11 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "Terraria";
             this.FolderName = "Terraria 2011 [Terraria]";
             this.TechnicalNameMatcher = "Terraria";
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }
