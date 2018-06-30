@@ -6,6 +6,9 @@
   <Game ApplicationName="Batman: Arkham City" FolderName="Batman Arkham 2011 [Batman_ Arkham City]" Id="62cc3cfd-3adc-4b9d-85fd-5d2774823c89" TechNameMatcher="Batman: Arkham City GOTY">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="BioShock Remastered" FolderName="BioShock 2016 [BioShock Remastered]" Id="9b336ea3-ff18-4158-8264-1481df91a4bb" TechNameMatcher="BioShock Remastered">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Borderlands: The Pre-Sequel" FolderName="Borderlands 2014 [Borderlands_ The Pre-Sequel]" Id="abebd728-dec6-4ccb-8130-ac281b61a49c" TechNameMatcher="Borderlands: The Pre-Sequel">
     <IsSteamCloudSupported value="true" />
   </Game>
