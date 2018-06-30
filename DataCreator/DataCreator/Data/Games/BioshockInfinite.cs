@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.ApplicationName = "BioShock Infinite";
             this.FolderName = "BioShock 2013 [BioShock Infinite]";
-            this.TechnicalNameMatcher = "BioShock Infinite";
+            this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }
 

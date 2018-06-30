@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.ApplicationName = "Borderlands";
             this.FolderName = "Borderlands 2009 [Borderlands]";
-            this.TechnicalNameMatcher = "Borderlands";
+            this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }
 

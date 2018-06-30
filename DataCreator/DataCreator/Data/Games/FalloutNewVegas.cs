@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.ApplicationName = "Fallout: New Vegas";
             this.FolderName = "Fallout 2010-2011 [Fallout_ New Vegas]";
-            this.TechnicalNameMatcher = "Fallout: New Vegas";
+            this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }
 

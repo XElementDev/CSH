@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.ApplicationName = "Final Fantasy XIII";
             this.FolderName = "Final Fantasy 2009-2014 [Final Fantasy XIII]";
-            this.TechnicalNameMatcher = "FINAL FANTASY XIII";
+            this.TechnicalNameMatcher = this.ApplicationName.ToUpper();
             return;
         }
 
