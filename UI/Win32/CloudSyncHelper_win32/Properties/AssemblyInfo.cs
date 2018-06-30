@@ -40,18 +40,9 @@ using System.Windows;
 )]
 
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion( "0.3.0.500" )]
-[assembly: AssemblyFileVersion( "0.3.0.500" )]
+// ↓    Following the idea of Semantic Versioning, as described in https://semver.org/
+[assembly: AssemblyVersion( "0.4.0" )]
+[assembly: AssemblyFileVersion( "0.4.0" )]
 
 #if DEBUG
 [assembly: InternalsVisibleTo( "Test_XElement.CloudSyncHelper.UI.Win32" )]

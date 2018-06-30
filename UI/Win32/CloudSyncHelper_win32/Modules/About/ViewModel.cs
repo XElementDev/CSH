@@ -29,7 +29,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Modules.About
             this.ProductName = versionInfo.ProductName;
 
             var assemblyVersion = typeof( App ).Assembly.GetName().Version;
-            this.Version = string.Format( "v{0}", assemblyVersion );
+            var semVer = $"{assemblyVersion.Major}.{assemblyVersion.Minor}.{assemblyVersion.Build}";
+            this.Version = string.Format( "v{0}", semVer );
             return;
         }
 
