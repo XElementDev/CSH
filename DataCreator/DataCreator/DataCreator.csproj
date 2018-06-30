@@ -58,6 +58,7 @@
     <Compile Include="Data\Games\FM2017Touch.cs" />
     <Compile Include="Data\Games\FM2017.cs" />
     <Compile Include="Data\Games\FinalFantasy12TZA.cs" />
+    <Compile Include="Data\Games\Hammerwatch.cs" />
     <Compile Include="Data\Games\Risen2.cs" />
     <Compile Include="Data\Games\RiskOfRain.cs" />
     <Compile Include="Data\Games\LegoBatman3.cs" />
