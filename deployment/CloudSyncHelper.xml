@@ -33,6 +33,9 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Goat Simulator" FolderName="Goat Simulator 2014 [Goat Simulator]" Id="c7307409-5748-456c-928a-29b6b1c4b630" TechNameMatcher="Goat Simulator">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Football Manager Touch 2017" FolderName="FM 2016 [Football Manager Touch 2017]" Id="9fd826fc-7aeb-4cd3-aef6-b670d6dfc826" TechNameMatcher="Football Manager Touch 2017">
     <IsSteamCloudSupported value="true" />
   </Game>
