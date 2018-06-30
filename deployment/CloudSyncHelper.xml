@@ -18,6 +18,9 @@
   <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Dungeon of the Endless" FolderName="Endless 2014 [Dungeon of the Endless]" Id="50a14f8b-52cc-4cbd-8108-c94586de621f" TechNameMatcher="Dungeon of the Endless">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Defend Your Life" FolderName="Defend Your Life 2015 [Defend Your Life]" Id="a0de5ce4-c59c-479c-9ff6-d0b5e9119561" TechNameMatcher="Defend Your Life">
     <OsConfig author="XElement" name="Defend Your Life" os="Win10">
       <Links />
