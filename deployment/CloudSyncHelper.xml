@@ -33,6 +33,9 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Overcooked" FolderName="Overcooked 2016 [Overcooked]" Id="2c7c633b-b3b0-4b9c-bb0b-790d2b6384e7" TechNameMatcher="Overcooked">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Mini Metro" FolderName="Mini Metro 2015 [Mini Metro]" Id="06a5dca9-c60d-4c92-bed1-b9250766cf69" TechNameMatcher="Mini Metro">
     <IsSteamCloudSupported value="true" />
   </Game>
