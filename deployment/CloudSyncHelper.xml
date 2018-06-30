@@ -107,7 +107,10 @@
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Starbound" FolderName="Starbound 2013 [Starbound]" Id="e33d0478-9abc-49dc-9fa0-c9312bc5cf91" TechNameMatcher="Starbound">
-    <IsSteamCloudSupported value="true" />
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Owlboy" FolderName="Owlboy 2016 [Owlboy]" Id="3b69007d-6eb1-423d-9a56-8fe7c5bac404" TechNameMatcher="Owlboy">
     <IsSteamCloudSupported value="true" />

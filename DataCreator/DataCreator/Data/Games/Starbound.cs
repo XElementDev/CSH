@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.Composition;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using XElement.CloudSyncHelper.Serialization.DataTypes;
+using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
@@ -15,9 +18,28 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         }
 
 
+        // TODO: Include
+        private List<AbstractLinkInfo> GetLinksForWin10()
+        {
+            /*
+             * Locations: 
+             *  1) <install-folder>\storage\player\
+             *                                  ↑ folder link to "player" folder
+             *  2) <install-folder>\storage\universe\
+             *                                  ↑ folder link to "universe" folder
+             * see https://pcgamingwiki.com/wiki/Starbound
+             */
+            return new List<AbstractLinkInfo>();
+        }
+
+
         protected override void OnImportsSatisfied()
         {
-            this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            var osConfigs = new List<OsConfigurationInfo>
+            {
+                this._osConfigFactory.Get( this.GetLinksForWin10(), OsId.Win10 )
+            };
+            this.DefinitionInfo = this._definitionFactory.Get( osConfigs );
             return;
         }
     }
