@@ -3,13 +3,13 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class SteamWorldDig : AbstractGameInfo
+    internal class LoversInADangerousSpacetime : AbstractGameInfo
     {
         [ImportingConstructor]
-        public SteamWorldDig() : base( "464D0492-C5A6-49AE-B425-12ED3A46B082" )
+        public LoversInADangerousSpacetime() : base( "3526A2B7-715C-4D22-88AD-BCDB5E129D9B" )
         {
-            this.ApplicationName = "SteamWorld Dig";
-            this.FolderName = "SteamWorld 2013 [SteamWorld Dig]";
+            this.ApplicationName = "Lovers in a Dangerous Spacetime";
+            this.FolderName = this.ApplicationName;
             this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }

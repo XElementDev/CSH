@@ -16,11 +16,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
                                          SpecialCharacters.REGISTERED_TRADEMARK, 
                                          SpecialCharacters.TRADEMARK );
             this.TechnicalNameMatcher = matcher;
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

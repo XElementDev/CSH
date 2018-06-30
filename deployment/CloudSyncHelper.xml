@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Reus" FolderName="Reus 2013 [Reus]" Id="de8bf438-d9d5-442b-a1e9-93685b4ed382" TechNameMatcher="Reus">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Reus" DestTargetName="Saves" SourceId="Saves" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Batman™: Arkham Origins" FolderName="Batman Arkham 2013 [Batman_ Arkham Origins]" Id="34aa8a3f-ae4e-4876-b5c5-f93712623cc1" TechNameMatcher="Batman™: Arkham Origins">
     <IsSteamCloudSupported value="true" />
   </Game>
@@ -16,7 +24,10 @@
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
-    <IsSteamCloudSupported value="true" />
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Dungeon of the Endless" FolderName="Endless 2014 [Dungeon of the Endless]" Id="50a14f8b-52cc-4cbd-8108-c94586de621f" TechNameMatcher="Dungeon of the Endless">
     <IsSteamCloudSupported value="true" />
@@ -32,6 +43,15 @@
       <Links />
     </OsConfig>
     <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Overcooked" FolderName="Overcooked 2016 [Overcooked]" Id="2c7c633b-b3b0-4b9c-bb0b-790d2b6384e7" TechNameMatcher="Overcooked">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Mini Metro" FolderName="Mini Metro 2015 [Mini Metro]" Id="06a5dca9-c60d-4c92-bed1-b9250766cf69" TechNameMatcher="Mini Metro">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Lovers in a Dangerous Spacetime" FolderName="Lovers in a Dangerous Spacetime" Id="3526a2b7-715c-4d22-88ad-bcdb5e129d9b" TechNameMatcher="Lovers in a Dangerous Spacetime">
+    <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Goat Simulator" FolderName="Goat Simulator 2014 [Goat Simulator]" Id="c7307409-5748-456c-928a-29b6b1c4b630" TechNameMatcher="Goat Simulator">
     <IsSteamCloudSupported value="true" />
@@ -90,7 +110,10 @@
     <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Starbound" FolderName="Starbound 2013 [Starbound]" Id="e33d0478-9abc-49dc-9fa0-c9312bc5cf91" TechNameMatcher="Starbound">
-    <IsSteamCloudSupported value="true" />
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Owlboy" FolderName="Owlboy 2016 [Owlboy]" Id="3b69007d-6eb1-423d-9a56-8fe7c5bac404" TechNameMatcher="Owlboy">
     <IsSteamCloudSupported value="true" />

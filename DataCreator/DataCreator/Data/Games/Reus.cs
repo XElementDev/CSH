@@ -1,35 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using XElement.CloudSyncHelper.Serialization.DataTypes;
 using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class Starbound : AbstractGameInfo
+    internal class Reus : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Starbound() : base( "E33D0478-9ABC-49DC-9FA0-C9312BC5CF91" )
+        public Reus() : base( "DE8BF438-D9D5-442B-A1E9-93685B4ED382" )
         {
-            this.ApplicationName = "Starbound";
-            this.FolderName = "Starbound 2013 [Starbound]";
+            this.ApplicationName = "Reus";
+            this.FolderName = "Reus 2013 [Reus]";
             this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }
 
 
-        // TODO: Include
         private List<AbstractLinkInfo> GetLinksForWin10()
         {
-            /*
-             * Locations: 
-             *  1) <install-folder>\storage\player\
-             *                                  ↑ folder link to "player" folder
-             *  2) <install-folder>\storage\universe\
-             *                                  ↑ folder link to "universe" folder
-             * see https://pcgamingwiki.com/wiki/Starbound
-             */
-            return new List<AbstractLinkInfo>();
+            var destTargetName = "Saves";
+            return new List<AbstractLinkInfo>
+            {
+                new FolderLinkInfo
+                {
+                    DestinationRoot = Environment.SpecialFolder.MyDocuments,
+                    DestinationSubFolderPath = Path.Combine("Reus"),
+                    DestinationTargetName = destTargetName,
+                    SourceId = destTargetName
+                }
+            };
         }
 
 

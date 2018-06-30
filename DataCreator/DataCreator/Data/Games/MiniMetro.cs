@@ -3,13 +3,13 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class SteamWorldDig : AbstractGameInfo
+    internal class MiniMetro : AbstractGameInfo
     {
         [ImportingConstructor]
-        public SteamWorldDig() : base( "464D0492-C5A6-49AE-B425-12ED3A46B082" )
+        public MiniMetro() : base( "06A5DCA9-C60D-4C92-BED1-B9250766CF69" )
         {
-            this.ApplicationName = "SteamWorld Dig";
-            this.FolderName = "SteamWorld 2013 [SteamWorld Dig]";
+            this.ApplicationName = "Mini Metro";
+            this.FolderName = "Mini Metro 2015 [Mini Metro]";
             this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }

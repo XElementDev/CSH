@@ -45,6 +45,7 @@
     <Compile Include="Data\AbstractManagerT1.cs" />
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
+    <Compile Include="Data\Games\Reus.cs" />
     <Compile Include="Data\Games\BatmanArkhamOrigins.cs" />
     <Compile Include="Data\Games\BatmanArkhamCity.cs" />
     <Compile Include="Data\Games\BioshockRemastered.cs" />
@@ -54,6 +55,9 @@
     <Compile Include="Data\Games\DungeonOfTheEndless.cs" />
     <Compile Include="Data\Games\DefendYourLife.cs" />
     <Compile Include="Data\Games\AiWarFleetCommand.cs" />
+    <Compile Include="Data\Games\Overcooked.cs" />
+    <Compile Include="Data\Games\MiniMetro.cs" />
+    <Compile Include="Data\Games\LoversInADangerousSpacetime.cs" />
     <Compile Include="Data\Games\GoatSimulator.cs" />
     <Compile Include="Data\Games\FM2017Touch.cs" />
     <Compile Include="Data\Games\FM2017.cs" />

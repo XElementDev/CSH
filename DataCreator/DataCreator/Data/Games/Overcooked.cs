@@ -3,13 +3,13 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class SteamWorldDig : AbstractGameInfo
+    internal class Overcooked : AbstractGameInfo
     {
         [ImportingConstructor]
-        public SteamWorldDig() : base( "464D0492-C5A6-49AE-B425-12ED3A46B082" )
+        public Overcooked() : base( "2C7C633B-B3B0-4B9C-BB0B-790D2B6384E7" )
         {
-            this.ApplicationName = "SteamWorld Dig";
-            this.FolderName = "SteamWorld 2013 [SteamWorld Dig]";
+            this.ApplicationName = "Overcooked";
+            this.FolderName = "Overcooked 2016 [Overcooked]";
             this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }

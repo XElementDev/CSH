@@ -11,11 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "PAYDAY 2";
             this.FolderName = "Payday 2013 [PAYDAY 2]";
             this.TechnicalNameMatcher = this.ApplicationName;
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

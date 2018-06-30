@@ -41,8 +41,8 @@ using System.Windows;
 
 
 // ↓    Following the idea of Semantic Versioning, as described in https://semver.org/
-[assembly: AssemblyVersion( "0.4.0" )]
-[assembly: AssemblyFileVersion( "0.4.0" )]
+[assembly: AssemblyVersion( "0.4.1" )]
+[assembly: AssemblyFileVersion( "0.4.1" )]
 
 #if DEBUG
 [assembly: InternalsVisibleTo( "Test_XElement.CloudSyncHelper.UI.Win32" )]

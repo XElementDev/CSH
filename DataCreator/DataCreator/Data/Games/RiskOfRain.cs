@@ -11,11 +11,14 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
             this.ApplicationName = "Risk of Rain";
             this.FolderName = "Risk of Rain 2013 [Risk of Rain]";
             this.TechnicalNameMatcher = this.ApplicationName;
+            return;
         }
+
 
         protected override void OnImportsSatisfied()
         {
             this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            return;
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.IO.Pipes;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using System.Threading;
 using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 using XElement.DotNet.System.Environment.UserInformation;
 
@@ -21,19 +22,26 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             this._executorFactory = mkLinkExecutorFactory;
             this._pipeName = pipeName;
 
+            this._syncRoot = new object();
+            this._waitHandle = new ManualResetEvent( false );
+
             InitializeServerPipe();
+
+            return;
         }
 
 
         private void ClientConnected( NamedPipeConnection<string, string> connection )
         {
             Logger.Get().Log( "A client connected to the server." );
+            return;
         }
 
 
         private void ClientDisconnected( NamedPipeConnection<string, string> connection )
         {
             Logger.Get().Log( "A client disconnected from the server." );
+            return;
         }
 
 
@@ -41,8 +49,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         {
             var logMessage = $"Received the following message from client: {message}";
             Logger.Get().Log( logMessage );
-            this.DoWork( message );
-            this._serverPipe.PushMessage( String.Empty );
+
+            lock ( this._syncRoot )
+            {
+                this._clientMessage = message;
+                this._waitHandle.Set();
+            }
+
+            return;
         }
 
 
@@ -78,6 +92,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
                 var executor = this._executorFactory.Get( parameters );
                 executor.Execute();
             }
+
+            return;
         }
 
 
@@ -86,6 +102,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             PipeSecurity pipeSecurity = Server.CreatePipeSecurity();
             this._serverPipe = new NamedPipeServer<string>( this._pipeName, pipeSecurity );
             this.SubscribeEvents();
+            return;
         }
 
 
@@ -99,13 +116,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         {
             this._serverPipe.Start();
             Logger.Get().Log( "Server started." );
+            return;
         }
 
 
         public void StayAlive()
         {
+            // ↓    based on https://stackoverflow.com/questions/8881396/cpu-usage-increasing-up-to-100-in-infinite-loop-in-thread
             while ( true )
             {
+                this._waitHandle.WaitOne();
+
+                lock ( this._syncRoot )
+                {
+                    this.DoWork( this._clientMessage );
+                    this._serverPipe.PushMessage( String.Empty );
+
+                    this._waitHandle.Reset();
+                }
             }
         }
 
@@ -116,12 +144,21 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             this._serverPipe.ClientDisconnected += this.ClientDisconnected;
             this._serverPipe.ClientMessage += this.ClientMessage;
             this._serverPipe.Error += this.OnError;
+            return;
         }
 
 
+        private string _clientMessage;
+
         private IFactory _executorFactory;
+
         private string _pipeName;
+
         private NamedPipeServer<string> _serverPipe;
+
+        private object _syncRoot;
+
+        private ManualResetEvent _waitHandle;
     }
 #endregion
 }
