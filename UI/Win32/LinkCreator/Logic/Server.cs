@@ -22,18 +22,22 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             this._pipeName = pipeName;
 
             InitializeServerPipe();
+
+            return;
         }
 
 
         private void ClientConnected( NamedPipeConnection<string, string> connection )
         {
             Logger.Get().Log( "A client connected to the server." );
+            return;
         }
 
 
         private void ClientDisconnected( NamedPipeConnection<string, string> connection )
         {
             Logger.Get().Log( "A client disconnected from the server." );
+            return;
         }
 
 
@@ -43,6 +47,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             Logger.Get().Log( logMessage );
             this.DoWork( message );
             this._serverPipe.PushMessage( String.Empty );
+            return;
         }
 
 
@@ -78,6 +83,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
                 var executor = this._executorFactory.Get( parameters );
                 executor.Execute();
             }
+
+            return;
         }
 
 
@@ -86,6 +93,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             PipeSecurity pipeSecurity = Server.CreatePipeSecurity();
             this._serverPipe = new NamedPipeServer<string>( this._pipeName, pipeSecurity );
             this.SubscribeEvents();
+            return;
         }
 
 
@@ -99,6 +107,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         {
             this._serverPipe.Start();
             Logger.Get().Log( "Server started." );
+            return;
         }
 
 
@@ -116,11 +125,14 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             this._serverPipe.ClientDisconnected += this.ClientDisconnected;
             this._serverPipe.ClientMessage += this.ClientMessage;
             this._serverPipe.Error += this.OnError;
+            return;
         }
 
 
         private IFactory _executorFactory;
+
         private string _pipeName;
+
         private NamedPipeServer<string> _serverPipe;
     }
 #endregion
