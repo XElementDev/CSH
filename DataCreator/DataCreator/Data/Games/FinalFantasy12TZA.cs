@@ -3,14 +3,14 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class Borderlands : AbstractGameInfo
+    internal class FinalFantasy12Tza : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Borderlands() : base( "FA773668-0021-4493-9C3F-2D981C98244E" )
+        public FinalFantasy12Tza() : base( "0FA4567F-5328-4D9A-852D-BB8FE74B508A" )
         {
-            this.ApplicationName = "Borderlands";
-            this.FolderName = "Borderlands 2009 [Borderlands]";
-            this.TechnicalNameMatcher = this.ApplicationName;
+            this.ApplicationName = "Final Fantasy XII The Zodiac Age";
+            this.FolderName = "Final Fantasy 2018 [Final Fantasy XII TZA]";
+            this.TechnicalNameMatcher = this.ApplicationName.ToUpper();
             return;
         }
 

@@ -3,13 +3,13 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class Borderlands : AbstractGameInfo
+    internal class DungeonOfTheEndless : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Borderlands() : base( "FA773668-0021-4493-9C3F-2D981C98244E" )
+        public DungeonOfTheEndless() : base( "50A14F8B-52CC-4CBD-8108-C94586DE621F" )
         {
-            this.ApplicationName = "Borderlands";
-            this.FolderName = "Borderlands 2009 [Borderlands]";
+            this.ApplicationName = "Dungeon of the Endless";
+            this.FolderName = "Endless 2014 [Dungeon of the Endless]";
             this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }

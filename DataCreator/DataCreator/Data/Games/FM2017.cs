@@ -3,13 +3,13 @@
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class Borderlands : AbstractGameInfo
+    internal class FootballManager2017 : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Borderlands() : base( "FA773668-0021-4493-9C3F-2D981C98244E" )
+        public FootballManager2017() : base( "8F2F4639-74B5-4CC8-AE9B-9177ED20AE45" )
         {
-            this.ApplicationName = "Borderlands";
-            this.FolderName = "Borderlands 2009 [Borderlands]";
+            this.ApplicationName = "Football Manager 2017";
+            this.FolderName = "FM 2016 [Football Manager 2017]";
             this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }

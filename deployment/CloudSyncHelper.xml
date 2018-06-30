@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Batman™: Arkham Origins" FolderName="Batman Arkham 2013 [Batman_ Arkham Origins]" Id="34aa8a3f-ae4e-4876-b5c5-f93712623cc1" TechNameMatcher="Batman™: Arkham Origins">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Batman: Arkham City" FolderName="Batman Arkham 2011 [Batman_ Arkham City]" Id="62cc3cfd-3adc-4b9d-85fd-5d2774823c89" TechNameMatcher="Batman: Arkham City GOTY">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="BioShock Remastered" FolderName="BioShock 2016 [BioShock Remastered]" Id="9b336ea3-ff18-4158-8264-1481df91a4bb" TechNameMatcher="BioShock Remastered">
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Borderlands: The Pre-Sequel" FolderName="Borderlands 2014 [Borderlands_ The Pre-Sequel]" Id="abebd728-dec6-4ccb-8130-ac281b61a49c" TechNameMatcher="Borderlands: The Pre-Sequel">
@@ -12,8 +18,41 @@
   <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Dungeon of the Endless" FolderName="Endless 2014 [Dungeon of the Endless]" Id="50a14f8b-52cc-4cbd-8108-c94586de621f" TechNameMatcher="Dungeon of the Endless">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Defend Your Life" FolderName="Defend Your Life 2015 [Defend Your Life]" Id="a0de5ce4-c59c-479c-9ff6-d0b5e9119561" TechNameMatcher="Defend Your Life">
     <OsConfig author="XElement" name="Defend Your Life" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="AI War: Fleet Command" FolderName="AI War 2009 [AI War_ Fleet Command]" Id="68718be0-4c10-40d3-954e-3584545dfbd5" TechNameMatcher="AI War: Fleet Command">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Goat Simulator" FolderName="Goat Simulator 2014 [Goat Simulator]" Id="c7307409-5748-456c-928a-29b6b1c4b630" TechNameMatcher="Goat Simulator">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Football Manager Touch 2017" FolderName="FM 2016 [Football Manager Touch 2017]" Id="9fd826fc-7aeb-4cd3-aef6-b670d6dfc826" TechNameMatcher="Football Manager Touch 2017">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Football Manager 2017" FolderName="FM 2016 [Football Manager 2017]" Id="8f2f4639-74b5-4cc8-ae9b-9177ed20ae45" TechNameMatcher="Football Manager 2017">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Final Fantasy XII The Zodiac Age" FolderName="Final Fantasy 2018 [Final Fantasy XII TZA]" Id="0fa4567f-5328-4d9a-852d-bb8fe74b508a" TechNameMatcher="FINAL FANTASY XII THE ZODIAC AGE">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Hammerwatch" FolderName="Hammerwatch 2013 [Hammerwatch]" Id="374b5e01-49d3-460c-bb4e-7a676dad22f3" TechNameMatcher="Hammerwatch">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Magicka" FolderName="Magicka 2011 [Magicka]" Id="c166905a-52a3-4da4-a6a6-61b20fe103a7" TechNameMatcher="Magicka">
+    <OsConfig author="XElement" name="default" os="Win10">
       <Links />
     </OsConfig>
     <IsSteamCloudSupported value="false" />

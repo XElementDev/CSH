@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel.Composition;
+using XElement.DotNet.System.Text;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
     [Export( typeof( AbstractGameInfo ) )]
-    internal class Borderlands : AbstractGameInfo
+    internal class BatmanArkhamOrigins : AbstractGameInfo
     {
         [ImportingConstructor]
-        public Borderlands() : base( "FA773668-0021-4493-9C3F-2D981C98244E" )
+        public BatmanArkhamOrigins() : base( "34AA8A3F-AE4E-4876-B5C5-F93712623CC1" )
         {
-            this.ApplicationName = "Borderlands";
-            this.FolderName = "Borderlands 2009 [Borderlands]";
+            this.ApplicationName = $"Batman{SpecialCharacters.TRADEMARK}: Arkham Origins";
+            this.FolderName = "Batman Arkham 2013 [Batman_ Arkham Origins]";
             this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }
