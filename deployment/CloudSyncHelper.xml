@@ -33,6 +33,12 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Football Manager Touch 2017" FolderName="FM 2016 [Football Manager Touch 2017]" Id="9fd826fc-7aeb-4cd3-aef6-b670d6dfc826" TechNameMatcher="Football Manager Touch 2017">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Football Manager 2017" FolderName="FM 2016 [Football Manager 2017]" Id="8f2f4639-74b5-4cc8-ae9b-9177ed20ae45" TechNameMatcher="Football Manager 2017">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Final Fantasy XII The Zodiac Age" FolderName="Final Fantasy 2018 [Final Fantasy XII TZA]" Id="0fa4567f-5328-4d9a-852d-bb8fe74b508a" TechNameMatcher="FINAL FANTASY XII THE ZODIAC AGE">
     <IsSteamCloudSupported value="true" />
   </Game>
