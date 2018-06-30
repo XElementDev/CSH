@@ -24,7 +24,10 @@
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Call of Duty: Modern Warfare 3" FolderName="Call of Duty 2011 [Call of Duty_ Modern Warfare 3]" Id="5015f2d9-3547-4958-8cbe-cdf8e91b43a1" TechNameMatcher="Call of Duty: Modern Warfare 3">
-    <IsSteamCloudSupported value="true" />
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links />
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
   </Game>
   <Game ApplicationName="Dungeon of the Endless" FolderName="Endless 2014 [Dungeon of the Endless]" Id="50a14f8b-52cc-4cbd-8108-c94586de621f" TechNameMatcher="Dungeon of the Endless">
     <IsSteamCloudSupported value="true" />

@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.Composition;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using XElement.CloudSyncHelper.Serialization.DataTypes;
+using XElement.DotNet.System.Environment;
 
 namespace XElement.CloudSyncHelper.DataCreator.Data.Games
 {
@@ -15,9 +18,25 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         }
 
 
+        // TODO: Include
+        private List<AbstractLinkInfo> GetLinksForWin10()
+        {
+            /*
+             * Location: <install-folder>\players2\save\
+             *                                      ↑ folder link to "save" folder
+             * see https://pcgamingwiki.com/wiki/Call_of_Duty:_Modern_Warfare_3
+             */
+            return new List<AbstractLinkInfo>();
+        }
+
+
         protected override void OnImportsSatisfied()
         {
-            this.DefinitionInfo = this._definitionFactory.GetSteamCloud();
+            var osConfigs = new List<OsConfigurationInfo>
+            {
+                this._osConfigFactory.Get( this.GetLinksForWin10(), OsId.Win10 )
+            };
+            this.DefinitionInfo = this._definitionFactory.Get( osConfigs );
             return;
         }
     }
