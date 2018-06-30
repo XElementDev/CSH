@@ -3,6 +3,7 @@ using System;
 using System.IO.Pipes;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using System.Threading;
 using XElement.CloudSyncHelper.Logic.Execution.MkLink;
 using XElement.DotNet.System.Environment.UserInformation;
 
@@ -20,6 +21,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
             var mkLinkExecutorFactory = new Factory( mkLinkExecutorDependencies );
             this._executorFactory = mkLinkExecutorFactory;
             this._pipeName = pipeName;
+
+            this._syncRoot = new object();
+            this._waitHandle = new ManualResetEvent( false );
 
             InitializeServerPipe();
 
@@ -45,8 +49,13 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         {
             var logMessage = $"Received the following message from client: {message}";
             Logger.Get().Log( logMessage );
-            this.DoWork( message );
-            this._serverPipe.PushMessage( String.Empty );
+
+            lock ( this._syncRoot )
+            {
+                this._clientMessage = message;
+                this._waitHandle.Set();
+            }
+
             return;
         }
 
@@ -113,8 +122,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
 
         public void StayAlive()
         {
+            // ↓    based on https://stackoverflow.com/questions/8881396/cpu-usage-increasing-up-to-100-in-infinite-loop-in-thread
             while ( true )
             {
+                this._waitHandle.WaitOne();
+
+                lock ( this._syncRoot )
+                {
+                    this.DoWork( this._clientMessage );
+                    this._serverPipe.PushMessage( String.Empty );
+
+                    this._waitHandle.Reset();
+                }
             }
         }
 
@@ -129,11 +148,17 @@ namespace XElement.CloudSyncHelper.UI.Win32.LinkCreator.Logic
         }
 
 
+        private string _clientMessage;
+
         private IFactory _executorFactory;
 
         private string _pipeName;
 
         private NamedPipeServer<string> _serverPipe;
+
+        private object _syncRoot;
+
+        private ManualResetEvent _waitHandle;
     }
 #endregion
 }
