@@ -33,6 +33,9 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Mini Metro" FolderName="Mini Metro 2015 [Mini Metro]" Id="06a5dca9-c60d-4c92-bed1-b9250766cf69" TechNameMatcher="Mini Metro">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Lovers in a Dangerous Spacetime" FolderName="Lovers in a Dangerous Spacetime" Id="3526a2b7-715c-4d22-88ad-bcdb5e129d9b" TechNameMatcher="Lovers in a Dangerous Spacetime">
     <IsSteamCloudSupported value="true" />
   </Game>
