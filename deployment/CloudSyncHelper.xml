@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Reus" FolderName="Reus 2013 [Reus]" Id="de8bf438-d9d5-442b-a1e9-93685b4ed382" TechNameMatcher="Reus">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="Reus" DestTargetName="Saves" SourceId="Saves" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Batman™: Arkham Origins" FolderName="Batman Arkham 2013 [Batman_ Arkham Origins]" Id="34aa8a3f-ae4e-4876-b5c5-f93712623cc1" TechNameMatcher="Batman™: Arkham Origins">
     <IsSteamCloudSupported value="true" />
   </Game>
