@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.ApplicationName = "Rocket League";
             this.FolderName = "Rocket League 2015 [Rocket League]";
-            this.TechnicalNameMatcher = "Rocket League";
+            this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }
 

@@ -10,7 +10,7 @@ namespace XElement.CloudSyncHelper.DataCreator.Data.Games
         {
             this.ApplicationName = "Orcs Must Die! 2";
             this.FolderName = "Orcs Must Die 2012 [Orcs Must Die! 2]";
-            this.TechnicalNameMatcher = "Orcs Must Die! 2";
+            this.TechnicalNameMatcher = this.ApplicationName;
             return;
         }
 
