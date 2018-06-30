@@ -33,6 +33,9 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Final Fantasy XII The Zodiac Age" FolderName="Final Fantasy 2018 [Final Fantasy XII TZA]" Id="0fa4567f-5328-4d9a-852d-bb8fe74b508a" TechNameMatcher="FINAL FANTASY XII THE ZODIAC AGE">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Risen 2 - Dark Waters" FolderName="Risen 2012 [Risen 2 - Dark Waters]" Id="a9b69ac8-4a31-4856-9830-4957e6a4c9ad" TechNameMatcher="Risen 2 - Dark Waters">
     <OsConfig author="XElement" name="default" os="Win10">
       <Links />
