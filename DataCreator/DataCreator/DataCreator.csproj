@@ -45,6 +45,7 @@
     <Compile Include="Data\AbstractManagerT1.cs" />
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
+    <Compile Include="Data\Games\Superhot.cs" />
     <Compile Include="Data\Games\Reus.cs" />
     <Compile Include="Data\Games\BatmanArkhamOrigins.cs" />
     <Compile Include="Data\Games\BatmanArkhamCity.cs" />
