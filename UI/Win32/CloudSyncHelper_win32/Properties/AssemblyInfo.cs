@@ -11,7 +11,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "Cloud Sync Helper" )]
-[assembly: AssemblyCopyright( "Copyright © XElement Dev 2015-2018" )]
+[assembly: AssemblyCopyright( "Copyright © XElement Dev 2015-2019" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 

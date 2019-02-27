@@ -106,6 +106,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             get { return Path.Combine( PathToCache, "icons" ); }
         }
 
+        /// <summary>
+        /// <see cref="IConfig.PathToSyncDataCache" />
+        /// </summary>
+        public string PathToSyncDataCache { get { return Path.Combine( PathToCache, "syncData" ); } }
+
+
         private static string PathToRoamingConfig
         {
             get
@@ -143,6 +149,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             {
                 Directory.CreateDirectory( pathToIconCache );
             }
+            Directory.CreateDirectory( this.PathToSyncDataCache );
         }
 
         public string /*IConfig.*/UplayAccountName { get { return this._roaming.UplayAccountName; } }

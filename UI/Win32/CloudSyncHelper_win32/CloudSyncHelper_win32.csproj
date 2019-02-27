@@ -455,6 +455,10 @@
       <Project>{d80ca4dc-a78b-4d74-982b-037de065fe53}</Project>
       <Name>IconCrawler.MefExtensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SyncDataUpdater\SyncDataUpdater.Implementation\SyncDataUpdater.Implementation.csproj">
+      <Project>{efcde114-0c40-4605-a685-5f04126acb01}</Project>
+      <Name>SyncDataUpdater.Implementation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{3a491eaf-a2e8-4c51-bed7-bf3fd890731f}</Project>
       <Name>Common</Name>
@@ -503,10 +507,6 @@
     <Resource Include="Resources\Steam-000000-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\deployment\CloudSyncHelper.xml">
-      <Link>CloudSyncHelper.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\..\Visual Studio\packages\ThirdPartyLicenses.xml">
       <Link>ThirdPartyLicenses.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
