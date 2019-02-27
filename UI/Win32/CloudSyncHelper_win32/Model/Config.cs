@@ -161,17 +161,8 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private void TryCreateRoamingSubFolders()
         {
-            var pathToBannerCache = this.PathToBannerCache;
-            if ( !Directory.Exists( pathToBannerCache ) )
-            {
-                Directory.CreateDirectory( pathToBannerCache );
-            }
-
-            var pathToIconCache = this.PathToIconCache;
-            if ( !Directory.Exists( pathToIconCache ) )
-            {
-                Directory.CreateDirectory( pathToIconCache );
-            }
+            Directory.CreateDirectory( this.PathToBannerCache );
+            Directory.CreateDirectory( this.PathToIconCache );
             Directory.CreateDirectory( this.PathToSyncDataCache );
             return;
         }
