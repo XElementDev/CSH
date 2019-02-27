@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.IO;
 using XElement.CloudSyncHelper.Serializiation;
+using XElement.CloudSyncHelper.UI.SyncDataUpdater;
 using XElement.CloudSyncHelper.UI.Win32.DataTypes;
 
 namespace XElement.CloudSyncHelper.UI.Win32.Model
@@ -13,12 +13,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
         [ImportingConstructor]
         private ProgramInfosModel() { }
 
+
         private void LoadProgramInfos()
         {
-            var currentExecutionPath = ".";
-            var uri = Path.Combine( currentExecutionPath, "CloudSyncHelper.xml" );
-
-            var serializationMgr = new SerializationManager( uri );
+            this._syncDataUpdater.SyncDataFolderPath = this._config.PathToSyncDataCache;
+            this._syncDataUpdater.TryUpdate();
+            var serializationMgr = new SerializationManager( this._syncDataUpdater.LatestSyncDataFilePath );
             var syncData = serializationMgr.Deserialize();
             var programInfoVMs = new List<ProgramInfoViewModel>();
             foreach ( var applicationInfo in syncData.ApplicationInfos )
@@ -27,14 +27,24 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
                 programInfoVMs.Add( programInfoVM );
             }
             this.ProgramInfoVMs = programInfoVMs;
+            return;
         }
+
 
         void IPartImportsSatisfiedNotification.OnImportsSatisfied()
         {
             this.LoadProgramInfos();
         }
 
+
         public IEnumerable<ProgramInfoViewModel> ProgramInfoVMs { get; private set; }
+
+
+        [Import]
+        private IConfig _config = null;
+
+        [Import]
+        private ISyncDataUpdater _syncDataUpdater = null;
     }
 #endregion
 }
