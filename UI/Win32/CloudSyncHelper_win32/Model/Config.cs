@@ -155,7 +155,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private static string RelativePathToConfigFolder
         {
-            get { return Path.Combine( "XElement", "Cloud Sync Helper" ); }
+            get { return Path.Combine( "XElement", "CloudSyncHelper" ); }
         }
 
 
