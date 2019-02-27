@@ -455,9 +455,13 @@
       <Project>{d80ca4dc-a78b-4d74-982b-037de065fe53}</Project>
       <Name>IconCrawler.MefExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SyncDataUpdater\SyncDataUpdater.Implementation\SyncDataUpdater.Implementation.csproj">
-      <Project>{efcde114-0c40-4605-a685-5f04126acb01}</Project>
-      <Name>SyncDataUpdater.Implementation</Name>
+    <ProjectReference Include="..\..\SyncDataUpdater\SyncDataUpdater.Interface\SyncDataUpdater.Interface.csproj">
+      <Project>{96d7e4cc-5f3e-4723-81c7-ff2ce6d92787}</Project>
+      <Name>SyncDataUpdater.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SyncDataUpdater\SyncDataUpdater.MefExtensions\SyncDataUpdater.MefExtensions.csproj">
+      <Project>{bd0c5f06-c47a-432a-ab3a-7944227ea9ef}</Project>
+      <Name>SyncDataUpdater.MefExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{3a491eaf-a2e8-4c51-bed7-bf3fd890731f}</Project>

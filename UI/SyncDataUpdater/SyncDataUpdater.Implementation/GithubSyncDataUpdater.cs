@@ -12,15 +12,18 @@ using System.Threading.Tasks;
 namespace XElement.CloudSyncHelper.UI.SyncDataUpdater
 {
 #region not unit-tested
-    public class Updater
+    public class GithubSyncDataUpdater : ISyncDataUpdater
     {
-        public Updater( string syncDataFilesDirPath )
+        public GithubSyncDataUpdater()
         {
-            this._syncDataFilesDirPath = syncDataFilesDirPath;
+            var folderName = $"CSH-{Path.GetRandomFileName()}";
+            var tempDirectoryFilePath = Path.Combine( Path.GetTempPath(), folderName );
+            this.SyncDataFolderPath = tempDirectoryFilePath;
+
             return;
         }
 
-        static Updater()
+        static GithubSyncDataUpdater()
         {
             var versionInfo = FileVersionInfo.GetVersionInfo( Assembly.GetEntryAssembly().Location );
             USER_AGENT_NAME = versionInfo.ProductName.Replace( " ", "" );
@@ -33,7 +36,7 @@ namespace XElement.CloudSyncHelper.UI.SyncDataUpdater
 
         private void CheckForCurrent()
         {
-            var dirInfo = new DirectoryInfo( this._syncDataFilesDirPath );
+            var dirInfo = new DirectoryInfo( this.SyncDataFolderPath );
             var fileInfos = dirInfo.GetFiles();
             var syncDataFileNames = fileInfos.Select( fi => fi.Name ).ToList();
             this._syncDataFileNames = syncDataFileNames;
@@ -49,9 +52,9 @@ namespace XElement.CloudSyncHelper.UI.SyncDataUpdater
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri( Updater.SYNC_DATA_FILE_URL )
+                    RequestUri = new Uri( GithubSyncDataUpdater.SYNC_DATA_FILE_URL )
                 };
-                var customUserAgent = new ProductInfoHeaderValue( Updater.USER_AGENT_NAME, Updater.USER_AGENT_VERSION );
+                var customUserAgent = new ProductInfoHeaderValue( GithubSyncDataUpdater.USER_AGENT_NAME, GithubSyncDataUpdater.USER_AGENT_VERSION );
                 request.Headers.UserAgent.Add( customUserAgent );
                 var response = await client.SendAsync( request );
                 rawJson = await response.Content.ReadAsStringAsync();
@@ -68,18 +71,33 @@ namespace XElement.CloudSyncHelper.UI.SyncDataUpdater
         }
 
 
+        /// <summary>
+        /// <see cref="ISyncDataUpdater.LatestSyncDataFilePath" />
+        /// </summary>
         public string LatestSyncDataFilePath
         {
-            get { return Path.Combine( this._syncDataFilesDirPath, this._githubBlob.Sha ); }
+            get { return Path.Combine( this.SyncDataFolderPath, this._githubBlob.Sha ); }
         }
 
 
+        /// <summary>
+        /// <see cref="ISyncDataUpdater.SyncDataFolderPath" />
+        /// </summary>
+        public string SyncDataFolderPath { get; set; }
+
+
+        /// <summary>
+        /// <see cref="ISyncDataUpdater.TryUpdate" />
+        /// </summary>
         public void TryUpdate()
         {
             this.TryUpdateAsync().GetAwaiter().GetResult();
             return;
         }
 
+        /// <summary>
+        /// <see cref="ISyncDataUpdater.TryUpdateAsync" />
+        /// </summary>
         public async Task TryUpdateAsync()
         {
             this.CheckForCurrent();
@@ -97,7 +115,7 @@ namespace XElement.CloudSyncHelper.UI.SyncDataUpdater
         {
             if ( this._githubBlob.Encoding == "base64" )
             {
-                var filePath = Path.Combine( this._syncDataFilesDirPath, this._githubBlob.Sha );
+                var filePath = Path.Combine( this.SyncDataFolderPath, this._githubBlob.Sha );
                 var bytes = Convert.FromBase64String( this._githubBlob.Content );
                 File.WriteAllBytes( filePath, bytes );
             }
@@ -127,8 +145,6 @@ namespace XElement.CloudSyncHelper.UI.SyncDataUpdater
         private GithubBlob _githubBlob;
 
         private IEnumerable<string> _syncDataFileNames;
-
-        private readonly string _syncDataFilesDirPath;
     }
 #endregion
 }

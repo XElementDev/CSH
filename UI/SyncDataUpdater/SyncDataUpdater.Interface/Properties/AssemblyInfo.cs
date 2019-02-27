@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "XElement.CloudSyncHelper.UI.SyncDataCrawler.Implementation" )]
+[assembly: AssemblyTitle( "XElement.CloudSyncHelper.UI.SyncDataUpdater.Interface" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible( false )]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid( "efcde114-0c40-4605-a685-5f04126acb01" )]
+[assembly: Guid( "96d7e4cc-5f3e-4723-81c7-ff2ce6d92787" )]
 
 // Version information for an assembly consists of the following four values:
 //

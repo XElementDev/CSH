@@ -16,9 +16,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         private void LoadProgramInfos()
         {
-            var updater = new Updater( this._config.PathToSyncDataCache );
-            updater.TryUpdate();
-            var serializationMgr = new SerializationManager( updater.LatestSyncDataFilePath );
+            this._syncDataUpdater.SyncDataFolderPath = this._config.PathToSyncDataCache;
+            this._syncDataUpdater.TryUpdate();
+            var serializationMgr = new SerializationManager( this._syncDataUpdater.LatestSyncDataFilePath );
             var syncData = serializationMgr.Deserialize();
             var programInfoVMs = new List<ProgramInfoViewModel>();
             foreach ( var applicationInfo in syncData.ApplicationInfos )
@@ -42,6 +42,9 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
 
         [Import]
         private IConfig _config = null;
+
+        [Import]
+        private ISyncDataUpdater _syncDataUpdater = null;
     }
 #endregion
 }
