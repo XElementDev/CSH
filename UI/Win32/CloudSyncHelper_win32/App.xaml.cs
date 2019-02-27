@@ -21,8 +21,14 @@ namespace XElement.CloudSyncHelper.UI.Win32
             var catalog = new AggregateCatalog();
             var assembly = typeof( App ).Assembly;
             var path = Path.GetDirectoryName( assembly.Location );
-            catalog.Catalogs.Add( new AggregateCatalog( new AssemblyCatalog( assembly ), 
-                                                        new DirectoryCatalog( path ) ) );
+            catalog.Catalogs.Add
+            (
+                new AggregateCatalog
+                (
+                    new AssemblyCatalog( assembly ),
+                    new DirectoryCatalog( path )
+                )
+            );
 
             var container = new CompositionContainer( catalog );
 

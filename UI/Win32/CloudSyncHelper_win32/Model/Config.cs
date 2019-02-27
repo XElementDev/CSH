@@ -17,6 +17,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             this.TryCreateRoamingSubFolders();
         }
 
+
         private void CreateOrLoadConfig<T>( string sectionKey, 
                                             ref T section, 
                                             Func<T> createNewSection, 
@@ -41,6 +42,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
+
         private void CreateOrLoadLocalConfig()
         {
             var userFolderPath = Environment.GetFolderPath( Environment.SpecialFolder.UserProfile );
@@ -52,6 +54,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
                 ConfigurationUserLevel.PerUserRoamingAndLocal );
         }
 
+
         private void CreateOrLoadRoamingConfig()
         {
             Func<RoamingConfig> createRoamingSection = () => 
@@ -59,6 +62,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             this.CreateOrLoadConfig( "roaming", ref this._roaming, createRoamingSection, 
                 ConfigurationUserLevel.PerUserRoaming );
         }
+
 
         private ExeConfigurationFileMap ExeConfigFileMap
         {
@@ -77,10 +81,12 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
+
         private System.Configuration.Configuration GetConfigFromFile( ConfigurationUserLevel userLevel )
         {
             return ConfigurationManager.OpenMappedExeConfiguration( this.ExeConfigFileMap, userLevel );
         }
+
 
         private static string PathToLocalConfig
         {
@@ -91,20 +97,30 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
-        public string /*IConfig.*/PathToBannerCache
+
+        /// <summary>
+        /// <see cref="IConfig.PathToBannerCache" />
+        /// </summary>
+        public string PathToBannerCache
         {
             get { return Path.Combine( PathToCache, "banners" ); }
         }
+
 
         private static string PathToCache
         {
             get { return Path.Combine( PathToRoamingConfigFolder, "cache" ); }
         }
 
-        public string /*IConfig.*/PathToIconCache
+
+        /// <summary>
+        /// <see cref="IConfig.PathToIconCache" />
+        /// </summary>
+        public string PathToIconCache
         {
             get { return Path.Combine( PathToCache, "icons" ); }
         }
+
 
         /// <summary>
         /// <see cref="IConfig.PathToSyncDataCache" />
@@ -120,6 +136,7 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
+
         private static string PathToRoamingConfigFolder
         {
             get
@@ -129,12 +146,18 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
             }
         }
 
-        public string /*IConfig.*/PathToSyncFolder { get { return this._local.PathToSyncFolder; } }
+
+        /// <summary>
+        /// <see cref="IConfig.PathToSyncFolder" />
+        /// </summary>
+        public string PathToSyncFolder { get { return this._local.PathToSyncFolder; } }
+
 
         private static string RelativePathToConfigFolder
         {
             get { return Path.Combine( "XElement", "Cloud Sync Helper" ); }
         }
+
 
         private void TryCreateRoamingSubFolders()
         {
@@ -150,16 +173,28 @@ namespace XElement.CloudSyncHelper.UI.Win32.Model
                 Directory.CreateDirectory( pathToIconCache );
             }
             Directory.CreateDirectory( this.PathToSyncDataCache );
+            return;
         }
 
-        public string /*IConfig.*/UplayAccountName { get { return this._roaming.UplayAccountName; } }
 
-        public string /*IConfig.*/UserName { get { return this._roaming.UserName; } }
+        /// <summary>
+        /// <see cref="IConfig.UplayAccountName" />
+        /// </summary>
+        public string UplayAccountName { get { return this._roaming.UplayAccountName; } }
 
-        private LocalConfig _local;
-        private RoamingConfig _roaming;
+
+        /// <summary>
+        /// <see cref="IConfig.UserName" />
+        /// </summary>
+        public string UserName { get { return this._roaming.UserName; } }
+
 
         private const string CONFIG_FILE_NAME = "user.config";
+
+
+        private LocalConfig _local;
+
+        private RoamingConfig _roaming;
     }
 #endregion
 }
