@@ -3,6 +3,9 @@
   <Game ApplicationName="Overcooked! 2" FolderName="Overcooked 2018 [Overcooked 2]" Id="2108bd77-a9c3-4098-875e-3436ef346768" TechNameMatcher="Overcooked! 2">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="ELEX" FolderName="Elex 2017 [ELEX]" Id="bcd4a517-3762-4fd7-9f25-af4abcc709b2" TechNameMatcher="ELEX">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="SUPERHOT" FolderName="Superhot 2016 [SUPERHOT]" Id="753daa70-6cc6-4571-886a-4786256905bb" TechNameMatcher="SUPERHOT">
     <OsConfig author="XElement" name="default" os="Win10">
       <Links>
