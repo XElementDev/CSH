@@ -6,6 +6,9 @@
   <Game ApplicationName="ELEX" FolderName="Elex 2017 [ELEX]" Id="bcd4a517-3762-4fd7-9f25-af4abcc709b2" TechNameMatcher="ELEX">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Kingdom Rush Origins" FolderName="Kingdom Rush 2018 [Kingdom Rush Origins]" Id="2834f049-2790-41b0-9f3f-d99820401bd6" TechNameMatcher="Kingdom Rush Origins">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="SUPERHOT" FolderName="Superhot 2016 [SUPERHOT]" Id="753daa70-6cc6-4571-886a-4786256905bb" TechNameMatcher="SUPERHOT">
     <OsConfig author="XElement" name="default" os="Win10">
       <Links>
