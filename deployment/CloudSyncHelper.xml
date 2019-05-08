@@ -6,6 +6,9 @@
   <Game ApplicationName="Shadow of the Tomb Raider" FolderName="Tomb Raider 2018 [Shadow of the Tomb Raider]" Id="fa9d943c-3e5e-4980-94a8-41388f0e3684" TechNameMatcher="Shadow of the Tomb Raider">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Isotiles" FolderName="Isotiles 2017 [Isotiles]" Id="23779719-864a-499d-8849-42a829b2a097" TechNameMatcher="Isotiles">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="ELEX" FolderName="Elex 2017 [ELEX]" Id="bcd4a517-3762-4fd7-9f25-af4abcc709b2" TechNameMatcher="ELEX">
     <IsSteamCloudSupported value="true" />
   </Game>
