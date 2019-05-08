@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Overcooked! 2" FolderName="Overcooked 2018 [Overcooked 2]" Id="2108bd77-a9c3-4098-875e-3436ef346768" TechNameMatcher="Overcooked! 2">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="SUPERHOT" FolderName="Superhot 2016 [SUPERHOT]" Id="753daa70-6cc6-4571-886a-4786256905bb" TechNameMatcher="SUPERHOT">
     <OsConfig author="XElement" name="default" os="Win10">
       <Links>
