@@ -9,6 +9,14 @@
   <Game ApplicationName="Dota Underlords" FolderName="Dota 2019 [Dota Underlords]" Id="a88c6006-1bb8-4f7d-b215-480f2c4d8d77" TechNameMatcher="Dota Underlords">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Pro Evolution Soccer 2018" FolderName="PES 2017 [Pro Evolution Soccer 2018]" Id="385cb477-72a2-4edf-8be4-b1ad92509817" TechNameMatcher="PRO EVOLUTION SOCCER 2018">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\PRO EVOLUTION SOCCER 2018" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Dark Souls: Remastered" FolderName="Dark Souls 2018 [Dark Souls Remastered]" Id="3fb4897b-5200-4422-98e6-bbfc79611985" TechNameMatcher="DARK SOULS™: REMASTERED">
     <IsSteamCloudSupported value="true" />
   </Game>
