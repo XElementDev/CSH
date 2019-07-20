@@ -3,6 +3,9 @@
   <Game ApplicationName="Overcooked! 2" FolderName="Overcooked 2018 [Overcooked 2]" Id="2108bd77-a9c3-4098-875e-3436ef346768" TechNameMatcher="Overcooked! 2">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Dark Souls: Remastered" FolderName="Dark Souls 2018 [Dark Souls Remastered]" Id="3fb4897b-5200-4422-98e6-bbfc79611985" TechNameMatcher="DARK SOULS™: REMASTERED">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Shadow of the Tomb Raider" FolderName="Tomb Raider 2018 [Shadow of the Tomb Raider]" Id="fa9d943c-3e5e-4980-94a8-41388f0e3684" TechNameMatcher="Shadow of the Tomb Raider">
     <IsSteamCloudSupported value="true" />
   </Game>

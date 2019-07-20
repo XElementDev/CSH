@@ -46,6 +46,7 @@
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
     <Compile Include="Data\Games\Overcooked2.cs" />
+    <Compile Include="Data\Games\DarkSouls1Remastered.cs" />
     <Compile Include="Data\Games\ShadowOfTheTombRaider.cs" />
     <Compile Include="Data\Games\Isotiles.cs" />
     <Compile Include="Data\Games\Elex.cs" />
