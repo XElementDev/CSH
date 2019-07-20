@@ -45,7 +45,17 @@
     <Compile Include="Data\AbstractManagerT1.cs" />
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
+    <Compile Include="Data\Games\LegoIncredibles.cs" />
+    <Compile Include="Data\Games\Gta5.cs" />
+    <Compile Include="Data\Games\Fortified.cs" />
     <Compile Include="Data\Games\Overcooked2.cs" />
+    <Compile Include="Data\Games\DotaUnderlords.cs" />
+    <Compile Include="Data\Games\Pes2018.cs" />
+    <Compile Include="Data\Games\Fifa19.cs" />
+    <Compile Include="Data\Games\DarkSouls1Remastered.cs" />
+    <Compile Include="Data\Games\Monaco.cs" />
+    <Compile Include="Data\Games\Portal2.cs" />
+    <Compile Include="Data\Games\ProjectCars2.cs" />
     <Compile Include="Data\Games\ShadowOfTheTombRaider.cs" />
     <Compile Include="Data\Games\Isotiles.cs" />
     <Compile Include="Data\Games\Elex.cs" />

@@ -1,6 +1,46 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="LEGO The Incredibles" FolderName="LEGO 2018 [LEGO The Incredibles]" Id="7b93ff82-3fb1-4421-9d30-ea5aa0fe2591" TechNameMatcher="LEGO® The Incredibles">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="Warner Bros. Interactive Entertainment\LEGO The Incredibles" DestTargetName="SAVEDGAMES" SourceId="SAVEDGAMES" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Grand Theft Auto V" FolderName="GTA 2015 [Grand Theft Auto V]" Id="a1a893c8-3d3c-43af-850f-71c6227e045b" TechNameMatcher="Grand Theft Auto V">
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Fortified" FolderName="Fortified 2016 [Fortified]" Id="0767d99a-970a-43bc-a7f6-c82dc5ba3ac5" TechNameMatcher="Fortified">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Overcooked! 2" FolderName="Overcooked 2018 [Overcooked 2]" Id="2108bd77-a9c3-4098-875e-3436ef346768" TechNameMatcher="Overcooked! 2">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Dota Underlords" FolderName="Dota 2019 [Dota Underlords]" Id="a88c6006-1bb8-4f7d-b215-480f2c4d8d77" TechNameMatcher="Dota Underlords">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Pro Evolution Soccer 2018" FolderName="PES 2017 [Pro Evolution Soccer 2018]" Id="385cb477-72a2-4edf-8be4-b1ad92509817" TechNameMatcher="PRO EVOLUTION SOCCER 2018">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="Personal" DestSubFolderPath="KONAMI\PRO EVOLUTION SOCCER 2018" DestTargetName="save" SourceId="save" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="FIFA 19" FolderName="Fifa 2018 [FIFA 19]" Id="7b36d1ef-1b8a-48e0-98ad-f76ec50e7e7b" TechNameMatcher="FIFA 19">
+    <IsSteamCloudSupported value="false" />
+  </Game>
+  <Game ApplicationName="Dark Souls: Remastered" FolderName="Dark Souls 2018 [Dark Souls Remastered]" Id="3fb4897b-5200-4422-98e6-bbfc79611985" TechNameMatcher="DARK SOULS™: REMASTERED">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Monaco" FolderName="Monaco 2013 [Monaco]" Id="fc01571b-68a1-488a-9437-183f09fcbac8" TechNameMatcher="Monaco">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Portal 2" FolderName="Portal 2011 [Portal 2]" Id="270a4ded-fc78-458a-9391-770d3bee483d" TechNameMatcher="Portal 2">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="Project CARS 2" FolderName="Project Cars 2017 [Project CARS 2]" Id="da07ebc9-1814-410c-9a24-21c23889b8f9" TechNameMatcher="Project CARS 2">
     <IsSteamCloudSupported value="true" />
   </Game>
   <Game ApplicationName="Shadow of the Tomb Raider" FolderName="Tomb Raider 2018 [Shadow of the Tomb Raider]" Id="fa9d943c-3e5e-4980-94a8-41388f0e3684" TechNameMatcher="Shadow of the Tomb Raider">
