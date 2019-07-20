@@ -48,6 +48,7 @@
     <Compile Include="Data\Games\Overcooked2.cs" />
     <Compile Include="Data\Games\DotaUnderlords.cs" />
     <Compile Include="Data\Games\DarkSouls1Remastered.cs" />
+    <Compile Include="Data\Games\Monaco.cs" />
     <Compile Include="Data\Games\Portal2.cs" />
     <Compile Include="Data\Games\ProjectCars2.cs" />
     <Compile Include="Data\Games\ShadowOfTheTombRaider.cs" />

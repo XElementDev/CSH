@@ -9,6 +9,9 @@
   <Game ApplicationName="Dark Souls: Remastered" FolderName="Dark Souls 2018 [Dark Souls Remastered]" Id="3fb4897b-5200-4422-98e6-bbfc79611985" TechNameMatcher="DARK SOULS™: REMASTERED">
     <IsSteamCloudSupported value="true" />
   </Game>
+  <Game ApplicationName="Monaco" FolderName="Monaco 2013 [Monaco]" Id="fc01571b-68a1-488a-9437-183f09fcbac8" TechNameMatcher="Monaco">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Portal 2" FolderName="Portal 2011 [Portal 2]" Id="270a4ded-fc78-458a-9391-770d3bee483d" TechNameMatcher="Portal 2">
     <IsSteamCloudSupported value="true" />
   </Game>
