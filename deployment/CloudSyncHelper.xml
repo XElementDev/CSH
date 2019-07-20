@@ -17,6 +17,9 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="FIFA 19" FolderName="Fifa 2018 [FIFA 19]" Id="7b36d1ef-1b8a-48e0-98ad-f76ec50e7e7b" TechNameMatcher="FIFA 19">
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Dark Souls: Remastered" FolderName="Dark Souls 2018 [Dark Souls Remastered]" Id="3fb4897b-5200-4422-98e6-bbfc79611985" TechNameMatcher="DARK SOULS™: REMASTERED">
     <IsSteamCloudSupported value="true" />
   </Game>
