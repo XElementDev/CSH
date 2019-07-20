@@ -46,6 +46,7 @@
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
     <Compile Include="Data\Games\LegoIncredibles.cs" />
+    <Compile Include="Data\Games\Gta5.cs" />
     <Compile Include="Data\Games\Fortified.cs" />
     <Compile Include="Data\Games\Overcooked2.cs" />
     <Compile Include="Data\Games\DotaUnderlords.cs" />

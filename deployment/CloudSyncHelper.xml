@@ -8,6 +8,9 @@
     </OsConfig>
     <IsSteamCloudSupported value="false" />
   </Game>
+  <Game ApplicationName="Grand Theft Auto V" FolderName="GTA 2015 [Grand Theft Auto V]" Id="a1a893c8-3d3c-43af-850f-71c6227e045b" TechNameMatcher="Grand Theft Auto V">
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Fortified" FolderName="Fortified 2016 [Fortified]" Id="0767d99a-970a-43bc-a7f6-c82dc5ba3ac5" TechNameMatcher="Fortified">
     <IsSteamCloudSupported value="true" />
   </Game>
