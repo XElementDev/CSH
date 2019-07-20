@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="LEGO The Incredibles" FolderName="LEGO 2018 [LEGO The Incredibles]" Id="7b93ff82-3fb1-4421-9d30-ea5aa0fe2591" TechNameMatcher="LEGO® The Incredibles">
+    <OsConfig author="XElement" name="default" os="Win10">
+      <Links>
+        <FolderLink DestRoot="ApplicationData" DestSubFolderPath="Warner Bros. Interactive Entertainment\LEGO The Incredibles" DestTargetName="SAVEDGAMES" SourceId="SAVEDGAMES" />
+      </Links>
+    </OsConfig>
+    <IsSteamCloudSupported value="false" />
+  </Game>
   <Game ApplicationName="Fortified" FolderName="Fortified 2016 [Fortified]" Id="0767d99a-970a-43bc-a7f6-c82dc5ba3ac5" TechNameMatcher="Fortified">
     <IsSteamCloudSupported value="true" />
   </Game>
