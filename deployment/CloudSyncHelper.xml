@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Fortified" FolderName="Fortified 2016 [Fortified]" Id="0767d99a-970a-43bc-a7f6-c82dc5ba3ac5" TechNameMatcher="Fortified">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="Overcooked! 2" FolderName="Overcooked 2018 [Overcooked 2]" Id="2108bd77-a9c3-4098-875e-3436ef346768" TechNameMatcher="Overcooked! 2">
     <IsSteamCloudSupported value="true" />
   </Game>
