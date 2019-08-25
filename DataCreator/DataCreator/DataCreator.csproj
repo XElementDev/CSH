@@ -45,6 +45,7 @@
     <Compile Include="Data\AbstractManagerT1.cs" />
     <Compile Include="Data\AbstractToolInfo.cs" />
     <Compile Include="Data\AbstractGameInfo.cs" />
+    <Compile Include="Data\Games\Firewatch.cs" />
     <Compile Include="Data\Games\LegoIncredibles.cs" />
     <Compile Include="Data\Games\Gta5.cs" />
     <Compile Include="Data\Games\Fortified.cs" />
