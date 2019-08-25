@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 <SyncData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Game ApplicationName="Firewatch" FolderName="Firewatch 2016 [Firewatch]" Id="45732ed8-b566-4285-875a-602da56a6fc0" TechNameMatcher="Firewatch">
+    <IsSteamCloudSupported value="true" />
+  </Game>
+  <Game ApplicationName="The Room" FolderName="The Room 2014 [The Room]" Id="673b3575-904d-4590-8db7-a5b9ad09d1bb" TechNameMatcher="The Room">
+    <IsSteamCloudSupported value="true" />
+  </Game>
   <Game ApplicationName="LEGO The Incredibles" FolderName="LEGO 2018 [LEGO The Incredibles]" Id="7b93ff82-3fb1-4421-9d30-ea5aa0fe2591" TechNameMatcher="LEGO® The Incredibles">
     <OsConfig author="XElement" name="default" os="Win10">
       <Links>
